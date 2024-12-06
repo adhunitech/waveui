@@ -1,0 +1,86 @@
+{
+  "errno": 0,
+  "data": {
+    "list": [
+      {
+        "title": "single column",
+        "key": "one_list_key",
+        "type": "radio",
+        "defaultValue": "",
+        "value": "",
+        "children": [
+          {
+            "title": "unlimited",
+            "key": "",
+            "type": "unlimit",
+            "defaultValue": "",
+            "value": ""
+          },
+          {
+            "title": "option one",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "1"
+          },
+          {
+            "title": "Option 2",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "2"
+          },
+          {
+            "title": "Option 3",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "3"
+          },
+          {
+            "title": "Option 4",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "4"
+          },
+          {
+            "title": "Option Five",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "5"
+          },
+          {
+            "title": "Option 6",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "6"
+          },
+          {
+            "title": "Option Seven",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "7"
+          },
+          {
+            "title": "Option Eight",
+            "key": "",
+            "type": "radio",
+            "defaultValue": "",
+            "value": "8"
+          }
+        ]
+      },
+      {
+        "defaultValue": "",
+        "key": "customKey",
+        "type": "customHandle",
+        "value": "",
+        "title": "Custom Type"
+      }
+    ]
+  }
+}

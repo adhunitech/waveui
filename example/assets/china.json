@@ -1,0 +1,1111 @@
+{
+  "china": [
+    {
+      "name": "Beijing"
+    },
+    {
+      "name": "Tianjin"
+    },
+    {
+      "name": "Shijiazhuang City"
+    },
+    {
+      "name": "Tangshan City"
+    },
+    {
+      "name": "Qinhuangdao City"
+    },
+    {
+      "name": "Handan City"
+    },
+    {
+      "name": "Xingtai City"
+    },
+    {
+      "name": "Baoding City"
+    },
+    {
+      "name": "Zhangjiakou City"
+    },
+    {
+      "name": "Chengde City"
+    },
+    {
+      "name": "Cangzhou City"
+    },
+    {
+      "name": "Langfang City"
+    },
+    {
+      "name": "Hengshui City"
+    },
+    {
+      "name": "Taiyuan City"
+    },
+    {
+      "name": "Datong City"
+    },
+    {
+      "name": "Yangquan City"
+    },
+    {
+      "name": "Changzhi City"
+    },
+    {
+      "name": "Jincheng City"
+    },
+    {
+      "name": "Shuozhou City"
+    },
+    {
+      "name": "Jinzhong City"
+    },
+    {
+      "name": "Yuncheng"
+    },
+    {
+      "name": "Xinzhou City"
+    },
+    {
+      "name": "Linfen City"
+    },
+    {
+      "name": "Lvliang City"
+    },
+    {
+      "name": "Hohhot"
+    },
+    {
+      "name": "Baotou City"
+    },
+    {
+      "name": "Wuhai City"
+    },
+    {
+      "name": "Chifeng City"
+    },
+    {
+      "name": "Tongliao City"
+    },
+    {
+      "name": "Ordos City"
+    },
+    {
+      "name": "Hulun Buir City"
+    },
+    {
+      "name": "Bayannur City"
+    },
+    {
+      "name": "Ulanqab City"
+    },
+    {
+      "name": "Xing'an League"
+    },
+    {
+      "name": "Xilinguole League"
+    },
+    {
+      "name": "Alxa League"
+    },
+    {
+      "name": "Shenyang City"
+    },
+    {
+      "name": "Dalian City"
+    },
+    {
+      "name": "Anshan City"
+    },
+    {
+      "name": "Fushun City"
+    },
+    {
+      "name": "Benxi City"
+    },
+    {
+      "name": "Dandong City"
+    },
+    {
+      "name": "Jinzhou City"
+    },
+    {
+      "name": "Yingkou City"
+    },
+    {
+      "name": "Fuxin City"
+    },
+    {
+      "name": "Liaoyang City"
+    },
+    {
+      "name": "Panjin City"
+    },
+    {
+      "name": "Tieling City"
+    },
+    {
+      "name": "Chaoyang City"
+    },
+    {
+      "name": "Huludao City"
+    },
+    {
+      "name": "Changchun City"
+    },
+    {
+      "name": "Jilin City"
+    },
+    {
+      "name": "Siping City"
+    },
+    {
+      "name": "Liaoyuan City"
+    },
+    {
+      "name": "Tonghua City"
+    },
+    {
+      "name": "Baishan City"
+    },
+    {
+      "name": "Matsubara City"
+    },
+    {
+      "name": "White City"
+    },
+    {
+      "name": "Yanbian Korean Autonomous Prefecture"
+    },
+    {
+      "name": "Harbin City"
+    },
+    {
+      "name": "Qiqihar City"
+    },
+    {
+      "name": "Jixi City"
+    },
+    {
+      "name": "Hegang City"
+    },
+    {
+      "name": "Shuangyashan City"
+    },
+    {
+      "name": "Daqing City"
+    },
+    {
+      "name": "Yichun City"
+    },
+    {
+      "name": "Jiamusi City"
+    },
+    {
+      "name": "Qitaihe City"
+    },
+    {
+      "name": "Mudanjiang City"
+    },
+    {
+      "name": "Heihe City"
+    },
+    {
+      "name": "Suihua City"
+    },
+    {
+      "name": "Great Khingan Mountains"
+    },
+    {
+      "name": "Shanghai"
+    },
+    {
+      "name": "Nanjing City"
+    },
+    {
+      "name": "Wuxi City"
+    },
+    {
+      "name": "Xuzhou City"
+    },
+    {
+      "name": "Changzhou City"
+    },
+    {
+      "name": "Suzhou City"
+    },
+    {
+      "name": "Nantong City"
+    },
+    {
+      "name": "Lianyungang City"
+    },
+    {
+      "name": "Huai'an City"
+    },
+    {
+      "name": "Yancheng City"
+    },
+    {
+      "name": "Yangzhou City"
+    },
+    {
+      "name": "Zhenjiang City"
+    },
+    {
+      "name": "Taizhou City"
+    },
+    {
+      "name": "Suqian City"
+    },
+    {
+      "name": "Hangzhou City"
+    },
+    {
+      "name": "Ningbo City"
+    },
+    {
+      "name": "Wenzhou City"
+    },
+    {
+      "name": "Jiaxing City"
+    },
+    {
+      "name": "Huzhou City"
+    },
+    {
+      "name": "Shaoxing City"
+    },
+    {
+      "name": "Jinhua City"
+    },
+    {
+      "name": "Quzhou City"
+    },
+    {
+      "name": "Zhoushan City"
+    },
+    {
+      "name": "Taizhou City"
+    },
+    {
+      "name": "Lishui City"
+    },
+    {
+      "name": "Hefei City"
+    },
+    {
+      "name": "Wuhu City"
+    },
+    {
+      "name": "Bengbu City"
+    },
+    {
+      "name": "Huainan City"
+    },
+    {
+      "name": "Maanshan City"
+    },
+    {
+      "name": "Huaibei City"
+    },
+    {
+      "name": "Tongling City"
+    },
+    {
+      "name": "Anqing City"
+    },
+    {
+      "name": "Huangshan City"
+    },
+    {
+      "name": "Chuzhou City"
+    },
+    {
+      "name": "Fuyang City"
+    },
+    {
+      "name": "Suzhou City"
+    },
+    {
+      "name": "Chaohu City"
+    },
+    {
+      "name": "Liu'an City"
+    },
+    {
+      "name": "Bozhou City"
+    },
+    {
+      "name": "Chizhou City"
+    },
+    {
+      "name": "Xuancheng"
+    },
+    {
+      "name": "Fuzhou City"
+    },
+    {
+      "name": "Xiamen City"
+    },
+    {
+      "name": "Putian City"
+    },
+    {
+      "name": "Sanming City"
+    },
+    {
+      "name": "Quanzhou City"
+    },
+    {
+      "name": "Zhangzhou City"
+    },
+    {
+      "name": "Nanping City"
+    },
+    {
+      "name": "Longyan City"
+    },
+    {
+      "name": "Ningde City"
+    },
+    {
+      "name": "Nanchang City"
+    },
+    {
+      "name": "Jingdezhen City"
+    },
+    {
+      "name": "Pingxiang City"
+    },
+    {
+      "name": "Jiujiang City"
+    },
+    {
+      "name": "Xinyu City"
+    },
+    {
+      "name": "Yingtan City"
+    },
+    {
+      "name": "Ganzhou City"
+    },
+    {
+      "name": "Jian City"
+    },
+    {
+      "name": "Yichun City"
+    },
+    {
+      "name": "Fuzhou City"
+    },
+    {
+      "name": "Shangrao City"
+    },
+    {
+      "name": "Jinan City"
+    },
+    {
+      "name": "Qingdao City"
+    },
+    {
+      "name": "Zibo City"
+    },
+    {
+      "name": "Zaozhuang City"
+    },
+    {
+      "name": "Dongying City"
+    },
+    {
+      "name": "Yantai City"
+    },
+    {
+      "name": "Weifang City"
+    },
+    {
+      "name": "Jining City"
+    },
+    {
+      "name": "Tai'an City"
+    },
+    {
+      "name": "Weihai City"
+    },
+    {
+      "name": "Rizhao City"
+    },
+    {
+      "name": "Laiwu City"
+    },
+    {
+      "name": "Linyi City"
+    },
+    {
+      "name": "Dezhou City"
+    },
+    {
+      "name": "Liaocheng City"
+    },
+    {
+      "name": "Binzhou City"
+    },
+    {
+      "name": "Heze City"
+    },
+    {
+      "name": "Zhengzhou City"
+    },
+    {
+      "name": "Kaifeng City"
+    },
+    {
+      "name": "Luoyang City"
+    },
+    {
+      "name": "Pingdingshan City"
+    },
+    {
+      "name": "Anyang City"
+    },
+    {
+      "name": "Hebi City"
+    },
+    {
+      "name": "Xinxiang City"
+    },
+    {
+      "name": "Jiaozuo City"
+    },
+    {
+      "name": "Puyang City"
+    },
+    {
+      "name": "Xuchang City"
+    },
+    {
+      "name": "Luohe City"
+    },
+    {
+      "name": "Sanmenxia City"
+    },
+    {
+      "name": "Nanyang City"
+    },
+    {
+      "name": "Shangqiu City"
+    },
+    {
+      "name": "Xinyang City"
+    },
+    {
+      "name": "Zhoukou City"
+    },
+    {
+      "name": "Zhumadian City"
+    },
+    {
+      "name": "Wuhan City"
+    },
+    {
+      "name": "Yellowstone City"
+    },
+    {
+      "name": "Shiyan City"
+    },
+    {
+      "name": "Yichang City"
+    },
+    {
+      "name": "Xiangfan City"
+    },
+    {
+      "name": "Ezhou City"
+    },
+    {
+      "name": "Jingmen City"
+    },
+    {
+      "name": "Xiaogan City"
+    },
+    {
+      "name": "Jingzhou City"
+    },
+    {
+      "name": "Huanggang City"
+    },
+    {
+      "name": "Xianning City"
+    },
+    {
+      "name": "Suizhou City"
+    },
+    {
+      "name": "Enshi Tujia and Miao Autonomous Prefecture"
+    },
+    {
+      "name": "Xiantao City"
+    },
+    {
+      "name": "Qianjiang City"
+    },
+    {
+      "name": "Tianmen City"
+    },
+    {
+      "name": "Shennongjia Forest Area"
+    },
+    {
+      "name": "Changsha City"
+    },
+    {
+      "name": "Zhuzhou City"
+    },
+    {
+      "name": "Xiangtan City"
+    },
+    {
+      "name": "Hengyang City"
+    },
+    {
+      "name": "Shaoyang City"
+    },
+    {
+      "name": "Yueyang City"
+    },
+    {
+      "name": "Changde City"
+    },
+    {
+      "name": "Zhangjiajie City"
+    },
+    {
+      "name": "Yiyang City"
+    },
+    {
+      "name": "Chenzhou City"
+    },
+    {
+      "name": "Yongzhou City"
+    },
+    {
+      "name": "Huaihua City"
+    },
+    {
+      "name": "Loudi City"
+    },
+    {
+      "name": "Xiangxi Tujia and Miao Autonomous Prefecture"
+    },
+    {
+      "name": "Guangzhou City"
+    },
+    {
+      "name": "Shaoguan City"
+    },
+    {
+      "name": "Shenzhen"
+    },
+    {
+      "name": "Zhuhai City"
+    },
+    {
+      "name": "Shantou City"
+    },
+    {
+      "name": "Foshan City"
+    },
+    {
+      "name": "Jiangmen City"
+    },
+    {
+      "name": "Zhanjiang City"
+    },
+    {
+      "name": "Maoming City"
+    },
+    {
+      "name": "Zhaoqing City"
+    },
+    {
+      "name": "Huizhou"
+    },
+    {
+      "name": "Meizhou City"
+    },
+    {
+      "name": "Shantou City"
+    },
+    {
+      "name": "Heyuan City"
+    },
+    {
+      "name": "Yangjiang City"
+    },
+    {
+      "name": "Qingyuan City"
+    },
+    {
+      "name": "Dongguan City"
+    },
+    {
+      "name": "Zhongshan City"
+    },
+    {
+      "name": "Chaozhou"
+    },
+    {
+      "name": "Jieyang City"
+    },
+    {
+      "name": "Yunfu City"
+    },
+    {
+      "name": "Nanning City"
+    },
+    {
+      "name": "Liuzhou City"
+    },
+    {
+      "name": "Guilin City"
+    },
+    {
+      "name": "Wuzhou City"
+    },
+    {
+      "name": "Beihai City"
+    },
+    {
+      "name": "Fangchenggang City"
+    },
+    {
+      "name": "Qinzhou City"
+    },
+    {
+      "name": "Guigang City"
+    },
+    {
+      "name": "Yulin City"
+    },
+    {
+      "name": "Baise City"
+    },
+    {
+      "name": "Hezhou City"
+    },
+    {
+      "name": "Hechi City"
+    },
+    {
+      "name": "Laibin City"
+    },
+    {
+      "name": "Chongzuo City"
+    },
+    {
+      "name": "Haikou City"
+    },
+    {
+      "name": "Sanya City"
+    },
+    {
+      "name": "Chongqing City"
+    },
+    {
+      "name": "Chengdu"
+    },
+    {
+      "name": "Zigong City"
+    },
+    {
+      "name": "Panzhihua City"
+    },
+    {
+      "name": "Luzhou City"
+    },
+    {
+      "name": "Deyang City"
+    },
+    {
+      "name": "Mianyang City"
+    },
+    {
+      "name": "Guangyuan City"
+    },
+    {
+      "name": "Suining City"
+    },
+    {
+      "name": "Neijiang City"
+    },
+    {
+      "name": "Leshan City"
+    },
+    {
+      "name": "Nanchong City"
+    },
+    {
+      "name": "Meishan City"
+    },
+    {
+      "name": "Yibin City"
+    },
+    {
+      "name": "Guang'an City"
+    },
+    {
+      "name": "Dazhou City"
+    },
+    {
+      "name": "Ya'an City"
+    },
+    {
+      "name": "Bazhong City"
+    },
+    {
+      "name": "Ziyang City"
+    },
+    {
+      "name": "Aba Tibetan and Qiang Autonomous Prefecture"
+    },
+    {
+      "name": "Garze Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Liangshan Yi Autonomous Prefecture"
+    },
+    {
+      "name": "Guiyang City"
+    },
+    {
+      "name": "Liupanshui City"
+    },
+    {
+      "name": "Zunyi City"
+    },
+    {
+      "name": "Anshun City"
+    },
+    {
+      "name": "Tongren City"
+    },
+    {
+      "name": "Qianxinan Buyi and Miao Autonomous Prefecture"
+    },
+    {
+      "name": "Bijie City"
+    },
+    {
+      "name": "Qiandongnan Miao and Dong Autonomous Prefecture"
+    },
+    {
+      "name": "Qiannan Buyi and Miao Autonomous Prefecture"
+    },
+    {
+      "name": "Kunming City"
+    },
+    {
+      "name": "Qujing City"
+    },
+    {
+      "name": "Yuxi City"
+    },
+    {
+      "name": "Baoshan City"
+    },
+    {
+      "name": "Zhaotong City"
+    },
+    {
+      "name": "Lijiang City"
+    },
+    {
+      "name": "Simao City"
+    },
+    {
+      "name": "Lincang City"
+    },
+    {
+      "name": "Chuxiong Yi Autonomous Prefecture"
+    },
+    {
+      "name": "Honghe Hani and Yi Autonomous Prefecture"
+    },
+    {
+      "name": "Wenshan Zhuang and Miao Autonomous Prefecture"
+    },
+    {
+      "name": "Xishuangbanna Dai Autonomous Prefecture"
+    },
+    {
+      "name": "Dali Bai Autonomous Prefecture"
+    },
+    {
+      "name": "Dehong Dai and Jingpo Autonomous Prefecture"
+    },
+    {
+      "name": "Nujiang Lisu Autonomous Prefecture"
+    },
+    {
+      "name": "Diqing Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Lhasa City"
+    },
+    {
+      "name": "Qamdo District"
+    },
+    {
+      "name": "Shannan Region"
+    },
+    {
+      "name": "Shigatse Region"
+    },
+    {
+      "name": "Naqu District"
+    },
+    {
+      "name": "Ali District"
+    },
+    {
+      "name": "Linzhi District"
+    },
+    {
+      "name": "Xi'an City"
+    },
+    {
+      "name": "Tongchuan City"
+    },
+    {
+      "name": "Baoji City"
+    },
+    {
+      "name": "Xianyang City"
+    },
+    {
+      "name": "Weinan City"
+    },
+    {
+      "name": "Yan'an City"
+    },
+    {
+      "name": "Hanzhong City"
+    },
+    {
+      "name": "Yulin City"
+    },
+    {
+      "name": "Ankang"
+    },
+    {
+      "name": "Shangluo City"
+    },
+    {
+      "name": "Lanzhou City"
+    },
+    {
+      "name": "Jiayuguan City"
+    },
+    {
+      "name": "Jinchang City"
+    },
+    {
+      "name": "Silver City"
+    },
+    {
+      "name": "Tianshui City"
+    },
+    {
+      "name": "Wuwei City"
+    },
+    {
+      "name": "Zhangye City"
+    },
+    {
+      "name": "Pingliang City"
+    },
+    {
+      "name": "Jiuquan City"
+    },
+    {
+      "name": "Qingyang City"
+    },
+    {
+      "name": "Dingxi City"
+    },
+    {
+      "name": "Longnan City"
+    },
+    {
+      "name": "Linxia Hui Autonomous Prefecture"
+    },
+    {
+      "name": "Gannan Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Xining City"
+    },
+    {
+      "name": "Haidong Region"
+    },
+    {
+      "name": "Haibei Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Huangnan Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Hainan Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Golog Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Yushu Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Haixi Mongolian and Tibetan Autonomous Prefecture"
+    },
+    {
+      "name": "Yinchuan City"
+    },
+    {
+      "name": "Shizuishan City"
+    },
+    {
+      "name": "Wuzhong City"
+    },
+    {
+      "name": "Guyuan City"
+    },
+    {
+      "name": "Zhongwei City"
+    },
+    {
+      "name": "Urumqi City"
+    },
+    {
+      "name": "Karamay City"
+    },
+    {
+      "name": "Turpan Region"
+    },
+    {
+      "name": "Hami area"
+    },
+    {
+      "name": "Changji Hui Autonomous Prefecture"
+    },
+    {
+      "name": "Bortala Mongol Autonomous Prefecture"
+    },
+    {
+      "name": "Bayingoleng Mongolian Autonomous Prefecture"
+    },
+    {
+      "name": "Aksu Region"
+    },
+    {
+      "name": "Kizilsu Kirgiz Autonomous Prefecture"
+    },
+    {
+      "name": "Kashgar region"
+    },
+    {
+      "name": "Hetian area"
+    },
+    {
+      "name": "Ili Kazakh"
+    },
+    {
+      "name": "Tacheng District"
+    },
+    {
+      "name": "Altay Region"
+    },
+    {
+      "name": "Shihezi City"
+    },
+    {
+      "name": "Aral City"
+    },
+    {
+      "name": "Tumshuk City"
+    },
+    {
+      "name": "Wujiaqu City"
+    },
+    {
+      "name": "Taipei"
+    },
+    {
+      "name": "Kaohsiung"
+    },
+    {
+      "name": "Keelung"
+    },
+    {
+      "name": "Taichung"
+    },
+    {
+      "name": "Tainan"
+    },
+    {
+      "name": "Hsinchu"
+    },
+    {
+      "name": "Chiayi"
+    },
+    {
+      "name": "Yilan"
+    },
+    {
+      "name": "Taoyuan"
+    },
+    {
+      "name": "Miaoli"
+    },
+    {
+      "name": "Changhua"
+    },
+    {
+      "name": "Nantou"
+    },
+    {
+      "name": "Yunlin"
+    },
+    {
+      "name": "Pingtung"
+    },
+    {
+      "name": "Taitung"
+    },
+    {
+      "name": "Hualien"
+    },
+    {
+      "name": "Penghu"
+    },
+    {
+      "name": "Hong Kong Island"
+    },
+    {
+      "name": "Kowloon"
+    },
+    {
+      "name": "New Territories"
+    },
+    {
+      "name": "Macao Peninsula"
+    },
+    {
+      "name": "Taipa Island"
+    },
+    {
+      "name": "Coloane"
+    },
+    {
+      "name": "Cotai"
+    }
+  ]
+}

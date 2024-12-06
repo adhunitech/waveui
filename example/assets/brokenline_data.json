@@ -1,0 +1,56 @@
+[
+    {
+        "key": "04",
+        "name": "April",
+        "value": "0",
+        "unit": ""
+    },
+    {
+        "key": "05",
+        "name": "May",
+        "value": "0",
+        "unit": ""
+    },
+    {
+        "key": "06",
+        "name": "June",
+        "value": "0",
+        "unit": ""
+    },
+    {
+        "key": "07",
+        "name": "July",
+        "value": "0",
+        "unit": ""
+    },
+    {
+        "key": "08",
+        "name": "August",
+        "value": "0",
+        "unit": ""
+    },
+    {
+"key": "09",
+        "name": "September",
+        "value": "0",
+        "unit": ""
+    },
+    {
+        "key": "10",
+        "name": "October",
+        "value": "1",
+        "unit": ""
+    },
+    {
+        "key": "11",
+        "name": "November",
+        "value": "1.83",
+        "unit": ""
+    },
+    {
+        "key": "12",
+        "name": "December",
+        "value": "5",
+        "unit": ""
+    }
+]
