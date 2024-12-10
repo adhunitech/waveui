@@ -1,6 +1,6 @@
 name: waveui
 description: An enterprise-class package of Flutter components for mobile applications.
-version: 0.0.15
+version: 0.0.16
 homepage: https://github.com/adhunitech/waveui
 
 environment:
