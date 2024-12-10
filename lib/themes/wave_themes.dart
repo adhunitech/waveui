@@ -59,15 +59,7 @@ DividerThemeData _dividerTheme() {
 }
 
 OutlinedButtonThemeData _outlinedButtonTheme(Color accentColor) {
-  return OutlinedButtonThemeData(
-    style: ButtonStyle(
-      side: MaterialStatePropertyAll(
-        BorderSide(
-          color: accentColor,
-        ),
-      ),
-    ),
-  );
+  return const OutlinedButtonThemeData();
 }
 
 TimePickerThemeData _timePickerTheme(bool darkMode) {

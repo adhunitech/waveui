@@ -121,25 +121,19 @@ class WaveTextTheme extends TextTheme {
 
   @override
   TextStyle? get displayLarge => GoogleFonts.inter(
-        fontSize: 78,
         height: 1.25,
-        fontWeight: FontWeight.w300,
         color: WaveColors.textColor(darkMode: isDarkMode),
       );
 
   @override
   TextStyle? get displayMedium => GoogleFonts.inter(
-        fontSize: 64,
         height: 1.25,
-        fontWeight: FontWeight.w300,
         color: WaveColors.textColor(darkMode: isDarkMode),
       );
 
   @override
   TextStyle? get displaySmall => GoogleFonts.inter(
-        fontSize: 48,
         height: 1.25,
-        fontWeight: FontWeight.w300,
         color: WaveColors.textColor(darkMode: isDarkMode),
       );
 }

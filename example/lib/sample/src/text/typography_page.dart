@@ -1,4 +1,4 @@
-import 'package:waveui/waveui.dart';
+import 'package:flutter/material.dart';
 
 class TypographyPage extends StatelessWidget {
   const TypographyPage({super.key});
@@ -6,64 +6,111 @@ class TypographyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const WaveAppBar(
-        title: Text("Typography"),
+      appBar: AppBar(
+        title: const Text("Typography Article"),
       ),
-      body: ListView(
-        children: [
-          WaveCard(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: RichText(
+            text: TextSpan(
               children: [
-                Text(
-                    "This is a titleLarge. Lorem ipsum dolor sit amet. In accusamus sint aut minima optio quo officiis iure aut modi nemo.",
-                    style: Get.textTheme.titleLarge),
-                const SizedBox(height: 16),
-                Text(
-                    "This is a titleMedium. Lorem ipsum dolor sit amet. In accusamus sint aut minima optio quo officiis iure aut modi nemo.",
-                    style: Get.textTheme.titleMedium),
-                const SizedBox(height: 16),
-                Text(
-                    "This is a titleSmall. Lorem ipsum dolor sit amet. In accusamus sint aut minima optio quo officiis iure aut modi nemo.",
-                    style: Get.textTheme.titleSmall),
-                const SizedBox(height: 36),
-                Text("This is a labelLarge", style: Get.textTheme.labelLarge),
-                const SizedBox(height: 16),
-                Text("This is a labelMedium", style: Get.textTheme.labelMedium),
-                const SizedBox(height: 16),
-                Text("This is a labelSmall", style: Get.textTheme.labelSmall),
-                const SizedBox(height: 36),
-                Text("This is a headlineLarge", style: Get.textTheme.headlineLarge),
-                const SizedBox(height: 16),
-                Text("This is a headlineMedium", style: Get.textTheme.headlineMedium),
-                const SizedBox(height: 16),
-                Text("This is a headlineSmall", style: Get.textTheme.headlineSmall),
-                const SizedBox(height: 36),
-                Text("Display Large", style: Get.textTheme.displayLarge),
-                const SizedBox(height: 16),
-                Text("Display Medium", style: Get.textTheme.displayMedium),
-                const SizedBox(height: 16),
-                Text("This is a displaySmall", style: Get.textTheme.displaySmall),
-                const SizedBox(height: 36),
-                Text(
-                    "This is a bodyLarge. Lorem ipsum dolor sit amet. In accusamus sint aut minima optio quo officiis iure aut modi nemo. Et earum fuga vel molestias corporis eum distinctio maiores ut aspernatur modi eum omnis soluta.",
-                    style: Get.textTheme.bodyLarge),
-                const SizedBox(height: 16),
-                Text(
-                    "This is a bodyMedium. Lorem ipsum dolor sit amet. In accusamus sint aut minima optio quo officiis iure aut modi nemo. Et earum fuga vel molestias corporis eum distinctio maiores ut aspernatur modi eum omnis soluta.",
-                    style: Get.textTheme.bodyMedium),
-                const SizedBox(height: 16),
-                Text(
-                    "This is a bodySmall. Lorem ipsum dolor sit amet. In accusamus sint aut minima optio quo officiis iure aut modi nemo. Et earum fuga vel molestias corporis eum distinctio maiores ut aspernatur modi eum omnis soluta.",
-                    style: Get.textTheme.bodySmall),
-                const SizedBox(height: 16),
+                // Title Large Text
+                TextSpan(
+                  text: 'Exploring Typography in Flutter\n\n',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                // Body Large Text with descriptive content
+                TextSpan(
+                  text: 'Typography plays a crucial role in enhancing the readability and aesthetics of an app. '
+                      'In this article, we explore various types of typography styles in Flutter and how you can leverage them for better UI design.\n\n',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                // Title Medium Text as a subheading
+                TextSpan(
+                  text: '1. Title and Heading Styles\n\n',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                // Body Medium Text with description
+                TextSpan(
+                  text:
+                      'Flutter offers several title and heading text styles, ranging from large titles to small titles. '
+                      'These are ideal for emphasizing headings or creating a visual hierarchy in your UI.\n\n',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                // Title Small Text example
+                TextSpan(
+                  text: 'Example of Title Small Style:\n',
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+                TextSpan(
+                  text: 'The `titleSmall` style can be used for secondary titles or minor headings, '
+                      'helping to create a clear structure in your app content. Here’s an example:\n\n',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                TextSpan(
+                  text: 'This is a titleSmall. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\n',
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+                // Body Small Text example
+                TextSpan(
+                  text: '2. Body Text Styles\n\n',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                // Body Large Text explanation
+                TextSpan(
+                  text: 'The body text styles are typically used for paragraphs or general text content. '
+                      'Flutter provides multiple body text styles such as `bodyLarge`, `bodyMedium`, and `bodySmall` '
+                      'to cater to different text needs. Here’s an example of a bodyLarge style used in long-form text:\n\n',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                TextSpan(
+                  text:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                // Display Large example
+                TextSpan(
+                  text: 'Display Styles for Large Text\n\n',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                TextSpan(
+                  text: 'Display styles like `displayLarge` are designed for very large headings or titles '
+                      'that need to grab the user’s attention. These are useful for banners, splash screens, or large hero sections in your UI.\n\n',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                TextSpan(
+                  text: 'Display Large Example:\n',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                TextSpan(
+                  text:
+                      'Here is a `displayLarge` style example that could be used as a large header on your homepage.\n\n',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                TextSpan(
+                  text: 'This is a displayLarge heading\n\n',
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
+                // Conclusion with Body Medium
+                TextSpan(
+                  text: 'Conclusion\n\n',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                TextSpan(
+                  text:
+                      'In conclusion, Flutter provides a wide range of typography styles that you can use to create visually appealing and well-structured text. By leveraging these text styles, you can enhance the overall user experience of your app.\n\n',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                TextSpan(
+                  text:
+                      'Understanding when and where to use each style will help you create an engaging and accessible user interface.\n\n',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontStyle: FontStyle.italic),
+                ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
