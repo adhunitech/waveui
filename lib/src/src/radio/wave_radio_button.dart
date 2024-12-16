@@ -2,6 +2,7 @@ import 'package:waveui/src/src/radio/wave_radio_core.dart';
 import 'package:waveui/src/constants/wave_asset_constants.dart';
 import 'package:waveui/src/utils/wave_tools.dart';
 import 'package:flutter/material.dart';
+import 'package:waveui/waveui.dart';
 
 ///单选按钮
 class WaveRadioButton extends StatelessWidget {
@@ -74,10 +75,8 @@ class WaveRadioButton extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       mainAxisSize: mainAxisSize,
-      selectedImage: WaveUITools.getAssetImageWithBandColor(WaveAsset.iconRadioSingleSelected),
-      unselectedImage: WaveUITools.getAssetImage(WaveAsset.iconRadioUnSelected),
-      disSelectedImage: WaveUITools.getAssetImage(WaveAsset.iconRadioDisableMultiSelected),
-      disUnselectedImage: WaveUITools.getAssetImage(WaveAsset.iconRadioDisableUnselected),
+      selectedIcon: FluentIcons.radio_button_24_filled,
+      unselectedIcon: FluentIcons.radio_button_24_regular,
       onRadioItemClick: () {
         onValueChangedAtIndex(radioIndex, true);
       },

@@ -1,59 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// 描述: radio组件
-/// 1. 支持单选/多选
-/// 2. 支持传入待选择widget，可以显示在选择按钮的左边或者右边
-/// 3. 传入widget时，widget和选择按钮使用Row包裹，支持传入Row的属性[MainAxisAlignment]和[MainAxisSize]
+enum WaveRadioType { multi, single }
 
 class WaveRadioCore extends StatefulWidget {
-  /// 标识当前Radio的Index
   final int radioIndex;
 
-  /// 初始值，是否被选择
-  /// 默认false
   final bool isSelected;
 
-  /// 是否禁用当前选项
-  /// 默认false
   final bool disable;
 
-  /// 选择按钮的padding
-  /// 默认EdgeInsets.all(5)
   final EdgeInsets? iconPadding;
 
-  /// 配合使用的控件，比如卡片或者text
   final Widget? child;
 
-  /// 控件是否在选择按钮的右边，
-  /// true时 控件在选择按钮右边
-  /// false时 控件在选择按钮的左边
-  /// 默认true
   final bool childOnRight;
 
-  /// 控件和选择按钮在row布局里面的alignment
-  /// 默认值MainAxisAlignment.start
   final MainAxisAlignment mainAxisAlignment;
 
-  /// 控件和选择按钮在row布局里面的crossAxisAlignment
-  /// 默认值CrossAxisAlignment.center
   final CrossAxisAlignment crossAxisAlignment;
 
-  /// 控件和选择按钮在row布局里面的mainAxisSize
-  /// 默认值MainAxisSize.min
   final MainAxisSize mainAxisSize;
 
-  final Image? selectedImage;
+  final IconData? selectedIcon;
 
-  final Image? unselectedImage;
-
-  final Image? disSelectedImage;
-
-  final Image? disUnselectedImage;
+  final IconData? unselectedIcon;
 
   final VoidCallback? onRadioItemClick;
 
-  /// 默认值HitTestBehavior.translucent控制widget.onRadioItemClick触发的点击范围
   final HitTestBehavior behavior;
 
   const WaveRadioCore(
@@ -67,10 +41,8 @@ class WaveRadioCore extends StatefulWidget {
       this.mainAxisAlignment = MainAxisAlignment.start,
       this.crossAxisAlignment = CrossAxisAlignment.center,
       this.mainAxisSize = MainAxisSize.min,
-      this.selectedImage,
-      this.unselectedImage,
-      this.disSelectedImage,
-      this.disUnselectedImage,
+      this.selectedIcon,
+      this.unselectedIcon,
       this.onRadioItemClick,
       this.behavior = HitTestBehavior.translucent})
       : super(key: key);
@@ -99,28 +71,17 @@ class _WaveRadioCoreState extends State<WaveRadioCore> {
 
   @override
   Widget build(BuildContext context) {
-//    Image selectedImage = WaveUITools.getAssetImageWithBandColor(
-//        widget.radioType == WaveRadioType.single
-//            ? WaveAsset.ICON_RADIO_SINGLE_SELECTED
-//            : WaveAsset.ICON_RADIO_MULTI_SELECTED);
-//    Image unselectedImage = WaveUITools.getAssetImage(WaveAsset.ICON_RADIO_UNSELECTED);
-//    Image disSelectedImage = WaveUITools.getAssetImage(widget.radioType == WaveRadioType.single
-//        ? WaveAsset.ICON_RADIO_DISABLE_SINGLE_SELECTED
-//        : WaveAsset.ICON_RADIO_DISABLE_MULTI_SELECTED);
-//    Image disUnselectedImage = WaveUITools.getAssetImage(WaveAsset.ICON_RADIO_DISABLE_UNSELECTED);
-
     Widget icon = Container(
       padding: widget.iconPadding ?? const EdgeInsets.all(5),
-      child: _isSelected
-          ? (_disable ? widget.disSelectedImage : widget.selectedImage)
-          : (_disable
-              ? widget.disUnselectedImage
-              : widget.unselectedImage),
+      child: Icon(
+        _isSelected ? widget.selectedIcon : widget.unselectedIcon,
+        color: _isSelected ? Theme.of(context).colorScheme.primary : Theme.of(context).dividerColor,
+        size: 24,
+      ),
     );
 
     Widget radioWidget;
     if (widget.child == null) {
-      // 没设置左右widget的时候就不返回row
       radioWidget = icon;
     } else {
       List<Widget> list = [];
@@ -146,29 +107,8 @@ class _WaveRadioCoreState extends State<WaveRadioCore> {
         if (widget.onRadioItemClick != null) {
           widget.onRadioItemClick!();
         }
-//        if (widget.onValueChangedAtIndex != null) {
-//          if (widget.radioType == WaveRadioType.single) {
-//            // 单选
-//            widget.onValueChangedAtIndex(widget.radioIndex, true);
-//          } else {
-//            // 多选
-//            setState(() {
-//              _isSelected = !_isSelected;
-//            });
-//            widget.onValueChangedAtIndex(widget.radioIndex, _isSelected);
-//          }
-//        }
       },
       child: radioWidget,
     );
   }
-}
-
-/// radio类型
-enum WaveRadioType {
-  /// 多选
-  multi,
-
-  /// 单选
-  single,
 }

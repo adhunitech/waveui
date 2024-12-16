@@ -125,14 +125,4 @@ class WaveUITools {
     }
     return obj == null;
   }
-
-  /// 去掉最后一位小数
-//static double formatNumRemoveLastNum(double num){
-//    int count = num.toString().length - num.toString().lastIndexOf('.') - 1;
-//    if(count >1){
-//
-//    }
-//    String numStr = num.toString();
-//    return numStr.substring(numStr.length-1);
-//}
 }
