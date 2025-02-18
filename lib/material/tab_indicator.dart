@@ -1,0 +1,102 @@
+// Copyright 2014 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+
+import 'package:waveui/material/colors.dart';
+
+class UnderlineTabIndicator extends Decoration {
+  const UnderlineTabIndicator({
+    this.borderRadius,
+    this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
+    this.insets = EdgeInsets.zero,
+  });
+
+  final BorderRadius? borderRadius;
+
+  final BorderSide borderSide;
+
+  final EdgeInsetsGeometry insets;
+
+  @override
+  Decoration? lerpFrom(Decoration? a, double t) {
+    if (a is UnderlineTabIndicator) {
+      return UnderlineTabIndicator(
+        borderSide: BorderSide.lerp(a.borderSide, borderSide, t),
+        insets: EdgeInsetsGeometry.lerp(a.insets, insets, t)!,
+      );
+    }
+    return super.lerpFrom(a, t);
+  }
+
+  @override
+  Decoration? lerpTo(Decoration? b, double t) {
+    if (b is UnderlineTabIndicator) {
+      return UnderlineTabIndicator(
+        borderSide: BorderSide.lerp(borderSide, b.borderSide, t),
+        insets: EdgeInsetsGeometry.lerp(insets, b.insets, t)!,
+      );
+    }
+    return super.lerpTo(b, t);
+  }
+
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) => _UnderlinePainter(this, borderRadius, onChanged);
+
+  Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
+    final Rect indicator = insets.resolve(textDirection).deflateRect(rect);
+    return Rect.fromLTWH(indicator.left, indicator.bottom - borderSide.width, indicator.width, borderSide.width);
+  }
+
+  @override
+  Path getClipPath(Rect rect, TextDirection textDirection) {
+    if (borderRadius != null) {
+      return Path()..addRRect(borderRadius!.toRRect(_indicatorRectFor(rect, textDirection)));
+    }
+    return Path()..addRect(_indicatorRectFor(rect, textDirection));
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<BorderRadius?>('borderRadius', borderRadius));
+    properties.add(DiagnosticsProperty<BorderSide>('borderSide', borderSide));
+    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('insets', insets));
+  }
+}
+
+class _UnderlinePainter extends BoxPainter {
+  _UnderlinePainter(this.decoration, this.borderRadius, super.onChanged);
+
+  final UnderlineTabIndicator decoration;
+  final BorderRadius? borderRadius;
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    assert(configuration.size != null);
+    final Rect rect = offset & configuration.size!;
+    final TextDirection textDirection = configuration.textDirection!;
+    final Paint paint;
+    if (borderRadius != null) {
+      paint = Paint()..color = decoration.borderSide.color;
+      final Rect indicator = decoration._indicatorRectFor(rect, textDirection);
+      final RRect rrect = RRect.fromRectAndCorners(
+        indicator,
+        topLeft: borderRadius!.topLeft,
+        topRight: borderRadius!.topRight,
+        bottomRight: borderRadius!.bottomRight,
+        bottomLeft: borderRadius!.bottomLeft,
+      );
+      canvas.drawRRect(rrect, paint);
+    } else {
+      paint = decoration.borderSide.toPaint()..strokeCap = StrokeCap.square;
+      final Rect indicator = decoration
+          ._indicatorRectFor(rect, textDirection)
+          .deflate(decoration.borderSide.width / 2.0);
+      canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
+    }
+  }
+}

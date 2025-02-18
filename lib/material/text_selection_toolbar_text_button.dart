@@ -1,0 +1,134 @@
+// Copyright 2014 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+
+import 'package:waveui/material/color_scheme.dart';
+import 'package:waveui/material/constants.dart';
+import 'package:waveui/material/text_button.dart';
+import 'package:waveui/material/theme.dart';
+
+enum _TextSelectionToolbarItemPosition { first, middle, last, only }
+
+class TextSelectionToolbarTextButton extends StatelessWidget {
+  const TextSelectionToolbarTextButton({
+    required this.child,
+    required this.padding,
+    super.key,
+    this.onPressed,
+    this.alignment,
+  });
+
+  // These values were eyeballed to match the native text selection menu on a
+  // Pixel 2 running Android 10.
+  static const double _kMiddlePadding = 9.5;
+  static const double _kEndPadding = 14.5;
+
+  final Widget child;
+
+  final VoidCallback? onPressed;
+
+  final EdgeInsets padding;
+
+  final AlignmentGeometry? alignment;
+
+  static EdgeInsets getPadding(int index, int total) {
+    assert(total > 0 && index >= 0 && index < total);
+    final _TextSelectionToolbarItemPosition position = _getPosition(index, total);
+    return EdgeInsets.only(left: _getLeftPadding(position), right: _getRightPadding(position));
+  }
+
+  static double _getLeftPadding(_TextSelectionToolbarItemPosition position) {
+    if (position == _TextSelectionToolbarItemPosition.first || position == _TextSelectionToolbarItemPosition.only) {
+      return _kEndPadding;
+    }
+    return _kMiddlePadding;
+  }
+
+  static double _getRightPadding(_TextSelectionToolbarItemPosition position) {
+    if (position == _TextSelectionToolbarItemPosition.last || position == _TextSelectionToolbarItemPosition.only) {
+      return _kEndPadding;
+    }
+    return _kMiddlePadding;
+  }
+
+  static _TextSelectionToolbarItemPosition _getPosition(int index, int total) {
+    if (index == 0) {
+      return total == 1 ? _TextSelectionToolbarItemPosition.only : _TextSelectionToolbarItemPosition.first;
+    }
+    if (index == total - 1) {
+      return _TextSelectionToolbarItemPosition.last;
+    }
+    return _TextSelectionToolbarItemPosition.middle;
+  }
+
+  TextSelectionToolbarTextButton copyWith({
+    Widget? child,
+    VoidCallback? onPressed,
+    EdgeInsets? padding,
+    AlignmentGeometry? alignment,
+  }) => TextSelectionToolbarTextButton(
+    onPressed: onPressed ?? this.onPressed,
+    padding: padding ?? this.padding,
+    alignment: alignment ?? this.alignment,
+    child: child ?? this.child,
+  );
+
+  // These colors were taken from a screenshot of a Pixel 6 emulator running
+  // Android API level 34.
+  static const Color _defaultForegroundColorLight = Color(0xff000000);
+  static const Color _defaultForegroundColorDark = Color(0xffffffff);
+
+  // The background color is hardcoded to transparent by default so the buttons
+  // are the color of the container behind them. For example TextSelectionToolbar
+  // hardcodes the color value, and TextSelectionToolbarTextButtons that are its
+  // children become that color.
+  static const Color _defaultBackgroundColorTransparent = Color(0x00000000);
+
+  static Color _getForegroundColor(ColorScheme colorScheme) {
+    final bool isDefaultOnSurface = switch (colorScheme.brightness) {
+      Brightness.light => identical(ThemeData().colorScheme.onSurface, colorScheme.onSurface),
+      Brightness.dark => identical(ThemeData.dark().colorScheme.onSurface, colorScheme.onSurface),
+    };
+    if (!isDefaultOnSurface) {
+      return colorScheme.onSurface;
+    }
+    return switch (colorScheme.brightness) {
+      Brightness.light => _defaultForegroundColorLight,
+      Brightness.dark => _defaultForegroundColorDark,
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    return TextButton(
+      style: TextButton.styleFrom(
+        backgroundColor: _defaultBackgroundColorTransparent,
+        foregroundColor: _getForegroundColor(colorScheme),
+        shape: const RoundedRectangleBorder(),
+        minimumSize: const Size(kMinInteractiveDimension, kMinInteractiveDimension),
+        padding: padding,
+        alignment: alignment,
+        textStyle: const TextStyle(
+          // This value was eyeballed from a screenshot of a Pixel 6 emulator
+          // running Android API level 34.
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      onPressed: onPressed,
+      child: child,
+    );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onPressed', onPressed));
+    properties.add(DiagnosticsProperty<EdgeInsets>('padding', padding));
+    properties.add(DiagnosticsProperty<AlignmentGeometry?>('alignment', alignment));
+  }
+}
