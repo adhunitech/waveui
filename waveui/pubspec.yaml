@@ -1,0 +1,24 @@
+name: waveui
+description: "🌊 Beautiful, extensible and modern Flutter UI library."
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: ^3.8.0-91.0.dev
+  flutter: ">=1.17.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  vector_math: any
+  collection: any
+  material_color_utilities: any
+dev_dependencies:
+  better_lints: ^1.0.4
+  build_runner: ^2.4.15
+  waveui_internal_gen:
+    path: ../waveui_internal_gen
+
+flutter:
