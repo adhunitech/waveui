@@ -5,7 +5,6 @@ version: 0.1.0
 
 environment:
   sdk: ^3.8.0-91.0.dev
-resolution: workspace
 
 dependencies:
   waveui:

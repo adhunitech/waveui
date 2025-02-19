@@ -6,7 +6,6 @@ homepage:
 environment:
   sdk: ^3.8.0-91.0.dev
   flutter: ">=1.17.0"
-resolution: workspace
 
 dependencies:
   flutter:
@@ -20,7 +19,5 @@ dev_dependencies:
   better_lints: ^1.0.4
   build_runner: ^2.4.15
   freezed: ^2.5.8
-  waveui_internal_gen:
-    path: ../waveui_internal_gen
 
 flutter:
