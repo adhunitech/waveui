@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -12,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:waveui/material/action_buttons.dart';
-import 'package:waveui/material/app_bar_theme.dart';
+import 'package:waveui/src/widgets/app_bar/theme.dart';
 import 'package:waveui/material/button_style.dart';
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
@@ -1328,7 +1327,9 @@ class _ScrollUnderFlexibleSpace extends StatelessWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(ColorProperty('foregroundColor', foregroundColor));
-    properties.add(ObjectFlagProperty<_ScrollUnderFlexibleConfig Function(BuildContext p1)>.has('configBuilder', configBuilder));
+    properties.add(
+      ObjectFlagProperty<_ScrollUnderFlexibleConfig Function(BuildContext p1)>.has('configBuilder', configBuilder),
+    );
     properties.add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle));
     properties.add(DoubleProperty('bottomHeight', bottomHeight));
   }
@@ -1506,14 +1507,8 @@ mixin _ScrollUnderFlexibleConfig {
 //   dev/tools/gen_defaults/bin/gen_defaults.dart.
 
 // dart format off
-class _AppBarDefaultsM3 extends AppBarTheme {
-  _AppBarDefaultsM3(this.context)
-    : super(
-      elevation: 0.0,
-      scrolledUnderElevation: 3.0,
-      titleSpacing: NavigationToolbar.kMiddleSpacing,
-      toolbarHeight: 64.0,
-    );
+ class _AppBarDefaultsM3 implements AppBarTheme {
+  _AppBarDefaultsM3(this.context);
 
   final BuildContext context;
   late final ThemeData _theme = Theme.of(context);
@@ -1527,22 +1522,43 @@ class _AppBarDefaultsM3 extends AppBarTheme {
   Color? get foregroundColor => _colors.onSurface;
 
   @override
+  double? get elevation => 0.0;
+
+  @override
+  double? get scrolledUnderElevation => 3.0;
+
+  @override
   Color? get shadowColor => Colors.transparent;
 
   @override
   Color? get surfaceTintColor => Colors.transparent;
 
   @override
+  ShapeBorder? get shape => null;
+
+  @override
   IconThemeData? get iconTheme => IconThemeData(
-    color: _colors.onSurface,
-    size: 24.0,
-  );
+        color: _colors.onSurface,
+        size: 24.0,
+      );
 
   @override
   IconThemeData? get actionsIconTheme => IconThemeData(
-    color: _colors.onSurfaceVariant,
-    size: 24.0,
-  );
+        color: _colors.onSurfaceVariant,
+        size: 24.0,
+      );
+
+  @override
+  bool? get centerTitle => null;
+
+  @override
+  double? get titleSpacing => NavigationToolbar.kMiddleSpacing;
+
+  @override
+  double? get leadingWidth => null;
+
+  @override
+  double? get toolbarHeight => 64.0;
 
   @override
   TextStyle? get toolbarTextStyle => _textTheme.bodyMedium;
@@ -1550,18 +1566,16 @@ class _AppBarDefaultsM3 extends AppBarTheme {
   @override
   TextStyle? get titleTextStyle => _textTheme.titleLarge;
 
-  // TODO(Craftplacer): Consider using EdgeInsets.only(right: 8.0) instead of
-  // EdgeInsets.zero for Material 3 in the future,
-  // https://github.com/flutter/flutter/issues/155747
   @override
-  EdgeInsets? get actionsPadding => EdgeInsets.zero;
+  SystemUiOverlayStyle? get systemOverlayStyle => null;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<BuildContext>('context', context));
-  }
+  EdgeInsetsGeometry? get actionsPadding => EdgeInsets.zero;
+  
+  @override
+  $AppBarThemeCopyWith<AppBarTheme> get copyWith => throw UnimplementedError();
 }
+
 
 // Variant configuration
 class _MediumScrollUnderFlexibleConfig with _ScrollUnderFlexibleConfig {

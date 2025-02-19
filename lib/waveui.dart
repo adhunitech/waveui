@@ -10,7 +10,7 @@ export 'material/action_icons_theme.dart';
 export 'material/adaptive_text_selection_toolbar.dart';
 export 'material/app.dart';
 export 'material/app_bar.dart';
-export 'material/app_bar_theme.dart';
+export 'src/widgets/app_bar/theme.dart';
 export 'material/arc.dart';
 export 'material/autocomplete.dart';
 export 'material/badge.dart';

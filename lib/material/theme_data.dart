@@ -2,14 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' show Color, lerpDouble;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:waveui/material/action_icons_theme.dart';
-import 'package:waveui/material/app_bar_theme.dart';
+import 'package:waveui/src/widgets/app_bar/theme.dart';
 import 'package:waveui/material/badge_theme.dart';
 import 'package:waveui/material/banner_theme.dart';
 import 'package:waveui/material/bottom_app_bar_theme.dart';
