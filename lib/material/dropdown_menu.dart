@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -16,7 +15,6 @@ import 'package:waveui/material/icon_button.dart';
 import 'package:waveui/material/icons.dart';
 import 'package:waveui/material/input_border.dart';
 import 'package:waveui/material/input_decorator.dart';
-import 'package:waveui/material/material_state.dart';
 import 'package:waveui/material/menu_anchor.dart';
 import 'package:waveui/material/menu_button_theme.dart';
 import 'package:waveui/material/menu_style.dart';
@@ -523,7 +521,7 @@ class _DropdownMenuState<T> extends State<DropdownMenu<T>> {
     });
   }
 
-  void handlePressed(MenuController controller) {
+  void handlePressed(MenuController controller, {bool focusForKeyboard = true}) {
     if (controller.isOpen) {
       currentHighlight = null;
       controller.close();
@@ -533,7 +531,9 @@ class _DropdownMenuState<T> extends State<DropdownMenu<T>> {
         _enableFilter = false;
       }
       controller.open();
-      _internalFocudeNode.requestFocus();
+      if (focusForKeyboard) {
+        _internalFocudeNode.requestFocus();
+      }
     }
     setState(() {});
   }
@@ -648,12 +648,7 @@ class _DropdownMenuState<T> extends State<DropdownMenu<T>> {
             padding: isCollapsed ? EdgeInsets.zero : null,
             icon: widget.trailingIcon ?? const Icon(Icons.arrow_drop_down),
             selectedIcon: widget.selectedTrailingIcon ?? const Icon(Icons.arrow_drop_up),
-            onPressed:
-                !widget.enabled
-                    ? null
-                    : () {
-                      handlePressed(controller);
-                    },
+            onPressed: !widget.enabled ? null : () => handlePressed(controller, focusForKeyboard: !canRequestFocus()),
           ),
         );
 
