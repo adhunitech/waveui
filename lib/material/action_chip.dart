@@ -2,13 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart' show DiagnosticsProperty, clampDouble;
 import 'package:flutter/semantics.dart';
 
 import 'package:flutter/widgets.dart';
-import 'package:waveui/material/theme.dart' show ThemeData;
-import 'package:waveui/material/theme_data.dart' show ThemeData;
 
 import 'package:waveui/material/chip.dart';
 import 'package:waveui/material/chip_theme.dart';
@@ -18,7 +15,6 @@ import 'package:waveui/material/debug.dart';
 import 'package:waveui/src/theme/text_theme.dart';
 import 'package:waveui/material/theme.dart';
 import 'package:waveui/material/theme_data.dart';
-import 'package:waveui/waveui.dart' show ThemeData;
 
 enum _ChipVariant { flat, elevated }
 

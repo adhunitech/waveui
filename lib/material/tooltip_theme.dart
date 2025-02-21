@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/foundation.dart';
@@ -154,20 +153,21 @@ class TooltipThemeData with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DoubleProperty('height', height, defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding, defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin, defaultValue: null));
-    properties.add(DoubleProperty('vertical offset', verticalOffset, defaultValue: null));
-    properties.add(FlagProperty('position', value: preferBelow, ifTrue: 'below', ifFalse: 'above', showName: true));
-    properties.add(FlagProperty('semantics', value: excludeFromSemantics, ifTrue: 'excluded', showName: true));
-    properties.add(DiagnosticsProperty<Decoration>('decoration', decoration, defaultValue: null));
-    properties.add(DiagnosticsProperty<TextStyle>('textStyle', textStyle, defaultValue: null));
-    properties.add(DiagnosticsProperty<TextAlign>('textAlign', textAlign, defaultValue: null));
-    properties.add(DiagnosticsProperty<Duration>('wait duration', waitDuration, defaultValue: null));
-    properties.add(DiagnosticsProperty<Duration>('show duration', showDuration, defaultValue: null));
-    properties.add(DiagnosticsProperty<Duration>('exit duration', exitDuration, defaultValue: null));
-    properties.add(DiagnosticsProperty<TooltipTriggerMode>('triggerMode', triggerMode, defaultValue: null));
-    properties.add(FlagProperty('enableFeedback', value: enableFeedback, ifTrue: 'true', showName: true));
+    properties
+      ..add(DoubleProperty('height', height, defaultValue: null))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding, defaultValue: null))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin, defaultValue: null))
+      ..add(DoubleProperty('vertical offset', verticalOffset, defaultValue: null))
+      ..add(FlagProperty('position', value: preferBelow, ifTrue: 'below', ifFalse: 'above', showName: true))
+      ..add(FlagProperty('semantics', value: excludeFromSemantics, ifTrue: 'excluded', showName: true))
+      ..add(DiagnosticsProperty<Decoration>('decoration', decoration, defaultValue: null))
+      ..add(DiagnosticsProperty<TextStyle>('textStyle', textStyle, defaultValue: null))
+      ..add(DiagnosticsProperty<TextAlign>('textAlign', textAlign, defaultValue: null))
+      ..add(DiagnosticsProperty<Duration>('wait duration', waitDuration, defaultValue: null))
+      ..add(DiagnosticsProperty<Duration>('show duration', showDuration, defaultValue: null))
+      ..add(DiagnosticsProperty<Duration>('exit duration', exitDuration, defaultValue: null))
+      ..add(DiagnosticsProperty<TooltipTriggerMode>('triggerMode', triggerMode, defaultValue: null))
+      ..add(FlagProperty('enableFeedback', value: enableFeedback, ifTrue: 'true', showName: true));
   }
 }
 

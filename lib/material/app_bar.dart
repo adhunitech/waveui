@@ -196,32 +196,33 @@ class AppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('automaticallyImplyLeading', automaticallyImplyLeading));
-    properties.add(DoubleProperty('elevation', elevation));
-    properties.add(DoubleProperty('scrolledUnderElevation', scrolledUnderElevation));
-    properties.add(ObjectFlagProperty<ScrollNotificationPredicate>.has('notificationPredicate', notificationPredicate));
-    properties.add(ColorProperty('shadowColor', shadowColor));
-    properties.add(ColorProperty('surfaceTintColor', surfaceTintColor));
-    properties.add(DiagnosticsProperty<ShapeBorder?>('shape', shape));
-    properties.add(ColorProperty('backgroundColor', backgroundColor));
-    properties.add(ColorProperty('foregroundColor', foregroundColor));
-    properties.add(DiagnosticsProperty<IconThemeData?>('iconTheme', iconTheme));
-    properties.add(DiagnosticsProperty<IconThemeData?>('actionsIconTheme', actionsIconTheme));
-    properties.add(DiagnosticsProperty<bool>('primary', primary));
-    properties.add(DiagnosticsProperty<bool?>('centerTitle', centerTitle));
-    properties.add(DiagnosticsProperty<bool>('excludeHeaderSemantics', excludeHeaderSemantics));
-    properties.add(DoubleProperty('titleSpacing', titleSpacing));
-    properties.add(DoubleProperty('toolbarOpacity', toolbarOpacity));
-    properties.add(DoubleProperty('bottomOpacity', bottomOpacity));
-    properties.add(DoubleProperty('toolbarHeight', toolbarHeight));
-    properties.add(DoubleProperty('leadingWidth', leadingWidth));
-    properties.add(DiagnosticsProperty<TextStyle?>('toolbarTextStyle', toolbarTextStyle));
-    properties.add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle));
-    properties.add(DiagnosticsProperty<SystemUiOverlayStyle?>('systemOverlayStyle', systemOverlayStyle));
-    properties.add(DiagnosticsProperty<bool>('forceMaterialTransparency', forceMaterialTransparency));
-    properties.add(DiagnosticsProperty<bool>('useDefaultSemanticsOrder', useDefaultSemanticsOrder));
-    properties.add(EnumProperty<Clip?>('clipBehavior', clipBehavior));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry?>('actionsPadding', actionsPadding));
+    properties
+      ..add(DiagnosticsProperty<bool>('automaticallyImplyLeading', automaticallyImplyLeading))
+      ..add(DoubleProperty('elevation', elevation))
+      ..add(DoubleProperty('scrolledUnderElevation', scrolledUnderElevation))
+      ..add(ObjectFlagProperty<ScrollNotificationPredicate>.has('notificationPredicate', notificationPredicate))
+      ..add(ColorProperty('shadowColor', shadowColor))
+      ..add(ColorProperty('surfaceTintColor', surfaceTintColor))
+      ..add(DiagnosticsProperty<ShapeBorder?>('shape', shape))
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(ColorProperty('foregroundColor', foregroundColor))
+      ..add(DiagnosticsProperty<IconThemeData?>('iconTheme', iconTheme))
+      ..add(DiagnosticsProperty<IconThemeData?>('actionsIconTheme', actionsIconTheme))
+      ..add(DiagnosticsProperty<bool>('primary', primary))
+      ..add(DiagnosticsProperty<bool?>('centerTitle', centerTitle))
+      ..add(DiagnosticsProperty<bool>('excludeHeaderSemantics', excludeHeaderSemantics))
+      ..add(DoubleProperty('titleSpacing', titleSpacing))
+      ..add(DoubleProperty('toolbarOpacity', toolbarOpacity))
+      ..add(DoubleProperty('bottomOpacity', bottomOpacity))
+      ..add(DoubleProperty('toolbarHeight', toolbarHeight))
+      ..add(DoubleProperty('leadingWidth', leadingWidth))
+      ..add(DiagnosticsProperty<TextStyle?>('toolbarTextStyle', toolbarTextStyle))
+      ..add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle))
+      ..add(DiagnosticsProperty<SystemUiOverlayStyle?>('systemOverlayStyle', systemOverlayStyle))
+      ..add(DiagnosticsProperty<bool>('forceMaterialTransparency', forceMaterialTransparency))
+      ..add(DiagnosticsProperty<bool>('useDefaultSemanticsOrder', useDefaultSemanticsOrder))
+      ..add(EnumProperty<Clip?>('clipBehavior', clipBehavior))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry?>('actionsPadding', actionsPadding));
   }
 }
 
@@ -1326,12 +1327,13 @@ class _ScrollUnderFlexibleSpace extends StatelessWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(ColorProperty('foregroundColor', foregroundColor));
-    properties.add(
-      ObjectFlagProperty<_ScrollUnderFlexibleConfig Function(BuildContext p1)>.has('configBuilder', configBuilder),
-    );
-    properties.add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle));
-    properties.add(DoubleProperty('bottomHeight', bottomHeight));
+    properties
+      ..add(ColorProperty('foregroundColor', foregroundColor))
+      ..add(
+        ObjectFlagProperty<_ScrollUnderFlexibleConfig Function(BuildContext p1)>.has('configBuilder', configBuilder),
+      )
+      ..add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle))
+      ..add(DoubleProperty('bottomHeight', bottomHeight));
   }
 }
 
@@ -1487,9 +1489,10 @@ class _RenderExpandedTitleBox extends RenderShiftedBox {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<EdgeInsets>('padding', padding));
-    properties.add(DiagnosticsProperty<Alignment>('titleAlignment', titleAlignment));
-    properties.add(DoubleProperty('maxExtent', maxExtent));
+    properties
+      ..add(DiagnosticsProperty<EdgeInsets>('padding', padding))
+      ..add(DiagnosticsProperty<Alignment>('titleAlignment', titleAlignment))
+      ..add(DoubleProperty('maxExtent', maxExtent));
   }
 }
 

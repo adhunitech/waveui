@@ -110,7 +110,6 @@ class ThemeData with Diagnosticable {
     TargetPlatform? platform,
     ScrollbarThemeData? scrollbarTheme,
     InteractiveInkFeatureFactory? splashFactory,
-    bool? useMaterial3,
     VisualDensity? visualDensity,
     // COLOR
     ColorScheme? colorScheme,
@@ -227,14 +226,8 @@ class ThemeData with Diagnosticable {
     pageTransitionsTheme ??= const PageTransitionsTheme();
     scrollbarTheme ??= const ScrollbarThemeData();
     visualDensity ??= VisualDensity.defaultDensityForPlatform(platform);
-    useMaterial3 ??= true;
     final bool useInkSparkle = platform == TargetPlatform.android && !kIsWeb;
-    splashFactory ??=
-        useMaterial3
-            ? useInkSparkle
-                ? InkSparkle.splashFactory
-                : InkRipple.splashFactory
-            : InkSplash.splashFactory;
+    splashFactory ??= useInkSparkle ? InkSparkle.splashFactory : InkRipple.splashFactory;
 
     // COLOR
     assert(
@@ -248,11 +241,8 @@ class ThemeData with Diagnosticable {
     assert(colorSchemeSeed == null || primaryColor == null);
     final Brightness effectiveBrightness = brightness ?? colorScheme?.brightness ?? Brightness.light;
     final bool isDark = effectiveBrightness == Brightness.dark;
-    if (colorSchemeSeed != null || useMaterial3) {
-      if (colorSchemeSeed != null) {
-        colorScheme = ColorScheme.fromSeed(seedColor: colorSchemeSeed, brightness: effectiveBrightness);
-      }
-      colorScheme ??= isDark ? _colorSchemeDarkM3 : _colorSchemeLightM3;
+    if (colorSchemeSeed != null) {
+      colorScheme = ColorScheme.fromSeed(seedColor: colorSchemeSeed, brightness: effectiveBrightness);
 
       // For surfaces that use primary color in light themes and surface color in dark
       final Color primarySurfaceColor = isDark ? colorScheme.surface : colorScheme.primary;
@@ -313,10 +303,7 @@ class ThemeData with Diagnosticable {
     splashColor ??= isDark ? const Color(0x40CCCCCC) : const Color(0x66C8C8C8);
 
     // TYPOGRAPHY & ICONOGRAPHY
-    typography ??=
-        useMaterial3
-            ? Typography.material2021(platform: platform, colorScheme: colorScheme)
-            : Typography.material2014(platform: platform);
+    typography ??= Typography.material2021(platform: platform, colorScheme: colorScheme);
     TextTheme defaultTextTheme = isDark ? typography.white : typography.black;
     TextTheme defaultPrimaryTextTheme = primaryIsDark ? typography.white : typography.black;
     if (fontFamily != null) {
@@ -592,7 +579,7 @@ class ThemeData with Diagnosticable {
        _buttonBarTheme = buttonBarTheme,
        assert(buttonBarTheme != null);
 
-  factory ThemeData.from({required ColorScheme colorScheme, TextTheme? textTheme, bool? useMaterial3}) {
+  factory ThemeData.from({required ColorScheme colorScheme, TextTheme? textTheme}) {
     final bool isDark = colorScheme.brightness == Brightness.dark;
 
     // For surfaces that use primary color in light themes and surface color in dark
@@ -611,15 +598,14 @@ class ThemeData with Diagnosticable {
       indicatorColor: onPrimarySurfaceColor,
       textTheme: textTheme,
       applyElevationOverlayColor: isDark,
-      useMaterial3: useMaterial3,
     );
   }
 
-  factory ThemeData.light({bool? useMaterial3}) => ThemeData(brightness: Brightness.light, useMaterial3: useMaterial3);
+  factory ThemeData.light() => ThemeData(brightness: Brightness.light);
 
-  factory ThemeData.dark({bool? useMaterial3}) => ThemeData(brightness: Brightness.dark, useMaterial3: useMaterial3);
+  factory ThemeData.dark() => ThemeData(brightness: Brightness.dark);
 
-  factory ThemeData.fallback({bool? useMaterial3}) => ThemeData.light(useMaterial3: useMaterial3);
+  factory ThemeData.fallback() => ThemeData.light();
 
   Adaptation<T>? getAdaptation<T>() => adaptationMap[T] as Adaptation<T>?;
 
@@ -917,15 +903,6 @@ class ThemeData with Diagnosticable {
     TimePickerThemeData? timePickerTheme,
     ToggleButtonsThemeData? toggleButtonsTheme,
     TooltipThemeData? tooltipTheme,
-    // DEPRECATED (newest deprecations at the bottom)
-    @Deprecated(
-      'Use a ThemeData constructor (.from, .light, or .dark) instead. '
-      'These constructors all have a useMaterial3 argument, '
-      'and they set appropriate default values based on its value. '
-      'See the useMaterial3 API documentation for full details. '
-      'This feature was deprecated after v3.13.0-0.2.pre.',
-    )
-    bool? useMaterial3,
     @Deprecated(
       'Use OverflowBar instead. '
       'This feature was deprecated after v3.21.0-10.0.pre.',
@@ -961,8 +938,6 @@ class ThemeData with Diagnosticable {
       platform: platform ?? this.platform,
       scrollbarTheme: scrollbarTheme ?? this.scrollbarTheme,
       splashFactory: splashFactory ?? this.splashFactory,
-      // When deprecated useMaterial3 removed, maintain `this.useMaterial3` here
-      // for == evaluation.
       visualDensity: visualDensity ?? this.visualDensity,
       // COLOR
       canvasColor: canvasColor ?? this.canvasColor,
@@ -2150,9 +2125,10 @@ class VisualDensity with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DoubleProperty('horizontal', horizontal, defaultValue: 0.0));
-    properties.add(DoubleProperty('vertical', vertical, defaultValue: 0.0));
-    properties.add(DiagnosticsProperty<Offset>('baseSizeAdjustment', baseSizeAdjustment));
+    properties
+      ..add(DoubleProperty('horizontal', horizontal, defaultValue: 0.0))
+      ..add(DoubleProperty('vertical', vertical, defaultValue: 0.0))
+      ..add(DiagnosticsProperty<Offset>('baseSizeAdjustment', baseSizeAdjustment));
   }
 
   @override

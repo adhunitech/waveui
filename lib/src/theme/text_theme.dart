@@ -1,63 +1,13 @@
-// Copyright 2014 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:waveui/material/theme.dart';
 
-@immutable
-final class TextTheme with Diagnosticable {
-  const TextTheme({
-    this.displayLarge,
-    this.displayMedium,
-    this.displaySmall,
-    this.headlineLarge,
-    this.headlineMedium,
-    this.headlineSmall,
-    this.titleLarge,
-    this.titleMedium,
-    this.titleSmall,
-    this.bodyLarge,
-    this.bodyMedium,
-    this.bodySmall,
-    this.labelLarge,
-    this.labelMedium,
-    this.labelSmall,
-  });
+part 'text_theme.freezed.dart';
 
-  final TextStyle? displayLarge;
-
-  final TextStyle? displayMedium;
-
-  final TextStyle? displaySmall;
-
-  final TextStyle? headlineLarge;
-
-  final TextStyle? headlineMedium;
-
-  final TextStyle? headlineSmall;
-
-  final TextStyle? titleLarge;
-
-  final TextStyle? titleMedium;
-
-  final TextStyle? titleSmall;
-
-  final TextStyle? bodyLarge;
-
-  final TextStyle? bodyMedium;
-
-  final TextStyle? bodySmall;
-
-  final TextStyle? labelLarge;
-
-  final TextStyle? labelMedium;
-
-  final TextStyle? labelSmall;
-
-  TextTheme copyWith({
+@freezed
+class TextTheme with _$TextTheme {
+  const factory TextTheme({
     TextStyle? displayLarge,
     TextStyle? displayMedium,
     TextStyle? displaySmall,
@@ -73,23 +23,9 @@ final class TextTheme with Diagnosticable {
     TextStyle? labelLarge,
     TextStyle? labelMedium,
     TextStyle? labelSmall,
-  }) => TextTheme(
-    displayLarge: displayLarge ?? this.displayLarge,
-    displayMedium: displayMedium ?? this.displayMedium,
-    displaySmall: displaySmall ?? this.displaySmall,
-    headlineLarge: headlineLarge ?? this.headlineLarge,
-    headlineMedium: headlineMedium ?? this.headlineMedium,
-    headlineSmall: headlineSmall ?? this.headlineSmall,
-    titleLarge: titleLarge ?? this.titleLarge,
-    titleMedium: titleMedium ?? this.titleMedium,
-    titleSmall: titleSmall ?? this.titleSmall,
-    bodyLarge: bodyLarge ?? this.bodyLarge,
-    bodyMedium: bodyMedium ?? this.bodyMedium,
-    bodySmall: bodySmall ?? this.bodySmall,
-    labelLarge: labelLarge ?? this.labelLarge,
-    labelMedium: labelMedium ?? this.labelMedium,
-    labelSmall: labelSmall ?? this.labelSmall,
-  );
+  }) = _TextTheme;
+
+  const TextTheme._();
 
   TextTheme merge(TextTheme? other) {
     if (other == null) {
@@ -319,49 +255,4 @@ final class TextTheme with Diagnosticable {
   static TextTheme of(BuildContext context) => Theme.of(context).textTheme;
 
   static TextTheme primaryOf(BuildContext context) => Theme.of(context).primaryTextTheme;
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (other.runtimeType != runtimeType) {
-      return false;
-    }
-    return other is TextTheme &&
-        displayLarge == other.displayLarge &&
-        displayMedium == other.displayMedium &&
-        displaySmall == other.displaySmall &&
-        headlineLarge == other.headlineLarge &&
-        headlineMedium == other.headlineMedium &&
-        headlineSmall == other.headlineSmall &&
-        titleLarge == other.titleLarge &&
-        titleMedium == other.titleMedium &&
-        titleSmall == other.titleSmall &&
-        bodyLarge == other.bodyLarge &&
-        bodyMedium == other.bodyMedium &&
-        bodySmall == other.bodySmall &&
-        labelLarge == other.labelLarge &&
-        labelMedium == other.labelMedium &&
-        labelSmall == other.labelSmall;
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    displayLarge,
-    displayMedium,
-    displaySmall,
-    headlineLarge,
-    headlineMedium,
-    headlineSmall,
-    titleLarge,
-    titleMedium,
-    titleSmall,
-    bodyLarge,
-    bodyMedium,
-    bodySmall,
-    labelLarge,
-    labelMedium,
-    labelSmall,
-  );
 }

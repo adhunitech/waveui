@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui';
@@ -55,7 +54,6 @@ enum _HourMinuteMode { hour, minute }
 // Aspects of _TimePickerModel that can be depended upon.
 enum _TimePickerAspect {
   use24HourFormat,
-  useMaterial3,
   entryMode,
   hourMinuteMode,
   onHourMinuteModeChanged,
@@ -180,20 +178,19 @@ class _TimePickerModel extends InheritedModel<_TimePickerAspect> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(EnumProperty<TimePickerEntryMode>('entryMode', entryMode));
-    properties.add(EnumProperty<_HourMinuteMode>('hourMinuteMode', hourMinuteMode));
-    properties.add(
-      ObjectFlagProperty<ValueChanged<_HourMinuteMode>>.has('onHourMinuteModeChanged', onHourMinuteModeChanged),
-    );
-    properties.add(ObjectFlagProperty<GestureTapCallback>.has('onHourDoubleTapped', onHourDoubleTapped));
-    properties.add(ObjectFlagProperty<GestureTapCallback>.has('onMinuteDoubleTapped', onMinuteDoubleTapped));
-    properties.add(DiagnosticsProperty<TimeOfDay>('selectedTime', selectedTime));
-    properties.add(ObjectFlagProperty<ValueChanged<TimeOfDay>>.has('onSelectedTimeChanged', onSelectedTimeChanged));
-    properties.add(DiagnosticsProperty<bool>('use24HourFormat', use24HourFormat));
-    properties.add(EnumProperty<_HourDialType>('hourDialType', hourDialType));
-    properties.add(EnumProperty<Orientation>('orientation', orientation));
-    properties.add(DiagnosticsProperty<TimePickerThemeData>('theme', theme));
-    properties.add(DiagnosticsProperty<_TimePickerDefaults>('defaultTheme', defaultTheme));
+    properties
+      ..add(EnumProperty<TimePickerEntryMode>('entryMode', entryMode))
+      ..add(EnumProperty<_HourMinuteMode>('hourMinuteMode', hourMinuteMode))
+      ..add(ObjectFlagProperty<ValueChanged<_HourMinuteMode>>.has('onHourMinuteModeChanged', onHourMinuteModeChanged))
+      ..add(ObjectFlagProperty<GestureTapCallback>.has('onHourDoubleTapped', onHourDoubleTapped))
+      ..add(ObjectFlagProperty<GestureTapCallback>.has('onMinuteDoubleTapped', onMinuteDoubleTapped))
+      ..add(DiagnosticsProperty<TimeOfDay>('selectedTime', selectedTime))
+      ..add(ObjectFlagProperty<ValueChanged<TimeOfDay>>.has('onSelectedTimeChanged', onSelectedTimeChanged))
+      ..add(DiagnosticsProperty<bool>('use24HourFormat', use24HourFormat))
+      ..add(EnumProperty<_HourDialType>('hourDialType', hourDialType))
+      ..add(EnumProperty<Orientation>('orientation', orientation))
+      ..add(DiagnosticsProperty<TimePickerThemeData>('theme', theme))
+      ..add(DiagnosticsProperty<_TimePickerDefaults>('defaultTheme', defaultTheme));
   }
 }
 

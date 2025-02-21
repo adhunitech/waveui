@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -688,19 +687,20 @@ class _TooltipOverlay extends StatelessWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<InlineSpan>('richMessage', richMessage));
-    properties.add(DoubleProperty('height', height));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry?>('padding', padding));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry?>('margin', margin));
-    properties.add(DiagnosticsProperty<Decoration?>('decoration', decoration));
-    properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle));
-    properties.add(EnumProperty<TextAlign?>('textAlign', textAlign));
-    properties.add(DiagnosticsProperty<Animation<double>>('animation', animation));
-    properties.add(DiagnosticsProperty<Offset>('target', target));
-    properties.add(DoubleProperty('verticalOffset', verticalOffset));
-    properties.add(DiagnosticsProperty<bool>('preferBelow', preferBelow));
-    properties.add(ObjectFlagProperty<PointerEnterEventListener?>.has('onEnter', onEnter));
-    properties.add(ObjectFlagProperty<PointerExitEventListener?>.has('onExit', onExit));
-    properties.add(DiagnosticsProperty<bool>('ignorePointer', ignorePointer));
+    properties
+      ..add(DiagnosticsProperty<InlineSpan>('richMessage', richMessage))
+      ..add(DoubleProperty('height', height))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry?>('padding', padding))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry?>('margin', margin))
+      ..add(DiagnosticsProperty<Decoration?>('decoration', decoration))
+      ..add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle))
+      ..add(EnumProperty<TextAlign?>('textAlign', textAlign))
+      ..add(DiagnosticsProperty<Animation<double>>('animation', animation))
+      ..add(DiagnosticsProperty<Offset>('target', target))
+      ..add(DoubleProperty('verticalOffset', verticalOffset))
+      ..add(DiagnosticsProperty<bool>('preferBelow', preferBelow))
+      ..add(ObjectFlagProperty<PointerEnterEventListener?>.has('onEnter', onEnter))
+      ..add(ObjectFlagProperty<PointerExitEventListener?>.has('onExit', onExit))
+      ..add(DiagnosticsProperty<bool>('ignorePointer', ignorePointer));
   }
 }
