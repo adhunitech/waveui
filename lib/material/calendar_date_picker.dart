@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -21,7 +20,6 @@ import 'package:waveui/material/icons.dart';
 import 'package:waveui/material/ink_decoration.dart';
 import 'package:waveui/material/ink_well.dart';
 import 'package:waveui/material/material_localizations.dart';
-import 'package:waveui/material/material_state.dart';
 import 'package:waveui/src/theme/text_theme.dart';
 import 'package:waveui/material/theme.dart';
 
@@ -1056,13 +1054,6 @@ class YearPicker extends StatefulWidget {
     required this.onChanged,
     super.key,
     DateTime? currentDate,
-    @Deprecated(
-      'This parameter has no effect and can be removed. Previously it controlled '
-      'the month that was used in "onChanged" when a new year was selected, but '
-      'now that role is filled by "selectedDate" instead. '
-      'This feature was deprecated after v3.13.0-0.3.pre.',
-    )
-    DateTime? initialDate,
     this.dragStartBehavior = DragStartBehavior.start,
   }) : assert(!firstDate.isAfter(lastDate)),
        currentDate = DateUtils.dateOnly(currentDate ?? DateTime.now());

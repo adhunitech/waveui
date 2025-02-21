@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:collection/collection.dart';
@@ -95,21 +94,22 @@ class CarouselView extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding));
-    properties.add(ColorProperty('backgroundColor', backgroundColor));
-    properties.add(DoubleProperty('elevation', elevation));
-    properties.add(DiagnosticsProperty<ShapeBorder?>('shape', shape));
-    properties.add(DiagnosticsProperty<WidgetStateProperty<Color?>?>('overlayColor', overlayColor));
-    properties.add(DoubleProperty('shrinkExtent', shrinkExtent));
-    properties.add(DiagnosticsProperty<bool>('itemSnapping', itemSnapping));
-    properties.add(DiagnosticsProperty<CarouselController?>('controller', controller));
-    properties.add(EnumProperty<Axis>('scrollDirection', scrollDirection));
-    properties.add(DiagnosticsProperty<bool>('reverse', reverse));
-    properties.add(DiagnosticsProperty<bool>('consumeMaxWeight', consumeMaxWeight));
-    properties.add(ObjectFlagProperty<ValueChanged<int>?>.has('onTap', onTap));
-    properties.add(DiagnosticsProperty<bool>('enableSplash', enableSplash));
-    properties.add(DoubleProperty('itemExtent', itemExtent));
-    properties.add(IterableProperty<int>('flexWeights', flexWeights));
+    properties
+      ..add(DiagnosticsProperty<EdgeInsets?>('padding', padding))
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(DoubleProperty('elevation', elevation))
+      ..add(DiagnosticsProperty<ShapeBorder?>('shape', shape))
+      ..add(DiagnosticsProperty<WidgetStateProperty<Color?>?>('overlayColor', overlayColor))
+      ..add(DoubleProperty('shrinkExtent', shrinkExtent))
+      ..add(DiagnosticsProperty<bool>('itemSnapping', itemSnapping))
+      ..add(DiagnosticsProperty<CarouselController?>('controller', controller))
+      ..add(EnumProperty<Axis>('scrollDirection', scrollDirection))
+      ..add(DiagnosticsProperty<bool>('reverse', reverse))
+      ..add(DiagnosticsProperty<bool>('consumeMaxWeight', consumeMaxWeight))
+      ..add(ObjectFlagProperty<ValueChanged<int>?>.has('onTap', onTap))
+      ..add(DiagnosticsProperty<bool>('enableSplash', enableSplash))
+      ..add(DoubleProperty('itemExtent', itemExtent))
+      ..add(IterableProperty<int>('flexWeights', flexWeights));
   }
 }
 

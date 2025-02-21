@@ -6,15 +6,14 @@ import 'dart:ui' show Color, lerpDouble;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:waveui/material/action_icons_theme.dart';
 import 'package:waveui/src/widgets/app_bar/theme.dart';
 import 'package:waveui/material/badge_theme.dart';
 import 'package:waveui/material/banner_theme.dart';
 import 'package:waveui/material/bottom_app_bar_theme.dart';
-import 'package:waveui/material/bottom_navigation_bar_theme.dart';
 import 'package:waveui/material/bottom_sheet_theme.dart';
-import 'package:waveui/material/button_bar_theme.dart';
 import 'package:waveui/material/button_theme.dart';
 import 'package:waveui/material/card_theme.dart';
 import 'package:waveui/material/checkbox_theme.dart';
@@ -35,7 +34,6 @@ import 'package:waveui/material/floating_action_button_theme.dart';
 import 'package:waveui/material/icon_button_theme.dart';
 import 'package:waveui/material/ink_ripple.dart';
 import 'package:waveui/material/ink_sparkle.dart';
-import 'package:waveui/material/ink_splash.dart';
 import 'package:waveui/material/ink_well.dart' show InteractiveInkFeatureFactory;
 import 'package:waveui/material/input_decorator.dart';
 import 'package:waveui/material/list_tile_theme.dart';
@@ -91,7 +89,7 @@ abstract class ThemeExtension<T extends ThemeExtension<T>> {
 
 enum MaterialTapTargetSize { padded, shrinkWrap }
 
-@immutable
+@freezed
 class ThemeData with Diagnosticable {
   factory ThemeData({
     // For the sanity of the reader, make sure these properties are in the same
@@ -149,7 +147,6 @@ class ThemeData with Diagnosticable {
     BadgeThemeData? badgeTheme,
     MaterialBannerThemeData? bannerTheme,
     BottomAppBarTheme? bottomAppBarTheme,
-    BottomNavigationBarThemeData? bottomNavigationBarTheme,
     BottomSheetThemeData? bottomSheetTheme,
     ButtonThemeData? buttonTheme,
     CardThemeData? cardTheme,
@@ -189,12 +186,6 @@ class ThemeData with Diagnosticable {
     TimePickerThemeData? timePickerTheme,
     ToggleButtonsThemeData? toggleButtonsTheme,
     TooltipThemeData? tooltipTheme,
-    // DEPRECATED (newest deprecations at the bottom)
-    @Deprecated(
-      'Use OverflowBar instead. '
-      'This feature was deprecated after v3.21.0-10.0.pre.',
-    )
-    ButtonBarThemeData? buttonBarTheme,
     @Deprecated(
       'Use DialogThemeData.backgroundColor instead. '
       'This feature was deprecated after v3.27.0-0.1.pre.',
@@ -309,7 +300,6 @@ class ThemeData with Diagnosticable {
     badgeTheme ??= const BadgeThemeData();
     bannerTheme ??= const MaterialBannerThemeData();
     bottomAppBarTheme ??= const BottomAppBarTheme();
-    bottomNavigationBarTheme ??= const BottomNavigationBarThemeData();
     bottomSheetTheme ??= const BottomSheetThemeData();
     cardTheme ??= const CardThemeData();
     checkboxTheme ??= const CheckboxThemeData();
@@ -350,7 +340,6 @@ class ThemeData with Diagnosticable {
     toggleButtonsTheme ??= const ToggleButtonsThemeData();
     tooltipTheme ??= const TooltipThemeData();
     // DEPRECATED (newest deprecations at the bottom)
-    buttonBarTheme ??= const ButtonBarThemeData();
     dialogBackgroundColor ??= isDark ? Colors.grey[800]! : Colors.white;
     indicatorColor ??= colorScheme.secondary == primaryColor ? Colors.white : colorScheme.secondary;
     return ThemeData.raw(
@@ -401,7 +390,6 @@ class ThemeData with Diagnosticable {
       badgeTheme: badgeTheme,
       bannerTheme: bannerTheme,
       bottomAppBarTheme: bottomAppBarTheme,
-      bottomNavigationBarTheme: bottomNavigationBarTheme,
       bottomSheetTheme: bottomSheetTheme,
       buttonTheme: buttonTheme,
       cardTheme: cardTheme,
@@ -441,8 +429,6 @@ class ThemeData with Diagnosticable {
       timePickerTheme: timePickerTheme,
       toggleButtonsTheme: toggleButtonsTheme,
       tooltipTheme: tooltipTheme,
-      // DEPRECATED (newest deprecations at the bottom)
-      buttonBarTheme: buttonBarTheme,
       dialogBackgroundColor: dialogBackgroundColor,
       indicatorColor: indicatorColor,
     );
@@ -499,7 +485,6 @@ class ThemeData with Diagnosticable {
     required this.badgeTheme,
     required this.bannerTheme,
     required this.bottomAppBarTheme,
-    required this.bottomNavigationBarTheme,
     required this.bottomSheetTheme,
     required this.buttonTheme,
     required this.cardTheme,
@@ -549,15 +534,7 @@ class ThemeData with Diagnosticable {
       'This feature was deprecated after v3.28.0-1.0.pre.',
     )
     required this.indicatorColor, // DEPRECATED (newest deprecations at the bottom)
-    @Deprecated(
-      'Use OverflowBar instead. '
-      'This feature was deprecated after v3.21.0-10.0.pre.',
-    )
-    ButtonBarThemeData? buttonBarTheme,
-  }) : // DEPRECATED (newest deprecations at the bottom)
-       // should not be `required`, use getter pattern to avoid breakages.
-       _buttonBarTheme = buttonBarTheme,
-       assert(buttonBarTheme != null);
+  });
 
   factory ThemeData.from({required ColorScheme colorScheme, TextTheme? textTheme}) {
     final bool isDark = colorScheme.brightness == Brightness.dark;
@@ -692,8 +669,6 @@ class ThemeData with Diagnosticable {
 
   final BottomAppBarTheme bottomAppBarTheme;
 
-  final BottomNavigationBarThemeData bottomNavigationBarTheme;
-
   final BottomSheetThemeData bottomSheetTheme;
 
   final ButtonThemeData buttonTheme;
@@ -773,13 +748,6 @@ class ThemeData with Diagnosticable {
   final TooltipThemeData tooltipTheme;
 
   @Deprecated(
-    'Use OverflowBar instead. '
-    'This feature was deprecated after v3.21.0-10.0.pre.',
-  )
-  ButtonBarThemeData get buttonBarTheme => _buttonBarTheme!;
-  final ButtonBarThemeData? _buttonBarTheme;
-
-  @Deprecated(
     'Use DialogThemeData.backgroundColor instead. '
     'This feature was deprecated after v3.27.0-0.1.pre.',
   )
@@ -843,7 +811,6 @@ class ThemeData with Diagnosticable {
     BadgeThemeData? badgeTheme,
     MaterialBannerThemeData? bannerTheme,
     BottomAppBarTheme? bottomAppBarTheme,
-    BottomNavigationBarThemeData? bottomNavigationBarTheme,
     BottomSheetThemeData? bottomSheetTheme,
     ButtonThemeData? buttonTheme,
     CardThemeData? cardTheme,
@@ -883,11 +850,6 @@ class ThemeData with Diagnosticable {
     TimePickerThemeData? timePickerTheme,
     ToggleButtonsThemeData? toggleButtonsTheme,
     TooltipThemeData? tooltipTheme,
-    @Deprecated(
-      'Use OverflowBar instead. '
-      'This feature was deprecated after v3.21.0-10.0.pre.',
-    )
-    ButtonBarThemeData? buttonBarTheme,
     @Deprecated(
       'Use DialogThemeData.backgroundColor instead. '
       'This feature was deprecated after v3.27.0-0.1.pre.',
@@ -949,7 +911,6 @@ class ThemeData with Diagnosticable {
       badgeTheme: badgeTheme ?? this.badgeTheme,
       bannerTheme: bannerTheme ?? this.bannerTheme,
       bottomAppBarTheme: bottomAppBarTheme ?? this.bottomAppBarTheme,
-      bottomNavigationBarTheme: bottomNavigationBarTheme ?? this.bottomNavigationBarTheme,
       bottomSheetTheme: bottomSheetTheme ?? this.bottomSheetTheme,
       buttonTheme: buttonTheme ?? this.buttonTheme,
       cardTheme: cardTheme ?? this.cardTheme,
@@ -989,8 +950,6 @@ class ThemeData with Diagnosticable {
       timePickerTheme: timePickerTheme ?? this.timePickerTheme,
       toggleButtonsTheme: toggleButtonsTheme ?? this.toggleButtonsTheme,
       tooltipTheme: tooltipTheme ?? this.tooltipTheme,
-      // DEPRECATED (newest deprecations at the bottom)
-      buttonBarTheme: buttonBarTheme ?? _buttonBarTheme,
       dialogBackgroundColor: dialogBackgroundColor ?? this.dialogBackgroundColor,
       indicatorColor: indicatorColor ?? this.indicatorColor,
     );
@@ -1116,11 +1075,7 @@ class ThemeData with Diagnosticable {
       badgeTheme: BadgeThemeData.lerp(a.badgeTheme, b.badgeTheme, t),
       bannerTheme: MaterialBannerThemeData.lerp(a.bannerTheme, b.bannerTheme, t),
       bottomAppBarTheme: BottomAppBarTheme.lerp(a.bottomAppBarTheme, b.bottomAppBarTheme, t),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData.lerp(
-        a.bottomNavigationBarTheme,
-        b.bottomNavigationBarTheme,
-        t,
-      ),
+
       bottomSheetTheme: BottomSheetThemeData.lerp(a.bottomSheetTheme, b.bottomSheetTheme, t)!,
       buttonTheme: t < 0.5 ? a.buttonTheme : b.buttonTheme,
       cardTheme: CardThemeData.lerp(a.cardTheme, b.cardTheme, t),
@@ -1162,7 +1117,6 @@ class ThemeData with Diagnosticable {
       toggleButtonsTheme: ToggleButtonsThemeData.lerp(a.toggleButtonsTheme, b.toggleButtonsTheme, t)!,
       tooltipTheme: TooltipThemeData.lerp(a.tooltipTheme, b.tooltipTheme, t)!,
       // DEPRECATED (newest deprecations at the bottom)
-      buttonBarTheme: ButtonBarThemeData.lerp(a.buttonBarTheme, b.buttonBarTheme, t),
       dialogBackgroundColor: Color.lerp(a.dialogBackgroundColor, b.dialogBackgroundColor, t)!,
       indicatorColor: Color.lerp(a.indicatorColor, b.indicatorColor, t)!,
     );
@@ -1220,7 +1174,6 @@ class ThemeData with Diagnosticable {
         other.badgeTheme == badgeTheme &&
         other.bannerTheme == bannerTheme &&
         other.bottomAppBarTheme == bottomAppBarTheme &&
-        other.bottomNavigationBarTheme == bottomNavigationBarTheme &&
         other.bottomSheetTheme == bottomSheetTheme &&
         other.buttonTheme == buttonTheme &&
         other.cardTheme == cardTheme &&
@@ -1260,8 +1213,6 @@ class ThemeData with Diagnosticable {
         other.timePickerTheme == timePickerTheme &&
         other.toggleButtonsTheme == toggleButtonsTheme &&
         other.tooltipTheme == tooltipTheme &&
-        // DEPRECATED (newest deprecations at the bottom)
-        other.buttonBarTheme == buttonBarTheme &&
         other.dialogBackgroundColor == dialogBackgroundColor &&
         other.indicatorColor == indicatorColor;
   }
@@ -1318,7 +1269,6 @@ class ThemeData with Diagnosticable {
       badgeTheme,
       bannerTheme,
       bottomAppBarTheme,
-      bottomNavigationBarTheme,
       bottomSheetTheme,
       buttonTheme,
       cardTheme,
@@ -1358,8 +1308,6 @@ class ThemeData with Diagnosticable {
       timePickerTheme,
       toggleButtonsTheme,
       tooltipTheme,
-      // DEPRECATED (newest deprecations at the bottom)
-      buttonBarTheme,
       dialogBackgroundColor,
       indicatorColor,
     ];
@@ -1599,14 +1547,6 @@ class ThemeData with Diagnosticable {
           'bottomAppBarTheme',
           bottomAppBarTheme,
           defaultValue: defaultData.bottomAppBarTheme,
-          level: DiagnosticLevel.debug,
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<BottomNavigationBarThemeData>(
-          'bottomNavigationBarTheme',
-          bottomNavigationBarTheme,
-          defaultValue: defaultData.bottomNavigationBarTheme,
           level: DiagnosticLevel.debug,
         ),
       )
@@ -1878,15 +1818,6 @@ class ThemeData with Diagnosticable {
         ),
       )
       ..add(DiagnosticsProperty<TooltipThemeData>('tooltipTheme', tooltipTheme, level: DiagnosticLevel.debug))
-      // DEPRECATED (newest deprecations at the bottom)
-      ..add(
-        DiagnosticsProperty<ButtonBarThemeData>(
-          'buttonBarTheme',
-          buttonBarTheme,
-          defaultValue: defaultData.buttonBarTheme,
-          level: DiagnosticLevel.debug,
-        ),
-      )
       ..add(
         ColorProperty(
           'dialogBackgroundColor',
@@ -2101,122 +2032,3 @@ class VisualDensity with Diagnosticable {
   String toStringShort() =>
       '${super.toStringShort()}(h: ${debugFormatDouble(horizontal)}, v: ${debugFormatDouble(vertical)})';
 }
-
-// BEGIN GENERATED TOKEN PROPERTIES - ColorScheme
-
-// Do not edit by hand. The code between the "BEGIN GENERATED" and
-// "END GENERATED" comments are generated from data in the Material
-// Design token database by the script:
-//   dev/tools/gen_defaults/bin/gen_defaults.dart.
-
-// dart format off
-const ColorScheme _colorSchemeLightM3 = ColorScheme(
-  brightness: Brightness.light,
-  primary: Color(0xFF6750A4),
-  onPrimary: Color(0xFFFFFFFF),
-  primaryContainer: Color(0xFFEADDFF),
-  onPrimaryContainer: Color(0xFF4F378B),
-  primaryFixed: Color(0xFFEADDFF),
-  primaryFixedDim: Color(0xFFD0BCFF),
-  onPrimaryFixed: Color(0xFF21005D),
-  onPrimaryFixedVariant: Color(0xFF4F378B),
-  secondary: Color(0xFF625B71),
-  onSecondary: Color(0xFFFFFFFF),
-  secondaryContainer: Color(0xFFE8DEF8),
-  onSecondaryContainer: Color(0xFF4A4458),
-  secondaryFixed: Color(0xFFE8DEF8),
-  secondaryFixedDim: Color(0xFFCCC2DC),
-  onSecondaryFixed: Color(0xFF1D192B),
-  onSecondaryFixedVariant: Color(0xFF4A4458),
-  tertiary: Color(0xFF7D5260),
-  onTertiary: Color(0xFFFFFFFF),
-  tertiaryContainer: Color(0xFFFFD8E4),
-  onTertiaryContainer: Color(0xFF633B48),
-  tertiaryFixed: Color(0xFFFFD8E4),
-  tertiaryFixedDim: Color(0xFFEFB8C8),
-  onTertiaryFixed: Color(0xFF31111D),
-  onTertiaryFixedVariant: Color(0xFF633B48),
-  error: Color(0xFFB3261E),
-  onError: Color(0xFFFFFFFF),
-  errorContainer: Color(0xFFF9DEDC),
-  onErrorContainer: Color(0xFF8C1D18),
-  background: Color(0xFFFEF7FF),
-  onBackground: Color(0xFF1D1B20),
-  surface: Color(0xFFFEF7FF),
-  surfaceBright: Color(0xFFFEF7FF),
-  surfaceContainerLowest: Color(0xFFFFFFFF),
-  surfaceContainerLow: Color(0xFFF7F2FA),
-  surfaceContainer: Color(0xFFF3EDF7),
-  surfaceContainerHigh: Color(0xFFECE6F0),
-  surfaceContainerHighest: Color(0xFFE6E0E9),
-  surfaceDim: Color(0xFFDED8E1),
-  onSurface: Color(0xFF1D1B20),
-  surfaceVariant: Color(0xFFE7E0EC),
-  onSurfaceVariant: Color(0xFF49454F),
-  outline: Color(0xFF79747E),
-  outlineVariant: Color(0xFFCAC4D0),
-  shadow: Color(0xFF000000),
-  scrim: Color(0xFF000000),
-  inverseSurface: Color(0xFF322F35),
-  onInverseSurface: Color(0xFFF5EFF7),
-  inversePrimary: Color(0xFFD0BCFF),
-  // The surfaceTint color is set to the same color as the primary.
-  surfaceTint: Color(0xFF6750A4),
-);
-
-const ColorScheme _colorSchemeDarkM3 = ColorScheme(
-  brightness: Brightness.dark,
-  primary: Color(0xFFD0BCFF),
-  onPrimary: Color(0xFF381E72),
-  primaryContainer: Color(0xFF4F378B),
-  onPrimaryContainer: Color(0xFFEADDFF),
-  primaryFixed: Color(0xFFEADDFF),
-  primaryFixedDim: Color(0xFFD0BCFF),
-  onPrimaryFixed: Color(0xFF21005D),
-  onPrimaryFixedVariant: Color(0xFF4F378B),
-  secondary: Color(0xFFCCC2DC),
-  onSecondary: Color(0xFF332D41),
-  secondaryContainer: Color(0xFF4A4458),
-  onSecondaryContainer: Color(0xFFE8DEF8),
-  secondaryFixed: Color(0xFFE8DEF8),
-  secondaryFixedDim: Color(0xFFCCC2DC),
-  onSecondaryFixed: Color(0xFF1D192B),
-  onSecondaryFixedVariant: Color(0xFF4A4458),
-  tertiary: Color(0xFFEFB8C8),
-  onTertiary: Color(0xFF492532),
-  tertiaryContainer: Color(0xFF633B48),
-  onTertiaryContainer: Color(0xFFFFD8E4),
-  tertiaryFixed: Color(0xFFFFD8E4),
-  tertiaryFixedDim: Color(0xFFEFB8C8),
-  onTertiaryFixed: Color(0xFF31111D),
-  onTertiaryFixedVariant: Color(0xFF633B48),
-  error: Color(0xFFF2B8B5),
-  onError: Color(0xFF601410),
-  errorContainer: Color(0xFF8C1D18),
-  onErrorContainer: Color(0xFFF9DEDC),
-  background: Color(0xFF141218),
-  onBackground: Color(0xFFE6E0E9),
-  surface: Color(0xFF141218),
-  surfaceBright: Color(0xFF3B383E),
-  surfaceContainerLowest: Color(0xFF0F0D13),
-  surfaceContainerLow: Color(0xFF1D1B20),
-  surfaceContainer: Color(0xFF211F26),
-  surfaceContainerHigh: Color(0xFF2B2930),
-  surfaceContainerHighest: Color(0xFF36343B),
-  surfaceDim: Color(0xFF141218),
-  onSurface: Color(0xFFE6E0E9),
-  surfaceVariant: Color(0xFF49454F),
-  onSurfaceVariant: Color(0xFFCAC4D0),
-  outline: Color(0xFF938F99),
-  outlineVariant: Color(0xFF49454F),
-  shadow: Color(0xFF000000),
-  scrim: Color(0xFF000000),
-  inverseSurface: Color(0xFFE6E0E9),
-  onInverseSurface: Color(0xFF322F35),
-  inversePrimary: Color(0xFF6750A4),
-  // The surfaceTint color is set to the same color as the primary.
-  surfaceTint: Color(0xFFD0BCFF),
-);
-// dart format on
-
-// END GENERATED TOKEN PROPERTIES - ColorScheme

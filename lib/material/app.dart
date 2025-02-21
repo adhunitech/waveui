@@ -71,12 +71,6 @@ class MaterialApp extends StatefulWidget {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-    @Deprecated(
-      'Remove this parameter as it is now ignored. '
-      'MaterialApp never introduces its own MediaQuery; the View widget takes care of that. '
-      'This feature was deprecated after v3.7.0-29.0.pre.',
-    )
-    this.useInheritedMediaQuery = false,
     this.themeAnimationStyle,
   }) : routeInformationProvider = null,
        routeInformationParser = null,
@@ -119,12 +113,6 @@ class MaterialApp extends StatefulWidget {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-    @Deprecated(
-      'Remove this parameter as it is now ignored. '
-      'MaterialApp never introduces its own MediaQuery; the View widget takes care of that. '
-      'This feature was deprecated after v3.7.0-29.0.pre.',
-    )
-    this.useInheritedMediaQuery = false,
     this.themeAnimationStyle,
   }) : assert(routerDelegate != null || routerConfig != null),
        navigatorObservers = null,
@@ -218,13 +206,6 @@ class MaterialApp extends StatefulWidget {
 
   final bool debugShowMaterialGrid;
 
-  @Deprecated(
-    'This setting is now ignored. '
-    'MaterialApp never introduces its own MediaQuery; the View widget takes care of that. '
-    'This feature was deprecated after v3.7.0-29.0.pre.',
-  )
-  final bool useInheritedMediaQuery;
-
   final AnimationStyle? themeAnimationStyle;
 
   @override
@@ -236,68 +217,58 @@ class MaterialApp extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<GlobalKey<NavigatorState>?>('navigatorKey', navigatorKey));
-    properties.add(
-      DiagnosticsProperty<GlobalKey<ScaffoldMessengerState>?>('scaffoldMessengerKey', scaffoldMessengerKey),
-    );
-    properties.add(DiagnosticsProperty<Map<String, WidgetBuilder>?>('routes', routes));
-    properties.add(StringProperty('initialRoute', initialRoute));
-    properties.add(ObjectFlagProperty<RouteFactory?>.has('onGenerateRoute', onGenerateRoute));
-    properties.add(
-      ObjectFlagProperty<InitialRouteListFactory?>.has('onGenerateInitialRoutes', onGenerateInitialRoutes),
-    );
-    properties.add(ObjectFlagProperty<RouteFactory?>.has('onUnknownRoute', onUnknownRoute));
-    properties.add(
-      ObjectFlagProperty<NotificationListenerCallback<NavigationNotification>?>.has(
-        'onNavigationNotification',
-        onNavigationNotification,
-      ),
-    );
-    properties.add(IterableProperty<NavigatorObserver>('navigatorObservers', navigatorObservers));
-    properties.add(
-      DiagnosticsProperty<RouteInformationProvider?>('routeInformationProvider', routeInformationProvider),
-    );
-    properties.add(
-      DiagnosticsProperty<RouteInformationParser<Object>?>('routeInformationParser', routeInformationParser),
-    );
-    properties.add(DiagnosticsProperty<RouterDelegate<Object>?>('routerDelegate', routerDelegate));
-    properties.add(DiagnosticsProperty<BackButtonDispatcher?>('backButtonDispatcher', backButtonDispatcher));
-    properties.add(DiagnosticsProperty<RouterConfig<Object>?>('routerConfig', routerConfig));
-    properties.add(ObjectFlagProperty<TransitionBuilder?>.has('builder', builder));
-    properties.add(StringProperty('title', title));
-    properties.add(ObjectFlagProperty<GenerateAppTitle?>.has('onGenerateTitle', onGenerateTitle));
-    properties.add(DiagnosticsProperty<ThemeData?>('theme', theme));
-    properties.add(DiagnosticsProperty<ThemeData?>('darkTheme', darkTheme));
-    properties.add(DiagnosticsProperty<ThemeData?>('highContrastTheme', highContrastTheme));
-    properties.add(DiagnosticsProperty<ThemeData?>('highContrastDarkTheme', highContrastDarkTheme));
-    properties.add(EnumProperty<ThemeMode?>('themeMode', themeMode));
-    properties.add(DiagnosticsProperty<Duration>('themeAnimationDuration', themeAnimationDuration));
-    properties.add(DiagnosticsProperty<Curve>('themeAnimationCurve', themeAnimationCurve));
-    properties.add(ColorProperty('color', color));
-    properties.add(DiagnosticsProperty<ui.Locale?>('locale', locale));
-    properties.add(IterableProperty<LocalizationsDelegate>('localizationsDelegates', localizationsDelegates));
-    properties.add(
-      ObjectFlagProperty<LocaleListResolutionCallback?>.has(
-        'localeListResolutionCallback',
-        localeListResolutionCallback,
-      ),
-    );
-    properties.add(
-      ObjectFlagProperty<LocaleResolutionCallback?>.has('localeResolutionCallback', localeResolutionCallback),
-    );
-    properties.add(IterableProperty<ui.Locale>('supportedLocales', supportedLocales));
-    properties.add(DiagnosticsProperty<bool>('showPerformanceOverlay', showPerformanceOverlay));
-    properties.add(DiagnosticsProperty<bool>('checkerboardRasterCacheImages', checkerboardRasterCacheImages));
-    properties.add(DiagnosticsProperty<bool>('checkerboardOffscreenLayers', checkerboardOffscreenLayers));
-    properties.add(DiagnosticsProperty<bool>('showSemanticsDebugger', showSemanticsDebugger));
-    properties.add(DiagnosticsProperty<bool>('debugShowCheckedModeBanner', debugShowCheckedModeBanner));
-    properties.add(DiagnosticsProperty<Map<ShortcutActivator, Intent>?>('shortcuts', shortcuts));
-    properties.add(DiagnosticsProperty<Map<Type, Action<Intent>>?>('actions', actions));
-    properties.add(StringProperty('restorationScopeId', restorationScopeId));
-    properties.add(DiagnosticsProperty<ScrollBehavior?>('scrollBehavior', scrollBehavior));
-    properties.add(DiagnosticsProperty<bool>('debugShowMaterialGrid', debugShowMaterialGrid));
-    properties.add(DiagnosticsProperty<bool>('useInheritedMediaQuery', useInheritedMediaQuery));
-    properties.add(DiagnosticsProperty<AnimationStyle?>('themeAnimationStyle', themeAnimationStyle));
+    properties
+      ..add(DiagnosticsProperty<GlobalKey<NavigatorState>?>('navigatorKey', navigatorKey))
+      ..add(DiagnosticsProperty<GlobalKey<ScaffoldMessengerState>?>('scaffoldMessengerKey', scaffoldMessengerKey))
+      ..add(DiagnosticsProperty<Map<String, WidgetBuilder>?>('routes', routes))
+      ..add(StringProperty('initialRoute', initialRoute))
+      ..add(ObjectFlagProperty<RouteFactory?>.has('onGenerateRoute', onGenerateRoute))
+      ..add(ObjectFlagProperty<InitialRouteListFactory?>.has('onGenerateInitialRoutes', onGenerateInitialRoutes))
+      ..add(ObjectFlagProperty<RouteFactory?>.has('onUnknownRoute', onUnknownRoute))
+      ..add(
+        ObjectFlagProperty<NotificationListenerCallback<NavigationNotification>?>.has(
+          'onNavigationNotification',
+          onNavigationNotification,
+        ),
+      )
+      ..add(IterableProperty<NavigatorObserver>('navigatorObservers', navigatorObservers))
+      ..add(DiagnosticsProperty<RouteInformationProvider?>('routeInformationProvider', routeInformationProvider))
+      ..add(DiagnosticsProperty<RouteInformationParser<Object>?>('routeInformationParser', routeInformationParser))
+      ..add(DiagnosticsProperty<RouterDelegate<Object>?>('routerDelegate', routerDelegate))
+      ..add(DiagnosticsProperty<BackButtonDispatcher?>('backButtonDispatcher', backButtonDispatcher))
+      ..add(DiagnosticsProperty<RouterConfig<Object>?>('routerConfig', routerConfig))
+      ..add(ObjectFlagProperty<TransitionBuilder?>.has('builder', builder))
+      ..add(StringProperty('title', title))
+      ..add(ObjectFlagProperty<GenerateAppTitle?>.has('onGenerateTitle', onGenerateTitle))
+      ..add(DiagnosticsProperty<ThemeData?>('theme', theme))
+      ..add(DiagnosticsProperty<ThemeData?>('darkTheme', darkTheme))
+      ..add(DiagnosticsProperty<ThemeData?>('highContrastTheme', highContrastTheme))
+      ..add(DiagnosticsProperty<ThemeData?>('highContrastDarkTheme', highContrastDarkTheme))
+      ..add(EnumProperty<ThemeMode?>('themeMode', themeMode))
+      ..add(DiagnosticsProperty<Duration>('themeAnimationDuration', themeAnimationDuration))
+      ..add(DiagnosticsProperty<Curve>('themeAnimationCurve', themeAnimationCurve))
+      ..add(ColorProperty('color', color))
+      ..add(DiagnosticsProperty<ui.Locale?>('locale', locale))
+      ..add(IterableProperty<LocalizationsDelegate>('localizationsDelegates', localizationsDelegates))
+      ..add(
+        ObjectFlagProperty<LocaleListResolutionCallback?>.has(
+          'localeListResolutionCallback',
+          localeListResolutionCallback,
+        ),
+      )
+      ..add(ObjectFlagProperty<LocaleResolutionCallback?>.has('localeResolutionCallback', localeResolutionCallback))
+      ..add(IterableProperty<ui.Locale>('supportedLocales', supportedLocales))
+      ..add(DiagnosticsProperty<bool>('showPerformanceOverlay', showPerformanceOverlay))
+      ..add(DiagnosticsProperty<bool>('checkerboardRasterCacheImages', checkerboardRasterCacheImages))
+      ..add(DiagnosticsProperty<bool>('checkerboardOffscreenLayers', checkerboardOffscreenLayers))
+      ..add(DiagnosticsProperty<bool>('showSemanticsDebugger', showSemanticsDebugger))
+      ..add(DiagnosticsProperty<bool>('debugShowCheckedModeBanner', debugShowCheckedModeBanner))
+      ..add(DiagnosticsProperty<Map<ShortcutActivator, Intent>?>('shortcuts', shortcuts))
+      ..add(DiagnosticsProperty<Map<Type, Action<Intent>>?>('actions', actions))
+      ..add(StringProperty('restorationScopeId', restorationScopeId))
+      ..add(DiagnosticsProperty<ScrollBehavior?>('scrollBehavior', scrollBehavior))
+      ..add(DiagnosticsProperty<bool>('debugShowMaterialGrid', debugShowMaterialGrid))
+      ..add(DiagnosticsProperty<AnimationStyle?>('themeAnimationStyle', themeAnimationStyle));
   }
 }
 

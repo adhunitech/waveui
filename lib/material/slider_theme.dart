@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 import 'dart:ui' show Path, lerpDouble;
 
@@ -80,12 +79,6 @@ class SliderThemeData with Diagnosticable {
     this.padding,
     this.thumbSize,
     this.trackGap,
-    @Deprecated(
-      'Set this flag to false to opt into the 2024 slider appearance. Defaults to true. '
-      'In the future, this flag will default to false. Use SliderThemeData to customize individual properties. '
-      'This feature was deprecated after v3.27.0-0.2.pre.',
-    )
-    this.year2023,
   });
 
   factory SliderThemeData.fromPrimaryColors({
@@ -213,13 +206,6 @@ class SliderThemeData with Diagnosticable {
 
   final double? trackGap;
 
-  @Deprecated(
-    'Set this flag to false to opt into the 2024 slider appearance. Defaults to true. '
-    'In the future, this flag will default to false. Use SliderThemeData to customize individual properties. '
-    'This feature was deprecated after v3.27.0-0.2.pre.',
-  )
-  final bool? year2023;
-
   SliderThemeData copyWith({
     double? trackHeight,
     Color? activeTrackColor,
@@ -256,7 +242,6 @@ class SliderThemeData with Diagnosticable {
     EdgeInsetsGeometry? padding,
     WidgetStateProperty<Size?>? thumbSize,
     double? trackGap,
-    bool? year2023,
   }) => SliderThemeData(
     trackHeight: trackHeight ?? this.trackHeight,
     activeTrackColor: activeTrackColor ?? this.activeTrackColor,
@@ -293,7 +278,6 @@ class SliderThemeData with Diagnosticable {
     padding: padding ?? this.padding,
     thumbSize: thumbSize ?? this.thumbSize,
     trackGap: trackGap ?? this.trackGap,
-    year2023: year2023 ?? this.year2023,
   );
 
   static SliderThemeData lerp(SliderThemeData a, SliderThemeData b, double t) {
@@ -340,7 +324,6 @@ class SliderThemeData with Diagnosticable {
       padding: EdgeInsetsGeometry.lerp(a.padding, b.padding, t),
       thumbSize: WidgetStateProperty.lerp<Size?>(a.thumbSize, b.thumbSize, t, Size.lerp),
       trackGap: lerpDouble(a.trackGap, b.trackGap, t),
-      year2023: t < 0.5 ? a.year2023 : b.year2023,
     );
   }
 
@@ -381,7 +364,6 @@ class SliderThemeData with Diagnosticable {
       padding,
       thumbSize,
       trackGap,
-      year2023,
     ),
   );
 
@@ -428,8 +410,7 @@ class SliderThemeData with Diagnosticable {
         other.allowedInteraction == allowedInteraction &&
         other.padding == padding &&
         other.thumbSize == thumbSize &&
-        other.trackGap == trackGap &&
-        other.year2023 == year2023;
+        other.trackGap == trackGap;
   }
 
   @override
@@ -597,7 +578,6 @@ class SliderThemeData with Diagnosticable {
       DiagnosticsProperty<WidgetStateProperty<Size?>>('thumbSize', thumbSize, defaultValue: defaultData.thumbSize),
     );
     properties.add(DoubleProperty('trackGap', trackGap, defaultValue: defaultData.trackGap));
-    properties.add(DiagnosticsProperty<bool>('year2023', year2023, defaultValue: defaultData.year2023));
   }
 }
 

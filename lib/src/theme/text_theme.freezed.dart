@@ -36,12 +36,14 @@ mixin _$TextTheme {
   /// Create a copy of TextTheme
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TextThemeCopyWith<TextTheme> get copyWith => throw _privateConstructorUsedError;
+  $TextThemeCopyWith<TextTheme> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TextThemeCopyWith<$Res> {
-  factory $TextThemeCopyWith(TextTheme value, $Res Function(TextTheme) then) = _$TextThemeCopyWithImpl<$Res, TextTheme>;
+  factory $TextThemeCopyWith(TextTheme value, $Res Function(TextTheme) then) =
+      _$TextThemeCopyWithImpl<$Res, TextTheme>;
   @useResult
   $Res call({
     TextStyle? displayLarge,
@@ -63,7 +65,8 @@ abstract class $TextThemeCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TextThemeCopyWithImpl<$Res, $Val extends TextTheme> implements $TextThemeCopyWith<$Res> {
+class _$TextThemeCopyWithImpl<$Res, $Val extends TextTheme>
+    implements $TextThemeCopyWith<$Res> {
   _$TextThemeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -176,9 +179,12 @@ class _$TextThemeCopyWithImpl<$Res, $Val extends TextTheme> implements $TextThem
 }
 
 /// @nodoc
-abstract class _$$TextThemeImplCopyWith<$Res> implements $TextThemeCopyWith<$Res> {
-  factory _$$TextThemeImplCopyWith(_$TextThemeImpl value, $Res Function(_$TextThemeImpl) then) =
-      __$$TextThemeImplCopyWithImpl<$Res>;
+abstract class _$$TextThemeImplCopyWith<$Res>
+    implements $TextThemeCopyWith<$Res> {
+  factory _$$TextThemeImplCopyWith(
+    _$TextThemeImpl value,
+    $Res Function(_$TextThemeImpl) then,
+  ) = __$$TextThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -201,9 +207,13 @@ abstract class _$$TextThemeImplCopyWith<$Res> implements $TextThemeCopyWith<$Res
 }
 
 /// @nodoc
-class __$$TextThemeImplCopyWithImpl<$Res> extends _$TextThemeCopyWithImpl<$Res, _$TextThemeImpl>
+class __$$TextThemeImplCopyWithImpl<$Res>
+    extends _$TextThemeCopyWithImpl<$Res, _$TextThemeImpl>
     implements _$$TextThemeImplCopyWith<$Res> {
-  __$$TextThemeImplCopyWithImpl(_$TextThemeImpl _value, $Res Function(_$TextThemeImpl) _then) : super(_value, _then);
+  __$$TextThemeImplCopyWithImpl(
+    _$TextThemeImpl _value,
+    $Res Function(_$TextThemeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of TextTheme
   /// with the given fields replaced by the non-null parameter values.
@@ -392,21 +402,36 @@ class _$TextThemeImpl extends _TextTheme with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TextThemeImpl &&
-            (identical(other.displayLarge, displayLarge) || other.displayLarge == displayLarge) &&
-            (identical(other.displayMedium, displayMedium) || other.displayMedium == displayMedium) &&
-            (identical(other.displaySmall, displaySmall) || other.displaySmall == displaySmall) &&
-            (identical(other.headlineLarge, headlineLarge) || other.headlineLarge == headlineLarge) &&
-            (identical(other.headlineMedium, headlineMedium) || other.headlineMedium == headlineMedium) &&
-            (identical(other.headlineSmall, headlineSmall) || other.headlineSmall == headlineSmall) &&
-            (identical(other.titleLarge, titleLarge) || other.titleLarge == titleLarge) &&
-            (identical(other.titleMedium, titleMedium) || other.titleMedium == titleMedium) &&
-            (identical(other.titleSmall, titleSmall) || other.titleSmall == titleSmall) &&
-            (identical(other.bodyLarge, bodyLarge) || other.bodyLarge == bodyLarge) &&
-            (identical(other.bodyMedium, bodyMedium) || other.bodyMedium == bodyMedium) &&
-            (identical(other.bodySmall, bodySmall) || other.bodySmall == bodySmall) &&
-            (identical(other.labelLarge, labelLarge) || other.labelLarge == labelLarge) &&
-            (identical(other.labelMedium, labelMedium) || other.labelMedium == labelMedium) &&
-            (identical(other.labelSmall, labelSmall) || other.labelSmall == labelSmall));
+            (identical(other.displayLarge, displayLarge) ||
+                other.displayLarge == displayLarge) &&
+            (identical(other.displayMedium, displayMedium) ||
+                other.displayMedium == displayMedium) &&
+            (identical(other.displaySmall, displaySmall) ||
+                other.displaySmall == displaySmall) &&
+            (identical(other.headlineLarge, headlineLarge) ||
+                other.headlineLarge == headlineLarge) &&
+            (identical(other.headlineMedium, headlineMedium) ||
+                other.headlineMedium == headlineMedium) &&
+            (identical(other.headlineSmall, headlineSmall) ||
+                other.headlineSmall == headlineSmall) &&
+            (identical(other.titleLarge, titleLarge) ||
+                other.titleLarge == titleLarge) &&
+            (identical(other.titleMedium, titleMedium) ||
+                other.titleMedium == titleMedium) &&
+            (identical(other.titleSmall, titleSmall) ||
+                other.titleSmall == titleSmall) &&
+            (identical(other.bodyLarge, bodyLarge) ||
+                other.bodyLarge == bodyLarge) &&
+            (identical(other.bodyMedium, bodyMedium) ||
+                other.bodyMedium == bodyMedium) &&
+            (identical(other.bodySmall, bodySmall) ||
+                other.bodySmall == bodySmall) &&
+            (identical(other.labelLarge, labelLarge) ||
+                other.labelLarge == labelLarge) &&
+            (identical(other.labelMedium, labelMedium) ||
+                other.labelMedium == labelMedium) &&
+            (identical(other.labelSmall, labelSmall) ||
+                other.labelSmall == labelSmall));
   }
 
   @override
@@ -493,5 +518,6 @@ abstract class _TextTheme extends TextTheme {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TextThemeImplCopyWith<_$TextThemeImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$TextThemeImplCopyWith<_$TextThemeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

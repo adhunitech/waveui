@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -55,11 +54,6 @@ class Slider extends StatefulWidget {
     this.autofocus = false,
     this.allowedInteraction,
     this.padding,
-    @Deprecated(
-      'Use SliderTheme to customize the Slider appearance. '
-      'This feature was deprecated after v3.27.0-0.1.pre.',
-    )
-    this.year2023,
   }) : _sliderType = _SliderType.material,
        assert(min <= max),
        assert(value >= min && value <= max, 'Value $value is not between minimum $min and maximum $max'),
@@ -90,12 +84,6 @@ class Slider extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.allowedInteraction,
-    @Deprecated(
-      'Set this flag to false to opt into the 2024 slider appearance. Defaults to true. '
-      'In the future, this flag will default to false. Use SliderThemeData to customize individual properties. '
-      'This feature was deprecated after v3.27.0-0.1.pre.',
-    )
-    this.year2023,
   }) : _sliderType = _SliderType.adaptive,
        padding = null,
        assert(min <= max),
@@ -146,13 +134,6 @@ class Slider extends StatefulWidget {
 
   final EdgeInsetsGeometry? padding;
 
-  @Deprecated(
-    'Set this flag to false to opt into the 2024 slider appearance. Defaults to true. '
-    'In the future, this flag will default to false. Use SliderThemeData to customize individual properties. '
-    'This feature was deprecated after v3.27.0-0.1.pre.',
-  )
-  final bool? year2023;
-
   final _SliderType _sliderType;
 
   @override
@@ -183,7 +164,6 @@ class Slider extends StatefulWidget {
     properties.add(DiagnosticsProperty<MouseCursor?>('mouseCursor', mouseCursor));
     properties.add(EnumProperty<SliderInteraction?>('allowedInteraction', allowedInteraction));
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry?>('padding', padding));
-    properties.add(DiagnosticsProperty<bool?>('year2023', year2023));
   }
 }
 
@@ -384,8 +364,7 @@ class _SliderState extends State<Slider> with TickerProviderStateMixin {
   Widget _buildMaterialSlider(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     SliderThemeData sliderTheme = SliderTheme.of(context);
-    final bool year2023 = widget.year2023 ?? sliderTheme.year2023 ?? true;
-    final SliderThemeData defaults = year2023 ? _SliderDefaultsM3Year2023(context) : _SliderDefaultsM3(context);
+    final SliderThemeData defaults = _SliderDefaultsM3(context);
 
     // If the widget has active or inactive colors specified, then we plug them
     // in to the slider theme as best we can. If the developer wants more
@@ -1592,91 +1571,6 @@ class _RenderValueIndicator extends RenderBox with RelayoutWhenSystemFontsChange
   void dispose() {
     _valueIndicatorAnimation.dispose();
     super.dispose();
-  }
-}
-
-class _SliderDefaultsM3Year2023 extends SliderThemeData {
-  _SliderDefaultsM3Year2023(this.context) : super(trackHeight: 4.0);
-
-  final BuildContext context;
-  late final ColorScheme _colors = Theme.of(context).colorScheme;
-
-  @override
-  Color? get activeTrackColor => _colors.primary;
-
-  @override
-  Color? get inactiveTrackColor => _colors.surfaceContainerHighest;
-
-  @override
-  Color? get secondaryActiveTrackColor => _colors.primary.withOpacity(0.54);
-
-  @override
-  Color? get disabledActiveTrackColor => _colors.onSurface.withOpacity(0.38);
-
-  @override
-  Color? get disabledInactiveTrackColor => _colors.onSurface.withOpacity(0.12);
-
-  @override
-  Color? get disabledSecondaryActiveTrackColor => _colors.onSurface.withOpacity(0.12);
-
-  @override
-  Color? get activeTickMarkColor => _colors.onPrimary.withOpacity(0.38);
-
-  @override
-  Color? get inactiveTickMarkColor => _colors.onSurfaceVariant.withOpacity(0.38);
-
-  @override
-  Color? get disabledActiveTickMarkColor => _colors.onSurface.withOpacity(0.38);
-
-  @override
-  Color? get disabledInactiveTickMarkColor => _colors.onSurface.withOpacity(0.38);
-
-  @override
-  Color? get thumbColor => _colors.primary;
-
-  @override
-  Color? get disabledThumbColor => Color.alphaBlend(_colors.onSurface.withOpacity(0.38), _colors.surface);
-
-  @override
-  Color? get overlayColor => WidgetStateColor.resolveWith((states) {
-    if (states.contains(WidgetState.dragged)) {
-      return _colors.primary.withOpacity(0.1);
-    }
-    if (states.contains(WidgetState.hovered)) {
-      return _colors.primary.withOpacity(0.08);
-    }
-    if (states.contains(WidgetState.focused)) {
-      return _colors.primary.withOpacity(0.1);
-    }
-
-    return Colors.transparent;
-  });
-
-  @override
-  TextStyle? get valueIndicatorTextStyle => Theme.of(context).textTheme.labelMedium!.copyWith(color: _colors.onPrimary);
-
-  @override
-  Color? get valueIndicatorColor => _colors.primary;
-
-  @override
-  SliderComponentShape? get valueIndicatorShape => const DropSliderValueIndicatorShape();
-
-  @override
-  SliderComponentShape? get thumbShape => const RoundSliderThumbShape();
-
-  @override
-  SliderTrackShape? get trackShape => const RoundedRectSliderTrackShape();
-
-  @override
-  SliderComponentShape? get overlayShape => const RoundSliderOverlayShape();
-
-  @override
-  SliderTickMarkShape? get tickMarkShape => const RoundSliderTickMarkShape();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<BuildContext>('context', context));
   }
 }
 

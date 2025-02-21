@@ -142,7 +142,7 @@ class ColorScheme with Diagnosticable {
 
   const ColorScheme.light({
     this.brightness = Brightness.light,
-    this.primary = const Color(0xff6200ee),
+    this.primary = Colors.blue,
     this.onPrimary = Colors.white,
     Color? primaryContainer,
     Color? onPrimaryContainer,

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 
@@ -194,13 +193,12 @@ class Typography with Diagnosticable {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     final Typography defaultTypography = Typography.material2014();
-    properties.add(DiagnosticsProperty<TextTheme>('black', black, defaultValue: defaultTypography.black));
-    properties.add(DiagnosticsProperty<TextTheme>('white', white, defaultValue: defaultTypography.white));
-    properties.add(
-      DiagnosticsProperty<TextTheme>('englishLike', englishLike, defaultValue: defaultTypography.englishLike),
-    );
-    properties.add(DiagnosticsProperty<TextTheme>('dense', dense, defaultValue: defaultTypography.dense));
-    properties.add(DiagnosticsProperty<TextTheme>('tall', tall, defaultValue: defaultTypography.tall));
+    properties
+      ..add(DiagnosticsProperty<TextTheme>('black', black, defaultValue: defaultTypography.black))
+      ..add(DiagnosticsProperty<TextTheme>('white', white, defaultValue: defaultTypography.white))
+      ..add(DiagnosticsProperty<TextTheme>('englishLike', englishLike, defaultValue: defaultTypography.englishLike))
+      ..add(DiagnosticsProperty<TextTheme>('dense', dense, defaultValue: defaultTypography.dense))
+      ..add(DiagnosticsProperty<TextTheme>('tall', tall, defaultValue: defaultTypography.tall));
   }
 
   static const TextTheme blackMountainView = TextTheme(

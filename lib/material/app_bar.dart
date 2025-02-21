@@ -567,7 +567,7 @@ class _AppBarState extends State<AppBar> {
           elevation: effectiveElevation,
           type: widget.forceMaterialTransparency ? MaterialType.transparency : MaterialType.canvas,
           shadowColor: widget.shadowColor ?? appBarTheme.shadowColor ?? defaults.shadowColor,
-          surfaceTintColor: widget.surfaceTintColor ?? appBarTheme.surfaceTintColor ?? theme.colorScheme.surfaceTint,
+          // surfaceTintColor: widget.surfaceTintColor ?? appBarTheme.surfaceTintColor ?? theme.colorScheme.surfaceTint,
           shape: widget.shape ?? appBarTheme.shape ?? defaults.shape,
           child: Semantics(explicitChildNodes: true, child: appBar),
         ),
@@ -1015,38 +1015,39 @@ class SliverAppBar extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('automaticallyImplyLeading', automaticallyImplyLeading));
-    properties.add(DoubleProperty('elevation', elevation));
-    properties.add(DoubleProperty('scrolledUnderElevation', scrolledUnderElevation));
-    properties.add(ColorProperty('shadowColor', shadowColor));
-    properties.add(ColorProperty('surfaceTintColor', surfaceTintColor));
-    properties.add(DiagnosticsProperty<bool>('forceElevated', forceElevated));
-    properties.add(ColorProperty('backgroundColor', backgroundColor));
-    properties.add(ColorProperty('foregroundColor', foregroundColor));
-    properties.add(DiagnosticsProperty<IconThemeData?>('iconTheme', iconTheme));
-    properties.add(DiagnosticsProperty<IconThemeData?>('actionsIconTheme', actionsIconTheme));
-    properties.add(DiagnosticsProperty<bool>('primary', primary));
-    properties.add(DiagnosticsProperty<bool?>('centerTitle', centerTitle));
-    properties.add(DiagnosticsProperty<bool>('excludeHeaderSemantics', excludeHeaderSemantics));
-    properties.add(DoubleProperty('titleSpacing', titleSpacing));
-    properties.add(DoubleProperty('collapsedHeight', collapsedHeight));
-    properties.add(DoubleProperty('expandedHeight', expandedHeight));
-    properties.add(DiagnosticsProperty<bool>('floating', floating));
-    properties.add(DiagnosticsProperty<bool>('pinned', pinned));
-    properties.add(DiagnosticsProperty<ShapeBorder?>('shape', shape));
-    properties.add(DiagnosticsProperty<bool>('snap', snap));
-    properties.add(DiagnosticsProperty<bool>('stretch', stretch));
-    properties.add(DoubleProperty('stretchTriggerOffset', stretchTriggerOffset));
-    properties.add(ObjectFlagProperty<AsyncCallback?>.has('onStretchTrigger', onStretchTrigger));
-    properties.add(DoubleProperty('toolbarHeight', toolbarHeight));
-    properties.add(DoubleProperty('leadingWidth', leadingWidth));
-    properties.add(DiagnosticsProperty<TextStyle?>('toolbarTextStyle', toolbarTextStyle));
-    properties.add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle));
-    properties.add(DiagnosticsProperty<SystemUiOverlayStyle?>('systemOverlayStyle', systemOverlayStyle));
-    properties.add(DiagnosticsProperty<bool>('forceMaterialTransparency', forceMaterialTransparency));
-    properties.add(DiagnosticsProperty<bool>('useDefaultSemanticsOrder', useDefaultSemanticsOrder));
-    properties.add(EnumProperty<Clip?>('clipBehavior', clipBehavior));
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry?>('actionsPadding', actionsPadding));
+    properties
+      ..add(DiagnosticsProperty<bool>('automaticallyImplyLeading', automaticallyImplyLeading))
+      ..add(DoubleProperty('elevation', elevation))
+      ..add(DoubleProperty('scrolledUnderElevation', scrolledUnderElevation))
+      ..add(ColorProperty('shadowColor', shadowColor))
+      ..add(ColorProperty('surfaceTintColor', surfaceTintColor))
+      ..add(DiagnosticsProperty<bool>('forceElevated', forceElevated))
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(ColorProperty('foregroundColor', foregroundColor))
+      ..add(DiagnosticsProperty<IconThemeData?>('iconTheme', iconTheme))
+      ..add(DiagnosticsProperty<IconThemeData?>('actionsIconTheme', actionsIconTheme))
+      ..add(DiagnosticsProperty<bool>('primary', primary))
+      ..add(DiagnosticsProperty<bool?>('centerTitle', centerTitle))
+      ..add(DiagnosticsProperty<bool>('excludeHeaderSemantics', excludeHeaderSemantics))
+      ..add(DoubleProperty('titleSpacing', titleSpacing))
+      ..add(DoubleProperty('collapsedHeight', collapsedHeight))
+      ..add(DoubleProperty('expandedHeight', expandedHeight))
+      ..add(DiagnosticsProperty<bool>('floating', floating))
+      ..add(DiagnosticsProperty<bool>('pinned', pinned))
+      ..add(DiagnosticsProperty<ShapeBorder?>('shape', shape))
+      ..add(DiagnosticsProperty<bool>('snap', snap))
+      ..add(DiagnosticsProperty<bool>('stretch', stretch))
+      ..add(DoubleProperty('stretchTriggerOffset', stretchTriggerOffset))
+      ..add(ObjectFlagProperty<AsyncCallback?>.has('onStretchTrigger', onStretchTrigger))
+      ..add(DoubleProperty('toolbarHeight', toolbarHeight))
+      ..add(DoubleProperty('leadingWidth', leadingWidth))
+      ..add(DiagnosticsProperty<TextStyle?>('toolbarTextStyle', toolbarTextStyle))
+      ..add(DiagnosticsProperty<TextStyle?>('titleTextStyle', titleTextStyle))
+      ..add(DiagnosticsProperty<SystemUiOverlayStyle?>('systemOverlayStyle', systemOverlayStyle))
+      ..add(DiagnosticsProperty<bool>('forceMaterialTransparency', forceMaterialTransparency))
+      ..add(DiagnosticsProperty<bool>('useDefaultSemanticsOrder', useDefaultSemanticsOrder))
+      ..add(EnumProperty<Clip?>('clipBehavior', clipBehavior))
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry?>('actionsPadding', actionsPadding));
   }
 }
 
