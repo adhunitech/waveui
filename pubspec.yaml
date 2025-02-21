@@ -8,13 +8,13 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  collection: any
   flutter:
     sdk: flutter
 
-  vector_math: any
-  collection: any
-  material_color_utilities: any
   freezed_annotation: ^2.4.4
+  material_color_utilities: any
+  vector_math: any
 dev_dependencies:
   better_lints: ^1.0.4
   build_runner: ^2.4.15
