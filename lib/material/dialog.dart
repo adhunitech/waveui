@@ -2,14 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' show SemanticsRole, clampDouble, lerpDouble;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-
-import 'package:waveui/material/theme.dart' show ThemeData;
-import 'package:waveui/material/theme_data.dart' show ThemeData;
 
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
@@ -20,8 +16,6 @@ import 'package:waveui/material/material.dart';
 import 'package:waveui/material/material_localizations.dart';
 import 'package:waveui/src/theme/text_theme.dart';
 import 'package:waveui/material/theme.dart';
-import 'package:waveui/material/theme_data.dart';
-import 'package:waveui/waveui.dart' show ThemeData;
 
 // Examples can assume:
 // enum Department { treasury, state }
@@ -768,6 +762,7 @@ Future<T?> showDialog<T>({
   RouteSettings? routeSettings,
   Offset? anchorPoint,
   TraversalEdgeBehavior? traversalEdgeBehavior,
+  bool? requestFocus,
 }) {
   assert(_debugIsActive(context));
   assert(debugCheckHasMaterialLocalizations(context));
@@ -793,6 +788,7 @@ Future<T?> showDialog<T>({
       themes: themes,
       anchorPoint: anchorPoint,
       traversalEdgeBehavior: traversalEdgeBehavior ?? TraversalEdgeBehavior.closedLoop,
+      requestFocus: requestFocus,
     ),
   );
 }
@@ -808,6 +804,7 @@ Future<T?> showAdaptiveDialog<T>({
   RouteSettings? routeSettings,
   Offset? anchorPoint,
   TraversalEdgeBehavior? traversalEdgeBehavior,
+  bool? requestFocus,
 }) {
   final ThemeData theme = Theme.of(context);
   switch (theme.platform) {
@@ -826,6 +823,7 @@ Future<T?> showAdaptiveDialog<T>({
         routeSettings: routeSettings,
         anchorPoint: anchorPoint,
         traversalEdgeBehavior: traversalEdgeBehavior,
+        requestFocus: requestFocus,
       );
     case TargetPlatform.iOS:
     case TargetPlatform.macOS:
@@ -837,6 +835,7 @@ Future<T?> showAdaptiveDialog<T>({
         useRootNavigator: useRootNavigator,
         anchorPoint: anchorPoint,
         routeSettings: routeSettings,
+        requestFocus: requestFocus,
       );
   }
 }
