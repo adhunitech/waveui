@@ -20,12 +20,7 @@ class Theme extends StatelessWidget {
     final _InheritedTheme? inheritedTheme = context.dependOnInheritedWidgetOfExactType<_InheritedTheme>();
     final localizations = Localizations.of<MaterialLocalizations>(context, MaterialLocalizations);
     final category = localizations?.scriptCategory ?? ScriptCategory.englishLike;
-    final inheritedCupertinoTheme = context.dependOnInheritedWidgetOfExactType<InheritedCupertinoTheme>();
-    final theme =
-        inheritedTheme?.theme.data ??
-        (inheritedCupertinoTheme != null
-            ? CupertinoBasedMaterialThemeData(themeData: inheritedCupertinoTheme.theme.data).materialTheme
-            : _kFallbackTheme);
+    final theme = inheritedTheme?.theme.data ?? _kFallbackTheme;
     return ThemeData.localize(theme, theme.typography.geometryThemeFor(category));
   }
 

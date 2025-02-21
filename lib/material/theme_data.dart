@@ -114,7 +114,6 @@ class ThemeData with Diagnosticable {
     // COLOR
     ColorScheme? colorScheme,
     Brightness? brightness,
-    Color? colorSchemeSeed,
     // [colorScheme] is the preferred way to configure colors. The [Color] properties
     // listed below (as well as primarySwatch) will gradually be phased out, see
     // https://github.com/flutter/flutter/issues/91772.
@@ -236,28 +235,9 @@ class ThemeData with Diagnosticable {
       'Either override ColorScheme.brightness or ThemeData.brightness to '
       'match the other.',
     );
-    assert(colorSchemeSeed == null || colorScheme == null);
-    assert(colorSchemeSeed == null || primarySwatch == null);
-    assert(colorSchemeSeed == null || primaryColor == null);
     final Brightness effectiveBrightness = brightness ?? colorScheme?.brightness ?? Brightness.light;
     final bool isDark = effectiveBrightness == Brightness.dark;
-    if (colorSchemeSeed != null) {
-      colorScheme = ColorScheme.fromSeed(seedColor: colorSchemeSeed, brightness: effectiveBrightness);
 
-      // For surfaces that use primary color in light themes and surface color in dark
-      final Color primarySurfaceColor = isDark ? colorScheme.surface : colorScheme.primary;
-      final Color onPrimarySurfaceColor = isDark ? colorScheme.onSurface : colorScheme.onPrimary;
-
-      // Default some of the color settings to values from the color scheme
-      primaryColor ??= primarySurfaceColor;
-      canvasColor ??= colorScheme.surface;
-      scaffoldBackgroundColor ??= colorScheme.surface;
-      cardColor ??= colorScheme.surface;
-      dividerColor ??= colorScheme.outline;
-      dialogBackgroundColor ??= colorScheme.surface;
-      indicatorColor ??= onPrimarySurfaceColor;
-      applyElevationOverlayColor ??= brightness == Brightness.dark;
-    }
     applyElevationOverlayColor ??= false;
     primarySwatch ??= Colors.blue;
     primaryColor ??= isDark ? Colors.grey[900]! : primarySwatch;
@@ -1994,20 +1974,6 @@ class MaterialBasedCupertinoThemeData extends CupertinoThemeData {
     // If the color comes from the material theme it's not resolved.
     return MaterialBasedCupertinoThemeData._(_materialTheme, _cupertinoOverrideTheme.resolveFrom(context));
   }
-}
-
-class CupertinoBasedMaterialThemeData {
-  CupertinoBasedMaterialThemeData({required CupertinoThemeData themeData})
-    : materialTheme = ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: themeData.primaryColor,
-          brightness: themeData.brightness ?? Brightness.light,
-          primary: themeData.primaryColor,
-          onPrimary: themeData.primaryContrastingColor,
-        ),
-      );
-
-  final ThemeData materialTheme;
 }
 
 @immutable

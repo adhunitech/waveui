@@ -8,6 +8,8 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      MaterialApp(theme: ThemeData.dark(), home: Scaffold(body: Center(child: Text('Hello World!'))));
+  Widget build(BuildContext context) => MaterialApp(
+    theme: ThemeData.from(colorScheme: const ColorScheme.light()),
+    home: const Scaffold(body: Center(child: Text('Hello World!'))),
+  );
 }

@@ -7,8 +7,6 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:waveui/material/theme.dart' show ThemeData;
-import 'package:waveui/material/theme_data.dart' show ThemeData;
 
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
@@ -24,7 +22,6 @@ import 'package:waveui/material/material_state.dart';
 import 'package:waveui/src/theme/text_theme.dart';
 import 'package:waveui/material/theme.dart';
 import 'package:waveui/material/theme_data.dart';
-import 'package:waveui/waveui.dart' show ThemeData;
 
 // Examples can assume:
 // int _act = 1;
@@ -372,64 +369,70 @@ class ListTile extends StatelessWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(
-      FlagProperty(
-        'isThreeLine',
-        value: isThreeLine,
-        ifTrue: 'THREE_LINE',
-        ifFalse: 'TWO_LINE',
-        showName: true,
-        defaultValue: false,
-      ),
-    );
-    properties.add(FlagProperty('dense', value: dense, ifTrue: 'true', ifFalse: 'false', showName: true));
-    properties.add(DiagnosticsProperty<VisualDensity>('visualDensity', visualDensity, defaultValue: null));
-    properties.add(DiagnosticsProperty<ShapeBorder>('shape', shape, defaultValue: null));
-    properties.add(DiagnosticsProperty<ListTileStyle>('style', style, defaultValue: null));
-    properties.add(ColorProperty('selectedColor', selectedColor, defaultValue: null));
-    properties.add(ColorProperty('iconColor', iconColor, defaultValue: null));
-    properties.add(ColorProperty('textColor', textColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<TextStyle>('titleTextStyle', titleTextStyle, defaultValue: null));
-    properties.add(DiagnosticsProperty<TextStyle>('subtitleTextStyle', subtitleTextStyle, defaultValue: null));
-    properties.add(
-      DiagnosticsProperty<TextStyle>('leadingAndTrailingTextStyle', leadingAndTrailingTextStyle, defaultValue: null),
-    );
-    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('contentPadding', contentPadding, defaultValue: null));
-    properties.add(
-      FlagProperty('enabled', value: enabled, ifTrue: 'true', ifFalse: 'false', showName: true, defaultValue: true),
-    );
-    properties.add(DiagnosticsProperty<Function>('onTap', onTap, defaultValue: null));
-    properties.add(DiagnosticsProperty<Function>('onLongPress', onLongPress, defaultValue: null));
-    properties.add(DiagnosticsProperty<MouseCursor>('mouseCursor', mouseCursor, defaultValue: null));
-    properties.add(
-      FlagProperty('selected', value: selected, ifTrue: 'true', ifFalse: 'false', showName: true, defaultValue: false),
-    );
-    properties.add(ColorProperty('focusColor', focusColor, defaultValue: null));
-    properties.add(ColorProperty('hoverColor', hoverColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<FocusNode>('focusNode', focusNode, defaultValue: null));
-    properties.add(
-      FlagProperty(
-        'autofocus',
-        value: autofocus,
-        ifTrue: 'true',
-        ifFalse: 'false',
-        showName: true,
-        defaultValue: false,
-      ),
-    );
-    properties.add(ColorProperty('tileColor', tileColor, defaultValue: null));
-    properties.add(ColorProperty('selectedTileColor', selectedTileColor, defaultValue: null));
-    properties.add(
-      FlagProperty('enableFeedback', value: enableFeedback, ifTrue: 'true', ifFalse: 'false', showName: true),
-    );
-    properties.add(DoubleProperty('horizontalTitleGap', horizontalTitleGap, defaultValue: null));
-    properties.add(DoubleProperty('minVerticalPadding', minVerticalPadding, defaultValue: null));
-    properties.add(DoubleProperty('minLeadingWidth', minLeadingWidth, defaultValue: null));
-    properties.add(DiagnosticsProperty<ListTileTitleAlignment>('titleAlignment', titleAlignment, defaultValue: null));
-    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onFocusChange', onFocusChange));
-    properties.add(ColorProperty('splashColor', splashColor));
-    properties.add(DoubleProperty('minTileHeight', minTileHeight));
-    properties.add(DiagnosticsProperty<bool>('internalAddSemanticForOnTap', internalAddSemanticForOnTap));
+    properties
+      ..add(
+        FlagProperty(
+          'isThreeLine',
+          value: isThreeLine,
+          ifTrue: 'THREE_LINE',
+          ifFalse: 'TWO_LINE',
+          showName: true,
+          defaultValue: false,
+        ),
+      )
+      ..add(FlagProperty('dense', value: dense, ifTrue: 'true', ifFalse: 'false', showName: true))
+      ..add(DiagnosticsProperty<VisualDensity>('visualDensity', visualDensity, defaultValue: null))
+      ..add(DiagnosticsProperty<ShapeBorder>('shape', shape, defaultValue: null))
+      ..add(DiagnosticsProperty<ListTileStyle>('style', style, defaultValue: null))
+      ..add(ColorProperty('selectedColor', selectedColor, defaultValue: null))
+      ..add(ColorProperty('iconColor', iconColor, defaultValue: null))
+      ..add(ColorProperty('textColor', textColor, defaultValue: null))
+      ..add(DiagnosticsProperty<TextStyle>('titleTextStyle', titleTextStyle, defaultValue: null))
+      ..add(DiagnosticsProperty<TextStyle>('subtitleTextStyle', subtitleTextStyle, defaultValue: null))
+      ..add(
+        DiagnosticsProperty<TextStyle>('leadingAndTrailingTextStyle', leadingAndTrailingTextStyle, defaultValue: null),
+      )
+      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('contentPadding', contentPadding, defaultValue: null))
+      ..add(
+        FlagProperty('enabled', value: enabled, ifTrue: 'true', ifFalse: 'false', showName: true, defaultValue: true),
+      )
+      ..add(DiagnosticsProperty<Function>('onTap', onTap, defaultValue: null))
+      ..add(DiagnosticsProperty<Function>('onLongPress', onLongPress, defaultValue: null))
+      ..add(DiagnosticsProperty<MouseCursor>('mouseCursor', mouseCursor, defaultValue: null))
+      ..add(
+        FlagProperty(
+          'selected',
+          value: selected,
+          ifTrue: 'true',
+          ifFalse: 'false',
+          showName: true,
+          defaultValue: false,
+        ),
+      )
+      ..add(ColorProperty('focusColor', focusColor, defaultValue: null))
+      ..add(ColorProperty('hoverColor', hoverColor, defaultValue: null))
+      ..add(DiagnosticsProperty<FocusNode>('focusNode', focusNode, defaultValue: null))
+      ..add(
+        FlagProperty(
+          'autofocus',
+          value: autofocus,
+          ifTrue: 'true',
+          ifFalse: 'false',
+          showName: true,
+          defaultValue: false,
+        ),
+      )
+      ..add(ColorProperty('tileColor', tileColor, defaultValue: null))
+      ..add(ColorProperty('selectedTileColor', selectedTileColor, defaultValue: null))
+      ..add(FlagProperty('enableFeedback', value: enableFeedback, ifTrue: 'true', ifFalse: 'false', showName: true))
+      ..add(DoubleProperty('horizontalTitleGap', horizontalTitleGap, defaultValue: null))
+      ..add(DoubleProperty('minVerticalPadding', minVerticalPadding, defaultValue: null))
+      ..add(DoubleProperty('minLeadingWidth', minLeadingWidth, defaultValue: null))
+      ..add(DiagnosticsProperty<ListTileTitleAlignment>('titleAlignment', titleAlignment, defaultValue: null))
+      ..add(ObjectFlagProperty<ValueChanged<bool>?>.has('onFocusChange', onFocusChange))
+      ..add(ColorProperty('splashColor', splashColor))
+      ..add(DoubleProperty('minTileHeight', minTileHeight))
+      ..add(DiagnosticsProperty<bool>('internalAddSemanticForOnTap', internalAddSemanticForOnTap));
   }
 }
 
@@ -969,8 +972,9 @@ class _RenderListTile extends RenderBox with SlottedContainerRenderObjectMixin<_
     properties.add(DiagnosticsProperty<RenderBox?>('leading', leading));
     properties.add(DiagnosticsProperty<RenderBox>('title', title));
     properties.add(DiagnosticsProperty<RenderBox?>('subtitle', subtitle));
-    properties.add(DiagnosticsProperty<RenderBox?>('trailing', trailing));
-    properties.add(DiagnosticsProperty<bool>('isDense', isDense));
+    properties
+      ..add(DiagnosticsProperty<RenderBox?>('trailing', trailing))
+      ..add(DiagnosticsProperty<bool>('isDense', isDense));
     properties.add(DiagnosticsProperty<VisualDensity>('visualDensity', visualDensity));
     properties.add(DiagnosticsProperty<bool>('isThreeLine', isThreeLine));
     properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
