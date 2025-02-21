@@ -2,12 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-
 
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/material.dart';
@@ -232,7 +230,6 @@ class LinearProgressIndicator extends ProgressIndicator {
     this.year2023,
   }) : assert(minHeight == null || minHeight > 0);
 
-
   final double? minHeight;
 
   final BorderRadiusGeometry? borderRadius;
@@ -425,7 +422,7 @@ class _CircularProgressIndicatorPainter extends CustomPainter {
             ..strokeCap = strokeCap ?? StrokeCap.round
             ..style = PaintingStyle.stroke;
       // If hasGap is true, draw the background arc with a gap.
-      if (hasGap && value! > _epsilon) {
+      if (hasGap && value != null && value! > _epsilon) {
         final double arcRadius = arcActualSize.shortestSide / 2;
         final double strokeRadius = strokeWidth / arcRadius;
         final double gapRadius = trackGap! / arcRadius;
@@ -521,7 +518,6 @@ class CircularProgressIndicator extends ProgressIndicator {
   }) : _indicatorType = _ActivityIndicatorType.adaptive;
 
   final _ActivityIndicatorType _indicatorType;
-
 
   final double? strokeWidth;
 
@@ -784,7 +780,6 @@ class RefreshProgressIndicator extends CircularProgressIndicator {
   final EdgeInsetsGeometry indicatorPadding;
 
   static const double defaultStrokeWidth = 2.5;
-
 
   @override
   State<CircularProgressIndicator> createState() => _RefreshProgressIndicatorState();

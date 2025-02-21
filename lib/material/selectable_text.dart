@@ -1,8 +1,3 @@
-// Copyright 2014 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/cupertino.dart';
@@ -11,15 +6,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 
-import 'package:waveui/material/adaptive_text_selection_toolbar.dart';
-import 'package:waveui/material/desktop_text_selection.dart';
-import 'package:waveui/material/magnifier.dart';
-import 'package:waveui/material/text_selection.dart';
-import 'package:waveui/material/theme.dart';
-
-// Examples can assume:
-// late BuildContext context;
-// late FocusNode myFocusNode;
+import 'adaptive_text_selection_toolbar.dart';
+import 'desktop_text_selection.dart';
+import 'magnifier.dart';
+import 'text_selection.dart';
+import 'theme.dart';
 
 const int iOSHorizontalOffset = -2;
 
@@ -31,14 +22,12 @@ class _TextSpanEditingController extends TextEditingController {
   final TextSpan _textSpan;
 
   @override
-  TextSpan buildTextSpan({required BuildContext context, required bool withComposing, TextStyle? style}) {
-    // This does not care about composing.
+  TextSpan buildTextSpan({required BuildContext context, TextStyle? style, required bool withComposing}) {
     return TextSpan(style: style, children: <TextSpan>[_textSpan]);
   }
 
   @override
   set text(String? newText) {
-    // This should never be reached.
     throw UnimplementedError();
   }
 }
@@ -89,6 +78,7 @@ class SelectableText extends StatefulWidget {
     this.cursorHeight,
     this.cursorRadius,
     this.cursorColor,
+    this.selectionColor,
     this.selectionHeightStyle = ui.BoxHeightStyle.tight,
     this.selectionWidthStyle = ui.BoxWidthStyle.tight,
     this.dragStartBehavior = DragStartBehavior.start,
@@ -143,6 +133,7 @@ class SelectableText extends StatefulWidget {
     this.cursorHeight,
     this.cursorRadius,
     this.cursorColor,
+    this.selectionColor,
     this.selectionHeightStyle = ui.BoxHeightStyle.tight,
     this.selectionWidthStyle = ui.BoxWidthStyle.tight,
     this.dragStartBehavior = DragStartBehavior.start,
@@ -208,6 +199,8 @@ class SelectableText extends StatefulWidget {
 
   final Color? cursorColor;
 
+  final Color? selectionColor;
+
   final ui.BoxHeightStyle selectionHeightStyle;
 
   final ui.BoxWidthStyle selectionWidthStyle;
@@ -242,8 +235,9 @@ class SelectableText extends StatefulWidget {
 
   final EditableTextContextMenuBuilder? contextMenuBuilder;
 
-  static Widget _defaultContextMenuBuilder(BuildContext context, EditableTextState editableTextState) =>
-      AdaptiveTextSelectionToolbar.editableText(editableTextState: editableTextState);
+  static Widget _defaultContextMenuBuilder(BuildContext context, EditableTextState editableTextState) {
+    return AdaptiveTextSelectionToolbar.editableText(editableTextState: editableTextState);
+  }
 
   final TextMagnifierConfiguration? magnifierConfiguration;
 
@@ -269,6 +263,7 @@ class SelectableText extends StatefulWidget {
     properties.add(DoubleProperty('cursorHeight', cursorHeight, defaultValue: null));
     properties.add(DiagnosticsProperty<Radius>('cursorRadius', cursorRadius, defaultValue: null));
     properties.add(DiagnosticsProperty<Color>('cursorColor', cursorColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color>('selectionColor', selectionColor, defaultValue: null));
     properties.add(
       FlagProperty('selectionEnabled', value: selectionEnabled, defaultValue: true, ifFalse: 'selection disabled'),
     );
@@ -280,18 +275,6 @@ class SelectableText extends StatefulWidget {
     properties.add(
       DiagnosticsProperty<TextHeightBehavior>('textHeightBehavior', textHeightBehavior, defaultValue: null),
     );
-    properties.add(DiagnosticsProperty<TextSpan?>('textSpan', textSpan));
-    properties.add(DiagnosticsProperty<StrutStyle?>('strutStyle', strutStyle));
-    properties.add(EnumProperty<ui.BoxHeightStyle>('selectionHeightStyle', selectionHeightStyle));
-    properties.add(EnumProperty<ui.BoxWidthStyle>('selectionWidthStyle', selectionWidthStyle));
-    properties.add(DiagnosticsProperty<bool>('enableInteractiveSelection', enableInteractiveSelection));
-    properties.add(EnumProperty<DragStartBehavior>('dragStartBehavior', dragStartBehavior));
-    properties.add(DiagnosticsProperty<ToolbarOptions?>('toolbarOptions', toolbarOptions));
-    properties.add(ObjectFlagProperty<GestureTapCallback?>.has('onTap', onTap));
-    properties.add(EnumProperty<TextWidthBasis?>('textWidthBasis', textWidthBasis));
-    properties.add(ObjectFlagProperty<SelectionChangedCallback?>.has('onSelectionChanged', onSelectionChanged));
-    properties.add(ObjectFlagProperty<EditableTextContextMenuBuilder?>.has('contextMenuBuilder', contextMenuBuilder));
-    properties.add(DiagnosticsProperty<TextMagnifierConfiguration?>('magnifierConfiguration', magnifierConfiguration));
   }
 }
 
@@ -307,7 +290,6 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
 
   late _SelectableTextSelectionGestureDetectorBuilder _selectionGestureDetectorBuilder;
 
-  // API for TextSelectionGestureDetectorBuilderDelegate.
   @override
   late bool forcePressEnabled;
 
@@ -316,7 +298,6 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
 
   @override
   bool get selectionEnabled => widget.selectionEnabled;
-  // End of API for TextSelectionGestureDetectorBuilderDelegate.
 
   @override
   void initState() {
@@ -367,13 +348,6 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
 
   void _handleFocusChanged() {
     if (!_effectiveFocusNode.hasFocus && SchedulerBinding.instance.lifecycleState == AppLifecycleState.resumed) {
-      // We should only clear the selection when this SelectableText loses
-      // focus while the application is currently running. It is possible
-      // that the application is not currently running, for example on desktop
-      // platforms, clicking on a different window switches the focus to
-      // the new window causing the Flutter application to go inactive. In this
-      // case we want to retain the selection so it remains when we return to
-      // the Flutter application.
       _controller.value = TextEditingValue(text: _controller.value.text);
     }
   }
@@ -399,7 +373,6 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
       case TargetPlatform.windows:
-      // Do nothing.
     }
   }
 
@@ -410,8 +383,6 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
   }
 
   bool _shouldShowSelectionHandles(SelectionChangedCause? cause) {
-    // When the text field is activated by something that doesn't trigger the
-    // selection overlay, we shouldn't show the handles either.
     if (!_selectionGestureDetectorBuilder.shouldShowSelectionToolbar) {
       return false;
     }
@@ -437,11 +408,6 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
 
   @override
   Widget build(BuildContext context) {
-    // TODO(garyq): Assert to block WidgetSpans from being used here are removed,
-    // but we still do not yet have nice handling of things like carets, clipboard,
-    // and other features. We should add proper support. Currently, caret handling
-    // is blocked on SkParagraph switch and https://github.com/flutter/engine/pull/27010
-    // should be landed in SkParagraph after the switch is complete.
     assert(debugCheckHasMediaQuery(context));
     assert(debugCheckHasDirectionality(context));
     assert(
@@ -536,7 +502,7 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
         forceLine: false,
         minLines: widget.minLines,
         maxLines: widget.maxLines ?? defaultTextStyle.maxLines,
-        selectionColor: selectionColor,
+        selectionColor: widget.selectionColor ?? selectionColor,
         selectionControls: widget.selectionEnabled ? textSelectionControls : null,
         onSelectionChanged: _handleSelectionChanged,
         onSelectionHandleTapped: _handleSelectionHandleTapped,
