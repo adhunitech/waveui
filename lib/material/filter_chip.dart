@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart' show clampDouble;
 import 'package:flutter/rendering.dart';
 
@@ -288,13 +287,13 @@ class _FilterChipDefaultsM3 extends ChipThemeData {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected) && states.contains(WidgetState.disabled)) {
         return _chipVariant == _ChipVariant.flat
-          ? _colors.onSurface.withOpacity(0.12)
-          : _colors.onSurface.withOpacity(0.12);
+          ? _colors.onSurface.withValues(alpha:0.12)
+          : _colors.onSurface.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.disabled)) {
         return _chipVariant == _ChipVariant.flat
           ? null
-          : _colors.onSurface.withOpacity(0.12);
+          : _colors.onSurface.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.selected)) {
         return _chipVariant == _ChipVariant.flat
@@ -332,7 +331,7 @@ class _FilterChipDefaultsM3 extends ChipThemeData {
   BorderSide? get side => _chipVariant == _ChipVariant.flat && !isSelected
     ? isEnabled
       ? BorderSide(color: _colors.outlineVariant)
-      : BorderSide(color: _colors.onSurface.withOpacity(0.12))
+      : BorderSide(color: _colors.onSurface.withValues(alpha:0.12))
     : const BorderSide(color: Colors.transparent);
 
   @override

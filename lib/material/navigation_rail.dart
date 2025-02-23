@@ -414,14 +414,14 @@ class _RailDestinationState extends State<_RailDestination> {
     final Widget themedIcon = IconTheme(
       data:
           widget.disabled
-              ? widget.iconTheme.copyWith(color: theme.colorScheme.onSurface.withOpacity(0.38))
+              ? widget.iconTheme.copyWith(color: theme.colorScheme.onSurface.withValues(alpha: 0.38))
               : widget.iconTheme,
       child: widget.icon,
     );
     final Widget styledLabel = DefaultTextStyle(
       style:
           widget.disabled
-              ? widget.labelTextStyle.copyWith(color: theme.colorScheme.onSurface.withOpacity(0.38))
+              ? widget.labelTextStyle.copyWith(color: theme.colorScheme.onSurface.withValues(alpha: 0.38))
               : widget.labelTextStyle,
       child: widget.label,
     );
@@ -607,8 +607,10 @@ class _RailDestinationState extends State<_RailDestination> {
 
     final ColorScheme colors = Theme.of(context).colorScheme;
     final bool primaryColorAlphaModified = colors.primary.alpha < 255.0;
-    final Color effectiveSplashColor = primaryColorAlphaModified ? colors.primary : colors.primary.withOpacity(0.12);
-    final Color effectiveHoverColor = primaryColorAlphaModified ? colors.primary : colors.primary.withOpacity(0.04);
+    final Color effectiveSplashColor =
+        primaryColorAlphaModified ? colors.primary : colors.primary.withValues(alpha: 0.12);
+    final Color effectiveHoverColor =
+        primaryColorAlphaModified ? colors.primary : colors.primary.withValues(alpha: 0.04);
     return Semantics(
       container: true,
       selected: widget.selected,

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -610,7 +609,7 @@ class _MaterialSwitchState extends State<_MaterialSwitch> with TickerProviderSta
         switchTheme.overlayColor?.resolve(focusedStates) ??
         (applyCupertinoTheme
             ? HSLColor.fromColor(
-              cupertinoPrimaryColor.withOpacity(0.80),
+              cupertinoPrimaryColor.withValues(alpha: 0.80),
             ).withLightness(0.69).withSaturation(0.835).toColor()
             : null) ??
         defaults.overlayColor!.resolve(focusedStates)!;
@@ -1499,7 +1498,7 @@ class _SwitchDefaultsCupertino extends SwitchThemeData {
   WidgetStateProperty<Color?> get overlayColor => WidgetStateProperty.resolveWith((states) {
     if (states.contains(WidgetState.focused)) {
       return HSLColor.fromColor(
-        CupertinoDynamicColor.resolve(CupertinoColors.systemGreen, context).withOpacity(0.80),
+        CupertinoDynamicColor.resolve(CupertinoColors.systemGreen, context).withValues(alpha: 0.80),
       ).withLightness(0.69).withSaturation(0.835).toColor();
     }
     return Colors.transparent;
@@ -1526,7 +1525,7 @@ class _SwitchConfigCupertino with _SwitchConfig {
   @override
   WidgetStateProperty<Color> get iconColor => WidgetStateProperty.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return _colors.onSurface.withOpacity(0.38);
+      return _colors.onSurface.withValues(alpha: 0.38);
     }
     return _colors.onPrimaryContainer;
   });
@@ -1598,9 +1597,9 @@ class _SwitchDefaultsM3 extends SwitchThemeData {
   WidgetStateProperty<Color> get thumbColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
         if (states.contains(WidgetState.selected)) {
-          return _colors.surface.withOpacity(1.0);
+          return _colors.surface.withValues(alpha:1.0);
         }
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
@@ -1630,9 +1629,9 @@ class _SwitchDefaultsM3 extends SwitchThemeData {
   WidgetStateProperty<Color> get trackColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
         if (states.contains(WidgetState.selected)) {
-          return _colors.onSurface.withOpacity(0.12);
+          return _colors.onSurface.withValues(alpha:0.12);
         }
-        return _colors.surfaceContainerHighest.withOpacity(0.12);
+        return _colors.surfaceContainerHighest.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
@@ -1664,7 +1663,7 @@ class _SwitchDefaultsM3 extends SwitchThemeData {
         return Colors.transparent;
       }
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.12);
+        return _colors.onSurface.withValues(alpha:0.12);
       }
       return _colors.outline;
     });
@@ -1673,24 +1672,24 @@ class _SwitchDefaultsM3 extends SwitchThemeData {
   WidgetStateProperty<Color?> get overlayColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.primary.withOpacity(0.08);
+          return _colors.primary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
         return null;
       }
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onSurface.withOpacity(0.1);
+        return _colors.onSurface.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onSurface.withOpacity(0.08);
+        return _colors.onSurface.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onSurface.withOpacity(0.1);
+        return _colors.onSurface.withValues(alpha:0.1);
       }
       return null;
     });
@@ -1731,9 +1730,9 @@ class _SwitchConfigM3 with _SwitchConfig {
   WidgetStateProperty<Color> get iconColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
         if (states.contains(WidgetState.selected)) {
-          return _colors.onSurface.withOpacity(0.38);
+          return _colors.onSurface.withValues(alpha:0.38);
         }
-        return _colors.surfaceContainerHighest.withOpacity(0.38);
+        return _colors.surfaceContainerHighest.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {

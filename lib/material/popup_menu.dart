@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/rendering.dart';
@@ -262,7 +261,6 @@ class CheckedPopupMenuItem<T> extends PopupMenuItem<T> {
   });
 
   final bool checked;
-
 
   @override
   PopupMenuItemState<T, CheckedPopupMenuItem<T>> createState() => _CheckedPopupMenuItemState<T>();
@@ -1091,7 +1089,7 @@ class _PopupMenuDefaultsM3 extends PopupMenuThemeData {
     // TODO(quncheng): Update this hard-coded value to use the latest tokens.
     final TextStyle style = _textTheme.labelLarge!;
       if (states.contains(WidgetState.disabled)) {
-        return style.apply(color: _colors.onSurface.withOpacity(0.38));
+        return style.apply(color: _colors.onSurface.withValues(alpha:0.38));
       }
       return style.apply(color: _colors.onSurface);
     });

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/foundation.dart';
@@ -116,9 +115,9 @@ class ElevatedButton extends ButtonStyleButton {
       (null, null) => null,
       (_, Color(a: 0.0)) => WidgetStatePropertyAll<Color?>(overlayColor),
       (_, final Color color) || (final Color color, _) => WidgetStateProperty<Color?>.fromMap(<WidgetState, Color?>{
-        WidgetState.pressed: color.withOpacity(0.1),
-        WidgetState.hovered: color.withOpacity(0.08),
-        WidgetState.focused: color.withOpacity(0.1),
+        WidgetState.pressed: color.withValues(alpha: 0.1),
+        WidgetState.hovered: color.withValues(alpha: 0.08),
+        WidgetState.focused: color.withValues(alpha: 0.1),
       }),
     };
 
@@ -292,7 +291,7 @@ class _ElevatedButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get backgroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.12);
+        return _colors.onSurface.withValues(alpha:0.12);
       }
       return _colors.surfaceContainerLow;
     });
@@ -301,7 +300,7 @@ class _ElevatedButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       return _colors.primary;
     });
@@ -310,13 +309,13 @@ class _ElevatedButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get overlayColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.pressed)) {
-        return _colors.primary.withOpacity(0.1);
+        return _colors.primary.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.primary.withOpacity(0.08);
+        return _colors.primary.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.primary.withOpacity(0.1);
+        return _colors.primary.withValues(alpha:0.1);
       }
       return null;
     });
@@ -364,7 +363,7 @@ class _ElevatedButtonDefaultsM3 extends ButtonStyle {
   @override
   WidgetStateProperty<Color>? get iconColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.pressed)) {
         return _colors.primary;

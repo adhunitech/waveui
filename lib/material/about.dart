@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart' hide Flow;
 
-import 'package:waveui/material/app_bar.dart';
+import 'package:waveui/src/widgets/app_bar/app_bar.dart';
 import 'package:waveui/material/back_button.dart';
 import 'package:waveui/material/card.dart';
 import 'package:waveui/material/constants.dart';

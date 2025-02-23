@@ -2,24 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart' show clampDouble;
 import 'package:flutter/rendering.dart';
 
 import 'package:flutter/widgets.dart';
-import 'package:waveui/material/theme.dart' show ThemeData;
-import 'package:waveui/material/theme_data.dart' show ThemeData;
 
 import 'package:waveui/material/chip.dart';
 import 'package:waveui/material/chip_theme.dart';
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
 import 'package:waveui/material/debug.dart';
-import 'package:waveui/material/material_state.dart';
 import 'package:waveui/src/theme/text_theme.dart';
 import 'package:waveui/material/theme.dart';
 import 'package:waveui/material/theme_data.dart';
-import 'package:waveui/waveui.dart' show ThemeData;
 
 enum _ChipVariant { flat, elevated }
 
@@ -258,13 +253,13 @@ class _ChoiceChipDefaultsM3 extends ChipThemeData {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected) && states.contains(WidgetState.disabled)) {
         return _chipVariant == _ChipVariant.flat
-          ? _colors.onSurface.withOpacity(0.12)
-          : _colors.onSurface.withOpacity(0.12);
+          ? _colors.onSurface.withValues(alpha:0.12)
+          : _colors.onSurface.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.disabled)) {
         return _chipVariant == _ChipVariant.flat
           ? null
-          : _colors.onSurface.withOpacity(0.12);
+          : _colors.onSurface.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.selected)) {
         return _chipVariant == _ChipVariant.flat
@@ -302,7 +297,7 @@ class _ChoiceChipDefaultsM3 extends ChipThemeData {
   BorderSide? get side => _chipVariant == _ChipVariant.flat && !isSelected
     ? isEnabled
       ? BorderSide(color: _colors.outlineVariant)
-      : BorderSide(color: _colors.onSurface.withOpacity(0.12))
+      : BorderSide(color: _colors.onSurface.withValues(alpha:0.12))
     : const BorderSide(color: Colors.transparent);
 
   @override

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 import 'dart:math';
 
@@ -874,7 +873,7 @@ class _SegmentedButtonDefaultsM3 extends SegmentedButtonThemeData {
       }),
       foregroundColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.disabled)) {
-          return _colors.onSurface.withOpacity(0.38);
+          return _colors.onSurface.withValues(alpha:0.38);
         }
         if (states.contains(WidgetState.selected)) {
           if (states.contains(WidgetState.pressed)) {
@@ -903,23 +902,23 @@ class _SegmentedButtonDefaultsM3 extends SegmentedButtonThemeData {
       overlayColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
           if (states.contains(WidgetState.pressed)) {
-            return _colors.onSecondaryContainer.withOpacity(0.1);
+            return _colors.onSecondaryContainer.withValues(alpha:0.1);
           }
           if (states.contains(WidgetState.hovered)) {
-            return _colors.onSecondaryContainer.withOpacity(0.08);
+            return _colors.onSecondaryContainer.withValues(alpha:0.08);
           }
           if (states.contains(WidgetState.focused)) {
-            return _colors.onSecondaryContainer.withOpacity(0.1);
+            return _colors.onSecondaryContainer.withValues(alpha:0.1);
           }
         } else {
           if (states.contains(WidgetState.pressed)) {
-            return _colors.onSurface.withOpacity(0.1);
+            return _colors.onSurface.withValues(alpha:0.1);
           }
           if (states.contains(WidgetState.hovered)) {
-            return _colors.onSurface.withOpacity(0.08);
+            return _colors.onSurface.withValues(alpha:0.08);
           }
           if (states.contains(WidgetState.focused)) {
-            return _colors.onSurface.withOpacity(0.1);
+            return _colors.onSurface.withValues(alpha:0.1);
           }
         }
         return null;
@@ -929,7 +928,7 @@ class _SegmentedButtonDefaultsM3 extends SegmentedButtonThemeData {
       iconSize: const WidgetStatePropertyAll<double?>(18.0),
       side: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.disabled)) {
-          return BorderSide(color: _colors.onSurface.withOpacity(0.12));
+          return BorderSide(color: _colors.onSurface.withValues(alpha:0.12));
         }
         return BorderSide(color: _colors.outline);
       }),
@@ -948,12 +947,12 @@ class _SegmentedButtonDefaultsM3 extends SegmentedButtonThemeData {
     final Color? unselected = overlayColor ?? unselectedColor;
     return WidgetStateProperty<Color?>.fromMap(
       <WidgetStatesConstraint, Color?>{
-        WidgetState.selected & WidgetState.pressed: selected?.withOpacity(0.1),
-        WidgetState.selected & WidgetState.hovered: selected?.withOpacity(0.08),
-        WidgetState.selected & WidgetState.focused: selected?.withOpacity(0.1),
-        WidgetState.pressed: unselected?.withOpacity(0.1),
-        WidgetState.hovered: unselected?.withOpacity(0.08),
-        WidgetState.focused: unselected?.withOpacity(0.1),
+        WidgetState.selected & WidgetState.pressed: selected?.withValues(alpha:0.1),
+        WidgetState.selected & WidgetState.hovered: selected?.withValues(alpha:0.08),
+        WidgetState.selected & WidgetState.focused: selected?.withValues(alpha:0.1),
+        WidgetState.pressed: unselected?.withValues(alpha:0.1),
+        WidgetState.hovered: unselected?.withValues(alpha:0.08),
+        WidgetState.focused: unselected?.withValues(alpha:0.1),
         WidgetState.any: Colors.transparent,
       },
     );

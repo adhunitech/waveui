@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
@@ -140,7 +139,7 @@ class _OpenUpwardsPageTransitionState extends State<_OpenUpwardsPageTransition> 
         animation: widget.animation,
         builder:
             (context, child) => ColoredBox(
-              color: Colors.black.withOpacity(opacityAnimation.value),
+              color: Colors.black.withValues(alpha: opacityAnimation.value),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: ClipRect(
@@ -1000,7 +999,7 @@ class _ZoomEnterTransitionPainter extends SnapshotPainter {
     }
     assert(!reverse || scrimOpacity == 0.0);
     if (scrimOpacity > 0.0) {
-      context.canvas.drawRect(offset & size, Paint()..color = backgroundColor.withOpacity(scrimOpacity));
+      context.canvas.drawRect(offset & size, Paint()..color = backgroundColor.withValues(alpha: scrimOpacity));
     }
   }
 
@@ -1195,7 +1194,7 @@ class _ZoomEnterTransitionNoCache extends StatelessWidget {
 
     return AnimatedBuilder(
       animation: animation,
-      builder: (context, child) => ColoredBox(color: Colors.black.withOpacity(opacity), child: child),
+      builder: (context, child) => ColoredBox(color: Colors.black.withValues(alpha: opacity), child: child),
       child: FadeTransition(
         opacity: fadeTransition,
         child: ScaleTransition(scale: scaleTransition, filterQuality: FilterQuality.medium, child: child),

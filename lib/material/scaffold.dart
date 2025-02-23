@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:async';
 import 'dart:collection';
 import 'dart:math' as math;
@@ -11,7 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
 import 'package:flutter/widgets.dart';
 
-import 'package:waveui/material/app_bar.dart';
+import 'package:waveui/src/widgets/app_bar/app_bar.dart';
 import 'package:waveui/material/banner.dart';
 import 'package:waveui/material/banner_theme.dart';
 import 'package:waveui/material/bottom_sheet.dart';
@@ -1579,7 +1578,7 @@ class ScaffoldState extends State<Scaffold> with TickerProviderStateMixin, Resto
       bottomSheetKey.currentState!.close();
       setState(() {
         _showBodyScrim = false;
-        _bodyScrimColor = Colors.black.withOpacity(0.0);
+        _bodyScrimColor = Colors.black.withValues(alpha: 0.0);
         _currentBottomSheet = null;
       });
 
@@ -1948,7 +1947,7 @@ class ScaffoldState extends State<Scaffold> with TickerProviderStateMixin, Resto
     }
     setState(() {
       _showBodyScrim = value;
-      _bodyScrimColor = Colors.black.withOpacity(opacity);
+      _bodyScrimColor = Colors.black.withValues(alpha: opacity);
     });
   }
 

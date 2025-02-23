@@ -1,137 +1,248 @@
 import 'package:waveui/waveui.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  Widget build(BuildContext context) => MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
+  State<MyApp> createState() => _MyAppState();
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.system;
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+  void _toggleTheme(bool isDark) {
+    setState(() {
+      _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    });
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Text(
-          'Scrollable AppBar with a very long title to test the scroll behavior. '
-          'Test the scrolling effect and check the behavior of material widgets!',
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-      bottom: TabBar(
-        controller: _tabController,
-        tabs: const [Tab(text: 'Tab 1'), Tab(text: 'Tab 2'), Tab(text: 'Tab 3')],
-      ),
-    ),
-    body: TabBarView(controller: _tabController, children: [TabContent1(), TabContent2(), TabContent3()]),
-    bottomNavigationBar: BottomAppBar(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
+  Widget build(BuildContext context) => MaterialApp(
+    title: 'Material 3 Widgets Demo',
+    theme: ThemeData.light(),
+    darkTheme: ThemeData.dark(),
+    themeMode: _themeMode,
+    home: Scaffold(
+      appBar: AppBar(
+        title: const Text('Material 3 Widgets Demo'),
+        actions: [
           IconButton(
-            icon: const Icon(Icons.home),
+            icon: const Icon(Icons.lightbulb),
             onPressed: () {
-              // Add functionality if needed
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // Add functionality if needed
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.account_circle),
-            onPressed: () {
-              // Add functionality if needed
+              _toggleTheme(_themeMode == ThemeMode.light);
             },
           ),
         ],
       ),
-    ),
-    floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        // Add functionality if needed
-      },
-      child: const Icon(Icons.add),
-    ),
-    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-  );
-}
-
-class TabContent1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => ListView(
-    padding: const EdgeInsets.all(16),
-    children: [
-      const Card(
-        elevation: 5,
-        child: ListTile(
-          leading: Icon(Icons.home),
-          title: Text('List Tile Example'),
-          subtitle: Text('This is an example of a ListTile inside a Card widget.'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            _buildSectionTitle('App Bars'),
+            _buildAppBarSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Buttons'),
+            _buildButtonSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Cards'),
+            _buildCardSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Text Fields'),
+            _buildTextFieldSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Switches'),
+            _buildSwitchSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Sliders'),
+            _buildSliderSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Chips'),
+            _buildChipSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Progress Indicators'),
+            _buildProgressIndicatorSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Dialogs'),
+            _buildDialogSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Containers'),
+            _buildContainerSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Lists'),
+            _buildListSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Navigation'),
+            _buildNavigationSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Animations'),
+            _buildAnimationSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Images'),
+            _buildImageSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Layouts'),
+            _buildLayoutSection(),
+            const SizedBox(height: 16),
+            _buildSectionTitle('Miscellaneous'),
+            _buildMiscellaneousSection(),
+          ],
         ),
       ),
-      const SizedBox(height: 20),
-      Container(
-        height: 150,
-        color: Colors.blueGrey,
-        child: const Center(child: Text('Container with a background color')),
+    ),
+  );
+
+  Widget _buildSectionTitle(String title) =>
+      Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+
+  Widget _buildAppBarSection() => Column(
+    children: [
+      AppBar(
+        title: const Text('AppBar Example'),
+        actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
+      ),
+      const SizedBox(height: 8),
+      const BottomAppBar(child: Center(child: Text('BottomAppBar Example'))),
+    ],
+  );
+
+  Widget _buildButtonSection() => Wrap(
+    spacing: 8,
+    children: [
+      ElevatedButton(onPressed: () {}, child: const Text('Elevated Button')),
+      FilledButton(onPressed: () {}, child: const Text('Filled Button')),
+      OutlinedButton(onPressed: () {}, child: const Text('Outlined Button')),
+      TextButton(onPressed: () {}, child: const Text('Text Button')),
+      IconButton(icon: const Icon(Icons.favorite), onPressed: () {}),
+      FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
+    ],
+  );
+
+  Widget _buildCardSection() => Card(
+    child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          const Text('This is a Material 3 Card'),
+          const SizedBox(height: 8),
+          ElevatedButton(onPressed: () {}, child: const Text('Action')),
+        ],
+      ),
+    ),
+  );
+
+  Widget _buildTextFieldSection() => const Column(
+    children: [
+      TextField(decoration: InputDecoration(labelText: 'Text Field', border: OutlineInputBorder())),
+      SizedBox(height: 8),
+      TextField(
+        decoration: InputDecoration(labelText: 'Filled Text Field', filled: true, border: OutlineInputBorder()),
       ),
     ],
   );
-}
 
-class TabContent2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => ListView(
-    padding: const EdgeInsets.all(16),
+  Widget _buildSwitchSection() => Row(children: [Switch(value: true, onChanged: (value) {}), const Text('Switch')]);
+
+  Widget _buildSliderSection() => Slider(value: 0.5, onChanged: (value) {});
+
+  Widget _buildChipSection() => Wrap(
+    spacing: 8,
     children: [
-      const Card(
-        elevation: 5,
-        child: ListTile(
-          leading: Icon(Icons.camera),
-          title: Text('Camera Tile'),
-          subtitle: Text('An example ListTile with a Camera icon.'),
-        ),
-      ),
-      const SizedBox(height: 20),
-      Container(height: 150, color: Colors.amber, child: const Center(child: Text('Another container with color'))),
+      Chip(label: const Text('Chip'), onDeleted: () {}),
+      InputChip(label: const Text('Input Chip'), onPressed: () {}),
+      FilterChip(label: const Text('Filter Chip'), onSelected: (value) {}),
+      ActionChip(label: const Text('Action Chip'), onPressed: () {}),
     ],
   );
-}
 
-class TabContent3 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => ListView(
-    padding: const EdgeInsets.all(16),
+  Widget _buildProgressIndicatorSection() =>
+      const Column(children: [LinearProgressIndicator(), SizedBox(height: 8), CircularProgressIndicator()]);
+
+  Widget _buildDialogSection() => ElevatedButton(
+    onPressed: () {
+      showDialog(
+        context: context,
+        builder:
+            (context) => AlertDialog(
+              title: const Text('AlertDialog'),
+              content: const Text('This is an AlertDialog.'),
+              actions: [TextButton(onPressed: () {}, child: const Text('OK'))],
+            ),
+      );
+    },
+    child: const Text('Show AlertDialog'),
+  );
+
+  Widget _buildContainerSection() =>
+      Container(width: 100, height: 100, color: Colors.blue, child: const Center(child: Text('Container')));
+
+  Widget _buildListSection() => ListView.builder(
+    shrinkWrap: true,
+    physics: const NeverScrollableScrollPhysics(),
+    itemCount: 5,
+    itemBuilder: (context, index) {
+      return ListTile(title: Text('Item $index'));
+    },
+  );
+
+  Widget _buildNavigationSection() => Column(
     children: [
-      const Card(
-        elevation: 5,
-        child: ListTile(
-          leading: Icon(Icons.notifications),
-          title: Text('Notification Tile'),
-          subtitle: Text('A ListTile widget with a notification icon.'),
+      const Text('Navigation Drawer'),
+      SizedBox(
+        width: 200,
+        height: 600,
+        child: Drawer(
+          child: ListView(
+            children: const [
+              DrawerHeader(child: Text('Drawer Header')),
+              ListTile(title: Text('Item 1')),
+              ListTile(title: Text('Item 2')),
+            ],
+          ),
         ),
       ),
-      const SizedBox(height: 20),
-      Container(height: 150, color: Colors.green, child: const Center(child: Text('A third container with color'))),
+    ],
+  );
+
+  Widget _buildAnimationSection() => Column(
+    children: [
+      AnimatedContainer(duration: const Duration(seconds: 1), width: 100, height: 100, color: Colors.red),
+      const SizedBox(height: 8),
+      AnimatedCrossFade(
+        duration: const Duration(seconds: 1),
+        firstChild: const Text('First Child'),
+        secondChild: const Text('Second Child'),
+        crossFadeState: CrossFadeState.showFirst,
+      ),
+    ],
+  );
+
+  Widget _buildImageSection() => Column(
+    children: [
+      Image.network('https://via.placeholder.com/150'),
+      const SizedBox(height: 8),
+      const Icon(Icons.image, size: 50),
+    ],
+  );
+
+  Widget _buildLayoutSection() => Column(
+    children: [
+      const Text('Row and Column'),
+      Row(children: const [Text('Row Item 1'), Text('Row Item 2')]),
+      Column(children: const [Text('Column Item 1'), Text('Column Item 2')]),
+    ],
+  );
+
+  Widget _buildMiscellaneousSection() => Column(
+    children: [
+      const Text('Miscellaneous Widgets'),
+      const Divider(),
+      const Tooltip(message: 'Tooltip', child: Text('Hover over me')),
+      const SizedBox(height: 8),
+      Transform.scale(scale: 1.5, child: const Text('Scaled Text')),
     ],
   );
 }

@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/rendering.dart';
@@ -229,9 +227,9 @@ class IconButton extends StatelessWidget {
       overlayColorProp = switch (overlayColor) {
         Color(a: 0.0) => WidgetStatePropertyAll<Color>(overlayColor),
         _ => WidgetStateProperty<Color?>.fromMap(<WidgetState, Color?>{
-          WidgetState.pressed: highlightColor ?? overlayFallback?.withOpacity(0.1),
-          WidgetState.hovered: hoverColor ?? overlayFallback?.withOpacity(0.08),
-          WidgetState.focused: focusColor ?? overlayFallback?.withOpacity(0.1),
+          WidgetState.pressed: highlightColor ?? overlayFallback?.withValues(alpha: 0.1),
+          WidgetState.hovered: hoverColor ?? overlayFallback?.withValues(alpha: 0.08),
+          WidgetState.focused: focusColor ?? overlayFallback?.withValues(alpha: 0.1),
         }),
       };
     }
@@ -520,7 +518,7 @@ class _IconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.selected)) {
         return _colors.primary;
@@ -533,23 +531,23 @@ class _IconButtonDefaultsM3 extends ButtonStyle {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.primary.withOpacity(0.08);
+          return _colors.primary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
       }
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onSurfaceVariant.withOpacity(0.1);
+        return _colors.onSurfaceVariant.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onSurfaceVariant.withOpacity(0.08);
+        return _colors.onSurfaceVariant.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onSurfaceVariant.withOpacity(0.1);
+        return _colors.onSurfaceVariant.withValues(alpha:0.1);
       }
       return Colors.transparent;
     });
@@ -646,7 +644,7 @@ class _FilledIconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get backgroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.12);
+        return _colors.onSurface.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.selected)) {
         return _colors.primary;
@@ -661,7 +659,7 @@ class _FilledIconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.selected)) {
         return _colors.onPrimary;
@@ -677,34 +675,34 @@ class _FilledIconButtonDefaultsM3 extends ButtonStyle {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onPrimary.withOpacity(0.1);
+          return _colors.onPrimary.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onPrimary.withOpacity(0.08);
+          return _colors.onPrimary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onPrimary.withOpacity(0.1);
+          return _colors.onPrimary.withValues(alpha:0.1);
         }
       }
       if (toggleable) { // toggleable but unselected case
         if (states.contains(WidgetState.pressed)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.primary.withOpacity(0.08);
+          return _colors.primary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
       }
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onPrimary.withOpacity(0.1);
+        return _colors.onPrimary.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onPrimary.withOpacity(0.08);
+        return _colors.onPrimary.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onPrimary.withOpacity(0.1);
+        return _colors.onPrimary.withValues(alpha:0.1);
       }
       return Colors.transparent;
     });
@@ -801,7 +799,7 @@ class _FilledTonalIconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get backgroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.12);
+        return _colors.onSurface.withValues(alpha:0.12);
       }
       if (states.contains(WidgetState.selected)) {
         return _colors.secondaryContainer;
@@ -816,7 +814,7 @@ class _FilledTonalIconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.selected)) {
         return _colors.onSecondaryContainer;
@@ -832,34 +830,34 @@ class _FilledTonalIconButtonDefaultsM3 extends ButtonStyle {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onSecondaryContainer.withOpacity(0.1);
+          return _colors.onSecondaryContainer.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onSecondaryContainer.withOpacity(0.08);
+          return _colors.onSecondaryContainer.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onSecondaryContainer.withOpacity(0.1);
+          return _colors.onSecondaryContainer.withValues(alpha:0.1);
         }
       }
       if (toggleable) { // toggleable but unselected case
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onSurfaceVariant.withOpacity(0.1);
+          return _colors.onSurfaceVariant.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onSurfaceVariant.withOpacity(0.08);
+          return _colors.onSurfaceVariant.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onSurfaceVariant.withOpacity(0.1);
+          return _colors.onSurfaceVariant.withValues(alpha:0.1);
         }
       }
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onSecondaryContainer.withOpacity(0.1);
+        return _colors.onSecondaryContainer.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onSecondaryContainer.withOpacity(0.08);
+        return _colors.onSecondaryContainer.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onSecondaryContainer.withOpacity(0.1);
+        return _colors.onSecondaryContainer.withValues(alpha:0.1);
       }
       return Colors.transparent;
     });
@@ -957,7 +955,7 @@ class _OutlinedIconButtonDefaultsM3 extends ButtonStyle {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
         if (states.contains(WidgetState.selected)) {
-          return _colors.onSurface.withOpacity(0.12);
+          return _colors.onSurface.withValues(alpha:0.12);
         }
         return Colors.transparent;
       }
@@ -971,7 +969,7 @@ class _OutlinedIconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.selected)) {
         return _colors.onInverseSurface;
@@ -983,23 +981,23 @@ class _OutlinedIconButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get overlayColor =>    WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onInverseSurface.withOpacity(0.1);
+          return _colors.onInverseSurface.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onInverseSurface.withOpacity(0.08);
+          return _colors.onInverseSurface.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onInverseSurface.withOpacity(0.08);
+          return _colors.onInverseSurface.withValues(alpha:0.08);
         }
       }
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onSurface.withOpacity(0.1);
+        return _colors.onSurface.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onSurfaceVariant.withOpacity(0.08);
+        return _colors.onSurfaceVariant.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onSurfaceVariant.withOpacity(0.08);
+        return _colors.onSurfaceVariant.withValues(alpha:0.08);
       }
       return Colors.transparent;
     });
@@ -1041,7 +1039,7 @@ class _OutlinedIconButtonDefaultsM3 extends ButtonStyle {
         return null;
       } else {
         if (states.contains(WidgetState.disabled)) {
-          return BorderSide(color: _colors.onSurface.withOpacity(0.12));
+          return BorderSide(color: _colors.onSurface.withValues(alpha:0.12));
         }
         return BorderSide(color: _colors.outline);
       }

@@ -22,9 +22,8 @@ class _TextSpanEditingController extends TextEditingController {
   final TextSpan _textSpan;
 
   @override
-  TextSpan buildTextSpan({required BuildContext context, TextStyle? style, required bool withComposing}) {
-    return TextSpan(style: style, children: <TextSpan>[_textSpan]);
-  }
+  TextSpan buildTextSpan({required BuildContext context, required bool withComposing, TextStyle? style}) =>
+      TextSpan(style: style, children: <TextSpan>[_textSpan]);
 
   @override
   set text(String? newText) {
@@ -235,9 +234,8 @@ class SelectableText extends StatefulWidget {
 
   final EditableTextContextMenuBuilder? contextMenuBuilder;
 
-  static Widget _defaultContextMenuBuilder(BuildContext context, EditableTextState editableTextState) {
-    return AdaptiveTextSelectionToolbar.editableText(editableTextState: editableTextState);
-  }
+  static Widget _defaultContextMenuBuilder(BuildContext context, EditableTextState editableTextState) =>
+      AdaptiveTextSelectionToolbar.editableText(editableTextState: editableTextState);
 
   final TextMagnifierConfiguration? magnifierConfiguration;
 
@@ -437,7 +435,7 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
         paintCursorAboveText = true;
         cursorOpacityAnimates = true;
         cursorColor = widget.cursorColor ?? selectionStyle.cursorColor ?? cupertinoTheme.primaryColor;
-        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context), 0);
 
@@ -448,7 +446,7 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
         paintCursorAboveText = true;
         cursorOpacityAnimates = true;
         cursorColor = widget.cursorColor ?? selectionStyle.cursorColor ?? cupertinoTheme.primaryColor;
-        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context), 0);
 
@@ -459,7 +457,7 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
         paintCursorAboveText = false;
         cursorOpacityAnimates = false;
         cursorColor = widget.cursorColor ?? selectionStyle.cursorColor ?? theme.colorScheme.primary;
-        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withValues(alpha: 0.40);
 
       case TargetPlatform.linux:
       case TargetPlatform.windows:
@@ -468,7 +466,7 @@ class _SelectableTextState extends State<SelectableText> implements TextSelectio
         paintCursorAboveText = false;
         cursorOpacityAnimates = false;
         cursorColor = widget.cursorColor ?? selectionStyle.cursorColor ?? theme.colorScheme.primary;
-        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withValues(alpha: 0.40);
     }
 
     final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);

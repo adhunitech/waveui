@@ -392,14 +392,17 @@ class _SliderState extends State<Slider> with TickerProviderStateMixin {
     if (valueIndicatorShape is RectangularSliderValueIndicatorShape) {
       valueIndicatorColor =
           sliderTheme.valueIndicatorColor ??
-          Color.alphaBlend(theme.colorScheme.onSurface.withOpacity(0.60), theme.colorScheme.surface.withOpacity(0.90));
+          Color.alphaBlend(
+            theme.colorScheme.onSurface.withValues(alpha: 0.60),
+            theme.colorScheme.surface.withValues(alpha: 0.90),
+          );
     } else {
       valueIndicatorColor = widget.activeColor ?? sliderTheme.valueIndicatorColor ?? defaults.valueIndicatorColor!;
     }
 
     Color? effectiveOverlayColor() =>
         widget.overlayColor?.resolve(states) ??
-        widget.activeColor?.withOpacity(0.12) ??
+        widget.activeColor?.withValues(alpha: 0.12) ??
         WidgetStateProperty.resolveAs<Color?>(sliderTheme.overlayColor, states) ??
         WidgetStateProperty.resolveAs<Color?>(defaults.overlayColor, states);
 
@@ -1596,22 +1599,22 @@ class _SliderDefaultsM3 extends SliderThemeData {
   Color? get inactiveTrackColor => _colors.secondaryContainer;
 
   @override
-  Color? get secondaryActiveTrackColor => _colors.primary.withOpacity(0.54);
+  Color? get secondaryActiveTrackColor => _colors.primary.withValues(alpha:0.54);
 
   @override
-  Color? get disabledActiveTrackColor => _colors.onSurface.withOpacity(0.38);
+  Color? get disabledActiveTrackColor => _colors.onSurface.withValues(alpha:0.38);
 
   @override
-  Color? get disabledInactiveTrackColor => _colors.onSurface.withOpacity(0.12);
+  Color? get disabledInactiveTrackColor => _colors.onSurface.withValues(alpha:0.12);
 
   @override
-  Color? get disabledSecondaryActiveTrackColor => _colors.onSurface.withOpacity(0.38);
+  Color? get disabledSecondaryActiveTrackColor => _colors.onSurface.withValues(alpha:0.38);
 
   @override
-  Color? get activeTickMarkColor => _colors.onPrimary.withOpacity(1.0);
+  Color? get activeTickMarkColor => _colors.onPrimary.withValues(alpha:1.0);
 
   @override
-  Color? get inactiveTickMarkColor => _colors.onSecondaryContainer.withOpacity(1.0);
+  Color? get inactiveTickMarkColor => _colors.onSecondaryContainer.withValues(alpha:1.0);
 
   @override
   Color? get disabledActiveTickMarkColor => _colors.onInverseSurface;
@@ -1623,18 +1626,18 @@ class _SliderDefaultsM3 extends SliderThemeData {
   Color? get thumbColor => _colors.primary;
 
   @override
-  Color? get disabledThumbColor => _colors.onSurface.withOpacity(0.38);
+  Color? get disabledThumbColor => _colors.onSurface.withValues(alpha:0.38);
 
   @override
   Color? get overlayColor => WidgetStateColor.resolveWith((states) {
     if (states.contains(WidgetState.dragged)) {
-      return _colors.primary.withOpacity(0.1);
+      return _colors.primary.withValues(alpha:0.1);
     }
     if (states.contains(WidgetState.hovered)) {
-      return _colors.primary.withOpacity(0.08);
+      return _colors.primary.withValues(alpha:0.08);
     }
     if (states.contains(WidgetState.focused)) {
-      return _colors.primary.withOpacity(0.1);
+      return _colors.primary.withValues(alpha:0.1);
     }
 
     return Colors.transparent;

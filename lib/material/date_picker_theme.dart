@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/foundation.dart';
@@ -577,7 +576,7 @@ class _DatePickerDefaultsM3 extends DatePickerThemeData {
       if (states.contains(WidgetState.selected)) {
         return _colors.onPrimary;
       } else if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       return _colors.onSurface;
     });
@@ -596,23 +595,23 @@ class _DatePickerDefaultsM3 extends DatePickerThemeData {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onPrimary.withOpacity(0.1);
+          return _colors.onPrimary.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onPrimary.withOpacity(0.08);
+          return _colors.onPrimary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onPrimary.withOpacity(0.1);
+          return _colors.onPrimary.withValues(alpha:0.1);
         }
       } else {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onSurfaceVariant.withOpacity(0.1);
+          return _colors.onSurfaceVariant.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onSurfaceVariant.withOpacity(0.08);
+          return _colors.onSurfaceVariant.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onSurfaceVariant.withOpacity(0.1);
+          return _colors.onSurfaceVariant.withValues(alpha:0.1);
         }
       }
       return null;
@@ -624,7 +623,7 @@ class _DatePickerDefaultsM3 extends DatePickerThemeData {
       if (states.contains(WidgetState.selected)) {
         return _colors.onPrimary;
       } else if (states.contains(WidgetState.disabled)) {
-        return _colors.primary.withOpacity(0.38);
+        return _colors.primary.withValues(alpha:0.38);
       }
       return _colors.primary;
     });
@@ -644,7 +643,7 @@ class _DatePickerDefaultsM3 extends DatePickerThemeData {
       if (states.contains(WidgetState.selected)) {
         return _colors.onPrimary;
       } else if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurfaceVariant.withOpacity(0.38);
+        return _colors.onSurfaceVariant.withValues(alpha:0.38);
       }
       return _colors.onSurfaceVariant;
     });
@@ -663,23 +662,23 @@ class _DatePickerDefaultsM3 extends DatePickerThemeData {
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onPrimary.withOpacity(0.1);
+          return _colors.onPrimary.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onPrimary.withOpacity(0.08);
+          return _colors.onPrimary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onPrimary.withOpacity(0.1);
+          return _colors.onPrimary.withValues(alpha:0.1);
         }
       } else {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onSurfaceVariant.withOpacity(0.1);
+          return _colors.onSurfaceVariant.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onSurfaceVariant.withOpacity(0.08);
+          return _colors.onSurfaceVariant.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onSurfaceVariant.withOpacity(0.1);
+          return _colors.onSurfaceVariant.withValues(alpha:0.1);
         }
       }
       return null;
@@ -698,13 +697,13 @@ class _DatePickerDefaultsM3 extends DatePickerThemeData {
   WidgetStateProperty<Color?>? get rangeSelectionOverlayColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onPrimaryContainer.withOpacity(0.1);
+        return _colors.onPrimaryContainer.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onPrimaryContainer.withOpacity(0.08);
+        return _colors.onPrimaryContainer.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onPrimaryContainer.withOpacity(0.1);
+        return _colors.onPrimaryContainer.withValues(alpha:0.1);
       }
       return null;
     });

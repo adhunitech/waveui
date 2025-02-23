@@ -423,7 +423,7 @@ class DataTable extends StatelessWidget {
       child: DefaultTextStyle(
         style: DefaultTextStyle.of(context).style
             .merge(effectiveDataTextStyle)
-            .copyWith(color: placeholder ? effectiveDataTextStyle.color!.withOpacity(0.6) : null),
+            .copyWith(color: placeholder ? effectiveDataTextStyle.color!.withValues(alpha: 0.6) : null),
         child: DropdownButtonHideUnderline(child: label),
       ),
     );
@@ -461,7 +461,7 @@ class DataTable extends StatelessWidget {
         dataRowColor ?? dataTableTheme.dataRowColor ?? theme.dataTableTheme.dataRowColor;
     final WidgetStateProperty<Color?> defaultRowColor = WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
-        return theme.colorScheme.primary.withOpacity(0.08);
+        return theme.colorScheme.primary.withValues(alpha: 0.08);
       }
       return null;
     });

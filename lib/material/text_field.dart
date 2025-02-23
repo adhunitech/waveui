@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/cupertino.dart';
@@ -872,7 +871,7 @@ class _TextFieldState extends State<TextField>
         cursorOpacityAnimates ??= true;
         cursorColor =
             _hasError ? _errorColor : widget.cursorColor ?? selectionStyle.cursorColor ?? cupertinoTheme.primaryColor;
-        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context), 0);
         autocorrectionTextRectColor = selectionColor;
@@ -885,7 +884,7 @@ class _TextFieldState extends State<TextField>
         cursorOpacityAnimates ??= false;
         cursorColor =
             _hasError ? _errorColor : widget.cursorColor ?? selectionStyle.cursorColor ?? cupertinoTheme.primaryColor;
-        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? cupertinoTheme.primaryColor.withValues(alpha: 0.40);
         cursorRadius ??= const Radius.circular(2.0);
         cursorOffset = Offset(iOSHorizontalOffset / MediaQuery.devicePixelRatioOf(context), 0);
         handleDidGainAccessibilityFocus = () {
@@ -906,7 +905,7 @@ class _TextFieldState extends State<TextField>
         cursorOpacityAnimates ??= false;
         cursorColor =
             _hasError ? _errorColor : widget.cursorColor ?? selectionStyle.cursorColor ?? theme.colorScheme.primary;
-        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withValues(alpha: 0.40);
 
       case TargetPlatform.linux:
         forcePressEnabled = false;
@@ -915,7 +914,7 @@ class _TextFieldState extends State<TextField>
         cursorOpacityAnimates ??= false;
         cursorColor =
             _hasError ? _errorColor : widget.cursorColor ?? selectionStyle.cursorColor ?? theme.colorScheme.primary;
-        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withValues(alpha: 0.40);
         handleDidGainAccessibilityFocus = () {
           // Automatically activate the TextField when it receives accessibility focus.
           if (!_effectiveFocusNode.hasFocus && _effectiveFocusNode.canRequestFocus) {
@@ -933,7 +932,7 @@ class _TextFieldState extends State<TextField>
         cursorOpacityAnimates ??= false;
         cursorColor =
             _hasError ? _errorColor : widget.cursorColor ?? selectionStyle.cursorColor ?? theme.colorScheme.primary;
-        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withOpacity(0.40);
+        selectionColor = selectionStyle.selectionColor ?? theme.colorScheme.primary.withValues(alpha: 0.40);
         handleDidGainAccessibilityFocus = () {
           // Automatically activate the TextField when it receives accessibility focus.
           if (!_effectiveFocusNode.hasFocus && _effectiveFocusNode.canRequestFocus) {
@@ -1138,7 +1137,7 @@ class _TextFieldState extends State<TextField>
 // dart format off
 TextStyle? _m3StateInputStyle(BuildContext context) => WidgetStateTextStyle.resolveWith((states) {
   if (states.contains(WidgetState.disabled)) {
-    return TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color?.withOpacity(0.38));
+    return TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color?.withValues(alpha:0.38));
   }
   return TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color);
 });

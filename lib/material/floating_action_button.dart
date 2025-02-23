@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -487,9 +486,9 @@ class _FABDefaultsM3 extends FloatingActionButtonThemeData {
 
   @override Color? get foregroundColor => _colors.onPrimaryContainer;
   @override Color? get backgroundColor => _colors.primaryContainer;
-  @override Color? get splashColor => _colors.onPrimaryContainer.withOpacity(0.1);
-  @override Color? get focusColor => _colors.onPrimaryContainer.withOpacity(0.1);
-  @override Color? get hoverColor => _colors.onPrimaryContainer.withOpacity(0.08);
+  @override Color? get splashColor => _colors.onPrimaryContainer.withValues(alpha:0.1);
+  @override Color? get focusColor => _colors.onPrimaryContainer.withValues(alpha:0.1);
+  @override Color? get hoverColor => _colors.onPrimaryContainer.withValues(alpha:0.08);
 
   @override
   ShapeBorder? get shape => switch (type) {

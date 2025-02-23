@@ -2,10 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-
 
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
@@ -413,7 +411,7 @@ class _RadioDefaultsM3 extends RadioThemeData {
   WidgetStateProperty<Color> get fillColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.disabled)) {
-          return _colors.onSurface.withOpacity(0.38);
+          return _colors.onSurface.withValues(alpha:0.38);
         }
         if (states.contains(WidgetState.pressed)) {
           return _colors.primary;
@@ -427,7 +425,7 @@ class _RadioDefaultsM3 extends RadioThemeData {
         return _colors.primary;
       }
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.pressed)) {
         return _colors.onSurface;
@@ -445,24 +443,24 @@ class _RadioDefaultsM3 extends RadioThemeData {
   WidgetStateProperty<Color> get overlayColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onSurface.withOpacity(0.1);
+          return _colors.onSurface.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.primary.withOpacity(0.08);
+          return _colors.primary.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.primary.withOpacity(0.1);
+          return _colors.primary.withValues(alpha:0.1);
         }
         return Colors.transparent;
       }
       if (states.contains(WidgetState.pressed)) {
-        return _colors.primary.withOpacity(0.1);
+        return _colors.primary.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onSurface.withOpacity(0.08);
+        return _colors.onSurface.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
-        return _colors.onSurface.withOpacity(0.1);
+        return _colors.onSurface.withValues(alpha:0.1);
       }
       return Colors.transparent;
     });

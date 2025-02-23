@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
@@ -190,7 +189,7 @@ class _FlexibleSpaceBarState extends State<FlexibleSpaceBar> {
         final double opacity = settings.toolbarOpacity;
         if (opacity > 0.0) {
           TextStyle titleStyle = theme.textTheme.titleLarge!;
-          titleStyle = titleStyle.copyWith(color: titleStyle.color!.withOpacity(opacity));
+          titleStyle = titleStyle.copyWith(color: titleStyle.color!.withValues(alpha: opacity));
           final bool effectiveCenterTitle = _getEffectiveCenterTitle(theme);
           final double leadingPadding = (settings.hasLeading ?? true) ? 72.0 : 0.0;
           final EdgeInsetsGeometry padding =

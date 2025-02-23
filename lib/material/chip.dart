@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart' show clampDouble;
@@ -1799,7 +1798,7 @@ class _ChipDefaultsM3 extends ChipThemeData {
   @override
   BorderSide? get side => isEnabled
     ? BorderSide(color: _colors.outlineVariant)
-    : BorderSide(color: _colors.onSurface.withOpacity(0.12));
+    : BorderSide(color: _colors.onSurface.withValues(alpha:0.12));
 
   @override
   IconThemeData? get iconTheme => IconThemeData(

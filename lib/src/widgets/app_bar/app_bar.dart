@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:waveui/material/action_buttons.dart';
-import 'package:waveui/src/widgets/app_bar/theme.dart';
+import 'package:waveui/src/widgets/app_bar/app_bar_theme.dart';
 import 'package:waveui/material/button_style.dart';
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
@@ -374,10 +374,10 @@ class _AppBarState extends State<AppBar> {
     if (widget.toolbarOpacity != 1.0) {
       final double opacity = const Interval(0.25, 1.0, curve: Curves.fastOutSlowIn).transform(widget.toolbarOpacity);
       if (titleTextStyle?.color != null) {
-        titleTextStyle = titleTextStyle!.copyWith(color: titleTextStyle.color!.withOpacity(opacity));
+        titleTextStyle = titleTextStyle!.copyWith(color: titleTextStyle.color!.withValues(alpha: opacity));
       }
       if (toolbarTextStyle?.color != null) {
-        toolbarTextStyle = toolbarTextStyle!.copyWith(color: toolbarTextStyle.color!.withOpacity(opacity));
+        toolbarTextStyle = toolbarTextStyle!.copyWith(color: toolbarTextStyle.color!.withValues(alpha: opacity));
       }
       overallIconTheme = overallIconTheme.copyWith(opacity: opacity * (overallIconTheme.opacity ?? 1.0));
       actionsIconTheme = actionsIconTheme.copyWith(opacity: opacity * (actionsIconTheme.opacity ?? 1.0));

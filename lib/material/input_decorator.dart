@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 import 'dart:ui' show lerpDouble;
 
@@ -1852,11 +1851,11 @@ class _InputDecoratorState extends State<InputDecorator> with TickerProviderStat
     if (decoration.filled!) {
       return themeData.hintColor;
     }
-    final Color enabledColor = themeData.colorScheme.onSurface.withOpacity(0.38);
+    final Color enabledColor = themeData.colorScheme.onSurface.withValues(alpha: 0.38);
     if (isHovering) {
       final Color hoverColor =
           decoration.hoverColor ?? themeData.inputDecorationTheme.hoverColor ?? themeData.hoverColor;
-      return Color.alphaBlend(hoverColor.withOpacity(0.12), enabledColor);
+      return Color.alphaBlend(hoverColor.withValues(alpha: 0.12), enabledColor);
     }
     return enabledColor;
   }
@@ -3413,7 +3412,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   @override
   TextStyle? get hintStyle => WidgetStateTextStyle.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return TextStyle(color: _colors.onSurface.withOpacity(0.38));
+      return TextStyle(color: _colors.onSurface.withValues(alpha:0.38));
     }
     return TextStyle(color: _colors.onSurfaceVariant);
   });
@@ -3421,7 +3420,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   @override
   Color? get fillColor => WidgetStateColor.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return _colors.onSurface.withOpacity(0.04);
+      return _colors.onSurface.withValues(alpha:0.04);
     }
     return _colors.surfaceContainerHighest;
   });
@@ -3429,7 +3428,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   @override
   BorderSide? get activeIndicatorBorder => WidgetStateBorderSide.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return BorderSide(color: _colors.onSurface.withOpacity(0.38));
+      return BorderSide(color: _colors.onSurface.withValues(alpha:0.38));
     }
     if (states.contains(WidgetState.error)) {
       if (states.contains(WidgetState.focused)) {
@@ -3452,7 +3451,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   @override
   BorderSide? get outlineBorder => WidgetStateBorderSide.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return BorderSide(color: _colors.onSurface.withOpacity(0.12));
+      return BorderSide(color: _colors.onSurface.withValues(alpha:0.12));
     }
     if (states.contains(WidgetState.error)) {
       if (states.contains(WidgetState.focused)) {
@@ -3478,7 +3477,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   @override
   Color? get prefixIconColor => WidgetStateColor.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return _colors.onSurface.withOpacity(0.38);
+      return _colors.onSurface.withValues(alpha:0.38);
     }
     return _colors.onSurfaceVariant;
   });
@@ -3486,7 +3485,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   @override
   Color? get suffixIconColor => WidgetStateColor.resolveWith((states) {
     if (states.contains(WidgetState.disabled)) {
-      return _colors.onSurface.withOpacity(0.38);
+      return _colors.onSurface.withValues(alpha:0.38);
     }
     if (states.contains(WidgetState.error)) {
       if (states.contains(WidgetState.hovered)) {
@@ -3501,7 +3500,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   TextStyle? get labelStyle => WidgetStateTextStyle.resolveWith((states) {
     final TextStyle textStyle = _textTheme.bodyLarge ?? const TextStyle();
     if (states.contains(WidgetState.disabled)) {
-      return textStyle.copyWith(color: _colors.onSurface.withOpacity(0.38));
+      return textStyle.copyWith(color: _colors.onSurface.withValues(alpha:0.38));
     }
     if (states.contains(WidgetState.error)) {
       if (states.contains(WidgetState.focused)) {
@@ -3525,7 +3524,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   TextStyle? get floatingLabelStyle => WidgetStateTextStyle.resolveWith((states) {
     final TextStyle textStyle = _textTheme.bodyLarge ?? const TextStyle();
     if (states.contains(WidgetState.disabled)) {
-      return textStyle.copyWith(color: _colors.onSurface.withOpacity(0.38));
+      return textStyle.copyWith(color: _colors.onSurface.withValues(alpha:0.38));
     }
     if (states.contains(WidgetState.error)) {
       if (states.contains(WidgetState.focused)) {
@@ -3549,7 +3548,7 @@ class _InputDecoratorDefaultsM3 extends InputDecorationTheme {
   TextStyle? get helperStyle => WidgetStateTextStyle.resolveWith((states) {
     final TextStyle textStyle = _textTheme.bodySmall ?? const TextStyle();
     if (states.contains(WidgetState.disabled)) {
-      return textStyle.copyWith(color: _colors.onSurface.withOpacity(0.38));
+      return textStyle.copyWith(color: _colors.onSurface.withValues(alpha:0.38));
     }
     return textStyle.copyWith(color: _colors.onSurfaceVariant);
   });

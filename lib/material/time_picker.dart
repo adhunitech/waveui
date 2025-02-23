@@ -3137,10 +3137,10 @@ class _TimePickerDefaultsM3 extends _TimePickerDefaults {
           overlayColor = _colors.onPrimaryContainer;
         } else if (states.contains(WidgetState.hovered)) {
           const double hoverOpacity = 0.08;
-          overlayColor = _colors.onPrimaryContainer.withOpacity(hoverOpacity);
+          overlayColor = _colors.onPrimaryContainer.withValues(alpha:hoverOpacity);
         } else if (states.contains(WidgetState.focused)) {
           const double focusOpacity = 0.1;
-          overlayColor = _colors.onPrimaryContainer.withOpacity(focusOpacity);
+          overlayColor = _colors.onPrimaryContainer.withValues(alpha:focusOpacity);
         }
         return Color.alphaBlend(overlayColor, _colors.primaryContainer);
       } else {
@@ -3149,10 +3149,10 @@ class _TimePickerDefaultsM3 extends _TimePickerDefaults {
           overlayColor = _colors.onSurface;
         } else if (states.contains(WidgetState.hovered)) {
           const double hoverOpacity = 0.08;
-          overlayColor = _colors.onSurface.withOpacity(hoverOpacity);
+          overlayColor = _colors.onSurface.withValues(alpha:hoverOpacity);
         } else if (states.contains(WidgetState.focused)) {
           const double focusOpacity = 0.1;
-          overlayColor = _colors.onSurface.withOpacity(focusOpacity);
+          overlayColor = _colors.onSurface.withValues(alpha:focusOpacity);
         }
         return Color.alphaBlend(overlayColor, _colors.surfaceContainerHighest);
       }
@@ -3256,7 +3256,7 @@ class _TimePickerDefaultsM3 extends _TimePickerDefaults {
         borderRadius: selectorRadius,
         borderSide: BorderSide(color: _colors.error, width: 2),
       ),
-      hintStyle: hourMinuteTextStyle.copyWith(color: _colors.onSurface.withOpacity(0.36)),
+      hintStyle: hourMinuteTextStyle.copyWith(color: _colors.onSurface.withValues(alpha:0.36)),
       // Prevent the error text from appearing.
       // TODO(rami-a): Remove this workaround once
       // https://github.com/flutter/flutter/issues/54104

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -2561,7 +2560,7 @@ class _MenuButtonDefaultsM3 extends ButtonStyle {
   @override
   WidgetStateProperty<Color?>? get foregroundColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.pressed)) {
         return _colors.onSurface;
@@ -2578,7 +2577,7 @@ class _MenuButtonDefaultsM3 extends ButtonStyle {
   @override
   WidgetStateProperty<Color?>? get iconColor => WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return _colors.onSurface.withOpacity(0.38);
+        return _colors.onSurface.withValues(alpha:0.38);
       }
       if (states.contains(WidgetState.pressed)) {
         return _colors.onSurfaceVariant;
@@ -2617,13 +2616,13 @@ class _MenuButtonDefaultsM3 extends ButtonStyle {
   WidgetStateProperty<Color?>? get overlayColor => WidgetStateProperty.resolveWith(
       (states) {
         if (states.contains(WidgetState.pressed)) {
-          return _colors.onSurface.withOpacity(0.1);
+          return _colors.onSurface.withValues(alpha:0.1);
         }
         if (states.contains(WidgetState.hovered)) {
-          return _colors.onSurface.withOpacity(0.08);
+          return _colors.onSurface.withValues(alpha:0.08);
         }
         if (states.contains(WidgetState.focused)) {
-          return _colors.onSurface.withOpacity(0.1);
+          return _colors.onSurface.withValues(alpha:0.1);
         }
         return Colors.transparent;
       },

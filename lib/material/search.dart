@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:waveui/material/app_bar.dart';
-import 'package:waveui/src/widgets/app_bar/theme.dart';
+import 'package:waveui/src/widgets/app_bar/app_bar.dart';
+import 'package:waveui/src/widgets/app_bar/app_bar_theme.dart';
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
 import 'package:waveui/material/debug.dart';

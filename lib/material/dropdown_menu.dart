@@ -417,9 +417,10 @@ class _DropdownMenuState<T> extends State<DropdownMenu<T>> {
         final Color focusedIconColor = resolveFocusedColor(effectiveIconColor ?? defaultStyle.iconColor!)!;
         final Color focusedOverlayColor = resolveFocusedColor(effectiveOverlayColor ?? defaultStyle.overlayColor!)!;
         // For the background color we can't rely on the default style which is transparent.
-        // Defaults to onSurface.withOpacity(0.12).
+        // Defaults to onSurface.withValues(alpha:0.12).
         final Color focusedBackgroundColor =
-            resolveFocusedColor(effectiveBackgroundColor) ?? Theme.of(context).colorScheme.onSurface.withOpacity(0.12);
+            resolveFocusedColor(effectiveBackgroundColor) ??
+            Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12);
 
         effectiveStyle = effectiveStyle.copyWith(
           backgroundColor: WidgetStatePropertyAll<Color>(focusedBackgroundColor),

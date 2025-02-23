@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
@@ -485,7 +484,7 @@ class _NavigationDrawerDefaultsM3 extends NavigationDrawerThemeData {
   WidgetStateProperty<IconThemeData?>? get iconTheme => WidgetStateProperty.resolveWith((states) => IconThemeData(
         size: 24.0,
         color: states.contains(WidgetState.disabled)
-          ? _colors.onSurfaceVariant.withOpacity(0.38)
+          ? _colors.onSurfaceVariant.withValues(alpha:0.38)
           : states.contains(WidgetState.selected)
             ? _colors.onSecondaryContainer
             : _colors.onSurfaceVariant,
@@ -496,7 +495,7 @@ class _NavigationDrawerDefaultsM3 extends NavigationDrawerThemeData {
       final TextStyle style = _textTheme.labelLarge!;
       return style.apply(
         color: states.contains(WidgetState.disabled)
-          ? _colors.onSurfaceVariant.withOpacity(0.38)
+          ? _colors.onSurfaceVariant.withValues(alpha:0.38)
           : states.contains(WidgetState.selected)
             ? _colors.onSecondaryContainer
             : _colors.onSurfaceVariant,

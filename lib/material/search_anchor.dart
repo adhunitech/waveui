@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui';
@@ -1434,10 +1433,10 @@ class _SearchBarDefaultsM3 extends SearchBarThemeData {
   WidgetStateProperty<Color?>? get overlayColor =>
     WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.pressed)) {
-        return _colors.onSurface.withOpacity(0.1);
+        return _colors.onSurface.withValues(alpha:0.1);
       }
       if (states.contains(WidgetState.hovered)) {
-        return _colors.onSurface.withOpacity(0.08);
+        return _colors.onSurface.withValues(alpha:0.08);
       }
       if (states.contains(WidgetState.focused)) {
         return Colors.transparent;

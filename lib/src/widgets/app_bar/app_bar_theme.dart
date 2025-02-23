@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:waveui/material/theme.dart';
 
-part 'theme.freezed.dart';
+part 'app_bar_theme.freezed.dart';
 
 @freezed
 class AppBarTheme with _$AppBarTheme {

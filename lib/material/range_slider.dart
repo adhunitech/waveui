@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
@@ -308,38 +307,44 @@ class _RangeSliderState extends State<RangeSlider> with TickerProviderStateMixin
     if (valueIndicatorShape is RectangularRangeSliderValueIndicatorShape) {
       valueIndicatorColor =
           sliderTheme.valueIndicatorColor ??
-          Color.alphaBlend(theme.colorScheme.onSurface.withOpacity(0.60), theme.colorScheme.surface.withOpacity(0.90));
+          Color.alphaBlend(
+            theme.colorScheme.onSurface.withValues(alpha: 0.60),
+            theme.colorScheme.surface.withValues(alpha: 0.90),
+          );
     } else {
       valueIndicatorColor = widget.activeColor ?? sliderTheme.valueIndicatorColor ?? theme.colorScheme.primary;
     }
 
     Color? effectiveOverlayColor() =>
         widget.overlayColor?.resolve(states) ??
-        widget.activeColor?.withOpacity(0.12) ??
+        widget.activeColor?.withValues(alpha: 0.12) ??
         WidgetStateProperty.resolveAs<Color?>(sliderTheme.overlayColor, states) ??
-        theme.colorScheme.primary.withOpacity(0.12);
+        theme.colorScheme.primary.withValues(alpha: 0.12);
 
     sliderTheme = sliderTheme.copyWith(
       trackHeight: sliderTheme.trackHeight ?? defaultTrackHeight,
       activeTrackColor: widget.activeColor ?? sliderTheme.activeTrackColor ?? theme.colorScheme.primary,
       inactiveTrackColor:
-          widget.inactiveColor ?? sliderTheme.inactiveTrackColor ?? theme.colorScheme.primary.withOpacity(0.24),
-      disabledActiveTrackColor: sliderTheme.disabledActiveTrackColor ?? theme.colorScheme.onSurface.withOpacity(0.32),
+          widget.inactiveColor ?? sliderTheme.inactiveTrackColor ?? theme.colorScheme.primary.withValues(alpha: 0.24),
+      disabledActiveTrackColor:
+          sliderTheme.disabledActiveTrackColor ?? theme.colorScheme.onSurface.withValues(alpha: 0.32),
       disabledInactiveTrackColor:
-          sliderTheme.disabledInactiveTrackColor ?? theme.colorScheme.onSurface.withOpacity(0.12),
+          sliderTheme.disabledInactiveTrackColor ?? theme.colorScheme.onSurface.withValues(alpha: 0.12),
       activeTickMarkColor:
-          widget.inactiveColor ?? sliderTheme.activeTickMarkColor ?? theme.colorScheme.onPrimary.withOpacity(0.54),
+          widget.inactiveColor ??
+          sliderTheme.activeTickMarkColor ??
+          theme.colorScheme.onPrimary.withValues(alpha: 0.54),
       inactiveTickMarkColor:
-          widget.activeColor ?? sliderTheme.inactiveTickMarkColor ?? theme.colorScheme.primary.withOpacity(0.54),
+          widget.activeColor ?? sliderTheme.inactiveTickMarkColor ?? theme.colorScheme.primary.withValues(alpha: 0.54),
       disabledActiveTickMarkColor:
-          sliderTheme.disabledActiveTickMarkColor ?? theme.colorScheme.onPrimary.withOpacity(0.12),
+          sliderTheme.disabledActiveTickMarkColor ?? theme.colorScheme.onPrimary.withValues(alpha: 0.12),
       disabledInactiveTickMarkColor:
-          sliderTheme.disabledInactiveTickMarkColor ?? theme.colorScheme.onSurface.withOpacity(0.12),
+          sliderTheme.disabledInactiveTickMarkColor ?? theme.colorScheme.onSurface.withValues(alpha: 0.12),
       thumbColor: widget.activeColor ?? sliderTheme.thumbColor ?? theme.colorScheme.primary,
       overlappingShapeStrokeColor: sliderTheme.overlappingShapeStrokeColor ?? theme.colorScheme.surface,
       disabledThumbColor:
           sliderTheme.disabledThumbColor ??
-          Color.alphaBlend(theme.colorScheme.onSurface.withOpacity(.38), theme.colorScheme.surface),
+          Color.alphaBlend(theme.colorScheme.onSurface.withValues(alpha: .38), theme.colorScheme.surface),
       overlayColor: effectiveOverlayColor(),
       valueIndicatorColor: valueIndicatorColor,
       rangeTrackShape: sliderTheme.rangeTrackShape ?? defaultTrackShape,

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
@@ -175,10 +174,10 @@ class ButtonThemeData with Diagnosticable {
   ButtonTextTheme getTextTheme(MaterialButton button) => button.textTheme ?? textTheme;
 
   Color getDisabledTextColor(MaterialButton button) =>
-      button.textColor ?? button.disabledTextColor ?? colorScheme!.onSurface.withOpacity(0.38);
+      button.textColor ?? button.disabledTextColor ?? colorScheme!.onSurface.withValues(alpha: 0.38);
 
   Color getDisabledFillColor(MaterialButton button) =>
-      button.disabledColor ?? _disabledColor ?? colorScheme!.onSurface.withOpacity(0.38);
+      button.disabledColor ?? _disabledColor ?? colorScheme!.onSurface.withValues(alpha: 0.38);
 
   Color? getFillColor(MaterialButton button) {
     final Color? fillColor = button.enabled ? button.color : button.disabledColor;
@@ -199,7 +198,7 @@ class ButtonThemeData with Diagnosticable {
       case ButtonTextTheme.accent:
         return button.enabled ? colorScheme!.primary : getDisabledFillColor(button);
       case ButtonTextTheme.primary:
-        return button.enabled ? _buttonColor ?? colorScheme!.primary : colorScheme!.onSurface.withOpacity(0.12);
+        return button.enabled ? _buttonColor ?? colorScheme!.primary : colorScheme!.onSurface.withValues(alpha: 0.12);
     }
   }
 
@@ -244,14 +243,14 @@ class ButtonThemeData with Diagnosticable {
       }
     }
 
-    return getTextColor(button).withOpacity(0.12);
+    return getTextColor(button).withValues(alpha: 0.12);
   }
 
   Color getFocusColor(MaterialButton button) =>
-      button.focusColor ?? _focusColor ?? getTextColor(button).withOpacity(0.12);
+      button.focusColor ?? _focusColor ?? getTextColor(button).withValues(alpha: 0.12);
 
   Color getHoverColor(MaterialButton button) =>
-      button.hoverColor ?? _hoverColor ?? getTextColor(button).withOpacity(0.04);
+      button.hoverColor ?? _hoverColor ?? getTextColor(button).withValues(alpha: 0.04);
 
   Color getHighlightColor(MaterialButton button) {
     if (button.highlightColor != null) {
@@ -261,7 +260,7 @@ class ButtonThemeData with Diagnosticable {
     switch (getTextTheme(button)) {
       case ButtonTextTheme.normal:
       case ButtonTextTheme.accent:
-        return _highlightColor ?? getTextColor(button).withOpacity(0.16);
+        return _highlightColor ?? getTextColor(button).withValues(alpha: 0.16);
       case ButtonTextTheme.primary:
         return Colors.transparent;
     }

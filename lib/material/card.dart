@@ -2,18 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:waveui/material/theme.dart' show ThemeData;
-import 'package:waveui/material/theme_data.dart' show ThemeData;
 
 import 'package:waveui/material/card_theme.dart';
 import 'package:waveui/material/color_scheme.dart';
 import 'package:waveui/material/colors.dart';
 import 'package:waveui/material/material.dart';
 import 'package:waveui/material/theme.dart';
-import 'package:waveui/waveui.dart' show ThemeData;
 
 enum _CardVariant { elevated, filled, outlined }
 

@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -10,7 +9,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:waveui/material/app_bar.dart';
+import 'package:waveui/src/widgets/app_bar/app_bar.dart';
 import 'package:waveui/material/back_button.dart';
 import 'package:waveui/material/button_style.dart';
 import 'package:waveui/material/calendar_date_picker.dart';
@@ -1288,7 +1287,7 @@ class _CalendarRangePickerDialog extends StatelessWidget {
         themeData.rangePickerHeaderBackgroundColor ?? defaults.rangePickerHeaderBackgroundColor;
     final Color? headerForeground =
         themeData.rangePickerHeaderForegroundColor ?? defaults.rangePickerHeaderForegroundColor;
-    final Color? headerDisabledForeground = headerForeground?.withOpacity(0.38);
+    final Color? headerDisabledForeground = headerForeground?.withValues(alpha: 0.38);
     final TextStyle? headlineStyle =
         themeData.rangePickerHeaderHeadlineStyle ?? defaults.rangePickerHeaderHeadlineStyle;
     final TextStyle? headlineHelpStyle = (themeData.rangePickerHeaderHelpStyle ?? defaults.rangePickerHeaderHelpStyle)
@@ -2261,10 +2260,10 @@ class _DayItemState extends State<_DayItem> {
         textDirection: textDirection,
       );
       if (widget.isDisabled) {
-        itemStyle = itemStyle?.apply(color: colorScheme.onSurface.withOpacity(0.38));
+        itemStyle = itemStyle?.apply(color: colorScheme.onSurface.withValues(alpha: 0.38));
       }
     } else if (widget.isDisabled) {
-      itemStyle = itemStyle?.apply(color: colorScheme.onSurface.withOpacity(0.38));
+      itemStyle = itemStyle?.apply(color: colorScheme.onSurface.withValues(alpha: 0.38));
     } else if (widget.isToday) {
       // The current day gets a different text color and a circle stroke
       // border.
