@@ -59,9 +59,9 @@ class FTextFieldStateStyle with Diagnosticable, _$FTextFieldStateStyleFunctions 
     required FStyle style,
   }) : this(
          labelTextStyle: formFieldStyle.labelTextStyle,
-         contentTextStyle: typography.sm.copyWith(fontFamily: typography.defaultFontFamily, color: contentColor),
-         hintTextStyle: typography.sm.copyWith(fontFamily: typography.defaultFontFamily, color: hintColor),
-         counterTextStyle: typography.sm.copyWith(fontFamily: typography.defaultFontFamily, color: contentColor),
+         contentTextStyle: typography.mutedText.copyWith(fontFamily: typography.defaultFontFamily, color: contentColor),
+         hintTextStyle: typography.mutedText.copyWith(fontFamily: typography.defaultFontFamily, color: hintColor),
+         counterTextStyle: typography.mutedText.copyWith(fontFamily: typography.defaultFontFamily, color: contentColor),
          descriptionTextStyle: formFieldStyle.descriptionTextStyle,
          focusedStyle: FTextFieldBorderStyle.inherit(color: focusedBorderColor, style: style),
          unfocusedStyle: FTextFieldBorderStyle.inherit(color: unfocusedBorderColor, style: style),

@@ -67,7 +67,7 @@ class Form extends StatelessWidget {
           children: [
             Text(
               'Account',
-              style: context.theme.typography.xl2.copyWith(
+              style: context.theme.typography.h2.copyWith(
                 fontWeight: FontWeight.w600,
                 color: context.theme.colorScheme.foreground,
                 height: 1.5,
@@ -75,7 +75,7 @@ class Form extends StatelessWidget {
             ),
             Text(
               'Make changes to your account here. Click save when you are done.',
-              style: context.theme.typography.sm.copyWith(color: context.theme.colorScheme.mutedForeground),
+              style: context.theme.typography.mutedText.copyWith(color: context.theme.colorScheme.mutedForeground),
             ),
             const SizedBox(height: 8),
             SizedBox(

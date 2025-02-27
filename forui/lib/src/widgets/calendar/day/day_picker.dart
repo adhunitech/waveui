@@ -226,8 +226,8 @@ final class FCalendarDayPickerStyle with Diagnosticable, _$FCalendarDayPickerSty
 
   /// Creates a [FCalendarDayPickerStyle] that inherits from the given [colorScheme] and [typography].
   factory FCalendarDayPickerStyle.inherit({required FColorScheme colorScheme, required FTypography typography}) {
-    final textStyle = typography.base.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w500);
-    final mutedTextStyle = typography.base.copyWith(
+    final textStyle = typography.body.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w500);
+    final mutedTextStyle = typography.body.copyWith(
       color: colorScheme.disable(colorScheme.mutedForeground),
       fontWeight: FontWeight.w500,
     );
@@ -248,12 +248,12 @@ final class FCalendarDayPickerStyle with Diagnosticable, _$FCalendarDayPickerSty
     );
 
     return FCalendarDayPickerStyle(
-      headerTextStyle: typography.xs.copyWith(color: colorScheme.mutedForeground),
+      headerTextStyle: typography.mutedText,
       selectableStyles: (
         current: FCalendarDayStyle(
           selectedStyle: FCalendarEntryStyle(
             backgroundColor: colorScheme.foreground,
-            textStyle: typography.base.copyWith(color: colorScheme.background, fontWeight: FontWeight.w500),
+            textStyle: typography.body.copyWith(color: colorScheme.background, fontWeight: FontWeight.w500),
             focusedBorderColor: colorScheme.foreground,
             radius: const Radius.circular(4),
           ),

@@ -302,7 +302,7 @@ This update adds responsive breakpoints, focused outlines & localization! It als
 
 * Change `FCalendar` year picker to update the header whenever a year is selected.
 
-* Increase `FCalendar`'s default text size from `FTypography.sm` to `FTypography.base`.
+* Increase `FCalendar`'s default text size from `Ftypography.mutedText` to `Ftypography.body`.
 
 * **Breaking** Change `FBottomNavigationBarItem.label` from `String` to `Widget`.
 

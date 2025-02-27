@@ -102,7 +102,7 @@ final class FBottomNavigationBarItemStyle with Diagnosticable, _$FBottomNavigati
     : this(
         activeIconColor: colorScheme.primary,
         inactiveIconColor: colorScheme.disable(colorScheme.foreground),
-        activeTextStyle: typography.base.copyWith(color: colorScheme.primary, fontSize: 10),
-        inactiveTextStyle: typography.base.copyWith(color: colorScheme.disable(colorScheme.foreground), fontSize: 10),
+        activeTextStyle: typography.body.copyWith(color: colorScheme.primary, fontSize: 10),
+        inactiveTextStyle: typography.body.copyWith(color: colorScheme.disable(colorScheme.foreground), fontSize: 10),
       );
 }

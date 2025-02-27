@@ -313,6 +313,6 @@ final class FTooltipStyle with Diagnosticable, _$FTooltipStyleFunctions {
           border: Border.all(width: style.borderWidth, color: colorScheme.border),
           boxShadow: shadow,
         ),
-        textStyle: typography.sm,
+        textStyle: typography.mutedText,
       );
 }

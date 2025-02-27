@@ -8,9 +8,9 @@ import 'package:forui/forui.dart';
 /// Definitions for the various typographical styles that are part of a [FThemeData].
 ///
 /// A [FTypography] contains scalar values for scaling a [TextStyle]'s corresponding properties. It also contains labelled
-/// font sizes, such as [FTypography.xs], which are based on [Tailwind CSS](https://tailwindcss.com/docs/font-size).
+/// font sizes, such as [FTypography.caption].
 ///
-/// The scaling is applied automatically in all Forui widgets while the labelled font sizes are used as the defaults
+/// The scaling is applied automatically in all Waveui widgets while the labelled font sizes are used as the defaults
 /// for the corresponding properties of widget styles configured via `inherit(...)` constructors.
 final class FTypography with Diagnosticable, FTransformable {
   /// The default font family. Defaults to [`packages/forui/Inter`](https://fonts.google.com/specimen/Inter).
@@ -19,121 +19,193 @@ final class FTypography with Diagnosticable, FTransformable {
   /// Throws an [AssertionError] if empty.
   final String defaultFontFamily;
 
-  /// The font size for extra small text.
+  /// The font size for headline 1 text.
   ///
   /// Defaults to:
-  /// * `fontSize` = 12.
-  /// * `height` = 1.
-  final TextStyle xs;
-
-  /// The font size for small text.
-  ///
-  /// Defaults to:
-  /// * `fontSize` = 14.
+  /// * `fontSize` = 32.
   /// * `height` = 1.25.
-  final TextStyle sm;
+  /// * `fontWeight` = FontWeight.bold.
+  /// * `letterSpacing` = -0.5.
+  final TextStyle h1;
 
-  /// The font size for base text.
+  /// The font size for headline 2 text.
+  ///
+  /// Defaults to:
+  /// * `fontSize` = 28.
+  /// * `height` = 1.2857.
+  /// * `fontWeight` = FontWeight.bold.
+  /// * `letterSpacing` = -0.25.
+  final TextStyle h2;
+
+  /// The font size for headline 3 text.
+  ///
+  /// Defaults to:
+  /// * `fontSize` = 24.
+  /// * `height` = 1.3333.
+  /// * `fontWeight` = FontWeight.w600.
+  /// * `letterSpacing` = 0.0.
+  final TextStyle h3;
+
+  /// The font size for headline 4 text.
+  ///
+  /// Defaults to:
+  /// * `fontSize` = 20.
+  /// * `height` = 1.4.
+  /// * `fontWeight` = FontWeight.w600.
+  /// * `letterSpacing` = 0.15.
+  final TextStyle h4;
+
+  /// The font size for headline 5 text.
+  ///
+  /// Defaults to:
+  /// * `fontSize` = 18.
+  /// * `height` = 1.4444.
+  /// * `fontWeight` = FontWeight.w500.
+  /// * `letterSpacing` = 0.1.
+  final TextStyle h5;
+
+  /// The font size for headline 6 text.
   ///
   /// Defaults to:
   /// * `fontSize` = 16.
   /// * `height` = 1.5.
-  final TextStyle base;
+  /// * `fontWeight` = FontWeight.w500.
+  /// * `letterSpacing` = 0.1.
+  final TextStyle h6;
 
-  /// The font size for large text.
+  /// The font size for Body Large text.
   ///
   /// Defaults to:
   /// * `fontSize` = 18.
-  /// * `height` = 1.75.
-  final TextStyle lg;
+  /// * `height` = 1.6.
+  /// * `fontWeight` = FontWeight.w400.
+  /// * `letterSpacing` = 0.1.
+  final TextStyle bodyLarge;
 
-  /// The font size for extra large text.
+  /// The font size for standard Body text.
   ///
   /// Defaults to:
-  /// * `fontSize` = 20.
-  /// * `height` = 1.75.
-  final TextStyle xl;
+  /// * `fontSize` = 16.
+  /// * `height` = 1.6.
+  /// * `fontWeight` = FontWeight.w400.
+  /// * `letterSpacing` = 0.1.
+  final TextStyle body;
 
-  /// The font size for extra large text.
+  /// The font size for Caption text.
   ///
   /// Defaults to:
-  /// * `fontSize` = 22.
-  /// * `height` = 2.
-  final TextStyle xl2;
+  /// * `fontSize` = 12.
+  /// * `height` = 1.4.
+  /// * `fontWeight` = FontWeight.w400.
+  /// * `letterSpacing` = 0.1.
+  final TextStyle caption;
 
-  /// The font size for extra large text.
+  /// The font size for Muted Text.
   ///
   /// Defaults to:
-  /// * `fontSize` = 30.
-  /// * `height` = 2.25.
-  final TextStyle xl3;
-
-  /// The font size for extra large text.
-  ///
-  /// Defaults to:
-  /// * `fontSize` = 36.
-  /// * `height` = 2.5.
-  final TextStyle xl4;
-
-  /// The font size for extra large text.
-  ///
-  /// Defaults to:
-  /// * `fontSize` = 48.
-  /// * `height` = 1.
-  final TextStyle xl5;
-
-  /// The font size for extra large text.
-  ///
-  /// Defaults to:
-  /// * `fontSize` = 60.
-  /// * `height` = 1.
-  final TextStyle xl6;
-
-  /// The font size for extra large text.
-  ///
-  /// Defaults to:
-  /// * `fontSize` = 72.
-  /// * `height` = 1.
-  final TextStyle xl7;
-
-  /// The font size for extra large text.
-  ///
-  /// Defaults to:
-  /// * `fontSize` = 96.
-  /// * `height` = 1.
-  final TextStyle xl8;
+  /// * `fontSize` = 14.
+  /// * `height` = 1.4.
+  /// * `fontWeight` = FontWeight.w400.
+  /// * `letterSpacing` = 0.1.
+  final TextStyle mutedText;
 
   /// Creates a [FTypography].
   const FTypography({
     this.defaultFontFamily = 'packages/forui/Inter',
-    this.xs = const TextStyle(fontSize: 12, height: 1),
-    this.sm = const TextStyle(fontSize: 14, height: 1.25),
-    this.base = const TextStyle(fontSize: 16, height: 1.5),
-    this.lg = const TextStyle(fontSize: 18, height: 1.75),
-    this.xl = const TextStyle(fontSize: 20, height: 1.75),
-    this.xl2 = const TextStyle(fontSize: 22, height: 2),
-    this.xl3 = const TextStyle(fontSize: 30, height: 2.25),
-    this.xl4 = const TextStyle(fontSize: 36, height: 2.5),
-    this.xl5 = const TextStyle(fontSize: 48, height: 1),
-    this.xl6 = const TextStyle(fontSize: 60, height: 1),
-    this.xl7 = const TextStyle(fontSize: 72, height: 1),
-    this.xl8 = const TextStyle(fontSize: 96, height: 1),
+    this.h1 = const TextStyle(fontSize: 32, height: 1.25, fontWeight: FontWeight.bold, letterSpacing: -0.5),
+    this.h2 = const TextStyle(fontSize: 28, height: 1.2857, fontWeight: FontWeight.bold, letterSpacing: -0.25),
+    this.h3 = const TextStyle(fontSize: 24, height: 1.3333, fontWeight: FontWeight.w600, letterSpacing: 0.0),
+    this.h4 = const TextStyle(fontSize: 20, height: 1.4, fontWeight: FontWeight.w600, letterSpacing: 0.15),
+    this.h5 = const TextStyle(fontSize: 18, height: 1.4444, fontWeight: FontWeight.w500, letterSpacing: 0.1),
+    this.h6 = const TextStyle(fontSize: 16, height: 1.5, fontWeight: FontWeight.w500, letterSpacing: 0.1),
+    this.bodyLarge = const TextStyle(fontSize: 18, height: 1.6, fontWeight: FontWeight.w400, letterSpacing: 0.1),
+    this.body = const TextStyle(fontSize: 16, height: 1.6, fontWeight: FontWeight.w400, letterSpacing: 0.1),
+    this.caption = const TextStyle(fontSize: 12, height: 1.4, fontWeight: FontWeight.w400, letterSpacing: 0.1),
+    this.mutedText = const TextStyle(fontSize: 14, height: 1.4, fontWeight: FontWeight.w400, letterSpacing: 0.1),
   }) : assert(0 < defaultFontFamily.length, 'The defaultFontFamily should not be empty.');
 
   /// Creates a [FTypography] that inherits its properties from [colorScheme].
   FTypography.inherit({required FColorScheme colorScheme, this.defaultFontFamily = 'packages/forui/Inter'})
-    : xs = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 12, height: 1),
-      sm = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 14, height: 1.25),
-      base = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 16, height: 1.5),
-      lg = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 18, height: 1.75),
-      xl = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 20, height: 1.75),
-      xl2 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 22, height: 2),
-      xl3 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 30, height: 2.25),
-      xl4 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 36, height: 2.5),
-      xl5 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 48, height: 1),
-      xl6 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 60, height: 1),
-      xl7 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 72, height: 1),
-      xl8 = TextStyle(color: colorScheme.foreground, fontFamily: defaultFontFamily, fontSize: 96, height: 1),
+    : h1 = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 32,
+        height: 1.25,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.5,
+      ),
+      h2 = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 28,
+        height: 1.2857,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.25,
+      ),
+      h3 = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 24,
+        height: 1.3333,
+        fontWeight: FontWeight.w600,
+        letterSpacing: 0.0,
+      ),
+      h4 = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 20,
+        height: 1.4,
+        fontWeight: FontWeight.w600,
+        letterSpacing: 0.15,
+      ),
+      h5 = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 18,
+        height: 1.4444,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.1,
+      ),
+      h6 = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 16,
+        height: 1.5,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.1,
+      ),
+      bodyLarge = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 18,
+        height: 1.6,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0.1,
+      ),
+      body = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 16,
+        height: 1.6,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0.1,
+      ),
+      caption = TextStyle(
+        color: colorScheme.foreground,
+        fontFamily: defaultFontFamily,
+        fontSize: 12,
+        height: 1.4,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0.1,
+      ),
+      mutedText = TextStyle(
+        color: colorScheme.mutedForeground,
+        fontFamily: defaultFontFamily,
+        fontSize: 14,
+        height: 1.4,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0.1,
+      ),
       assert(defaultFontFamily.isNotEmpty, 'The defaultFontFamily should not be empty.');
 
   /// Scales the fields of this [FTypography] by the given fields.
@@ -152,18 +224,16 @@ final class FTypography with Diagnosticable, FTransformable {
   @useResult
   FTypography scale({double sizeScalar = 1}) => FTypography(
     defaultFontFamily: defaultFontFamily,
-    xs: _scaleTextStyle(style: xs, sizeScalar: sizeScalar),
-    sm: _scaleTextStyle(style: sm, sizeScalar: sizeScalar),
-    base: _scaleTextStyle(style: base, sizeScalar: sizeScalar),
-    lg: _scaleTextStyle(style: lg, sizeScalar: sizeScalar),
-    xl: _scaleTextStyle(style: xl, sizeScalar: sizeScalar),
-    xl2: _scaleTextStyle(style: xl2, sizeScalar: sizeScalar),
-    xl3: _scaleTextStyle(style: xl3, sizeScalar: sizeScalar),
-    xl4: _scaleTextStyle(style: xl4, sizeScalar: sizeScalar),
-    xl5: _scaleTextStyle(style: xl5, sizeScalar: sizeScalar),
-    xl6: _scaleTextStyle(style: xl6, sizeScalar: sizeScalar),
-    xl7: _scaleTextStyle(style: xl7, sizeScalar: sizeScalar),
-    xl8: _scaleTextStyle(style: xl8, sizeScalar: sizeScalar),
+    h1: _scaleTextStyle(style: h1, sizeScalar: sizeScalar),
+    h2: _scaleTextStyle(style: h2, sizeScalar: sizeScalar),
+    h3: _scaleTextStyle(style: h3, sizeScalar: sizeScalar),
+    h4: _scaleTextStyle(style: h4, sizeScalar: sizeScalar),
+    h5: _scaleTextStyle(style: h5, sizeScalar: sizeScalar),
+    h6: _scaleTextStyle(style: h6, sizeScalar: sizeScalar),
+    bodyLarge: _scaleTextStyle(style: bodyLarge, sizeScalar: sizeScalar),
+    body: _scaleTextStyle(style: body, sizeScalar: sizeScalar),
+    caption: _scaleTextStyle(style: caption, sizeScalar: sizeScalar),
+    mutedText: _scaleTextStyle(style: mutedText, sizeScalar: sizeScalar),
   );
 
   // default font size: https://api.flutter.dev/flutter/painting/TextStyle/fontSize.html
@@ -195,25 +265,28 @@ final class FTypography with Diagnosticable, FTransformable {
     TextStyle? xl,
     TextStyle? xl2,
     TextStyle? xl3,
-    TextStyle? xl4,
-    TextStyle? xl5,
-    TextStyle? xl6,
-    TextStyle? xl7,
-    TextStyle? xl8,
+    TextStyle? h1,
+    TextStyle? h2,
+    TextStyle? h3,
+    TextStyle? h4,
+    TextStyle? h5,
+    TextStyle? h6,
+    TextStyle? bodyLarge,
+    TextStyle? body,
+    TextStyle? caption,
+    TextStyle? mutedText,
   }) => FTypography(
     defaultFontFamily: defaultFontFamily ?? this.defaultFontFamily,
-    xs: xs ?? this.xs,
-    sm: sm ?? this.sm,
-    base: base ?? this.base,
-    lg: lg ?? this.lg,
-    xl: xl ?? this.xl,
-    xl2: xl2 ?? this.xl2,
-    xl3: xl3 ?? this.xl3,
-    xl4: xl4 ?? this.xl4,
-    xl5: xl5 ?? this.xl5,
-    xl6: xl6 ?? this.xl6,
-    xl7: xl7 ?? this.xl7,
-    xl8: xl8 ?? this.xl8,
+    h1: h1 ?? this.h1,
+    h2: h2 ?? this.h2,
+    h3: h3 ?? this.h3,
+    h4: h4 ?? this.h4,
+    h5: h5 ?? this.h5,
+    h6: h6 ?? this.h6,
+    bodyLarge: bodyLarge ?? this.bodyLarge,
+    body: body ?? this.body,
+    caption: caption ?? this.caption,
+    mutedText: mutedText ?? this.mutedText,
   );
 
   @override
@@ -221,18 +294,16 @@ final class FTypography with Diagnosticable, FTransformable {
     super.debugFillProperties(properties);
     properties
       ..add(StringProperty('defaultFontFamily', defaultFontFamily, defaultValue: 'packages/forui/Inter'))
-      ..add(DiagnosticsProperty('xs', xs))
-      ..add(DiagnosticsProperty('sm', sm))
-      ..add(DiagnosticsProperty('base', base))
-      ..add(DiagnosticsProperty('lg', lg))
-      ..add(DiagnosticsProperty('xl', xl))
-      ..add(DiagnosticsProperty('xl2', xl2))
-      ..add(DiagnosticsProperty('xl3', xl3))
-      ..add(DiagnosticsProperty('xl4', xl4))
-      ..add(DiagnosticsProperty('xl5', xl5))
-      ..add(DiagnosticsProperty('xl6', xl6))
-      ..add(DiagnosticsProperty('xl7', xl7))
-      ..add(DiagnosticsProperty('xl8', xl8));
+      ..add(DiagnosticsProperty('h1', h1))
+      ..add(DiagnosticsProperty('h2', h2))
+      ..add(DiagnosticsProperty('h3', h3))
+      ..add(DiagnosticsProperty('h4', h4))
+      ..add(DiagnosticsProperty('h5', h5))
+      ..add(DiagnosticsProperty('h6', h6))
+      ..add(DiagnosticsProperty('bodyLarge', bodyLarge))
+      ..add(DiagnosticsProperty('body', body))
+      ..add(DiagnosticsProperty('caption', caption))
+      ..add(DiagnosticsProperty('mutedText', mutedText));
   }
 
   @override
@@ -241,32 +312,28 @@ final class FTypography with Diagnosticable, FTransformable {
       other is FTypography &&
           runtimeType == other.runtimeType &&
           defaultFontFamily == other.defaultFontFamily &&
-          xs == other.xs &&
-          sm == other.sm &&
-          base == other.base &&
-          lg == other.lg &&
-          xl == other.xl &&
-          xl2 == other.xl2 &&
-          xl3 == other.xl3 &&
-          xl4 == other.xl4 &&
-          xl5 == other.xl5 &&
-          xl6 == other.xl6 &&
-          xl7 == other.xl7 &&
-          xl8 == other.xl8;
+          h1 == other.h1 &&
+          h2 == other.h2 &&
+          h3 == other.h3 &&
+          h4 == other.h4 &&
+          h5 == other.h5 &&
+          h6 == other.h6 &&
+          bodyLarge == other.bodyLarge &&
+          body == other.body &&
+          caption == other.caption &&
+          mutedText == other.mutedText;
 
   @override
   int get hashCode =>
       defaultFontFamily.hashCode ^
-      xs.hashCode ^
-      sm.hashCode ^
-      base.hashCode ^
-      lg.hashCode ^
-      xl.hashCode ^
-      xl2.hashCode ^
-      xl3.hashCode ^
-      xl4.hashCode ^
-      xl5.hashCode ^
-      xl6.hashCode ^
-      xl7.hashCode ^
-      xl8.hashCode;
+      h1.hashCode ^
+      h2.hashCode ^
+      h3.hashCode ^
+      h4.hashCode ^
+      h5.hashCode ^
+      h6.hashCode ^
+      bodyLarge.hashCode ^
+      body.hashCode ^
+      caption.hashCode ^
+      mutedText.hashCode;
 }

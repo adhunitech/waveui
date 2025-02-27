@@ -143,8 +143,8 @@ final class FAccordionStyle with Diagnosticable, _$FAccordionStyleFunctions {
   /// Creates a [FDividerStyles] that inherits its properties from [colorScheme].
   FAccordionStyle.inherit({required FColorScheme colorScheme, required FStyle style, required FTypography typography})
     : this(
-        titleTextStyle: typography.base.copyWith(fontWeight: FontWeight.w500, color: colorScheme.foreground),
-        childTextStyle: typography.sm.copyWith(color: colorScheme.foreground),
+        titleTextStyle: typography.body.copyWith(fontWeight: FontWeight.w500, color: colorScheme.foreground),
+        childTextStyle: typography.mutedText.copyWith(color: colorScheme.foreground),
         iconColor: colorScheme.primary,
         iconSize: 20,
         focusedOutlineStyle: style.focusedOutlineStyle,

@@ -112,12 +112,12 @@ final class FAlertStyles with Diagnosticable, _$FAlertStylesFunctions {
     : this(
         primary: FAlertCustomStyle(
           iconColor: colorScheme.foreground,
-          titleTextStyle: typography.base.copyWith(
+          titleTextStyle: typography.body.copyWith(
             fontWeight: FontWeight.w500,
             color: colorScheme.foreground,
             height: 1.2,
           ),
-          subtitleTextStyle: typography.sm.copyWith(color: colorScheme.foreground),
+          subtitleTextStyle: typography.mutedText.copyWith(color: colorScheme.foreground),
           decoration: BoxDecoration(
             border: Border.all(color: colorScheme.border),
             borderRadius: style.borderRadius,
@@ -126,12 +126,12 @@ final class FAlertStyles with Diagnosticable, _$FAlertStylesFunctions {
         ),
         destructive: FAlertCustomStyle(
           iconColor: colorScheme.destructive,
-          titleTextStyle: typography.base.copyWith(
+          titleTextStyle: typography.body.copyWith(
             fontWeight: FontWeight.w500,
             color: colorScheme.destructive,
             height: 1.2,
           ),
-          subtitleTextStyle: typography.sm.copyWith(color: colorScheme.destructive),
+          subtitleTextStyle: typography.mutedText.copyWith(color: colorScheme.destructive),
           decoration: BoxDecoration(
             border: Border.all(color: colorScheme.destructive),
             borderRadius: style.borderRadius,

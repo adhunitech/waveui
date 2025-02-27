@@ -48,20 +48,17 @@ class _State extends State<_Portal> with SingleTickerProviderStateMixin {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Dimensions', style: context.theme.typography.base),
+                  Text('Dimensions', style: context.theme.typography.body),
                   const SizedBox(height: 7),
                   Text(
                     'Set the dimensions for the layer.',
-                    style: context.theme.typography.sm.copyWith(
-                      color: context.theme.colorScheme.mutedForeground,
-                      fontWeight: FontWeight.w300,
-                    ),
+                    style: context.theme.typography.mutedText.copyWith(fontWeight: FontWeight.w300),
                   ),
                   const SizedBox(height: 15),
                   for (final (label, value) in [('Width', '100%'), ('Max. Width', '300px')]) ...[
                     Row(
                       children: [
-                        Expanded(child: Text(label, style: context.theme.typography.sm)),
+                        Expanded(child: Text(label, style: context.theme.typography.mutedText)),
                         Expanded(flex: 2, child: FTextField(initialValue: value)),
                       ],
                     ),

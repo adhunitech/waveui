@@ -107,13 +107,13 @@ class Label extends StatelessWidget {
             children: [
               icon(height: 15, colorFilter: ColorFilter.mode(colorScheme.foreground, BlendMode.srcIn)),
               const SizedBox(width: 3),
-              Text(label, style: typography.sm.copyWith(color: colorScheme.foreground)),
+              Text(label, style: typography.mutedText.copyWith(color: colorScheme.foreground)),
             ],
           ),
           const SizedBox(height: 5),
           Text(
             '${format.format(start)} - ${format.format(end)}',
-            style: typography.sm.copyWith(color: colorScheme.foreground),
+            style: typography.mutedText.copyWith(color: colorScheme.foreground),
           ),
         ],
       ),
@@ -138,12 +138,12 @@ class HorizontalResizablePage extends Sample {
         FResizableRegion(
           initialExtent: 100,
           minExtent: 100,
-          builder: (context, data, _) => Align(child: Text('Sidebar', style: context.theme.typography.sm)),
+          builder: (context, data, _) => Align(child: Text('Sidebar', style: context.theme.typography.mutedText)),
         ),
         FResizableRegion(
           initialExtent: 300,
           minExtent: 100,
-          builder: (context, data, _) => Align(child: Text('Content', style: context.theme.typography.sm)),
+          builder: (context, data, _) => Align(child: Text('Content', style: context.theme.typography.mutedText)),
         ),
       ],
     ),
@@ -168,12 +168,12 @@ class NoThumbResizablePage extends Sample {
         FResizableRegion(
           initialExtent: 100,
           minExtent: 100,
-          builder: (context, data, _) => Align(child: Text('Sidebar', style: context.theme.typography.sm)),
+          builder: (context, data, _) => Align(child: Text('Sidebar', style: context.theme.typography.mutedText)),
         ),
         FResizableRegion(
           initialExtent: 300,
           minExtent: 100,
-          builder: (context, data, _) => Align(child: Text('Content', style: context.theme.typography.sm)),
+          builder: (context, data, _) => Align(child: Text('Content', style: context.theme.typography.mutedText)),
         ),
       ],
     ),
@@ -198,12 +198,12 @@ class NoDividerResizablePage extends Sample {
         FResizableRegion(
           initialExtent: 100,
           minExtent: 100,
-          builder: (context, data, _) => Align(child: Text('Sidebar', style: context.theme.typography.sm)),
+          builder: (context, data, _) => Align(child: Text('Sidebar', style: context.theme.typography.mutedText)),
         ),
         FResizableRegion(
           initialExtent: 300,
           minExtent: 100,
-          builder: (context, data, _) => Align(child: Text('Content', style: context.theme.typography.sm)),
+          builder: (context, data, _) => Align(child: Text('Content', style: context.theme.typography.mutedText)),
         ),
       ],
     ),

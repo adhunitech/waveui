@@ -22,8 +22,8 @@ class FFormFieldStyle with Diagnosticable, _$FFormFieldStyleFunctions {
 
   /// Creates a [FFormFieldStyle] that inherits its properties from the given [FTypography].
   FFormFieldStyle.inherit({required Color labelColor, required Color descriptionColor, required FTypography typography})
-    : labelTextStyle = typography.sm.copyWith(color: labelColor, fontWeight: FontWeight.w600),
-      descriptionTextStyle = typography.sm.copyWith(color: descriptionColor);
+    : labelTextStyle = typography.mutedText.copyWith(color: labelColor, fontWeight: FontWeight.w600),
+      descriptionTextStyle = typography.mutedText.copyWith(color: descriptionColor);
 }
 
 /// A form field's error style.
@@ -45,6 +45,6 @@ class FFormFieldErrorStyle extends FFormFieldStyle with _$FFormFieldErrorStyleFu
     required super.labelColor,
     required super.descriptionColor,
     required super.typography,
-  }) : errorTextStyle = typography.sm.copyWith(color: errorColor, fontWeight: FontWeight.w600),
+  }) : errorTextStyle = typography.mutedText.copyWith(color: errorColor, fontWeight: FontWeight.w600),
        super.inherit();
 }

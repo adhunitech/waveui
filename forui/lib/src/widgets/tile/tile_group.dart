@@ -422,26 +422,26 @@ class FTileGroupStyle extends FLabelStateStyles with Diagnosticable, _$FTileGrou
         borderRadius: style.borderRadius,
         tileStyle: FTileStyle.inherit(colorScheme: colorScheme, typography: typography, style: style),
         enabledStyle: FFormFieldStyle(
-          labelTextStyle: typography.base.copyWith(
+          labelTextStyle: typography.body.copyWith(
             color: style.enabledFormFieldStyle.labelTextStyle.color,
             fontWeight: FontWeight.w600,
           ),
-          descriptionTextStyle: typography.xs.copyWith(color: style.enabledFormFieldStyle.descriptionTextStyle.color),
+          descriptionTextStyle: typography.mutedText.copyWith(color: style.enabledFormFieldStyle.descriptionTextStyle.color),
         ),
         disabledStyle: FFormFieldStyle(
-          labelTextStyle: typography.base.copyWith(
+          labelTextStyle: typography.body.copyWith(
             color: style.disabledFormFieldStyle.labelTextStyle.color,
             fontWeight: FontWeight.w600,
           ),
-          descriptionTextStyle: typography.xs.copyWith(color: style.disabledFormFieldStyle.descriptionTextStyle.color),
+          descriptionTextStyle: typography.mutedText.copyWith(color: style.disabledFormFieldStyle.descriptionTextStyle.color),
         ),
         errorStyle: FFormFieldErrorStyle(
-          labelTextStyle: typography.base.copyWith(
+          labelTextStyle: typography.body.copyWith(
             color: style.enabledFormFieldStyle.labelTextStyle.color,
             fontWeight: FontWeight.w600,
           ),
-          descriptionTextStyle: typography.xs.copyWith(color: style.errorFormFieldStyle.descriptionTextStyle.color),
-          errorTextStyle: typography.xs.copyWith(color: style.errorFormFieldStyle.errorTextStyle.color),
+          descriptionTextStyle: typography.mutedText.copyWith(color: style.errorFormFieldStyle.descriptionTextStyle.color),
+          errorTextStyle: typography.mutedText.copyWith(color: style.errorFormFieldStyle.errorTextStyle.color),
         ),
       );
 

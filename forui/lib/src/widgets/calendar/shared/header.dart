@@ -235,7 +235,7 @@ final class FCalendarHeaderStyle with Diagnosticable, _$FCalendarHeaderStyleFunc
         enabledHoverBoxDecoration: outline.enabledHoverBoxDecoration.copyWith(borderRadius: BorderRadius.circular(4)),
         disabledBoxDecoration: outline.disabledBoxDecoration.copyWith(borderRadius: BorderRadius.circular(4)),
       ),
-      headerTextStyle: typography.base.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w600),
+      headerTextStyle: typography.body.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w600),
       enabledIconColor: colorScheme.mutedForeground,
       disabledIconColor: colorScheme.disable(colorScheme.mutedForeground),
     );

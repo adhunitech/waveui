@@ -73,11 +73,11 @@ class _State extends StatefulSampleState<PopoverPage> with SingleTickerProviderS
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Dimensions', style: context.theme.typography.base),
+                    Text('Dimensions', style: context.theme.typography.body),
                     const SizedBox(height: 7),
                     Text(
                       'Set the dimensions for the layer.',
-                      style: context.theme.typography.sm.copyWith(
+                      style: context.theme.typography.mutedText.copyWith(
                         color: context.theme.colorScheme.mutedForeground,
                         fontWeight: FontWeight.w300,
                       ),
@@ -91,7 +91,7 @@ class _State extends StatefulSampleState<PopoverPage> with SingleTickerProviderS
                     ]) ...[
                       Row(
                         children: [
-                          Expanded(child: Text(label, style: context.theme.typography.sm)),
+                          Expanded(child: Text(label, style: context.theme.typography.mutedText)),
                           Expanded(flex: 2, child: FTextField(initialValue: value)),
                         ],
                       ),

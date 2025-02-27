@@ -34,7 +34,7 @@ final class FSliderStyles with Diagnosticable, _$FSliderStylesFunctions {
       inactiveColor: colorScheme.secondary,
       markStyle: FSliderMarkStyle(
         tickColor: colorScheme.mutedForeground,
-        labelTextStyle: typography.xs.copyWith(color: colorScheme.mutedForeground),
+        labelTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
         labelAnchor: Alignment.topCenter,
         labelOffset: 10,
       ),
@@ -53,7 +53,7 @@ final class FSliderStyles with Diagnosticable, _$FSliderStylesFunctions {
       inactiveColor: colorScheme.secondary,
       markStyle: FSliderMarkStyle(
         tickColor: colorScheme.mutedForeground,
-        labelTextStyle: typography.xs.copyWith(color: colorScheme.mutedForeground),
+        labelTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
         labelAnchor: Alignment.topCenter,
         labelOffset: 10,
       ),
@@ -73,7 +73,7 @@ final class FSliderStyles with Diagnosticable, _$FSliderStylesFunctions {
       inactiveColor: colorScheme.secondary,
       markStyle: FSliderMarkStyle(
         tickColor: colorScheme.mutedForeground,
-        labelTextStyle: typography.xs.copyWith(color: colorScheme.error),
+        labelTextStyle: typography.mutedText.copyWith(color: colorScheme.error),
         labelAnchor: Alignment.topCenter,
         labelOffset: 10,
       ),

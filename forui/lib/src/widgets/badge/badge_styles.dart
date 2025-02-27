@@ -36,7 +36,10 @@ final class FBadgeStyles with Diagnosticable, _$FBadgeStylesFunctions {
           borderColor: colorScheme.primary,
           borderWidth: style.borderWidth,
           contentStyle: FBadgeContentStyle(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.primaryForeground, fontWeight: FontWeight.w600),
+            labelTextStyle: typography.mutedText.copyWith(
+              color: colorScheme.primaryForeground,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         secondary: FBadgeCustomStyle(
@@ -44,7 +47,10 @@ final class FBadgeStyles with Diagnosticable, _$FBadgeStylesFunctions {
           borderColor: colorScheme.secondary,
           borderWidth: style.borderWidth,
           contentStyle: FBadgeContentStyle(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.secondaryForeground, fontWeight: FontWeight.w600),
+            labelTextStyle: typography.mutedText.copyWith(
+              color: colorScheme.secondaryForeground,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         outline: FBadgeCustomStyle(
@@ -52,7 +58,7 @@ final class FBadgeStyles with Diagnosticable, _$FBadgeStylesFunctions {
           borderColor: colorScheme.border,
           borderWidth: style.borderWidth,
           contentStyle: FBadgeContentStyle(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w600),
+            labelTextStyle: typography.mutedText.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w600),
           ),
         ),
         destructive: FBadgeCustomStyle(
@@ -60,7 +66,7 @@ final class FBadgeStyles with Diagnosticable, _$FBadgeStylesFunctions {
           borderColor: colorScheme.destructive,
           borderWidth: style.borderWidth,
           contentStyle: FBadgeContentStyle(
-            labelTextStyle: typography.sm.copyWith(
+            labelTextStyle: typography.mutedText.copyWith(
               color: colorScheme.destructiveForeground,
               fontWeight: FontWeight.w600,
             ),

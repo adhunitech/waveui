@@ -124,7 +124,7 @@ final class FNestedHeaderStyle with Diagnosticable, _$FNestedHeaderStyleFunction
     required FTypography typography,
     required FStyle style,
   }) : this(
-         titleTextStyle: typography.xl.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w600, height: 1),
+         titleTextStyle: typography.h6.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w600, height: 1),
          actionStyle: FHeaderActionStyle.inherit(colorScheme: colorScheme, style: style, size: 25),
          padding: style.pagePadding.copyWith(bottom: 15),
        );

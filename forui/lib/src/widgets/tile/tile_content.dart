@@ -197,23 +197,23 @@ final class FTileContentStyle with Diagnosticable, _$FTileContentStyleFunctions 
     : this(
         enabledStyle: FTileContentStateStyle(
           prefixIconStyle: FIconStyle(color: colorScheme.primary, size: 18),
-          titleTextStyle: typography.base,
-          subtitleTextStyle: typography.xs.copyWith(color: colorScheme.mutedForeground),
-          detailsTextStyle: typography.base.copyWith(color: colorScheme.mutedForeground),
+          titleTextStyle: typography.body,
+          subtitleTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
+          detailsTextStyle: typography.body.copyWith(color: colorScheme.mutedForeground),
           suffixIconStyle: FIconStyle(color: colorScheme.mutedForeground, size: 18),
         ),
         enabledHoveredStyle: FTileContentStateStyle(
           prefixIconStyle: FIconStyle(color: colorScheme.primary, size: 18),
-          titleTextStyle: typography.base,
-          subtitleTextStyle: typography.xs.copyWith(color: colorScheme.mutedForeground),
-          detailsTextStyle: typography.base.copyWith(color: colorScheme.mutedForeground),
+          titleTextStyle: typography.body,
+          subtitleTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
+          detailsTextStyle: typography.body.copyWith(color: colorScheme.mutedForeground),
           suffixIconStyle: FIconStyle(color: colorScheme.mutedForeground, size: 18),
         ),
         disabledStyle: FTileContentStateStyle(
           prefixIconStyle: FIconStyle(color: colorScheme.disable(colorScheme.primary), size: 18),
-          titleTextStyle: typography.base.copyWith(color: colorScheme.disable(colorScheme.primary)),
-          subtitleTextStyle: typography.xs.copyWith(color: colorScheme.disable(colorScheme.mutedForeground)),
-          detailsTextStyle: typography.base.copyWith(color: colorScheme.disable(colorScheme.mutedForeground)),
+          titleTextStyle: typography.body.copyWith(color: colorScheme.disable(colorScheme.primary)),
+          subtitleTextStyle: typography.mutedText.copyWith(color: colorScheme.disable(colorScheme.mutedForeground)),
+          detailsTextStyle: typography.body.copyWith(color: colorScheme.disable(colorScheme.mutedForeground)),
           suffixIconStyle: FIconStyle(color: colorScheme.disable(colorScheme.mutedForeground), size: 18),
         ),
       );

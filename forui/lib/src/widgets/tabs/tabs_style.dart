@@ -77,12 +77,12 @@ final class FTabsStyle with Diagnosticable, _$FTabsStyleFunctions {
           borderRadius: style.borderRadius,
           color: colorScheme.muted,
         ),
-        selectedLabelTextStyle: typography.sm.copyWith(
+        selectedLabelTextStyle: typography.mutedText.copyWith(
           fontWeight: FontWeight.w500,
           fontFamily: typography.defaultFontFamily,
           color: colorScheme.foreground,
         ),
-        unselectedLabelTextStyle: typography.sm.copyWith(
+        unselectedLabelTextStyle: typography.mutedText.copyWith(
           fontWeight: FontWeight.w500,
           fontFamily: typography.defaultFontFamily,
           color: colorScheme.mutedForeground,

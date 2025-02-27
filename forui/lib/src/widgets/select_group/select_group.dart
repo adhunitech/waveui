@@ -215,20 +215,22 @@ class FSelectGroupStyle with Diagnosticable, _$FSelectGroupStyleFunctions {
       style: FCheckboxStyle.inherit(colorScheme: colorScheme, style: style).transform(
         (style) => style.copyWith(
           enabledStyle: style.enabledStyle.copyWith(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
-            descriptionTextStyle: typography.sm.copyWith(color: colorScheme.mutedForeground),
+            labelTextStyle: typography.mutedText.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
+            descriptionTextStyle: typography.mutedText,
           ),
           disabledStyle: style.disabledStyle.copyWith(
-            labelTextStyle: typography.sm.copyWith(
+            labelTextStyle: typography.mutedText.copyWith(
               color: colorScheme.disable(colorScheme.primary),
               fontWeight: FontWeight.w500,
             ),
-            descriptionTextStyle: typography.sm.copyWith(color: colorScheme.disable(colorScheme.mutedForeground)),
+            descriptionTextStyle: typography.mutedText.copyWith(
+              color: colorScheme.disable(colorScheme.mutedForeground),
+            ),
           ),
           errorStyle: style.errorStyle.copyWith(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
-            descriptionTextStyle: typography.sm.copyWith(color: colorScheme.mutedForeground),
-            errorTextStyle: typography.sm.copyWith(color: colorScheme.error, fontWeight: FontWeight.w500),
+            labelTextStyle: typography.mutedText.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
+            descriptionTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
+            errorTextStyle: typography.mutedText.copyWith(color: colorScheme.error, fontWeight: FontWeight.w500),
           ),
         ),
       ),
@@ -237,20 +239,22 @@ class FSelectGroupStyle with Diagnosticable, _$FSelectGroupStyleFunctions {
       style: FRadioStyle.inherit(colorScheme: colorScheme, style: style).transform(
         (style) => style.copyWith(
           enabledStyle: style.enabledStyle.copyWith(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
-            descriptionTextStyle: typography.sm.copyWith(color: colorScheme.mutedForeground),
+            labelTextStyle: typography.mutedText.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
+            descriptionTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
           ),
           disabledStyle: style.disabledStyle.copyWith(
-            labelTextStyle: typography.sm.copyWith(
+            labelTextStyle: typography.mutedText.copyWith(
               color: colorScheme.disable(colorScheme.primary),
               fontWeight: FontWeight.w500,
             ),
-            descriptionTextStyle: typography.sm.copyWith(color: colorScheme.disable(colorScheme.mutedForeground)),
+            descriptionTextStyle: typography.mutedText.copyWith(
+              color: colorScheme.disable(colorScheme.mutedForeground),
+            ),
           ),
           errorStyle: style.errorStyle.copyWith(
-            labelTextStyle: typography.sm.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
-            descriptionTextStyle: typography.sm.copyWith(color: colorScheme.mutedForeground),
-            errorTextStyle: typography.sm.copyWith(color: colorScheme.error, fontWeight: FontWeight.w500),
+            labelTextStyle: typography.mutedText.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w500),
+            descriptionTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
+            errorTextStyle: typography.mutedText.copyWith(color: colorScheme.error, fontWeight: FontWeight.w500),
           ),
         ),
       ),

@@ -177,24 +177,24 @@ final class FLineCalendarStyle with Diagnosticable, _$FLineCalendarStyleFunction
   }) {
     final focusedBorder = Border.all(color: colorScheme.primary, width: style.borderWidth);
 
-    final selectedDateTextStyle = typography.xl.copyWith(
+    final selectedDateTextStyle = typography.h6.copyWith(
       color: colorScheme.primaryForeground,
       fontWeight: FontWeight.w500,
       height: 0,
     );
 
-    final selectedWeekdayTextStyle = typography.xs.copyWith(
+    final selectedWeekdayTextStyle = typography.mutedText.copyWith(
       color: colorScheme.primaryForeground,
       fontWeight: FontWeight.w500,
       height: 0,
     );
 
-    final unselectedDateTextStyle = typography.xl.copyWith(
+    final unselectedDateTextStyle = typography.h6.copyWith(
       color: colorScheme.primary,
       fontWeight: FontWeight.w500,
       height: 0,
     );
-    final unselectedWeekdayTextStyle = typography.xs.copyWith(
+    final unselectedWeekdayTextStyle = typography.mutedText.copyWith(
       color: colorScheme.mutedForeground,
       fontWeight: FontWeight.w500,
       height: 0,

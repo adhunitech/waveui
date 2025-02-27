@@ -97,7 +97,7 @@ final class FRootHeaderStyle with Diagnosticable, _$FRootHeaderStyleFunctions {
   /// [FStyle].
   FRootHeaderStyle.inherit({required FColorScheme colorScheme, required FTypography typography, required FStyle style})
     : this(
-        titleTextStyle: typography.xl3.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w700, height: 1),
+        titleTextStyle: typography.h2.copyWith(color: colorScheme.foreground, fontWeight: FontWeight.w700, height: 1),
         actionStyle: FHeaderActionStyle.inherit(colorScheme: colorScheme, style: style, size: 30),
         padding: style.pagePadding.copyWith(bottom: 15),
       );

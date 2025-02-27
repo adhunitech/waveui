@@ -55,7 +55,7 @@ class _FormSwitchState extends StatefulSampleState<FormSwitchPage> {
           children: [
             Text(
               'Email Notifications',
-              style: theme.typography.xl2.copyWith(
+              style: theme.typography.h2.copyWith(
                 fontWeight: FontWeight.w600,
                 color: theme.colorScheme.foreground,
                 height: 1.5,
@@ -74,7 +74,7 @@ class _FormSwitchState extends StatefulSampleState<FormSwitchPage> {
                         children: [
                           Text(
                             'Marketing Emails',
-                            style: theme.typography.base.copyWith(
+                            style: theme.typography.body.copyWith(
                               fontWeight: FontWeight.w500,
                               color: theme.colorScheme.foreground,
                               height: 1.5,
@@ -82,7 +82,7 @@ class _FormSwitchState extends StatefulSampleState<FormSwitchPage> {
                           ),
                           Text(
                             'Receive emails about new products, features, and more.',
-                            style: theme.typography.sm.copyWith(color: theme.colorScheme.mutedForeground),
+                            style: theme.typography.mutedText.copyWith(color: theme.colorScheme.mutedForeground),
                           ),
                         ],
                       ),
@@ -113,7 +113,7 @@ class _FormSwitchState extends StatefulSampleState<FormSwitchPage> {
                         children: [
                           Text(
                             'Security emails',
-                            style: theme.typography.base.copyWith(
+                            style: theme.typography.body.copyWith(
                               fontWeight: FontWeight.w500,
                               color: theme.colorScheme.foreground,
                               height: 1.5,
@@ -121,7 +121,7 @@ class _FormSwitchState extends StatefulSampleState<FormSwitchPage> {
                           ),
                           Text(
                             'Receive emails about your account security.',
-                            style: theme.typography.sm.copyWith(color: theme.colorScheme.mutedForeground),
+                            style: theme.typography.mutedText.copyWith(color: theme.colorScheme.mutedForeground),
                           ),
                         ],
                       ),

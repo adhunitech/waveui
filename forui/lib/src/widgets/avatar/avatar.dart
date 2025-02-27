@@ -95,6 +95,6 @@ final class FAvatarStyle with Diagnosticable, _$FAvatarStyleFunctions {
     : this(
         backgroundColor: colorScheme.muted,
         foregroundColor: colorScheme.mutedForeground,
-        textStyle: typography.base.copyWith(color: colorScheme.mutedForeground, height: 0),
+        textStyle: typography.body.copyWith(color: colorScheme.mutedForeground, height: 0),
       );
 }

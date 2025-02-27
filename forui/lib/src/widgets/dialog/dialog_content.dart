@@ -139,8 +139,8 @@ final class FDialogContentStyle with Diagnosticable, _$FDialogContentStyleFuncti
     required EdgeInsets padding,
     required double actionSpacing,
   }) : this(
-         titleTextStyle: typography.lg.copyWith(fontWeight: FontWeight.w600, color: colorScheme.foreground),
-         bodyTextStyle: typography.sm.copyWith(color: colorScheme.mutedForeground),
+         titleTextStyle: typography.h6.copyWith(fontWeight: FontWeight.w600, color: colorScheme.foreground),
+         bodyTextStyle: typography.mutedText.copyWith(color: colorScheme.mutedForeground),
          padding: padding,
          actionSpacing: actionSpacing,
        );

@@ -100,8 +100,8 @@ final class FButtonContentStyle with Diagnosticable, _$FButtonContentStyleFuncti
   /// Creates a [FButtonContentStyle] that inherits its properties from the given [enabled] and [disabled].
   FButtonContentStyle.inherit({required FTypography typography, required Color enabled, required Color disabled})
     : this(
-        enabledTextStyle: typography.base.copyWith(color: enabled, fontWeight: FontWeight.w500, height: 1),
-        disabledTextStyle: typography.base.copyWith(color: disabled, fontWeight: FontWeight.w500, height: 1),
+        enabledTextStyle: typography.body.copyWith(color: enabled, fontWeight: FontWeight.w500, height: 1),
+        disabledTextStyle: typography.body.copyWith(color: disabled, fontWeight: FontWeight.w500, height: 1),
         enabledIconColor: enabled,
         disabledIconColor: disabled,
       );

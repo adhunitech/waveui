@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Device (please complete the following information):**
  - Flutter version: [e.g. 3.20]
- - Forui version: [e.g. 0.1.0]
+ - Waveui version: [e.g. 0.1.0]
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
  - Browser [e.g. stock browser, safari]
