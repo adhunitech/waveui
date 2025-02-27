@@ -16,7 +16,7 @@ class ForuiSamples extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp.router(
     title: 'Waveui Samples',
-    builder: (context, child) => FTheme(data: FThemes.blue.light, child: child!),
+    builder: (context, child) => FTheme(data: FThemes.green.light, child: child!),
     routerConfig: _router,
   );
 }

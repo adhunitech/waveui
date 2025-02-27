@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     builder:
         (context, constraints) => FScaffold(
           // drawer: constraints.maxWidth > 720 ? null : _drawer(),
-          header: const FHeader(title: Text('data')),
+          header: const FHeader(title: Text('Waveui')),
           content: Row(children: [if (constraints.maxWidth > 720) _drawer(), Expanded(child: _body())]),
         ),
   );

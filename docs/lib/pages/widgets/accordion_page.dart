@@ -7,6 +7,13 @@ class AccordionPage extends StatelessWidget {
   const AccordionPage({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      DocsPage(examples: [PreviewWidgetPage(widget: AccordionExample1(), path: 'path', exampleName: 'Accordion')]);
+  Widget build(BuildContext context) => DocsPage(
+    examples: [
+      PreviewWidgetPage(
+        widget: AccordionExample1(),
+        path: 'docs/lib/pages/widgets/accordion/accordion_example_1.dart',
+        exampleName: 'Accordion',
+      ),
+    ],
+  );
 }
