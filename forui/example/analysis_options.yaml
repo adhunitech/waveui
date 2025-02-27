@@ -1,0 +1,6 @@
+include: package:better_lints/flutter.yaml
+analyzer:
+  errors:
+    diagnostic_describe_all_properties: ignore
+    public_member_api_docs: ignore
+    unused_result: ignore

@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Caixa de diálogo",
+  "sheetLabel": "Secção",
+  "barrierOnTapHint": "Fechar $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Selecionar data",
+  "dateFieldInvalidDateError": "Data inválida."
+}

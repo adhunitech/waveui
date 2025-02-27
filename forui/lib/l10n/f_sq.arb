@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialogu",
+  "sheetLabel": "Fleta",
+  "barrierOnTapHint": "Mbyll $modalRouteContentName",
+  "barrierLabel": "Kanavacë",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Zgjidh datën",
+  "dateFieldInvalidDateError": "Datë e pavlefshme."
+}

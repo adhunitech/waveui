@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "ダイアログ",
+  "sheetLabel": "シート",
+  "barrierOnTapHint": "$modalRouteContentName を閉じる",
+  "barrierLabel": "スクリム",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "日付を選択",
+  "dateFieldInvalidDateError": "日付が無効です。"
+}

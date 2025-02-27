@@ -1,0 +1,4 @@
+include: package:better_lints/flutter.yaml
+analyzer:
+  errors:
+    unused_result: ignore

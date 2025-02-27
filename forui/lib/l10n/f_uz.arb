@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Muloqot oynasi",
+  "sheetLabel": "ekran",
+  "barrierOnTapHint": "Yopish: $modalRouteContentName",
+  "barrierLabel": "Kanop",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Sanani tanlang",
+  "dateFieldInvalidDateError": "Sana yaroqsiz."
+}

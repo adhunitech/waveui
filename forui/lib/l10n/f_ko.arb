@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "대화상자",
+  "sheetLabel": "시트",
+  "barrierOnTapHint": "$modalRouteContentName 닫기",
+  "barrierLabel": "스크림",
+  "shortDateSeparator": ". ",
+  "shortDateSuffix": ".",
+  "dateFieldHint": "날짜 선택",
+  "dateFieldInvalidDateError": "날짜가 잘못되었습니다."
+}

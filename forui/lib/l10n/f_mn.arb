@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Харилцах цонх",
+  "sheetLabel": "хүснэгт",
+  "barrierOnTapHint": "$modalRouteContentName-г хаах",
+  "barrierLabel": "Скрим",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Огноо сонгох",
+  "dateFieldInvalidDateError": "Огноо буруу байна."
+}

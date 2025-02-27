@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "ডায়ল'গ",
+  "sheetLabel": "শ্বীট",
+  "barrierOnTapHint": "$modalRouteContentName বন্ধ কৰক",
+  "barrierLabel": "স্ক্ৰিম",
+  "shortDateSeparator": "-",
+  "shortDateSuffix": "",
+  "dateFieldHint": "তাৰিখ বাছনি কৰক",
+  "dateFieldInvalidDateError": "অমান্য তাৰিখ।"
+}

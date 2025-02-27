@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Diàleg",
+  "sheetLabel": "Full",
+  "barrierOnTapHint": "Tanca $modalRouteContentName",
+  "barrierLabel": "Fons atenuat",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Selecciona una data",
+  "dateFieldInvalidDateError": "Data no vàlida."
+}

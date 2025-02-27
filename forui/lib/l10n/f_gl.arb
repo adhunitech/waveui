@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Cadro de diálogo",
+  "sheetLabel": "Panel",
+  "barrierOnTapHint": "Pechar $modalRouteContentName",
+  "barrierLabel": "Sombreado",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Selecciona unha data",
+  "dateFieldInvalidDateError": "Data non válida."
+}

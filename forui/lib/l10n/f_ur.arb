@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "ڈائلاگ",
+  "sheetLabel": "شیٹ",
+  "barrierOnTapHint": "$modalRouteContentName بند کریں",
+  "barrierLabel": "اسکریم",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "تاریخ منتخب کریں",
+  "dateFieldInvalidDateError": "غلط تاریخ۔"
+}

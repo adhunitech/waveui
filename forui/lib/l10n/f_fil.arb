@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialog",
+  "sheetLabel": "sheet",
+  "barrierOnTapHint": "Isara ang $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Pumili ng petsa",
+  "dateFieldInvalidDateError": "Hindi wastong petsa."
+}

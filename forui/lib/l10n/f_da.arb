@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialogboks",
+  "sheetLabel": "Felt",
+  "barrierOnTapHint": "Luk $modalRouteContentName",
+  "barrierLabel": "Dæmpeskærm",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Vælg en dato",
+  "dateFieldInvalidDateError": "Ugyldig dato."
+}

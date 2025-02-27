@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialogové okno",
+  "sheetLabel": "tabulka",
+  "barrierOnTapHint": "Zavřít $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": ". ",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Vyberte datum",
+  "dateFieldInvalidDateError": "Neplatné datum."
+}

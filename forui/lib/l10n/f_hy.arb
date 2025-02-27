@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Երկխոսության պատուհան",
+  "sheetLabel": "էկրան",
+  "barrierOnTapHint": "Փակել՝ $modalRouteContentName",
+  "barrierLabel": "Դիմակ",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Ընտրել ամսաթիվը",
+  "dateFieldInvalidDateError": "Սխալ ամսաթիվ:"
+}

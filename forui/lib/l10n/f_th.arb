@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "กล่องโต้ตอบ",
+  "sheetLabel": "Sheet",
+  "barrierOnTapHint": "ปิด $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "เลือกวันที่",
+  "dateFieldInvalidDateError": "วันที่ไม่ถูกต้อง"
+}

@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "સંવાદ",
+  "sheetLabel": "શીટ",
+  "barrierOnTapHint": "$modalRouteContentNameને બંધ કરો",
+  "barrierLabel": "સ્ક્રિમ",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "તારીખ પસંદ કરો",
+  "dateFieldInvalidDateError": "અમાન્ય તારીખ."
+}

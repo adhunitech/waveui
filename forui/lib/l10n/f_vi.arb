@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Hộp thoại",
+  "sheetLabel": "Bảng",
+  "barrierOnTapHint": "Đóng $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Chọn ngày",
+  "dateFieldInvalidDateError": "Ngày không hợp lệ."
+}

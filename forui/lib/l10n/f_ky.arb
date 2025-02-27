@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Диалог",
+  "sheetLabel": "экран",
+  "barrierOnTapHint": "$modalRouteContentName жабуу",
+  "barrierLabel": "Кенеп",
+  "shortDateSeparator": "-",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Күндү тандоо",
+  "dateFieldInvalidDateError": "Жараксыз күн."
+}

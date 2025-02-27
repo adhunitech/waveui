@@ -1,0 +1,111 @@
+{
+  "fullDate": "{date}",
+  "@fullDate": {
+    "description": "The full date.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMMd"
+      }
+    }
+  },
+  "year": "{date}",
+  "@year": {
+    "description": "The year.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "y"
+      }
+    }
+  },
+  "yearMonth": "{date}",
+  "@yearMonth": {
+    "description": "The year and month.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMM"
+      }
+    }
+  },
+  "abbreviatedMonth": "{date}",
+  "@abbreviatedMonth": {
+    "description": "The abbreviated month.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "MMM"
+      }
+    }
+  },
+  "day": "{date}",
+  "@day": {
+    "description": "The day of the month.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "d"
+      }
+    }
+  },
+
+
+  "shortDate": "{date}",
+  "@shortDate": {
+    "description": "The short date.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMd"
+      }
+    }
+  },
+
+  "shortDateSeparator": "",
+  "@shortDateSeparator": {
+    "description": "The short date's separator, typically /."
+  },
+
+  "shortDateSuffix": "",
+  "@shortDateSuffix": {
+    "description": "The short date's suffix, typically empty."
+  },
+
+
+  "dateFieldHint": "Pick a date",
+  "@dateFieldHint": {
+    "description": "The hint text for the calendar-only date picker."
+  },
+
+  "dateFieldInvalidDateError": "Invalid date.",
+  "@dateFieldInvalidDateError": {
+    "description": "Error message displayed to the user when they have entered a text string in an input field of the date picker that is not in a valid date format."
+  },
+
+
+  "dialogLabel": "Dialog",
+  "@dialogLabel": {
+    "description": "The audio announcement made when a dialog is opened."
+  },
+
+  "sheetLabel": "Sheet",
+  "@dialogLabel": {
+    "description": "The sheet's label."
+  },
+
+  "barrierLabel": "Barrier",
+  "@barrierLabel": {
+    "description": "The label for the barrier rendered underneath the content of a bottom sheet (used as the 'modalRouteContentName' of the 'barrierOnTapHint' message)."
+  },
+
+  "barrierOnTapHint": "Close {modalRouteContentName}",
+  "@barrierOnTapHint": {
+    "description": "The onTapHint for the barrier rendered underneath the content of a modal route (especially a sheet) which users can tap to dismiss the content.",
+    "placeholders": {
+      "modalRouteContentName": {
+        "type": "String"
+      }
+    }
+  }
+}

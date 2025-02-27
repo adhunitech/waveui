@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialogruta",
+  "sheetLabel": "Ark",
+  "barrierOnTapHint": "Stäng $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": "-",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Välj datum",
+  "dateFieldInvalidDateError": "Ogiltigt datum."
+}

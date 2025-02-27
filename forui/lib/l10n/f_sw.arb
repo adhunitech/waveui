@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Kidirisha",
+  "sheetLabel": "Safu",
+  "barrierOnTapHint": "Funga $modalRouteContentName",
+  "barrierLabel": "Scrim",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Chagua tarehe",
+  "dateFieldInvalidDateError": "Tarehe si sahihi."
+}

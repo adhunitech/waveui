@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Finestra di dialogo",
+  "sheetLabel": "Riquadro",
+  "barrierOnTapHint": "Chiudi $modalRouteContentName",
+  "barrierLabel": "Rete",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Seleziona data",
+  "dateFieldInvalidDateError": "Data non valida."
+}

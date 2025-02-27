@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Дијалог",
+  "sheetLabel": "табела",
+  "barrierOnTapHint": "Затвори: $modalRouteContentName",
+  "barrierLabel": "Скрим",
+  "shortDateSeparator": ". ",
+  "shortDateSuffix": ".",
+  "dateFieldHint": "Изаберите датум",
+  "dateFieldInvalidDateError": "Неважећи датум."
+}

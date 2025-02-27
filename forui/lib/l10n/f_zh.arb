@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "对话框",
+  "sheetLabel": "动作条",
+  "barrierOnTapHint": "关闭 $modalRouteContentName",
+  "barrierLabel": "纱罩",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "选择日期",
+  "dateFieldInvalidDateError": "日期无效。"
+}

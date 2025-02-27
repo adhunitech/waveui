@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Диалогов прозорец",
+  "sheetLabel": "лист",
+  "barrierOnTapHint": "Затваряне на $modalRouteContentName",
+  "barrierLabel": "Скрим",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": " г.",
+  "dateFieldHint": "Изберете дата",
+  "dateFieldInvalidDateError": "Невалидна дата."
+}

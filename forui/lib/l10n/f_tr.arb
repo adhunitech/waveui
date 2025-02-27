@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "İletişim kutusu",
+  "sheetLabel": "sayfa",
+  "barrierOnTapHint": "$modalRouteContentName içeriğini kapat",
+  "barrierLabel": "opaklık katmanı",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Tarih seçin",
+  "dateFieldInvalidDateError": "Geçersiz tarih."
+}

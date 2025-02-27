@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "ଡାୟଲଗ୍",
+  "sheetLabel": "ସିଟ",
+  "barrierOnTapHint": "$modalRouteContentNameକୁ ବନ୍ଦ କରନ୍ତୁ",
+  "barrierLabel": "ସ୍କ୍ରିମ",
+  "shortDateSeparator": "/",
+  "shortDateSuffix": "",
+  "dateFieldHint": "ତାରିଖ ଚୟନ କରନ୍ତୁ",
+  "dateFieldInvalidDateError": "ଅବୈଧ ତାରିଖ।"
+}

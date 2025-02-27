@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Диалоговое окно",
+  "sheetLabel": "экран",
+  "barrierOnTapHint": "Закрыть $modalRouteContentName",
+  "barrierLabel": "Маска",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Выберите дату",
+  "dateFieldInvalidDateError": "Недействительная дата."
+}

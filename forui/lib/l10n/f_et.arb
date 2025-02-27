@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialoog",
+  "sheetLabel": "leht",
+  "barrierOnTapHint": "Sule $modalRouteContentName",
+  "barrierLabel": "Sirm",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Valige kuupäev",
+  "dateFieldInvalidDateError": "Sobimatu kuupäev."
+}

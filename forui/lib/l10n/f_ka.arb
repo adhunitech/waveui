@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "დიალოგი",
+  "sheetLabel": "ფურცელი",
+  "barrierOnTapHint": "$modalRouteContentName-ის დახურვა",
+  "barrierLabel": "სკრიმი",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "აირჩიეთ თარიღი",
+  "dateFieldInvalidDateError": "არასწორი თარიღი."
+}

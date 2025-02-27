@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Gluggi",
+  "sheetLabel": "Blað",
+  "barrierOnTapHint": "Loka $modalRouteContentName",
+  "barrierLabel": "Möskvi",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Veldu dagsetningu",
+  "dateFieldInvalidDateError": "Ógild dagsetning."
+}

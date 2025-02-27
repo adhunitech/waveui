@@ -1,0 +1,96 @@
+name: Docs Deploy
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - forui/*
+    paths: 
+       - '.github/workflows/docs_deploy.yaml'
+       - 'docs/**'
+       - 'samples/**'
+  workflow_dispatch:
+    inputs:
+      target:
+        type: choice
+        description: 'Environment'
+        required: true
+        options:
+          - development
+          - production
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: docs
+  cancel-in-progress: false
+
+jobs:
+  docs:
+    name: Deploy Docs
+    runs-on: ubuntu-latest
+    environment: ${{ (startsWith(github.ref, 'refs/tags/forui/') || inputs.target == 'production') && 'docs-production' || 'docs-development' }}
+    defaults:
+      run:
+        working-directory: ./docs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/configure-pages@v5
+
+      - run: pnpm install
+      - run: NEXT_PUBLIC_DEMO_URL=${{ vars.DEMO_URL }} pnpm run export
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./docs/out --project-name=${{ vars.CLOUDFLARE_DOCS_PROJECT_NAME }} --branch=main
+
+  samples:
+    name: Deploy Samples
+    runs-on: ubuntu-latest
+    environment: ${{ (startsWith(github.ref, 'refs/tags/forui') || inputs.target == 'production') && 'docs-production' || 'docs-development' }}
+    defaults:
+      run:
+        working-directory: ./samples
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2.18.0
+        with:
+          flutter-version: 3.29.x
+          cache: true
+
+      - working-directory: forui
+        run: |
+          flutter pub get
+          dart run build_runner build --delete-conflicting-outputs
+
+      - run: flutter pub get
+      - run: dart run build_runner build --delete-conflicting-outputs
+      - run: flutter build web
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        id: publish-docs
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./samples/build/web --project-name=${{ vars.CLOUDFLARE_DEMO_PROJECT_NAME }} --branch=main
+
+      # Check that all relative URLs are working. We don't check GitHub links due to rate limiting.
+      - uses: actions/setup-go@v5
+      - run: go install github.com/raviqqe/muffet/v2@latest
+      - run: muffet ${{ steps.publish-docs.outputs.deployment-url }} --buffer-size=8192 --exclude="(\/cdn-cgi\/)|(github.com)"
+        if: startsWith(github.ref, 'refs/tags/forui/') || inputs.target == 'production'

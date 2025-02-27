@@ -1,0 +1,10 @@
+{
+  "dialogLabel": "Dialogfeld",
+  "sheetLabel": "Ansicht",
+  "barrierOnTapHint": "$modalRouteContentName schließen",
+  "barrierLabel": "Gitter",
+  "shortDateSeparator": ".",
+  "shortDateSuffix": "",
+  "dateFieldHint": "Datum auswählen",
+  "dateFieldInvalidDateError": "Ungültiges Datum."
+}
