@@ -8,12 +8,15 @@ class AccordionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => DocsPage(
+    title: 'Accordion',
+    description: 'A vertically stacked set of interactive headings that each reveal a section of content.',
     examples: [
       PreviewWidgetPage(
         widget: AccordionExample1(),
         path: 'docs/lib/pages/widgets/accordion/accordion_example_1.dart',
-        exampleName: 'Accordion',
+        exampleName: 'Usage',
       ),
     ],
+    apiPath: 'waveui.widgets.accordion',
   );
 }

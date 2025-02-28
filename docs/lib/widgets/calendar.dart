@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:forui/forui.dart';
 import 'package:sugar/sugar.dart';
 
-import '../sample.dart';
+import 'package:forui_samples/sample.dart';
 
 DateTime get selected {
   final today = DateTime.now().toLocalDate();
