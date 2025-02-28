@@ -1,0 +1,17 @@
+name: waveui
+description: "🌊 Beautiful, extensible and modern Flutter UI library based on Material UI 3."
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: ^3.7.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  better_lints: ^1.0.4
+
+flutter:
