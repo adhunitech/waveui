@@ -1,0 +1,3 @@
+class WaveThemes {
+  final String
+}
