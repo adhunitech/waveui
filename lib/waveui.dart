@@ -5,3 +5,4 @@ export 'assets.dart';
 export 'theme.dart';
 
 export 'widgets/wave_app.dart';
+export 'widgets/scaffold.dart';

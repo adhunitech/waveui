@@ -6,7 +6,7 @@ class WaveColorScheme {
   final Color surface;
   final Color primaryText;
   final Color secondaryText;
-  final Color separator;
+  final Color separator; 
 
   const WaveColorScheme({
     required this.primary,
