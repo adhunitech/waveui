@@ -3,6 +3,6 @@ library waveui;
 
 export 'assets.dart';
 export 'theme.dart';
+export 'foundation.dart';
 
-export 'widgets/wave_app.dart';
-export 'widgets/scaffold.dart';
+export 'widgets/button.dart';
