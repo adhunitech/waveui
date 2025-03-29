@@ -16,7 +16,7 @@ class WaveTheme {
     var colorScheme = darkMode ? WaveColorScheme.dark() : WaveColorScheme.light();
 
     return _getDefaultThemeData(darkMode: darkMode).copyWith(
-      extensions: [WaveThemeData(colorScheme: WaveColorScheme.light())],
+      extensions: [WaveThemeData(colorScheme: colorScheme)],
       colorScheme: _colorScheme(darkMode: darkMode, themeColor: themeColor),
       dividerColor: WaveColors.dividerColor,
       cardColor: WaveColors.content(darkMode: darkMode),
