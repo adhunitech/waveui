@@ -6,3 +6,4 @@ export 'theme.dart';
 export 'foundation.dart';
 
 export 'widgets/button.dart';
+export 'widgets/dialog.dart';
