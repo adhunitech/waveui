@@ -12,11 +12,11 @@ class WaveTheme {
     return waveThemeData;
   }
 
-  static ThemeData dynamicTheme({Color themeColor = Colors.blue, bool darkMode = false}) {
+  static ThemeData dynamicTheme({Color themeColor = const Color(0xFF1869DF), bool darkMode = false}) {
     var colorScheme = darkMode ? WaveColorScheme.dark() : WaveColorScheme.light();
 
     return _getDefaultThemeData(darkMode: darkMode).copyWith(
-      extensions: [WaveThemeData(colorScheme: colorScheme)],
+      extensions: [WaveThemeData(colorScheme: colorScheme.copyWith(primary: themeColor))],
       colorScheme: _colorScheme(darkMode: darkMode, themeColor: themeColor),
       dividerColor: WaveColors.dividerColor,
       cardColor: WaveColors.content(darkMode: darkMode),
