@@ -26,7 +26,7 @@ class WaveBottomNavigationBar extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (showSeparator) const Divider(),
+          if (showSeparator) Divider(color: waveTheme.colorScheme.separator.withValues(alpha: 0.1)),
           SafeArea(
             child: SizedBox(
               width: double.infinity,
