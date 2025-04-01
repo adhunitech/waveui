@@ -40,6 +40,13 @@ class WaveTheme {
       inputDecorationTheme: _inputDecorationTheme(themeColor, darkMode),
       textTheme: WaveTextTheme(isDarkMode: darkMode),
       listTileTheme: _listTileThemeData(darkMode: darkMode),
+      actionIconTheme: ActionIconThemeData(
+        backButtonIconBuilder:
+            (context) => IconButton(
+              onPressed: () => Navigator.of(context).maybePop(),
+              icon: const Icon(WaveIcons.chevron_left_24_filled),
+            ),
+      ),
     );
   }
 }
