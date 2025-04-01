@@ -9,3 +9,4 @@ export 'utils.dart';
 export 'widgets/bottom_navigation_bar.dart';
 export 'widgets/button.dart';
 export 'widgets/dialog.dart';
+export 'widgets/badge.dart';

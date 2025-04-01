@@ -23,7 +23,14 @@ class WaveTheme {
       appBarTheme: _appBarTheme(darkMode: darkMode),
       bottomNavigationBarTheme: _bottomNavigationBarTheme(),
       navigationBarTheme: _navigationBarTheme(darkMode: darkMode, themeColor: themeColor),
-      dropdownMenuTheme: const DropdownMenuThemeData(),
+      dropdownMenuTheme: DropdownMenuThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: WaveColors.dividerColor),
+          ),
+        ),
+      ),
       dividerTheme: _dividerTheme(),
       snackBarTheme: _snackBarThemeData(),
       outlinedButtonTheme: _outlinedButtonTheme(themeColor),
@@ -31,19 +38,20 @@ class WaveTheme {
       datePickerTheme: _datePickerTheme(darkMode),
       floatingActionButtonTheme: _floatingActionButtonThemeData(),
       drawerTheme: _drawerTheme(darkMode),
-      progressIndicatorTheme: _progressIndicatorTheme(themeColor),
-      chipTheme: _chipTheme(),
+      progressIndicatorTheme: _progressIndicatorTheme(colorScheme),
+      chipTheme: _chipTheme(themeColor),
       cardTheme: _cardTheme(darkMode),
       dialogTheme: _dialogTheme(darkMode),
       popupMenuTheme: _popupMenuThemeData(),
       inputDecorationTheme: _inputDecorationTheme(themeColor, darkMode),
       textTheme: WaveTextTheme(isDarkMode: darkMode),
       listTileTheme: _listTileThemeData(darkMode: darkMode),
+
       actionIconTheme: ActionIconThemeData(
         backButtonIconBuilder:
             (context) => IconButton(
               onPressed: () => Navigator.of(context).maybePop(),
-              icon: const Icon(WaveIcons.chevron_left_24_filled),
+              icon: const Icon(WaveIcons.chevron_left_24_regular),
             ),
       ),
     );
@@ -96,17 +104,17 @@ DrawerThemeData _drawerTheme(bool darkMode) => DrawerThemeData(
   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
 );
 
-ProgressIndicatorThemeData _progressIndicatorTheme(Color themeColor) => ProgressIndicatorThemeData(
-  refreshBackgroundColor: themeColor.withOpacity(0.1),
-  linearTrackColor: themeColor.withOpacity(0.1),
-  circularTrackColor: themeColor.withOpacity(0.1),
+ProgressIndicatorThemeData _progressIndicatorTheme(WaveColorScheme colorScheme) => ProgressIndicatorThemeData(
+  refreshBackgroundColor: colorScheme.surface,
+  linearTrackColor: colorScheme.primary.withValues(alpha: 0.1),
+  circularTrackColor: colorScheme.primary.withValues(alpha: 0.1),
 );
 
-ChipThemeData _chipTheme() => ChipThemeData(
+ChipThemeData _chipTheme(Color themeColor) => ChipThemeData(
   side: BorderSide(color: WaveColors.dividerColor),
   elevation: 0,
-  backgroundColor: Colors.transparent,
-  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  selectedColor: themeColor.withValues(alpha: 0.1),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
 );
 
 CardTheme _cardTheme(bool darkMode) => CardTheme(
