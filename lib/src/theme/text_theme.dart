@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:waveui/src/theme/colors.dart';
 
 class WaveTextTheme extends TextTheme {
@@ -24,7 +25,7 @@ class WaveTextTheme extends TextTheme {
   });
 
   @override
-  TextStyle? get bodyLarge => TextStyle(
+  TextStyle? get bodyLarge => GoogleFonts.inter(
     fontSize: 18,
     height: 1.25,
     fontWeight: FontWeight.w400,
@@ -32,7 +33,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get bodyMedium => TextStyle(
+  TextStyle? get bodyMedium => GoogleFonts.inter(
     fontSize: 16,
     height: 1.4,
     fontWeight: FontWeight.w400,
@@ -40,7 +41,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get bodySmall => TextStyle(
+  TextStyle? get bodySmall => GoogleFonts.inter(
     fontSize: 14,
     height: 1.25,
     fontWeight: FontWeight.w400,
@@ -48,7 +49,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get titleLarge => TextStyle(
+  TextStyle? get titleLarge => GoogleFonts.inter(
     fontSize: 20,
     height: 1.25,
     fontWeight: FontWeight.w500,
@@ -56,7 +57,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get titleMedium => TextStyle(
+  TextStyle? get titleMedium => GoogleFonts.inter(
     fontSize: 18,
     height: 1.25,
     fontWeight: FontWeight.w500,
@@ -64,7 +65,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get titleSmall => TextStyle(
+  TextStyle? get titleSmall => GoogleFonts.inter(
     fontSize: 16,
     height: 1.25,
     fontWeight: FontWeight.w500,
@@ -72,7 +73,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get labelLarge => TextStyle(
+  TextStyle? get labelLarge => GoogleFonts.inter(
     fontSize: 15,
     height: 1,
     fontWeight: FontWeight.w500,
@@ -80,7 +81,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get labelMedium => TextStyle(
+  TextStyle? get labelMedium => GoogleFonts.inter(
     fontSize: 13,
     height: 1,
     fontWeight: FontWeight.w500,
@@ -88,7 +89,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get labelSmall => TextStyle(
+  TextStyle? get labelSmall => GoogleFonts.inter(
     fontSize: 11,
     height: 1,
     fontWeight: FontWeight.w500,
@@ -96,7 +97,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get headlineLarge => TextStyle(
+  TextStyle? get headlineLarge => GoogleFonts.inter(
     fontSize: 32,
     height: 1.25,
     fontWeight: FontWeight.w700,
@@ -104,7 +105,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get headlineMedium => TextStyle(
+  TextStyle? get headlineMedium => GoogleFonts.inter(
     fontSize: 28,
     height: 1.25,
     fontWeight: FontWeight.w700,
@@ -112,7 +113,7 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get headlineSmall => TextStyle(
+  TextStyle? get headlineSmall => GoogleFonts.inter(
     fontSize: 24,
     height: 1.25,
     fontWeight: FontWeight.w700,
@@ -120,11 +121,11 @@ class WaveTextTheme extends TextTheme {
   );
 
   @override
-  TextStyle? get displayLarge => TextStyle(height: 1.25, color: WaveColors.textColor(darkMode: isDarkMode));
+  TextStyle? get displayLarge => GoogleFonts.inter(height: 1.25, color: WaveColors.textColor(darkMode: isDarkMode));
 
   @override
-  TextStyle? get displayMedium => TextStyle(height: 1.25, color: WaveColors.textColor(darkMode: isDarkMode));
+  TextStyle? get displayMedium => GoogleFonts.inter(height: 1.25, color: WaveColors.textColor(darkMode: isDarkMode));
 
   @override
-  TextStyle? get displaySmall => TextStyle(height: 1.25, color: WaveColors.textColor(darkMode: isDarkMode));
+  TextStyle? get displaySmall => GoogleFonts.inter(height: 1.25, color: WaveColors.textColor(darkMode: isDarkMode));
 }

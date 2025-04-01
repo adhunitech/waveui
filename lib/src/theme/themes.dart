@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:waveui/src/theme/colors.dart';
-import 'package:waveui/src/theme/theme.dart';
 import 'package:waveui/waveui.dart';
 
 class WaveTheme {
@@ -30,6 +30,7 @@ class WaveTheme {
       outlinedButtonTheme: _outlinedButtonTheme(themeColor),
       timePickerTheme: _timePickerTheme(darkMode),
       datePickerTheme: _datePickerTheme(darkMode),
+      primaryTextTheme: GoogleFonts.interTextTheme(WaveTextTheme(isDarkMode: darkMode)),
       floatingActionButtonTheme: _floatingActionButtonThemeData(),
       drawerTheme: _drawerTheme(darkMode),
       progressIndicatorTheme: _progressIndicatorTheme(themeColor),
