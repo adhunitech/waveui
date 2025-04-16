@@ -14,18 +14,27 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
     required Brightness brightness,
     required Color barrier,
     required Color background,
-    required Color foreground,
+    // Brand color
     required Color primary,
-    required Color primaryForeground,
+    required Color onPrimary,
     required Color secondary,
-    required Color secondaryForeground,
-    required Color muted,
-    required Color mutedForeground,
-    required Color destructive,
-    required Color destructiveForeground,
+    required Color onSecondary,
+    // Label color
+    required Color labelPrimary,
+    required Color labelSecondary,
+    required Color labelTertiary,
+    // Funtional color
+    required Color success,
     required Color error,
-    required Color errorForeground,
+    required Color warning,
+    required Color tip,
+    // Container fill color
+    required Color contentPrimary,
+    required Color contentSecondary,
+    required Color contentTertiary,
+    // Separator color
     required Color border,
+    required Color divider,
     @Default(0.9) double enabledHoveredOpacity,
     @Default(0.5) double disabledOpacity,
   }) = _WaveColorScheme;

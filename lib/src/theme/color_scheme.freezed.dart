@@ -15,7 +15,12 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$WaveColorScheme {
 
- Brightness get brightness; Color get barrier; Color get background; Color get foreground; Color get primary; Color get primaryForeground; Color get secondary; Color get secondaryForeground; Color get muted; Color get mutedForeground; Color get destructive; Color get destructiveForeground; Color get error; Color get errorForeground; Color get border; double get enabledHoveredOpacity; double get disabledOpacity;
+ Brightness get brightness; Color get barrier; Color get background;// Brand color
+ Color get primary; Color get onPrimary; Color get secondary; Color get onSecondary;// Label color
+ Color get labelPrimary; Color get labelSecondary; Color get labelTertiary;// Funtional color
+ Color get success; Color get error; Color get warning; Color get tip;// Container fill color
+ Color get contentPrimary; Color get contentSecondary; Color get contentTertiary;// Separator color
+ Color get border; Color get divider; double get enabledHoveredOpacity; double get disabledOpacity;
 /// Create a copy of WaveColorScheme
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,12 +31,12 @@ $WaveColorSchemeCopyWith<WaveColorScheme> get copyWith => _$WaveColorSchemeCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WaveColorScheme&&(identical(other.brightness, brightness) || other.brightness == brightness)&&(identical(other.barrier, barrier) || other.barrier == barrier)&&(identical(other.background, background) || other.background == background)&&(identical(other.foreground, foreground) || other.foreground == foreground)&&(identical(other.primary, primary) || other.primary == primary)&&(identical(other.primaryForeground, primaryForeground) || other.primaryForeground == primaryForeground)&&(identical(other.secondary, secondary) || other.secondary == secondary)&&(identical(other.secondaryForeground, secondaryForeground) || other.secondaryForeground == secondaryForeground)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.mutedForeground, mutedForeground) || other.mutedForeground == mutedForeground)&&(identical(other.destructive, destructive) || other.destructive == destructive)&&(identical(other.destructiveForeground, destructiveForeground) || other.destructiveForeground == destructiveForeground)&&(identical(other.error, error) || other.error == error)&&(identical(other.errorForeground, errorForeground) || other.errorForeground == errorForeground)&&(identical(other.border, border) || other.border == border)&&(identical(other.enabledHoveredOpacity, enabledHoveredOpacity) || other.enabledHoveredOpacity == enabledHoveredOpacity)&&(identical(other.disabledOpacity, disabledOpacity) || other.disabledOpacity == disabledOpacity));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WaveColorScheme&&(identical(other.brightness, brightness) || other.brightness == brightness)&&(identical(other.barrier, barrier) || other.barrier == barrier)&&(identical(other.background, background) || other.background == background)&&(identical(other.primary, primary) || other.primary == primary)&&(identical(other.onPrimary, onPrimary) || other.onPrimary == onPrimary)&&(identical(other.secondary, secondary) || other.secondary == secondary)&&(identical(other.onSecondary, onSecondary) || other.onSecondary == onSecondary)&&(identical(other.labelPrimary, labelPrimary) || other.labelPrimary == labelPrimary)&&(identical(other.labelSecondary, labelSecondary) || other.labelSecondary == labelSecondary)&&(identical(other.labelTertiary, labelTertiary) || other.labelTertiary == labelTertiary)&&(identical(other.success, success) || other.success == success)&&(identical(other.error, error) || other.error == error)&&(identical(other.warning, warning) || other.warning == warning)&&(identical(other.tip, tip) || other.tip == tip)&&(identical(other.contentPrimary, contentPrimary) || other.contentPrimary == contentPrimary)&&(identical(other.contentSecondary, contentSecondary) || other.contentSecondary == contentSecondary)&&(identical(other.contentTertiary, contentTertiary) || other.contentTertiary == contentTertiary)&&(identical(other.border, border) || other.border == border)&&(identical(other.divider, divider) || other.divider == divider)&&(identical(other.enabledHoveredOpacity, enabledHoveredOpacity) || other.enabledHoveredOpacity == enabledHoveredOpacity)&&(identical(other.disabledOpacity, disabledOpacity) || other.disabledOpacity == disabledOpacity));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,brightness,barrier,background,foreground,primary,primaryForeground,secondary,secondaryForeground,muted,mutedForeground,destructive,destructiveForeground,error,errorForeground,border,enabledHoveredOpacity,disabledOpacity);
+int get hashCode => Object.hashAll([runtimeType,brightness,barrier,background,primary,onPrimary,secondary,onSecondary,labelPrimary,labelSecondary,labelTertiary,success,error,warning,tip,contentPrimary,contentSecondary,contentTertiary,border,divider,enabledHoveredOpacity,disabledOpacity]);
 
 
 
@@ -42,7 +47,7 @@ abstract mixin class $WaveColorSchemeCopyWith<$Res>  {
   factory $WaveColorSchemeCopyWith(WaveColorScheme value, $Res Function(WaveColorScheme) _then) = _$WaveColorSchemeCopyWithImpl;
 @useResult
 $Res call({
- Brightness brightness, Color barrier, Color background, Color foreground, Color primary, Color primaryForeground, Color secondary, Color secondaryForeground, Color muted, Color mutedForeground, Color destructive, Color destructiveForeground, Color error, Color errorForeground, Color border, double enabledHoveredOpacity, double disabledOpacity
+ Brightness brightness, Color barrier, Color background, Color primary, Color onPrimary, Color secondary, Color onSecondary, Color labelPrimary, Color labelSecondary, Color labelTertiary, Color success, Color error, Color warning, Color tip, Color contentPrimary, Color contentSecondary, Color contentTertiary, Color border, Color divider, double enabledHoveredOpacity, double disabledOpacity
 });
 
 
@@ -59,23 +64,27 @@ class _$WaveColorSchemeCopyWithImpl<$Res>
 
 /// Create a copy of WaveColorScheme
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? brightness = null,Object? barrier = null,Object? background = null,Object? foreground = null,Object? primary = null,Object? primaryForeground = null,Object? secondary = null,Object? secondaryForeground = null,Object? muted = null,Object? mutedForeground = null,Object? destructive = null,Object? destructiveForeground = null,Object? error = null,Object? errorForeground = null,Object? border = null,Object? enabledHoveredOpacity = null,Object? disabledOpacity = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? brightness = null,Object? barrier = null,Object? background = null,Object? primary = null,Object? onPrimary = null,Object? secondary = null,Object? onSecondary = null,Object? labelPrimary = null,Object? labelSecondary = null,Object? labelTertiary = null,Object? success = null,Object? error = null,Object? warning = null,Object? tip = null,Object? contentPrimary = null,Object? contentSecondary = null,Object? contentTertiary = null,Object? border = null,Object? divider = null,Object? enabledHoveredOpacity = null,Object? disabledOpacity = null,}) {
   return _then(_self.copyWith(
 brightness: null == brightness ? _self.brightness : brightness // ignore: cast_nullable_to_non_nullable
 as Brightness,barrier: null == barrier ? _self.barrier : barrier // ignore: cast_nullable_to_non_nullable
 as Color,background: null == background ? _self.background : background // ignore: cast_nullable_to_non_nullable
-as Color,foreground: null == foreground ? _self.foreground : foreground // ignore: cast_nullable_to_non_nullable
 as Color,primary: null == primary ? _self.primary : primary // ignore: cast_nullable_to_non_nullable
-as Color,primaryForeground: null == primaryForeground ? _self.primaryForeground : primaryForeground // ignore: cast_nullable_to_non_nullable
+as Color,onPrimary: null == onPrimary ? _self.onPrimary : onPrimary // ignore: cast_nullable_to_non_nullable
 as Color,secondary: null == secondary ? _self.secondary : secondary // ignore: cast_nullable_to_non_nullable
-as Color,secondaryForeground: null == secondaryForeground ? _self.secondaryForeground : secondaryForeground // ignore: cast_nullable_to_non_nullable
-as Color,muted: null == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
-as Color,mutedForeground: null == mutedForeground ? _self.mutedForeground : mutedForeground // ignore: cast_nullable_to_non_nullable
-as Color,destructive: null == destructive ? _self.destructive : destructive // ignore: cast_nullable_to_non_nullable
-as Color,destructiveForeground: null == destructiveForeground ? _self.destructiveForeground : destructiveForeground // ignore: cast_nullable_to_non_nullable
+as Color,onSecondary: null == onSecondary ? _self.onSecondary : onSecondary // ignore: cast_nullable_to_non_nullable
+as Color,labelPrimary: null == labelPrimary ? _self.labelPrimary : labelPrimary // ignore: cast_nullable_to_non_nullable
+as Color,labelSecondary: null == labelSecondary ? _self.labelSecondary : labelSecondary // ignore: cast_nullable_to_non_nullable
+as Color,labelTertiary: null == labelTertiary ? _self.labelTertiary : labelTertiary // ignore: cast_nullable_to_non_nullable
+as Color,success: null == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as Color,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as Color,errorForeground: null == errorForeground ? _self.errorForeground : errorForeground // ignore: cast_nullable_to_non_nullable
+as Color,warning: null == warning ? _self.warning : warning // ignore: cast_nullable_to_non_nullable
+as Color,tip: null == tip ? _self.tip : tip // ignore: cast_nullable_to_non_nullable
+as Color,contentPrimary: null == contentPrimary ? _self.contentPrimary : contentPrimary // ignore: cast_nullable_to_non_nullable
+as Color,contentSecondary: null == contentSecondary ? _self.contentSecondary : contentSecondary // ignore: cast_nullable_to_non_nullable
+as Color,contentTertiary: null == contentTertiary ? _self.contentTertiary : contentTertiary // ignore: cast_nullable_to_non_nullable
 as Color,border: null == border ? _self.border : border // ignore: cast_nullable_to_non_nullable
+as Color,divider: null == divider ? _self.divider : divider // ignore: cast_nullable_to_non_nullable
 as Color,enabledHoveredOpacity: null == enabledHoveredOpacity ? _self.enabledHoveredOpacity : enabledHoveredOpacity // ignore: cast_nullable_to_non_nullable
 as double,disabledOpacity: null == disabledOpacity ? _self.disabledOpacity : disabledOpacity // ignore: cast_nullable_to_non_nullable
 as double,
@@ -89,24 +98,33 @@ as double,
 
 
 class _WaveColorScheme extends WaveColorScheme {
-  const _WaveColorScheme({required this.brightness, required this.barrier, required this.background, required this.foreground, required this.primary, required this.primaryForeground, required this.secondary, required this.secondaryForeground, required this.muted, required this.mutedForeground, required this.destructive, required this.destructiveForeground, required this.error, required this.errorForeground, required this.border, this.enabledHoveredOpacity = 0.9, this.disabledOpacity = 0.5}): super._();
+  const _WaveColorScheme({required this.brightness, required this.barrier, required this.background, required this.primary, required this.onPrimary, required this.secondary, required this.onSecondary, required this.labelPrimary, required this.labelSecondary, required this.labelTertiary, required this.success, required this.error, required this.warning, required this.tip, required this.contentPrimary, required this.contentSecondary, required this.contentTertiary, required this.border, required this.divider, this.enabledHoveredOpacity = 0.9, this.disabledOpacity = 0.5}): super._();
   
 
 @override final  Brightness brightness;
 @override final  Color barrier;
 @override final  Color background;
-@override final  Color foreground;
+// Brand color
 @override final  Color primary;
-@override final  Color primaryForeground;
+@override final  Color onPrimary;
 @override final  Color secondary;
-@override final  Color secondaryForeground;
-@override final  Color muted;
-@override final  Color mutedForeground;
-@override final  Color destructive;
-@override final  Color destructiveForeground;
+@override final  Color onSecondary;
+// Label color
+@override final  Color labelPrimary;
+@override final  Color labelSecondary;
+@override final  Color labelTertiary;
+// Funtional color
+@override final  Color success;
 @override final  Color error;
-@override final  Color errorForeground;
+@override final  Color warning;
+@override final  Color tip;
+// Container fill color
+@override final  Color contentPrimary;
+@override final  Color contentSecondary;
+@override final  Color contentTertiary;
+// Separator color
 @override final  Color border;
+@override final  Color divider;
 @override@JsonKey() final  double enabledHoveredOpacity;
 @override@JsonKey() final  double disabledOpacity;
 
@@ -120,12 +138,12 @@ _$WaveColorSchemeCopyWith<_WaveColorScheme> get copyWith => __$WaveColorSchemeCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WaveColorScheme&&(identical(other.brightness, brightness) || other.brightness == brightness)&&(identical(other.barrier, barrier) || other.barrier == barrier)&&(identical(other.background, background) || other.background == background)&&(identical(other.foreground, foreground) || other.foreground == foreground)&&(identical(other.primary, primary) || other.primary == primary)&&(identical(other.primaryForeground, primaryForeground) || other.primaryForeground == primaryForeground)&&(identical(other.secondary, secondary) || other.secondary == secondary)&&(identical(other.secondaryForeground, secondaryForeground) || other.secondaryForeground == secondaryForeground)&&(identical(other.muted, muted) || other.muted == muted)&&(identical(other.mutedForeground, mutedForeground) || other.mutedForeground == mutedForeground)&&(identical(other.destructive, destructive) || other.destructive == destructive)&&(identical(other.destructiveForeground, destructiveForeground) || other.destructiveForeground == destructiveForeground)&&(identical(other.error, error) || other.error == error)&&(identical(other.errorForeground, errorForeground) || other.errorForeground == errorForeground)&&(identical(other.border, border) || other.border == border)&&(identical(other.enabledHoveredOpacity, enabledHoveredOpacity) || other.enabledHoveredOpacity == enabledHoveredOpacity)&&(identical(other.disabledOpacity, disabledOpacity) || other.disabledOpacity == disabledOpacity));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WaveColorScheme&&(identical(other.brightness, brightness) || other.brightness == brightness)&&(identical(other.barrier, barrier) || other.barrier == barrier)&&(identical(other.background, background) || other.background == background)&&(identical(other.primary, primary) || other.primary == primary)&&(identical(other.onPrimary, onPrimary) || other.onPrimary == onPrimary)&&(identical(other.secondary, secondary) || other.secondary == secondary)&&(identical(other.onSecondary, onSecondary) || other.onSecondary == onSecondary)&&(identical(other.labelPrimary, labelPrimary) || other.labelPrimary == labelPrimary)&&(identical(other.labelSecondary, labelSecondary) || other.labelSecondary == labelSecondary)&&(identical(other.labelTertiary, labelTertiary) || other.labelTertiary == labelTertiary)&&(identical(other.success, success) || other.success == success)&&(identical(other.error, error) || other.error == error)&&(identical(other.warning, warning) || other.warning == warning)&&(identical(other.tip, tip) || other.tip == tip)&&(identical(other.contentPrimary, contentPrimary) || other.contentPrimary == contentPrimary)&&(identical(other.contentSecondary, contentSecondary) || other.contentSecondary == contentSecondary)&&(identical(other.contentTertiary, contentTertiary) || other.contentTertiary == contentTertiary)&&(identical(other.border, border) || other.border == border)&&(identical(other.divider, divider) || other.divider == divider)&&(identical(other.enabledHoveredOpacity, enabledHoveredOpacity) || other.enabledHoveredOpacity == enabledHoveredOpacity)&&(identical(other.disabledOpacity, disabledOpacity) || other.disabledOpacity == disabledOpacity));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,brightness,barrier,background,foreground,primary,primaryForeground,secondary,secondaryForeground,muted,mutedForeground,destructive,destructiveForeground,error,errorForeground,border,enabledHoveredOpacity,disabledOpacity);
+int get hashCode => Object.hashAll([runtimeType,brightness,barrier,background,primary,onPrimary,secondary,onSecondary,labelPrimary,labelSecondary,labelTertiary,success,error,warning,tip,contentPrimary,contentSecondary,contentTertiary,border,divider,enabledHoveredOpacity,disabledOpacity]);
 
 
 
@@ -136,7 +154,7 @@ abstract mixin class _$WaveColorSchemeCopyWith<$Res> implements $WaveColorScheme
   factory _$WaveColorSchemeCopyWith(_WaveColorScheme value, $Res Function(_WaveColorScheme) _then) = __$WaveColorSchemeCopyWithImpl;
 @override @useResult
 $Res call({
- Brightness brightness, Color barrier, Color background, Color foreground, Color primary, Color primaryForeground, Color secondary, Color secondaryForeground, Color muted, Color mutedForeground, Color destructive, Color destructiveForeground, Color error, Color errorForeground, Color border, double enabledHoveredOpacity, double disabledOpacity
+ Brightness brightness, Color barrier, Color background, Color primary, Color onPrimary, Color secondary, Color onSecondary, Color labelPrimary, Color labelSecondary, Color labelTertiary, Color success, Color error, Color warning, Color tip, Color contentPrimary, Color contentSecondary, Color contentTertiary, Color border, Color divider, double enabledHoveredOpacity, double disabledOpacity
 });
 
 
@@ -153,23 +171,27 @@ class __$WaveColorSchemeCopyWithImpl<$Res>
 
 /// Create a copy of WaveColorScheme
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? brightness = null,Object? barrier = null,Object? background = null,Object? foreground = null,Object? primary = null,Object? primaryForeground = null,Object? secondary = null,Object? secondaryForeground = null,Object? muted = null,Object? mutedForeground = null,Object? destructive = null,Object? destructiveForeground = null,Object? error = null,Object? errorForeground = null,Object? border = null,Object? enabledHoveredOpacity = null,Object? disabledOpacity = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? brightness = null,Object? barrier = null,Object? background = null,Object? primary = null,Object? onPrimary = null,Object? secondary = null,Object? onSecondary = null,Object? labelPrimary = null,Object? labelSecondary = null,Object? labelTertiary = null,Object? success = null,Object? error = null,Object? warning = null,Object? tip = null,Object? contentPrimary = null,Object? contentSecondary = null,Object? contentTertiary = null,Object? border = null,Object? divider = null,Object? enabledHoveredOpacity = null,Object? disabledOpacity = null,}) {
   return _then(_WaveColorScheme(
 brightness: null == brightness ? _self.brightness : brightness // ignore: cast_nullable_to_non_nullable
 as Brightness,barrier: null == barrier ? _self.barrier : barrier // ignore: cast_nullable_to_non_nullable
 as Color,background: null == background ? _self.background : background // ignore: cast_nullable_to_non_nullable
-as Color,foreground: null == foreground ? _self.foreground : foreground // ignore: cast_nullable_to_non_nullable
 as Color,primary: null == primary ? _self.primary : primary // ignore: cast_nullable_to_non_nullable
-as Color,primaryForeground: null == primaryForeground ? _self.primaryForeground : primaryForeground // ignore: cast_nullable_to_non_nullable
+as Color,onPrimary: null == onPrimary ? _self.onPrimary : onPrimary // ignore: cast_nullable_to_non_nullable
 as Color,secondary: null == secondary ? _self.secondary : secondary // ignore: cast_nullable_to_non_nullable
-as Color,secondaryForeground: null == secondaryForeground ? _self.secondaryForeground : secondaryForeground // ignore: cast_nullable_to_non_nullable
-as Color,muted: null == muted ? _self.muted : muted // ignore: cast_nullable_to_non_nullable
-as Color,mutedForeground: null == mutedForeground ? _self.mutedForeground : mutedForeground // ignore: cast_nullable_to_non_nullable
-as Color,destructive: null == destructive ? _self.destructive : destructive // ignore: cast_nullable_to_non_nullable
-as Color,destructiveForeground: null == destructiveForeground ? _self.destructiveForeground : destructiveForeground // ignore: cast_nullable_to_non_nullable
+as Color,onSecondary: null == onSecondary ? _self.onSecondary : onSecondary // ignore: cast_nullable_to_non_nullable
+as Color,labelPrimary: null == labelPrimary ? _self.labelPrimary : labelPrimary // ignore: cast_nullable_to_non_nullable
+as Color,labelSecondary: null == labelSecondary ? _self.labelSecondary : labelSecondary // ignore: cast_nullable_to_non_nullable
+as Color,labelTertiary: null == labelTertiary ? _self.labelTertiary : labelTertiary // ignore: cast_nullable_to_non_nullable
+as Color,success: null == success ? _self.success : success // ignore: cast_nullable_to_non_nullable
 as Color,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as Color,errorForeground: null == errorForeground ? _self.errorForeground : errorForeground // ignore: cast_nullable_to_non_nullable
+as Color,warning: null == warning ? _self.warning : warning // ignore: cast_nullable_to_non_nullable
+as Color,tip: null == tip ? _self.tip : tip // ignore: cast_nullable_to_non_nullable
+as Color,contentPrimary: null == contentPrimary ? _self.contentPrimary : contentPrimary // ignore: cast_nullable_to_non_nullable
+as Color,contentSecondary: null == contentSecondary ? _self.contentSecondary : contentSecondary // ignore: cast_nullable_to_non_nullable
+as Color,contentTertiary: null == contentTertiary ? _self.contentTertiary : contentTertiary // ignore: cast_nullable_to_non_nullable
 as Color,border: null == border ? _self.border : border // ignore: cast_nullable_to_non_nullable
+as Color,divider: null == divider ? _self.divider : divider // ignore: cast_nullable_to_non_nullable
 as Color,enabledHoveredOpacity: null == enabledHoveredOpacity ? _self.enabledHoveredOpacity : enabledHoveredOpacity // ignore: cast_nullable_to_non_nullable
 as double,disabledOpacity: null == disabledOpacity ? _self.disabledOpacity : disabledOpacity // ignore: cast_nullable_to_non_nullable
 as double,
