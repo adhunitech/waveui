@@ -35,7 +35,7 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
     // Separator color
     required Color border,
     required Color divider,
-    @Default(0.9) double enabledHoveredOpacity,
+    @Default(0.9) double hoveredOpacity,
     @Default(0.5) double disabledOpacity,
   }) = _WaveColorScheme;
 
@@ -43,7 +43,7 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
   ///
   /// [WaveColorScheme.background] is used if [background] is not given.
   Color hover(Color foreground, [Color? background]) =>
-      Color.alphaBlend(foreground.withValues(alpha: enabledHoveredOpacity), background ?? this.background);
+      Color.alphaBlend(foreground.withValues(alpha: hoveredOpacity), background ?? this.background);
 
   /// Returns a disabled color for the [foreground] on the [background].
   ///
