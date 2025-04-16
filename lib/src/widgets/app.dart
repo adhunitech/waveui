@@ -2,11 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:waveui/src/theme/theme_data.dart';
 
+/// Typically used at the root of an app to configure Waveui components.
 class WaveApp extends InheritedWidget {
+  /// The theme data to use for descendant Waveui widgets.
   final WaveThemeData themeData;
 
+  /// Creates a [WaveApp]
   const WaveApp({required this.themeData, required super.child, super.key});
 
+  /// Returns the [WaveThemeData] from the closest [WaveApp] ancestor.
   static WaveThemeData of(BuildContext context) {
     final WaveApp? inheritedTheme = context.dependOnInheritedWidgetOfExactType<WaveApp>();
     assert(inheritedTheme != null, 'No WaveTheme found in context');

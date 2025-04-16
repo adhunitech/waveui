@@ -4,7 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'color_scheme.freezed.dart';
 
-/// A set of colors that is part of a [WaveThemeData]. It is used to configure the color properties of Waveui widgets.
+/// A color scheme defines the colors that represent the application's brand in styles.
+/// It defines the colors that use in a proper and semantic way.
+/// Used to represent the application's brand in styles.
 @freezed
 abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
   const WaveColorScheme._();
