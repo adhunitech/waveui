@@ -1,1 +1,4 @@
 include: package:better_lints/flutter.yaml
+analyzer:
+  errors:
+    public_member_api_docs: ignore

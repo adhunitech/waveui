@@ -11,7 +11,7 @@ class WaveApp extends InheritedWidget {
   const WaveApp({required this.themeData, required super.child, super.key});
 
   /// Returns the [WaveThemeData] from the closest [WaveApp] ancestor.
-  static WaveThemeData of(BuildContext context) {
+  static WaveThemeData themeOf(BuildContext context) {
     final WaveApp? inheritedTheme = context.dependOnInheritedWidgetOfExactType<WaveApp>();
     assert(inheritedTheme != null, 'No WaveTheme found in context');
     return inheritedTheme!.themeData;

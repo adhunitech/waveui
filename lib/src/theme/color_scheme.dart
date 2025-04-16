@@ -52,4 +52,26 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
   /// [WaveColorScheme.background] is used if [background] is not given.
   Color disable(Color foreground, [Color? background]) =>
       Color.alphaBlend(foreground.withValues(alpha: disabledOpacity), background ?? this.background);
+
+  static const light = WaveColorScheme(
+    brightness: Brightness.light,
+    barrier: Color(0x78000000),
+    background: Color(0xFFF1F3F5),
+    primary: Color(0xFF0065FF),
+    onPrimary: Color(0xDDFFFFFF),
+    secondary: Color(0xDD6B6B6B),
+    onSecondary: Color(0xDD000000),
+    labelPrimary: Color(0xDD000000),
+    labelSecondary: Color(0xDD6B6B6B),
+    labelTertiary: Color(0x9F6B6B6B),
+    success: Color(0xFF00BD13),
+    error: Color(0xFFDB372C),
+    warning: Color(0xFFFFB200),
+    tip: Color(0xFF0065FF),
+    contentPrimary: Color(0xFFFFFFFF),
+    contentSecondary: Color(0xFFFFFFFF),
+    contentTertiary: Color(0xFFFFFFFF),
+    border: Color(0x4B9E9E9E),
+    divider: Color(0x4B9E9E9E),
+  );
 }
