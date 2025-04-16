@@ -1,28 +1,28 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:waveui/src/theme/theme_data.dart';
+import 'package:waveui/src/theme/theme.dart';
 
 /// Typically used at the root of an app to configure Waveui components.
 class WaveApp extends InheritedWidget {
-  /// The theme data to use for descendant Waveui widgets.
-  final WaveThemeData themeData;
+  /// The theme to use for descendant Waveui widgets.
+  final WaveTheme theme;
 
   /// Creates a [WaveApp]
-  const WaveApp({required this.themeData, required super.child, super.key});
+  const WaveApp({required this.theme, required super.child, super.key});
 
-  /// Returns the [WaveThemeData] from the closest [WaveApp] ancestor.
-  static WaveThemeData themeOf(BuildContext context) {
+  /// Returns the [WaveTheme] from the closest [WaveApp] ancestor.
+  static WaveTheme themeOf(BuildContext context) {
     final WaveApp? inheritedTheme = context.dependOnInheritedWidgetOfExactType<WaveApp>();
     assert(inheritedTheme != null, 'No WaveTheme found in context');
-    return inheritedTheme!.themeData;
+    return inheritedTheme!.theme;
   }
 
   @override
-  bool updateShouldNotify(WaveApp oldWidget) => themeData != oldWidget.themeData;
+  bool updateShouldNotify(WaveApp oldWidget) => theme != oldWidget.theme;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<WaveThemeData>('themeData', themeData));
+    properties.add(DiagnosticsProperty<WaveTheme>('theme', theme));
   }
 }

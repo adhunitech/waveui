@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT licence
 - Changelog
 - `fluentui_system_icons` as `WaveIcons`
+- AppBar and AppBarTheme
+- TextTheme
 
 ### Changed
 

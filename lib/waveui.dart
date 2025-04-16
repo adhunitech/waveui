@@ -5,5 +5,6 @@ export 'assets.dart';
 export 'foundation.dart';
 export 'theme.dart';
 
+export 'widgets/app_bar.dart';
 export 'widgets/app.dart';
 export 'widgets/scaffold.dart';

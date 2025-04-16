@@ -1,1 +1,1 @@
-export '../src/widgets/scaffold.dart';
+export '../src/widgets/scaffold.dart' show WaveScaffold;
