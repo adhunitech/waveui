@@ -2,13 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:waveui/waveui.dart';
-
 part 'color_scheme.freezed.dart';
 
 /// A set of colors that is part of a [WaveThemeData]. It is used to configure the color properties of Waveui widgets.
 @freezed
-abstract class WaveColorScheme with Diagnosticable, WaveTransformable, _$WaveColorScheme {
+abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
   const WaveColorScheme._();
 
   /// Creates a instance of [WaveColorScheme].
