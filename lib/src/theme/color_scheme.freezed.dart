@@ -98,7 +98,7 @@ as double,
 
 
 class _WaveColorScheme extends WaveColorScheme {
-  const _WaveColorScheme({required this.brightness, required this.barrier, required this.background, required this.primary, required this.onPrimary, required this.secondary, required this.onSecondary, required this.labelPrimary, required this.labelSecondary, required this.labelTertiary, required this.success, required this.error, required this.warning, required this.tip, required this.contentPrimary, required this.contentSecondary, required this.contentTertiary, required this.border, required this.divider, this.hoveredOpacity = 0.9, this.disabledOpacity = 0.5}): super._();
+  const _WaveColorScheme({required this.brightness, required this.barrier, required this.background, required this.primary, required this.onPrimary, required this.secondary, required this.onSecondary, required this.labelPrimary, required this.labelSecondary, required this.labelTertiary, required this.success, required this.error, required this.warning, required this.tip, required this.contentPrimary, required this.contentSecondary, required this.contentTertiary, required this.border, required this.divider, this.hoveredOpacity = 0.6, this.disabledOpacity = 0.3}): super._();
   
 
 @override final  Brightness brightness;

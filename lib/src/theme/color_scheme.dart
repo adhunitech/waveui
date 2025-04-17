@@ -37,8 +37,8 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
     // Separator color
     required Color border,
     required Color divider,
-    @Default(0.9) double hoveredOpacity,
-    @Default(0.5) double disabledOpacity,
+    @Default(0.6) double hoveredOpacity,
+    @Default(0.3) double disabledOpacity,
   }) = _WaveColorScheme;
 
   /// Returns a hovered color for the [foreground] on the [background].
