@@ -38,6 +38,10 @@ TODO: Tell users more about the package: where to find more information, how to
 contribute to the package, how to file issues, what response they can expect
 from the package authors, and more.
 
-## Fonts and Licensing
+## License
 
-This package uses the **Inter** font by Rasmus Andersson, licensed under the [SIL Open Font License 1.1](https://openfontlicense.org/).
+This package uses the Inter font:
+
+- Inter © Rasmus Andersson
+- Licensed under [SIL Open Font License 1.1](https://openfontlicense.org/)
+- See [OFL.txt](./OFL.txt) for more details.
