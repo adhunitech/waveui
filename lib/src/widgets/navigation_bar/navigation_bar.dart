@@ -20,7 +20,7 @@ class WaveNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = WaveApp.themeOf(context);
     return SafeArea(
-      child: Container(
+      child: ColoredBox(
         color: backgroundColor ?? theme.colorScheme.contentPrimary,
         child: Stack(
           alignment: Alignment.topRight,
@@ -52,7 +52,7 @@ class WaveNavigationBar extends StatelessWidget {
     return WaveTappable(
       onTap: () => onSelected(index),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -63,6 +63,7 @@ class WaveNavigationBar extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               item.label,
+              maxLines: 1,
               style: theme.textTheme.small.copyWith(
                 color: selectedIndex == index ? theme.colorScheme.primary : theme.colorScheme.labelSecondary,
               ),
