@@ -53,7 +53,7 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
   Color disable(Color foreground, [Color? background]) =>
       Color.alphaBlend(foreground.withValues(alpha: disabledOpacity), background ?? this.background);
 
-  static const light = WaveColorScheme(
+  factory WaveColorScheme.light() => const WaveColorScheme(
     brightness: Brightness.light,
     barrier: Color(0x78000000),
     background: Color(0xFFF1F3F5),

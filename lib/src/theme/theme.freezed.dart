@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$WaveTheme {
 
- WaveAppBarTheme get appBarTheme; WaveColorScheme get colorScheme;
+ WaveAppBarTheme get appBarTheme; WaveTextTheme get textTheme; WaveColorScheme get colorScheme;
 /// Create a copy of WaveTheme
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,12 +26,12 @@ $WaveThemeCopyWith<WaveTheme> get copyWith => _$WaveThemeCopyWithImpl<WaveTheme>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WaveTheme&&(identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme)&&(identical(other.colorScheme, colorScheme) || other.colorScheme == colorScheme));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WaveTheme&&(identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme)&&(identical(other.textTheme, textTheme) || other.textTheme == textTheme)&&(identical(other.colorScheme, colorScheme) || other.colorScheme == colorScheme));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,appBarTheme,colorScheme);
+int get hashCode => Object.hash(runtimeType,appBarTheme,textTheme,colorScheme);
 
 
 
@@ -42,11 +42,11 @@ abstract mixin class $WaveThemeCopyWith<$Res>  {
   factory $WaveThemeCopyWith(WaveTheme value, $Res Function(WaveTheme) _then) = _$WaveThemeCopyWithImpl;
 @useResult
 $Res call({
- WaveAppBarTheme appBarTheme, WaveColorScheme colorScheme
+ WaveAppBarTheme appBarTheme, WaveTextTheme textTheme, WaveColorScheme colorScheme
 });
 
 
-$WaveAppBarThemeCopyWith<$Res> get appBarTheme;$WaveColorSchemeCopyWith<$Res> get colorScheme;
+$WaveAppBarThemeCopyWith<$Res> get appBarTheme;$WaveTextThemeCopyWith<$Res> get textTheme;$WaveColorSchemeCopyWith<$Res> get colorScheme;
 
 }
 /// @nodoc
@@ -59,10 +59,11 @@ class _$WaveThemeCopyWithImpl<$Res>
 
 /// Create a copy of WaveTheme
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? appBarTheme = null,Object? colorScheme = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? appBarTheme = null,Object? textTheme = null,Object? colorScheme = null,}) {
   return _then(_self.copyWith(
 appBarTheme: null == appBarTheme ? _self.appBarTheme : appBarTheme // ignore: cast_nullable_to_non_nullable
-as WaveAppBarTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
+as WaveAppBarTheme,textTheme: null == textTheme ? _self.textTheme : textTheme // ignore: cast_nullable_to_non_nullable
+as WaveTextTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
 as WaveColorScheme,
   ));
 }
@@ -74,6 +75,15 @@ $WaveAppBarThemeCopyWith<$Res> get appBarTheme {
   
   return $WaveAppBarThemeCopyWith<$Res>(_self.appBarTheme, (value) {
     return _then(_self.copyWith(appBarTheme: value));
+  });
+}/// Create a copy of WaveTheme
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WaveTextThemeCopyWith<$Res> get textTheme {
+  
+  return $WaveTextThemeCopyWith<$Res>(_self.textTheme, (value) {
+    return _then(_self.copyWith(textTheme: value));
   });
 }/// Create a copy of WaveTheme
 /// with the given fields replaced by the non-null parameter values.
@@ -92,11 +102,12 @@ $WaveColorSchemeCopyWith<$Res> get colorScheme {
 
 
 class _WaveTheme extends WaveTheme {
-  const _WaveTheme({required this.appBarTheme, this.colorScheme = WaveColorScheme.light}): super._();
+  const _WaveTheme({required this.appBarTheme, required this.textTheme, required this.colorScheme}): super._();
   
 
 @override final  WaveAppBarTheme appBarTheme;
-@override@JsonKey() final  WaveColorScheme colorScheme;
+@override final  WaveTextTheme textTheme;
+@override final  WaveColorScheme colorScheme;
 
 /// Create a copy of WaveTheme
 /// with the given fields replaced by the non-null parameter values.
@@ -108,12 +119,12 @@ _$WaveThemeCopyWith<_WaveTheme> get copyWith => __$WaveThemeCopyWithImpl<_WaveTh
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WaveTheme&&(identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme)&&(identical(other.colorScheme, colorScheme) || other.colorScheme == colorScheme));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WaveTheme&&(identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme)&&(identical(other.textTheme, textTheme) || other.textTheme == textTheme)&&(identical(other.colorScheme, colorScheme) || other.colorScheme == colorScheme));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,appBarTheme,colorScheme);
+int get hashCode => Object.hash(runtimeType,appBarTheme,textTheme,colorScheme);
 
 
 
@@ -124,11 +135,11 @@ abstract mixin class _$WaveThemeCopyWith<$Res> implements $WaveThemeCopyWith<$Re
   factory _$WaveThemeCopyWith(_WaveTheme value, $Res Function(_WaveTheme) _then) = __$WaveThemeCopyWithImpl;
 @override @useResult
 $Res call({
- WaveAppBarTheme appBarTheme, WaveColorScheme colorScheme
+ WaveAppBarTheme appBarTheme, WaveTextTheme textTheme, WaveColorScheme colorScheme
 });
 
 
-@override $WaveAppBarThemeCopyWith<$Res> get appBarTheme;@override $WaveColorSchemeCopyWith<$Res> get colorScheme;
+@override $WaveAppBarThemeCopyWith<$Res> get appBarTheme;@override $WaveTextThemeCopyWith<$Res> get textTheme;@override $WaveColorSchemeCopyWith<$Res> get colorScheme;
 
 }
 /// @nodoc
@@ -141,10 +152,11 @@ class __$WaveThemeCopyWithImpl<$Res>
 
 /// Create a copy of WaveTheme
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? appBarTheme = null,Object? colorScheme = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? appBarTheme = null,Object? textTheme = null,Object? colorScheme = null,}) {
   return _then(_WaveTheme(
 appBarTheme: null == appBarTheme ? _self.appBarTheme : appBarTheme // ignore: cast_nullable_to_non_nullable
-as WaveAppBarTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
+as WaveAppBarTheme,textTheme: null == textTheme ? _self.textTheme : textTheme // ignore: cast_nullable_to_non_nullable
+as WaveTextTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
 as WaveColorScheme,
   ));
 }
@@ -157,6 +169,15 @@ $WaveAppBarThemeCopyWith<$Res> get appBarTheme {
   
   return $WaveAppBarThemeCopyWith<$Res>(_self.appBarTheme, (value) {
     return _then(_self.copyWith(appBarTheme: value));
+  });
+}/// Create a copy of WaveTheme
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WaveTextThemeCopyWith<$Res> get textTheme {
+  
+  return $WaveTextThemeCopyWith<$Res>(_self.textTheme, (value) {
+    return _then(_self.copyWith(textTheme: value));
   });
 }/// Create a copy of WaveTheme
 /// with the given fields replaced by the non-null parameter values.

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:waveui/src/theme/color_scheme.dart';
+import 'package:waveui/src/theme/text_theme.dart';
 import 'package:waveui/src/widgets/app_bar/app_bar_theme.dart';
 import 'package:waveui/waveui.dart';
 
@@ -28,17 +29,20 @@ abstract class WaveTheme with Diagnosticable, _$WaveTheme {
 
   const factory WaveTheme._internal({
     required WaveAppBarTheme appBarTheme,
-    @Default(WaveColorScheme.light) WaveColorScheme colorScheme,
+    required WaveTextTheme textTheme,
+    required WaveColorScheme colorScheme,
   }) = _WaveTheme;
 
-  factory WaveTheme({WaveAppBarTheme? appBarTheme, WaveColorScheme colorScheme = WaveColorScheme.light}) {
+  factory WaveTheme({WaveAppBarTheme? appBarTheme, WaveColorScheme? colorScheme, WaveTextTheme? textTheme}) {
+    colorScheme ??= WaveColorScheme.light();
     appBarTheme ??= WaveAppBarTheme(
       backgroundColor: colorScheme.contentPrimary,
       foregroundColor: colorScheme.labelPrimary,
       titleStyle: TextStyle(),
-      isCenteredTitle: true,
     );
 
-    return WaveTheme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme);
+    textTheme ??= WaveTextTheme.inter();
+
+    return WaveTheme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
   }
 }
