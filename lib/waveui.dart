@@ -7,6 +7,7 @@ export 'theme.dart';
 
 export 'widgets/app_bar.dart';
 export 'widgets/app.dart';
+export 'widgets/badge.dart';
 export 'widgets/button.dart';
 export 'widgets/divider.dart';
 export 'widgets/list_tile.dart';
