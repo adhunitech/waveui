@@ -1,7 +1,15 @@
 name: waveui
 description: "An enterprise-class package of Flutter components for mobile applications."
+
 version: 1.0.0
-homepage:
+
+homepage: https://github.com/adhunitech/waveui
+repository: https://github.com/adhunitech/waveui
+issue_tracker: https://github.com/adhunitech/waveui/issues
+
+# Fonts used under OFL license
+# Inter font © Rasmus Andersson (https://rsms.me/inter/)
+# Licensed under SIL Open Font License 1.1 — https://openfontlicense.org/
 
 environment:
   sdk: ^3.7.2
@@ -19,3 +27,54 @@ dev_dependencies:
   freezed: ^3.0.6
 
 flutter:
+  assets:
+    - assets/fonts/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter_Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Inter_ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/Inter_ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Inter_ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Inter_Light.ttf
+          weight: 300
+        - asset: assets/fonts/Inter_LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Inter_Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter_Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Inter_Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter_MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Inter_SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter_SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Inter_Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter_BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Inter_ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Inter_ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/Inter_Black.ttf
+          weight: 900
+        - asset: assets/fonts/Inter_BlackItalic.ttf
+          weight: 900
+          style: italic

@@ -37,3 +37,7 @@ const like = 'sample';
 TODO: Tell users more about the package: where to find more information, how to
 contribute to the package, how to file issues, what response they can expect
 from the package authors, and more.
+
+## Fonts and Licensing
+
+This package uses the **Inter** font by Rasmus Andersson, licensed under the [SIL Open Font License 1.1](https://openfontlicense.org/).
