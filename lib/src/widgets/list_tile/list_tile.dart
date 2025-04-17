@@ -192,7 +192,8 @@ class _WaveListTileState extends State<WaveListTile> {
           key: widget.key,
           leading: widget.leading,
           title: widget.title,
-          subtitle: widget.subtitle,
+          subtitle:
+              widget.subtitle == null ? null : Padding(padding: const EdgeInsets.only(top: 2), child: widget.subtitle),
           trailing: widget.trailing,
           isThreeLine: widget.isThreeLine,
           dense: widget.dense,
