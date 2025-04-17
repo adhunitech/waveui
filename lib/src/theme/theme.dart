@@ -2,9 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:waveui/src/theme/color_scheme.dart';
-import 'package:waveui/src/theme/text_theme.dart';
-import 'package:waveui/src/widgets/app_bar/app_bar_theme.dart';
 import 'package:waveui/waveui.dart';
 
 part 'theme.freezed.dart';
@@ -41,7 +38,7 @@ abstract class WaveTheme with Diagnosticable, _$WaveTheme {
       titleStyle: TextStyle(),
     );
 
-    textTheme ??= WaveTextTheme();
+    textTheme ??= WaveTextTheme().withColor(colorScheme.labelPrimary);
 
     return WaveTheme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
   }

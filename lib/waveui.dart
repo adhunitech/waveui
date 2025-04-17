@@ -8,4 +8,5 @@ export 'theme.dart';
 export 'widgets/app_bar.dart';
 export 'widgets/app.dart';
 export 'widgets/button.dart';
+export 'widgets/list_tile.dart';
 export 'widgets/scaffold.dart';

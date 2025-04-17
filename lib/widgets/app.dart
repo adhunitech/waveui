@@ -1,1 +1,1 @@
-export '../src/widgets/app.dart' show WaveApp;
+export '../src/widgets/app.dart';

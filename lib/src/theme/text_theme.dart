@@ -25,3 +25,16 @@ abstract class WaveTextTheme with Diagnosticable, _$WaveTextTheme {
     TextStyle button,
   }) = _WaveTextTheme;
 }
+
+extension WaveTextThemeExtension on WaveTextTheme {
+  WaveTextTheme withColor(Color color) => copyWith(
+    h1: h1.copyWith(color: color),
+    h2: h2.copyWith(color: color),
+    h3: h3.copyWith(color: color),
+    h4: h4.copyWith(color: color),
+    large: large.copyWith(color: color),
+    body: body.copyWith(color: color),
+    small: small.copyWith(color: color),
+    button: button.copyWith(color: color),
+  );
+}

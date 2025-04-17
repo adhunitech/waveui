@@ -4,12 +4,13 @@ import 'package:waveui/waveui.dart';
 
 class WaveAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Creates a [WaveAppBar] widget.
-  const WaveAppBar({super.key, this.theme, this.actions = const [], this.title, this.leading});
+  const WaveAppBar({super.key, this.theme, this.actions = const [], this.title, this.leading, this.scrollController});
 
   final WaveAppBarTheme? theme;
   final Widget? title;
   final Widget? leading;
   final List<Widget> actions;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,10 @@ class WaveAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleTextStyle: TextStyle(color: appBarTheme.foregroundColor, fontWeight: FontWeight.w500, fontSize: 18),
       surfaceTintColor: Colors.transparent,
       centerTitle: appBarTheme.isCenteredTitle,
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(1),
+        child: Container(height: 0, color: Colors.transparent),
+      ),
     );
   }
 

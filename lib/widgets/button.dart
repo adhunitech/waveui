@@ -1,1 +1,1 @@
-export '../src/widgets/button/button.dart' show WaveButton, WaveButtonType;
+export '../src/widgets/button/button.dart';
