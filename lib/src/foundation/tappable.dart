@@ -11,7 +11,7 @@ class WaveTappable extends StatefulWidget {
     this.child,
     this.onTap,
     this.duration = const Duration(milliseconds: 150),
-    this.scale = 0.9,
+    this.scale = 0.95,
     this.opacity,
   });
 
@@ -35,7 +35,8 @@ class WaveTappable extends StatefulWidget {
   }
 }
 
-class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderStateMixin {
+class _WaveTappableState extends State<WaveTappable>
+    with SingleTickerProviderStateMixin {
   bool _isTouched = false;
 
   void _handleTapDown() {
@@ -63,7 +64,8 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
     return widget.onTap == null ? theme.colorScheme.disabledOpacity : 1.0;
   }
 
-  double get _scale => widget.onTap == null ? 1 : (_isTouched ? widget.scale : 1.0);
+  double get _scale =>
+      widget.onTap == null ? 1 : (_isTouched ? widget.scale : 1.0);
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -73,7 +75,12 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
     child: AnimatedOpacity(
       opacity: _opacity,
       duration: widget.duration,
-      child: AnimatedScale(scale: _scale, duration: widget.duration, curve: Curves.easeOut, child: widget.child),
+      child: AnimatedScale(
+        scale: _scale,
+        duration: widget.duration,
+        curve: Curves.easeOut,
+        child: widget.child,
+      ),
     ),
   );
 }
