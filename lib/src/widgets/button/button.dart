@@ -37,6 +37,7 @@ class WaveButton extends StatelessWidget {
         ),
         child: Center(
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               if (icon != null) ...[
                 Icon(icon, size: isCompact ? 18 : 24, color: _getForegroundColor(context)),

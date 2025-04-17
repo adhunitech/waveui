@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - linear_progress_indicator
 - pull_to_refresh
 - badge
+- navigation_bar
 
 ### Changed
 

@@ -10,6 +10,7 @@ export 'widgets/app.dart';
 export 'widgets/badge.dart';
 export 'widgets/button.dart';
 export 'widgets/divider.dart';
+export 'widgets/navigation_bar.dart';
 export 'widgets/list_tile.dart';
 export 'widgets/pull_to_refresh.dart';
 export 'widgets/progress.dart';
