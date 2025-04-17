@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - tappable
 - button
 - list_tile and tweaked colors
+- divider
+- linear_progress_indicator
+- pull_to_refresh
 
 ### Changed
 
