@@ -41,7 +41,7 @@ abstract class WaveTheme with Diagnosticable, _$WaveTheme {
       titleStyle: TextStyle(),
     );
 
-    textTheme ??= WaveTextTheme.inter();
+    textTheme ??= WaveTextTheme();
 
     return WaveTheme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
   }

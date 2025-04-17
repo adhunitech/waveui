@@ -80,17 +80,17 @@ as TextStyle,
 
 
 class _WaveTextTheme extends WaveTextTheme {
-   _WaveTextTheme({required this.h1, required this.h2, required this.h3, required this.h4, required this.large, required this.body, required this.small, required this.button}): super._();
+   _WaveTextTheme({this.h1 = const TextStyle(fontFamily: 'Inter', fontSize: 36, height: 1.2, fontWeight: FontWeight.w700), this.h2 = const TextStyle(fontFamily: 'Inter', fontSize: 30, height: 1.2, fontWeight: FontWeight.w600), this.h3 = const TextStyle(fontFamily: 'Inter', fontSize: 24, height: 1.3, fontWeight: FontWeight.w600), this.h4 = const TextStyle(fontFamily: 'Inter', fontSize: 18, height: 1.4, fontWeight: FontWeight.w500), this.large = const TextStyle(fontFamily: 'Inter', fontSize: 18, height: 1.4, fontWeight: FontWeight.w400), this.body = const TextStyle(fontFamily: 'Inter', fontSize: 16, height: 1.5, fontWeight: FontWeight.w400), this.small = const TextStyle(fontFamily: 'Inter', fontSize: 14, height: 1.4, fontWeight: FontWeight.w400), this.button = const TextStyle(fontFamily: 'Inter', fontSize: 16, height: 1.5, fontWeight: FontWeight.w500)}): super._();
   
 
-@override final  TextStyle h1;
-@override final  TextStyle h2;
-@override final  TextStyle h3;
-@override final  TextStyle h4;
-@override final  TextStyle large;
-@override final  TextStyle body;
-@override final  TextStyle small;
-@override final  TextStyle button;
+@override@JsonKey() final  TextStyle h1;
+@override@JsonKey() final  TextStyle h2;
+@override@JsonKey() final  TextStyle h3;
+@override@JsonKey() final  TextStyle h4;
+@override@JsonKey() final  TextStyle large;
+@override@JsonKey() final  TextStyle body;
+@override@JsonKey() final  TextStyle small;
+@override@JsonKey() final  TextStyle button;
 
 /// Create a copy of WaveTextTheme
 /// with the given fields replaced by the non-null parameter values.
