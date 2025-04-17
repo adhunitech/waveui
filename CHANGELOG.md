@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - pull_to_refresh
 - badge
 - navigation_bar
+- text_form_field
 
 ### Changed
 
