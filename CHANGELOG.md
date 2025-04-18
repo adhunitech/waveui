@@ -29,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - text_form_field
 - file_picker and file_picker_item
 - file_utils
+- date_utils
+
 ### Changed
 
 ### Deprecated
