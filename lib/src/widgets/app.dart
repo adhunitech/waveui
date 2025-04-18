@@ -1,16 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:waveui/src/theme/theme.dart';
 
-/// Typically used at the root of an app to configure Waveui components.
+/// Root widget for setting WaveUI configuration and global text selection styles.
 class WaveApp extends InheritedWidget {
-  /// The theme to use for descendant Waveui widgets.
   final WaveTheme theme;
 
-  /// Creates a [WaveApp]
-  const WaveApp({required this.theme, required super.child, super.key});
+  WaveApp({required this.theme, required Widget child, super.key}) : super(child: _GlobalThemeWrapper(child: child));
 
-  /// Returns the [WaveTheme] from the closest [WaveApp] ancestor.
   static WaveTheme themeOf(BuildContext context) {
     final WaveApp? inheritedTheme = context.dependOnInheritedWidgetOfExactType<WaveApp>();
     assert(inheritedTheme != null, 'No WaveTheme found in context');
@@ -24,5 +21,22 @@ class WaveApp extends InheritedWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<WaveTheme>('theme', theme));
+  }
+}
+
+/// A wrapper that applies global cursor and selection color
+class _GlobalThemeWrapper extends StatelessWidget {
+  final Widget child;
+
+  const _GlobalThemeWrapper({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = WaveApp.themeOf(context);
+    return DefaultSelectionStyle(
+      cursorColor: theme.colorScheme.primary,
+      selectionColor: theme.colorScheme.primary.withValues(alpha: 0.3),
+      child: DefaultTextStyle(style: theme.textTheme.body, child: child),
+    );
   }
 }

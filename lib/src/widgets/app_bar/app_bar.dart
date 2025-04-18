@@ -102,7 +102,7 @@ class _WaveAppBarState extends State<WaveAppBar> {
     if (Navigator.canPop(context)) {
       return IconButton(
         tooltip: 'Back',
-        icon: const Icon(WaveIcons.chevron_left_24_regular),
+        icon: const Icon(WaveIcons.arrow_left_24_regular),
         onPressed: () => Navigator.of(context).pop(),
       );
     }

@@ -71,7 +71,7 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
     contentPrimary: Color(0xFFFFFFFF),
     contentSecondary: Color(0xFFF5F5F5),
     contentTertiary: Color(0xFFFFFFFF),
-    border: Color(0x4B9E9E9E),
+    border: Color(0x839E9E9E),
     divider: Color(0xFFEEEEEE),
   );
 }
