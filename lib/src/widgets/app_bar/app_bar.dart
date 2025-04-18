@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:waveui/waveui.dart';
 
 class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
-  /// Creates a [WaveAppBar] widget.
   const WaveAppBar({
     super.key,
     this.theme,
@@ -36,33 +35,39 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   }
 }
 
-class _WaveAppBarState extends State<WaveAppBar> {
+class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
   double _dividerOpacity = 0;
 
   @override
   void initState() {
     super.initState();
-    if (widget.scrollController != null) {
-      widget.scrollController?.addListener(_scrollListener);
-    }
+    WidgetsBinding.instance.addObserver(this);
+    widget.scrollController?.addListener(_onScrollChanged);
   }
 
-  void _scrollListener() {
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    widget.scrollController?.removeListener(_onScrollChanged);
+    super.dispose();
+  }
+
+  @override
+  void didChangeMetrics() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _updateDividerOpacity());
+  }
+
+  void _onScrollChanged() => _updateDividerOpacity();
+
+  void _updateDividerOpacity() {
     final offset = widget.scrollController?.offset ?? 0;
     final newOpacity = (offset / 20).clamp(0.0, 1.0);
+
     if (newOpacity != _dividerOpacity) {
       setState(() {
         _dividerOpacity = newOpacity;
       });
     }
-  }
-
-  @override
-  void dispose() {
-    if (widget.scrollController != null) {
-      widget.scrollController?.removeListener(_scrollListener);
-    }
-    super.dispose();
   }
 
   @override
@@ -78,9 +83,9 @@ class _WaveAppBarState extends State<WaveAppBar> {
       actions: widget.actions,
       title: widget.title,
       toolbarHeight: 65,
+      centerTitle: appBarTheme.isCenteredTitle,
       titleTextStyle: TextStyle(color: appBarTheme.foregroundColor, fontWeight: FontWeight.w500, fontSize: 18),
       surfaceTintColor: Colors.transparent,
-      centerTitle: appBarTheme.isCenteredTitle,
       bottom:
           widget.scrollController == null
               ? null
@@ -97,8 +102,9 @@ class _WaveAppBarState extends State<WaveAppBar> {
 
   Widget? _buildLeading(BuildContext context) {
     if (widget.leading != null) {
-      return widget.leading!;
+      return widget.leading;
     }
+
     if (Navigator.canPop(context)) {
       return IconButton(
         tooltip: 'Back',
@@ -106,6 +112,7 @@ class _WaveAppBarState extends State<WaveAppBar> {
         onPressed: () => Navigator.of(context).pop(),
       );
     }
+
     return null;
   }
 }
