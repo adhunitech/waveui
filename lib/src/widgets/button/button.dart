@@ -21,7 +21,7 @@ class WaveButton extends StatelessWidget {
     this.isLoading = false,
     this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
     this.isCompact = false,
-    this.icon,
+    this.icon, Future<void> Function()? onPressed,
   });
 
   @override

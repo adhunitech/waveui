@@ -33,7 +33,7 @@ class _AnimatedRing extends StatelessWidget {
     final Color endColor = isSelected ? theme.colorScheme.primary : theme.colorScheme.border;
 
     return TweenAnimationBuilder<double>(
-      tween: Tween<double>(begin: isSelected ? 2 : 4, end: isSelected ? 4 : 2),
+      tween: Tween<double>(begin: isSelected ? 2 : 4.5, end: isSelected ? 4.5 : 2),
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
       builder:

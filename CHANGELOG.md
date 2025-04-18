@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - date_utils
 - bug_report and feature_request file
 - radio
+- dropdown_form_field
 
 ### Changed
 
