@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' show Colors;
+import 'package:flutter/material.dart' show CircularProgressIndicator, Colors;
 import 'package:flutter/widgets.dart';
 import 'package:waveui/waveui.dart';
 
@@ -12,11 +12,13 @@ class WaveButton extends StatelessWidget {
   final VoidCallback? onTap;
   final EdgeInsetsGeometry padding;
   final bool isCompact;
+  final bool isLoading;
   const WaveButton({
     required this.text,
     this.type = WaveButtonType.primary,
     super.key,
     this.onTap,
+    this.isLoading = false,
     this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
     this.isCompact = false,
     this.icon,
@@ -26,7 +28,7 @@ class WaveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = WaveApp.themeOf(context);
     return WaveTappable(
-      onTap: onTap,
+      onTap: isLoading ? null : onTap,
       scale: isCompact ? 0.95 : 0.97,
       child: Container(
         padding: isCompact ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4) : padding,
@@ -36,23 +38,34 @@ class WaveButton extends StatelessWidget {
           border: type == WaveButtonType.outline ? Border.all(color: theme.colorScheme.border) : null,
         ),
         child: Center(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (icon != null) ...[
-                Icon(icon, size: isCompact ? 18 : 24, color: _getForegroundColor(context)),
-                const SizedBox(width: 4),
-              ],
-              Text(
-                text,
-                style: theme.textTheme.button.copyWith(
-                  color: _getForegroundColor(context),
-                  fontWeight: isCompact ? FontWeight.w400 : FontWeight.w500,
-                  fontSize: isCompact ? 14 : 16,
-                ),
-              ),
-            ],
-          ),
+          child:
+              isLoading
+                  ? SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 3,
+                      color: _getForegroundColor(context),
+                      backgroundColor: _getForegroundColor(context).withValues(alpha: 0.3),
+                    ),
+                  )
+                  : Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (icon != null) ...[
+                        Icon(icon, size: isCompact ? 18 : 24, color: _getForegroundColor(context)),
+                        const SizedBox(width: 4),
+                      ],
+                      Text(
+                        text,
+                        style: theme.textTheme.button.copyWith(
+                          color: _getForegroundColor(context),
+                          fontWeight: isCompact ? FontWeight.w400 : FontWeight.w500,
+                          fontSize: isCompact ? 14 : 16,
+                        ),
+                      ),
+                    ],
+                  ),
         ),
       ),
     );

@@ -52,7 +52,7 @@ class WaveFilePicker extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    "${supportedFileTypes.length > 1 ? '${supportedFileTypes.sublist(0, supportedFileTypes.length - 1).join(', ')} and ${supportedFileTypes.last}' : supportedFileTypes.join()} (max. $maxFileSize)",
+                    "${supportedFileTypes.length > 1 ? '${supportedFileTypes.sublist(0, supportedFileTypes.length - 1).join(', ').toUpperCase()} and ${supportedFileTypes.last.toUpperCase()}' : supportedFileTypes.join().toUpperCase()} (max. $maxFileSize)",
                     style: theme.textTheme.small.copyWith(color: theme.colorScheme.labelSecondary),
                   ),
                 ],
