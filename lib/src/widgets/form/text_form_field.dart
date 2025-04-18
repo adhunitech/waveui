@@ -17,10 +17,12 @@ class WaveTextFormField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final bool obscureText;
   final Widget? suffixIcon;
+  final String? initialValue;
   final Function(String)? onChanged;
   const WaveTextFormField({
     super.key,
     this.controller,
+    this.initialValue,
     this.textInputAction,
     this.enabled = true,
     this.decoration,
@@ -49,6 +51,7 @@ class WaveTextFormField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          initialValue: initialValue,
           obscureText: obscureText,
           onChanged: onChanged,
           maxLines: maxLines,
