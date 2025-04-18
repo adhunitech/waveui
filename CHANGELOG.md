@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - file_picker and file_picker_item
 - file_utils
 - date_utils
+- bug_report and feature_request file
 
 ### Changed
 

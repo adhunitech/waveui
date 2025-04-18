@@ -13,8 +13,10 @@ class WaveTextFormField extends StatelessWidget {
   final AutovalidateMode autovalidateMode;
   final String? subtitle;
   final String? Function(String?)? validator;
-  final int? maxLines;
+  final int maxLines;
   final TextInputAction? textInputAction;
+  final bool obscureText;
+  final Widget? suffixIcon;
   final Function(String)? onChanged;
   const WaveTextFormField({
     super.key,
@@ -22,8 +24,10 @@ class WaveTextFormField extends StatelessWidget {
     this.textInputAction,
     this.enabled = true,
     this.decoration,
+    this.obscureText = false,
     this.hintText,
-    this.maxLines,
+    this.suffixIcon,
+    this.maxLines = 1,
     this.title,
     this.keyboardType = TextInputType.text,
     this.autovalidateMode = AutovalidateMode.onUserInteraction,
@@ -45,6 +49,7 @@ class WaveTextFormField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          obscureText: obscureText,
           onChanged: onChanged,
           maxLines: maxLines,
           style: theme.textTheme.body,
@@ -60,6 +65,7 @@ class WaveTextFormField extends StatelessWidget {
           decoration:
               decoration ??
               InputDecoration(
+                suffixIcon: suffixIcon,
                 errorStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.error),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 hintText: hintText,
