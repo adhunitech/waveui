@@ -29,34 +29,28 @@ class _AnimatedRing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = WaveApp.themeOf(context);
-    final Color beginColor = isSelected ? theme.colorScheme.border : theme.colorScheme.primary;
-    final Color endColor = isSelected ? theme.colorScheme.primary : theme.colorScheme.border;
+    final Color targetColor = isSelected ? theme.colorScheme.primary : theme.colorScheme.border;
+    final double targetWidth = isSelected ? 4.5 : 2;
 
     return TweenAnimationBuilder<double>(
-      tween: Tween<double>(begin: isSelected ? 2 : 4.5, end: isSelected ? 4.5 : 2),
+      tween: Tween<double>(end: targetWidth),
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
       builder:
           (context, borderWidth, _) => TweenAnimationBuilder<Color?>(
-            tween: ColorTween(begin: beginColor, end: endColor),
+            tween: ColorTween(end: targetColor),
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             builder:
-                (context, color, child) => Container(
+                (context, color, _) => Container(
                   width: 22,
                   height: 22,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: color ?? endColor, width: borderWidth),
+                    border: Border.all(color: color ?? targetColor, width: borderWidth),
                   ),
                 ),
           ),
     );
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isSelected', isSelected));
   }
 }
