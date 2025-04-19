@@ -89,7 +89,7 @@ class WaveDialog extends StatelessWidget {
     final waveTheme = WaveApp.themeOf(context);
     final DialogThemeData dialogTheme = DialogThemeData(
       titleTextStyle: waveTheme.textTheme.h4.copyWith(fontWeight: FontWeight.w700),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       shadowColor: Colors.transparent,
