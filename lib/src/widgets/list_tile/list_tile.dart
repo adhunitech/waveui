@@ -183,7 +183,6 @@ class _WaveListTileState extends State<WaveListTile> {
       onTapDown: (_) => _handleTapDown(),
       onTapUp: (_) => _handleTapUp(),
       onTapCancel: () => _setTouched(false),
-      onTap: widget.onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         color: _isTouched ? hoverColor : tileColor,
