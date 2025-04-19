@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - radio
 - dropdown_form_field
 - dialog
+- circular_progress_indicator
 
 ### Changed
 
