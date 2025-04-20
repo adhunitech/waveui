@@ -20,3 +20,4 @@ export 'widgets/form.dart';
 export 'widgets/file_picker.dart';
 export 'widgets/radio.dart';
 export 'widgets/dialog.dart';
+export 'widgets/stepper.dart';
