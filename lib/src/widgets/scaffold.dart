@@ -123,16 +123,17 @@ class WaveScaffold extends StatelessWidget {
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Container(
+                color: colorScheme.barrier,
                 height: double.infinity,
                 width: double.infinity,
                 child: Center(
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: colorScheme.contentPrimary,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: WaveCircularProgressIndicator(),
+                    child: const WaveCircularProgressIndicator(),
                   ),
                 ),
               ),
