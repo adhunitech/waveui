@@ -4,9 +4,9 @@ import 'package:waveui/waveui.dart';
 
 class WaveRadio extends StatelessWidget {
   final bool isSelected;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
-  const WaveRadio({required this.isSelected, required this.onTap, super.key});
+  const WaveRadio({required this.isSelected, this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) =>
