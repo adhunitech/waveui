@@ -19,6 +19,11 @@ class WaveTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final String? initialValue;
   final Function(String)? onChanged;
+  final bool autofocus;
+  final String? errorText;
+  final FocusNode? focusNode;
+  final Function(String?)? onSaved;
+  final Function(String)? onFieldSubmitted;
   const WaveTextFormField({
     super.key,
     this.controller,
@@ -28,6 +33,7 @@ class WaveTextFormField extends StatelessWidget {
     this.decoration,
     this.obscureText = false,
     this.hintText,
+    this.errorText,
     this.suffixIcon,
     this.maxLines = 1,
     this.title,
@@ -37,6 +43,10 @@ class WaveTextFormField extends StatelessWidget {
     this.subtitle,
     this.onChanged,
     this.validator,
+    this.autofocus = false,
+    this.focusNode,
+    this.onSaved,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -51,10 +61,13 @@ class WaveTextFormField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          autofocus: autofocus,
+          focusNode: focusNode,
           initialValue: initialValue,
           obscureText: obscureText,
           onChanged: onChanged,
           maxLines: maxLines,
+          onSaved: onSaved,
           style: theme.textTheme.body,
           key: key,
           validator: validator,
@@ -62,6 +75,7 @@ class WaveTextFormField extends StatelessWidget {
           controller: controller,
           enabled: enabled,
           keyboardType: keyboardType,
+          onFieldSubmitted: onFieldSubmitted,
           autovalidateMode: autovalidateMode,
           readOnly: readOnly,
           cursorErrorColor: theme.colorScheme.error,
@@ -69,6 +83,7 @@ class WaveTextFormField extends StatelessWidget {
               decoration ??
               InputDecoration(
                 suffixIcon: suffixIcon,
+                errorText: errorText,
                 errorStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.error),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 hintText: hintText,
