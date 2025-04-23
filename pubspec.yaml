@@ -12,10 +12,12 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  collection: ^1.19.1
   fluentui_system_icons: ^1.1.273
   flutter:
     sdk: flutter
   freezed_annotation: ^3.0.0
+  intl: ^0.20.2
   path: ^1.9.1
 
 dev_dependencies:
