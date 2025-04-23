@@ -4,8 +4,8 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:waveui/src/widgets/src/board_datetime_options.dart';
-import 'package:waveui/src/widgets/src/utils/board_datetime_result.dart';
+import 'package:waveui/src/widgets/date_time_picker/board_datetime_options.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/board_datetime_result.dart';
 
 import 'board_datetime_builder.dart';
 import 'ui/parts/focus_node.dart';

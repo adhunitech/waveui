@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:waveui/src/widgets/src/board_datetime_options.dart';
-import 'package:waveui/src/widgets/src/utils/board_datetime_options_extension.dart';
-import 'package:waveui/src/widgets/src/utils/board_enum.dart';
-import 'package:waveui/src/widgets/src/utils/datetime_util.dart';
+import 'package:waveui/src/widgets/date_time_picker/board_datetime_options.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/board_datetime_options_extension.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/board_enum.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/datetime_util.dart';
 
 import 'buttons.dart';
 import '../board_datetime_contents_state.dart';

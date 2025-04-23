@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:waveui/src/widgets/src/utils/board_enum.dart';
-import 'package:waveui/src/widgets/src/utils/datetime_util.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/board_enum.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/datetime_util.dart';
 
 import '../ui/parts/focus_node.dart';
 import 'board_item_option.dart';

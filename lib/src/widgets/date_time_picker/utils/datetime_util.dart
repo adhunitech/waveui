@@ -1,4 +1,4 @@
-import 'package:waveui/src/widgets/src/options/board_item_option.dart';
+import 'package:waveui/src/widgets/date_time_picker/options/board_item_option.dart';
 
 import 'board_enum.dart';
 
