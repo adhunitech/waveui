@@ -5,6 +5,7 @@ import 'package:waveui/src/widgets/date_time_picker/board_datetime_options.dart'
 import 'package:waveui/src/widgets/date_time_picker/utils/board_datetime_options_extension.dart';
 import 'package:waveui/src/widgets/date_time_picker/utils/board_enum.dart';
 import 'package:waveui/src/widgets/date_time_picker/utils/datetime_util.dart';
+import 'package:waveui/waveui.dart';
 
 import 'buttons.dart';
 import '../board_datetime_contents_state.dart';
@@ -168,10 +169,14 @@ class BoardDateTimeHeaderState extends State<BoardDateTimeHeader> {
 
   Widget _defaultCloseButtonBuilder(BuildContext context, bool isModal, void Function() onClose) =>
       isModal
-          ? IconButton(onPressed: onClose, icon: const Icon(Icons.check_circle_rounded), color: widget.activeColor)
+          ? IconButton(onPressed: onClose, icon: const Icon(WaveIcons.checkmark_24_regular), color: widget.activeColor)
           : Opacity(
             opacity: 0.6,
-            child: IconButton(onPressed: onClose, icon: const Icon(Icons.close_rounded), color: widget.textColor),
+            child: IconButton(
+              onPressed: onClose,
+              icon: const Icon(WaveIcons.dismiss_24_regular),
+              color: widget.textColor,
+            ),
           );
 
   @override
@@ -200,21 +205,6 @@ class BoardDateTimeHeaderState extends State<BoardDateTimeHeader> {
             Expanded(child: topActionWidget),
           ],
 
-          // Visibility(
-          //   visible: widget.keyboardHeightRatio == 0,
-          //   child: Opacity(
-          //     opacity: 0.8 * (1 - widget.keyboardHeightRatio),
-          //     child: IconButton(
-          //       onPressed: () {
-          //         widget.onKeyboadClose();
-          //       },
-          //       icon: const Icon(
-          //         Icons.keyboard_hide_rounded,
-          //       ),
-          //       color: widget.textColor,
-          //     ),
-          //   ),
-          // ),
           if (onReset != null)
             GestureDetector(
               child: Container(
@@ -273,7 +263,7 @@ class BoardDateTimeHeaderState extends State<BoardDateTimeHeader> {
     final tomorrow = today.addDay(1);
     final yesterday = today.addDay(-1);
 
-    List<Widget> buttons = [];
+    final List<Widget> buttons = [];
     for (final item in widget.actionButtonTypes) {
       switch (item) {
         case BoardDateButtonType.today:
@@ -455,7 +445,7 @@ class _BoardDateTimeNoneButtonHeaderState extends State<BoardDateTimeNoneButtonH
   Widget _title() {
     if (widget.options.boardTitleBuilder != null) {
       //title builder
-      Widget titleWidget = widget.options.boardTitleBuilder!(
+      final Widget titleWidget = widget.options.boardTitleBuilder!(
         context,
         widget.options.boardTitleTextStyle ??
             Theme.of(
@@ -487,33 +477,18 @@ class _BoardDateTimeNoneButtonHeaderState extends State<BoardDateTimeNoneButtonH
   }
 
   List<Widget> _rightButton() {
-    // Widget? closeKeyboard;
-
-    // if (widget.keyboardHeightRatio == 0) {
-    //   closeKeyboard = Visibility(
-    //     visible: widget.keyboardHeightRatio == 0,
-    //     child: CustomIconButton(
-    //       icon: Icons.keyboard_hide_rounded,
-    //       bgColor: widget.options.getForegroundColor(context),
-    //       fgColor: widget.options.getTextColor(context),
-    //       onTap: widget.onKeyboadClose,
-    //       buttonSize: buttonSize,
-    //     ),
-    //   );
-    // }
-
-    Widget child =
+    final Widget child =
         widget.customCloseButtonBuilder?.call(context, widget.modal, widget.onClose) ??
         (widget.modal
             ? CustomIconButton(
-              icon: Icons.check_circle_rounded,
+              icon: WaveIcons.checkmark_24_regular,
               bgColor: widget.options.getActiveColor(context),
               fgColor: widget.options.getActiveTextColor(context),
               onTap: widget.onClose,
               buttonSize: buttonSize,
             )
             : CustomIconButton(
-              icon: Icons.close_rounded,
+              icon: WaveIcons.dismiss_24_regular,
               bgColor: widget.options.getForegroundColor(context),
               fgColor: widget.options.getTextColor(context)?.withValues(alpha: 0.8),
               onTap: widget.onClose,

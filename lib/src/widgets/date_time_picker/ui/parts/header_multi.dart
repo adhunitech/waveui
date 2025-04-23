@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:waveui/waveui.dart';
 
 import '../board_datetime_contents_state.dart';
 import '../../board_datetime_options.dart';
@@ -128,12 +129,10 @@ class BoardDateTimeMultiHeader extends StatefulWidget {
   final CloseButtonBuilder? customCloseButtonBuilder;
 
   @override
-  State<BoardDateTimeMultiHeader> createState() =>
-      _BoardDateTimeMultiHeaderState();
+  State<BoardDateTimeMultiHeader> createState() => _BoardDateTimeMultiHeaderState();
 }
 
-class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
-    with SingleTickerProviderStateMixin {
+class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> startScaleAnimation;
   late Animation<double> endScaleAnimation;
@@ -144,18 +143,11 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
   void initState() {
     super.initState();
 
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
-    );
+    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
 
     final curve = CurveTween(curve: Curves.easeInOut);
-    startScaleAnimation = animationController.drive(curve).drive(
-          Tween<double>(begin: 1.0, end: 0.9),
-        );
-    endScaleAnimation = animationController.drive(curve).drive(
-          Tween<double>(begin: 0.9, end: 1.0),
-        );
+    startScaleAnimation = animationController.drive(curve).drive(Tween<double>(begin: 1.0, end: 0.9));
+    endScaleAnimation = animationController.drive(curve).drive(Tween<double>(begin: 0.9, end: 1.0));
 
     widget.currentDateType.addListener(_typeListener);
   }
@@ -175,37 +167,32 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
     }
   }
 
-  Widget _defaultCloseButtonBuilder(
-    BuildContext context,
-    bool isModal,
-    void Function() onClose,
-  ) =>
-      Container(
-        width: 40,
-        alignment: Alignment.center,
-        child: isModal
+  Widget _defaultCloseButtonBuilder(BuildContext context, bool isModal, void Function() onClose) => Container(
+    width: 40,
+    alignment: Alignment.center,
+    child:
+        isModal
             ? IconButton(
-                onPressed: onClose,
-                icon: const Icon(Icons.check_circle_rounded),
-                color: widget.activeColor,
-              )
+              onPressed: onClose,
+              icon: const Icon(WaveIcons.checkmark_24_regular),
+              color: widget.activeColor,
+            )
             : Opacity(
-                opacity: 0.6,
-                child: IconButton(
-                  onPressed: onClose,
-                  icon: const Icon(Icons.close_rounded),
-                  color: widget.textColor,
-                ),
+              opacity: 0.6,
+              child: IconButton(
+                onPressed: onClose,
+                icon: const Icon(WaveIcons.dismiss_24_regular),
+                color: widget.textColor,
               ),
-      );
+            ),
+  );
 
   @override
   Widget build(BuildContext context) {
     final onReset = widget.onReset;
     final topActionWidget = widget.onTopActionBuilder?.call(context);
 
-    final closeButtonBuilder =
-        widget.customCloseButtonBuilder ?? _defaultCloseButtonBuilder;
+    final closeButtonBuilder = widget.customCloseButtonBuilder ?? _defaultCloseButtonBuilder;
     final rightIcon = closeButtonBuilder(context, widget.modal, widget.onClose);
 
     final child = Container(
@@ -224,9 +211,7 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
           if (topActionWidget == null) ...[
             Expanded(
               child: Align(
-                alignment: onReset != null && !widget.wide
-                    ? Alignment.centerLeft
-                    : Alignment.center,
+                alignment: onReset != null && !widget.wide ? Alignment.centerLeft : Alignment.center,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: AnimatedBuilder(
@@ -239,17 +224,12 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               SizedBox(
-                                width:
-                                    dateItemWidth * startScaleAnimation.value,
+                                width: dateItemWidth * startScaleAnimation.value,
                                 height: 32 * startScaleAnimation.value,
-                                child: _datetimeItem(
-                                  widget.startDate,
-                                  MultiCurrentDateType.start,
-                                ),
+                                child: _datetimeItem(widget.startDate, MultiCurrentDateType.start),
                               ),
                               Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 4),
+                                margin: const EdgeInsets.symmetric(horizontal: 4),
                                 height: 2,
                                 width: 12,
                                 decoration: BoxDecoration(
@@ -260,10 +240,7 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
                               SizedBox(
                                 width: dateItemWidth * endScaleAnimation.value,
                                 height: 32 * endScaleAnimation.value,
-                                child: _datetimeItem(
-                                  widget.endDate,
-                                  MultiCurrentDateType.end,
-                                ),
+                                child: _datetimeItem(widget.endDate, MultiCurrentDateType.end),
                               ),
                             ],
                           );
@@ -292,10 +269,7 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
               ),
               onTap: () {},
             ),
-          GestureDetector(
-            child: rightIcon,
-            onTap: () {},
-          ),
+          GestureDetector(child: rightIcon, onTap: () {}),
         ],
       ),
     );
@@ -326,9 +300,7 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
           icon: Transform.rotate(
             angle: pi * 4 * widget.calendarAnimation.value,
             child: Icon(
-              widget.calendarAnimation.value > 0.5
-                  ? Icons.view_day_rounded
-                  : Icons.calendar_month_rounded,
+              widget.calendarAnimation.value > 0.5 ? Icons.view_day_rounded : Icons.calendar_month_rounded,
               size: 20,
             ),
           ),
@@ -338,10 +310,7 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
     }
   }
 
-  Widget _datetimeItem(
-    ValueNotifier<DateTime> date,
-    MultiCurrentDateType dateType,
-  ) {
+  Widget _datetimeItem(ValueNotifier<DateTime> date, MultiCurrentDateType dateType) {
     final selected = widget.currentDateType.value == dateType;
 
     String format = '';
@@ -373,17 +342,16 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
     }
 
     return Material(
-      color: selected
-          ? widget.activeColor
-          : widget.backgroundColor.withValues(alpha: 0.8),
+      color: selected ? widget.activeColor : widget.backgroundColor.withValues(alpha: 0.8),
       clipBehavior: Clip.antiAlias,
       borderRadius: BorderRadius.circular(8),
       child: InkWell(
-        onTap: selected || widget.calendarAnimation.value > 0
-            ? null
-            : () {
-                widget.onChangeDateType.call(dateType);
-              },
+        onTap:
+            selected || widget.calendarAnimation.value > 0
+                ? null
+                : () {
+                  widget.onChangeDateType.call(dateType);
+                },
         child: Container(
           width: double.infinity,
           height: double.infinity,
@@ -392,8 +360,7 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
             valueListenable: date,
             builder: (context, val, child) {
               String prefix = '';
-              if (widget.pickerType == DateTimePickerType.time &&
-                  widget.useAmpm) {
+              if (widget.pickerType == DateTimePickerType.time && widget.useAmpm) {
                 final ampmData = DateTimeUtil.ampmContrastMap[val.hour]!;
                 prefix = '${ampmData.ampm.display} ';
               }
@@ -402,10 +369,8 @@ class _BoardDateTimeMultiHeaderState extends State<BoardDateTimeMultiHeader>
                 child: Text(
                   '$prefix${DateFormat(format).format(val)}',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: selected
-                            ? widget.activeTextColor
-                            : widget.textColor?.withValues(alpha: 0.9),
-                      ),
+                    color: selected ? widget.activeTextColor : widget.textColor?.withValues(alpha: 0.9),
+                  ),
                 ),
               );
             },

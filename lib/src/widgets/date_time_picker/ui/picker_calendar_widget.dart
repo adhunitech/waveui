@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waveui/src/assets/icons.dart';
 import 'package:waveui/src/widgets/date_time_picker/options/board_item_option.dart';
 import 'package:waveui/src/widgets/date_time_picker/ui/parts/calendar.dart';
 import 'package:waveui/src/widgets/date_time_picker/ui/parts/during_calendar.dart';
@@ -6,11 +7,11 @@ import 'package:waveui/src/widgets/date_time_picker/ui/parts/item.dart';
 import 'package:waveui/src/widgets/date_time_picker/utils/board_datetime_options_extension.dart';
 import 'package:waveui/src/widgets/date_time_picker/utils/datetime_util.dart';
 
-import '../board_datetime_options.dart';
-import '../utils/board_enum.dart';
-import 'parts/buttons.dart';
-import 'parts/calendar_multi.dart';
-import 'parts/header.dart';
+import 'package:waveui/src/widgets/date_time_picker/board_datetime_options.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/board_enum.dart';
+import 'package:waveui/src/widgets/date_time_picker/ui/parts/buttons.dart';
+import 'package:waveui/src/widgets/date_time_picker/ui/parts/calendar_multi.dart';
+import 'package:waveui/src/widgets/date_time_picker/ui/parts/header.dart';
 
 class PickerCalendarArgs {
   final ValueNotifier<DateTime> dateState;
@@ -262,7 +263,7 @@ abstract class PickerCalendarState<T extends PickerCalendarWidget> extends State
           child: Row(
             children: [
               CustomIconButton(
-                icon: Icons.arrow_back_rounded,
+                icon: WaveIcons.arrow_left_24_regular,
                 bgColor: args.options.getForegroundColor(context),
                 fgColor: args.options.getTextColor(context)?.withValues(alpha: 0.6),
                 onTap: () => moveFocus(false),
@@ -270,7 +271,7 @@ abstract class PickerCalendarState<T extends PickerCalendarWidget> extends State
               ),
               const SizedBox(width: 8),
               CustomIconButton(
-                icon: Icons.arrow_forward_rounded,
+                icon: WaveIcons.arrow_right_24_regular,
                 bgColor: args.options.getForegroundColor(context),
                 fgColor: args.options.getTextColor(context)?.withValues(alpha: 0.6),
                 onTap: () => moveFocus(true),
@@ -278,7 +279,7 @@ abstract class PickerCalendarState<T extends PickerCalendarWidget> extends State
               ),
               const Expanded(child: SizedBox()),
               CustomIconButton(
-                icon: Icons.keyboard_hide_rounded,
+                icon: WaveIcons.keyboard_24_regular,
                 bgColor: args.options.getForegroundColor(context),
                 fgColor: args.options.getTextColor(context)?.withValues(alpha: 0.6),
                 onTap: args.onKeyboadClose,

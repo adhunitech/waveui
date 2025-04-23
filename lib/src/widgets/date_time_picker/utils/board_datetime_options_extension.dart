@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:waveui/waveui.dart';
 
-import '../board_datetime_options.dart';
-import 'board_enum.dart';
+import 'package:waveui/src/widgets/date_time_picker/board_datetime_options.dart';
+import 'package:waveui/src/widgets/date_time_picker/utils/board_enum.dart';
 
 extension BoardDateTimeOptionsExtension on BoardDateTimeOptions {
   Color getBackgroundColor(BuildContext context) =>
-      backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
+      backgroundColor ?? WaveApp.themeOf(context).colorScheme.contentPrimary;
 
   Color getForegroundColor(BuildContext context) =>
-      foregroundColor ?? Theme.of(context).cardColor;
+      foregroundColor ?? WaveApp.themeOf(context).colorScheme.contentPrimary;
 
-  Color? getTextColor(BuildContext context) =>
-      textColor ?? Theme.of(context).textTheme.bodyLarge?.color;
+  Color? getTextColor(BuildContext context) => textColor ?? WaveApp.themeOf(context).colorScheme.labelPrimary;
 
-  Color getActiveColor(BuildContext context) =>
-      activeColor ?? Theme.of(context).primaryColor;
+  Color getActiveColor(BuildContext context) => activeColor ?? WaveApp.themeOf(context).colorScheme.primary;
 
-  Color getActiveTextColor(BuildContext context) =>
-      activeTextColor ?? Colors.white;
+  Color getActiveTextColor(BuildContext context) => activeTextColor ?? Colors.white;
 
-  bool get isTopTitleHeader =>
-      (boardTitleBuilder != null || boardTitle != null) && showDateButton;
+  bool get isTopTitleHeader => (boardTitleBuilder != null || boardTitle != null) && showDateButton;
 
   /// Obtain the title to be displayed on the item.
   /// Correct with default value only if it exists in the middle.

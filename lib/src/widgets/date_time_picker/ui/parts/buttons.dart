@@ -19,27 +19,18 @@ class CustomIconButton extends StatelessWidget {
   final Widget? child;
 
   @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: bgColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+  Widget build(BuildContext context) => Material(
+    color: bgColor,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    clipBehavior: Clip.antiAlias,
+    child: InkWell(
+      onTap: onTap,
+      child: Container(
+        height: buttonSize,
+        width: buttonSize,
+        alignment: Alignment.center,
+        child: child ?? Icon(icon, size: 20, color: fgColor),
       ),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          height: buttonSize,
-          width: buttonSize,
-          alignment: Alignment.center,
-          child: child ??
-              Icon(
-                icon,
-                size: 20,
-                color: fgColor,
-              ),
-        ),
-      ),
-    );
-  }
+    ),
+  );
 }

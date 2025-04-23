@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:waveui/src/widgets/date_time_picker/board_datetime_options.dart';
 import 'package:waveui/src/widgets/date_time_picker/utils/board_enum.dart';
 import 'package:waveui/src/widgets/date_time_picker/utils/datetime_util.dart';
+import 'package:waveui/waveui.dart';
 
 class SingleCalendarWidget extends CalendarWidget {
   const SingleCalendarWidget({
@@ -232,7 +233,7 @@ abstract class CalendarWidgetState<T extends CalendarWidget> extends State<T> {
                             pageController.previousPage(duration: pageDuration, curve: pageCurve);
                           }
                           : null,
-                  icon: const Opacity(opacity: 0.6, child: Icon(Icons.arrow_back_rounded)),
+                  icon: const Opacity(opacity: 0.6, child: Icon(WaveIcons.chevron_left_24_regular)),
                   color: widget.textColor,
                 ),
                 IconButton(
@@ -242,7 +243,7 @@ abstract class CalendarWidgetState<T extends CalendarWidget> extends State<T> {
                             pageController.nextPage(duration: pageDuration, curve: pageCurve);
                           }
                           : null,
-                  icon: const Opacity(opacity: 0.6, child: Icon(Icons.arrow_forward_rounded)),
+                  icon: const Opacity(opacity: 0.6, child: Icon(WaveIcons.chevron_right_24_regular)),
                   color: widget.textColor,
                 ),
               ],

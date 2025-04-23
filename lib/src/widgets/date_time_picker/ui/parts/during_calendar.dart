@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:waveui/src/assets/icons.dart';
 class DuringCalendarWidget extends StatelessWidget {
   const DuringCalendarWidget({
     super.key,
@@ -25,7 +25,7 @@ class DuringCalendarWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
-                Icons.keyboard_hide_rounded,
+                WaveIcons.keyboard_24_regular,
                 size: 56,
                 color: textColor,
               ),
