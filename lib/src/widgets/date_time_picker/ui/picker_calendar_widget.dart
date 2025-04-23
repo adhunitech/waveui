@@ -264,24 +264,18 @@ abstract class PickerCalendarState<T extends PickerCalendarWidget> extends State
             children: [
               CustomIconButton(
                 icon: WaveIcons.arrow_left_24_regular,
-                bgColor: args.options.getForegroundColor(context),
-                fgColor: args.options.getTextColor(context)?.withValues(alpha: 0.6),
                 onTap: () => moveFocus(false),
                 // buttonSize: buttonSize,
               ),
               const SizedBox(width: 8),
               CustomIconButton(
                 icon: WaveIcons.arrow_right_24_regular,
-                bgColor: args.options.getForegroundColor(context),
-                fgColor: args.options.getTextColor(context)?.withValues(alpha: 0.6),
                 onTap: () => moveFocus(true),
                 // buttonSize: buttonSize,
               ),
               const Expanded(child: SizedBox()),
               CustomIconButton(
                 icon: WaveIcons.keyboard_24_regular,
-                bgColor: args.options.getForegroundColor(context),
-                fgColor: args.options.getTextColor(context)?.withValues(alpha: 0.6),
                 onTap: args.onKeyboadClose,
                 // buttonSize: buttonSize,
               ),

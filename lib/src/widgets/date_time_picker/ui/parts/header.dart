@@ -412,8 +412,6 @@ class _BoardDateTimeNoneButtonHeaderState extends State<BoardDateTimeNoneButtonH
           if (widget.pickerType != DateTimePickerType.time && !widget.wide) ...[
             CustomIconButton(
               icon: Icons.view_day_rounded,
-              bgColor: widget.options.getForegroundColor(context),
-              fgColor: widget.options.getTextColor(context)?.withValues(alpha: 0.8),
               onTap: widget.onCalendar,
               buttonSize: buttonSize,
               child: Transform.rotate(
@@ -480,20 +478,8 @@ class _BoardDateTimeNoneButtonHeaderState extends State<BoardDateTimeNoneButtonH
     final Widget child =
         widget.customCloseButtonBuilder?.call(context, widget.modal, widget.onClose) ??
         (widget.modal
-            ? CustomIconButton(
-              icon: WaveIcons.checkmark_24_regular,
-              bgColor: widget.options.getActiveColor(context),
-              fgColor: widget.options.getActiveTextColor(context),
-              onTap: widget.onClose,
-              buttonSize: buttonSize,
-            )
-            : CustomIconButton(
-              icon: WaveIcons.dismiss_24_regular,
-              bgColor: widget.options.getForegroundColor(context),
-              fgColor: widget.options.getTextColor(context)?.withValues(alpha: 0.8),
-              onTap: widget.onClose,
-              buttonSize: buttonSize,
-            ));
+            ? CustomIconButton(icon: WaveIcons.checkmark_24_regular, onTap: widget.onClose, buttonSize: buttonSize)
+            : CustomIconButton(icon: WaveIcons.dismiss_24_regular, onTap: widget.onClose, buttonSize: buttonSize));
 
     return [
       // if (closeKeyboard != null) ...[
