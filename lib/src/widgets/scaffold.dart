@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +32,7 @@ class WaveScaffold extends StatelessWidget {
     this.drawerEnableOpenDragGesture = true,
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
+    this.isLoading = false,
   });
 
   final bool extendBody;
@@ -79,35 +82,63 @@ class WaveScaffold extends StatelessWidget {
   final bool endDrawerEnableOpenDragGesture;
 
   final String? restorationId;
+
+  final bool isLoading;
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = WaveApp.themeOf(context).colorScheme;
-    return Scaffold(
-      extendBody: extendBody,
-      extendBodyBehindAppBar: extendBodyBehindAppBar,
-      appBar: appBar,
-      body: body == null ? null : SafeArea(child: body!),
-      floatingActionButton: floatingActionButton,
-      floatingActionButtonLocation: floatingActionButtonLocation,
-      floatingActionButtonAnimator: floatingActionButtonAnimator,
-      persistentFooterButtons: persistentFooterButtons,
-      persistentFooterAlignment: persistentFooterAlignment,
-      drawer: drawer,
-      onDrawerChanged: onDrawerChanged,
-      endDrawer: endDrawer,
-      onEndDrawerChanged: onEndDrawerChanged,
-      drawerScrimColor: drawerScrimColor ?? colorScheme.barrier,
-      backgroundColor: backgroundColor ?? colorScheme.background,
-      bottomNavigationBar: bottomNavigationBar == null ? null : SafeArea(top: false, child: bottomNavigationBar!),
-      bottomSheet: bottomSheet,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-      primary: primary,
-      drawerDragStartBehavior: drawerDragStartBehavior,
-      drawerEdgeDragWidth: drawerEdgeDragWidth,
-      key: key,
-      drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
-      endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
-      restorationId: restorationId,
+    return PopScope(
+      canPop: !isLoading,
+      child: Stack(
+        children: [
+          Scaffold(
+            extendBody: extendBody,
+            extendBodyBehindAppBar: extendBodyBehindAppBar,
+            appBar: appBar,
+            body: body == null ? null : SafeArea(child: body!),
+            floatingActionButton: floatingActionButton,
+            floatingActionButtonLocation: floatingActionButtonLocation,
+            floatingActionButtonAnimator: floatingActionButtonAnimator,
+            persistentFooterButtons: persistentFooterButtons,
+            persistentFooterAlignment: persistentFooterAlignment,
+            drawer: drawer,
+            onDrawerChanged: onDrawerChanged,
+            endDrawer: endDrawer,
+            onEndDrawerChanged: onEndDrawerChanged,
+            drawerScrimColor: drawerScrimColor ?? colorScheme.barrier,
+            backgroundColor: backgroundColor ?? colorScheme.background,
+            bottomNavigationBar: bottomNavigationBar == null ? null : SafeArea(top: false, child: bottomNavigationBar!),
+            bottomSheet: bottomSheet,
+            resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+            primary: primary,
+            drawerDragStartBehavior: drawerDragStartBehavior,
+            drawerEdgeDragWidth: drawerEdgeDragWidth,
+            key: key,
+            drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
+            endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
+            restorationId: restorationId,
+          ),
+          if (isLoading)
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                child: Center(
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: colorScheme.contentPrimary,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: WaveCircularProgressIndicator(),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 
@@ -140,6 +171,7 @@ class WaveScaffold extends StatelessWidget {
       ..add(DoubleProperty('drawerEdgeDragWidth', drawerEdgeDragWidth))
       ..add(DiagnosticsProperty<bool>('drawerEnableOpenDragGesture', drawerEnableOpenDragGesture))
       ..add(DiagnosticsProperty<bool>('endDrawerEnableOpenDragGesture', endDrawerEnableOpenDragGesture))
-      ..add(StringProperty('restorationId', restorationId));
+      ..add(StringProperty('restorationId', restorationId))
+      ..add(DiagnosticsProperty<bool>('isLoading', isLoading));
   }
 }
