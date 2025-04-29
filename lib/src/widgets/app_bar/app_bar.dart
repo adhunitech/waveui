@@ -14,6 +14,7 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.foregroundColor,
     this.toolbarHeight = 65,
+    this.dividerColor,
   });
 
   final WaveAppBarTheme? theme;
@@ -21,10 +22,12 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? leading;
   final List<Widget> actions;
   final ScrollController? scrollController;
-  final Widget? bottom;
+  final PreferredSizeWidget? bottom;
   final Color? backgroundColor;
   final Color? foregroundColor;
   final double toolbarHeight;
+  final Color? dividerColor;
+
   @override
   State<WaveAppBar> createState() => _WaveAppBarState();
 
@@ -107,13 +110,15 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       surfaceTintColor: Colors.transparent,
       bottom:
           widget.scrollController == null
-              ? null
+              ? widget.bottom
               : PreferredSize(
                 preferredSize: const Size.fromHeight(1),
                 child: AnimatedOpacity(
                   opacity: _dividerOpacity,
                   duration: const Duration(milliseconds: 200),
-                  child: const WaveDivider(),
+                  child: WaveDivider(
+                    color: widget.dividerColor ?? waveTheme.colorScheme.divider,
+                  ),
                 ),
               ),
     );
