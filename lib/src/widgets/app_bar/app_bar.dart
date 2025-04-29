@@ -13,6 +13,7 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.bottom,
     this.backgroundColor,
     this.foregroundColor,
+    this.toolbarHeight = 65,
   });
 
   final WaveAppBarTheme? theme;
@@ -23,12 +24,12 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? bottom;
   final Color? backgroundColor;
   final Color? foregroundColor;
-
+  final double toolbarHeight;
   @override
   State<WaveAppBar> createState() => _WaveAppBarState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(toolbarHeight);
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -40,7 +41,10 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
           scrollController,
         ),
       )
-      ..add(DiagnosticsProperty<WaveAppBarTheme?>('theme', theme));
+      ..add(DiagnosticsProperty<WaveAppBarTheme?>('theme', theme))
+      ..add(ColorProperty('foregroundColor', foregroundColor))
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(DoubleProperty('toolbarHeight', toolbarHeight));
   }
 }
 
@@ -93,7 +97,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       foregroundColor: widget.foregroundColor ?? appBarTheme.foregroundColor,
       actions: widget.actions,
       title: widget.title,
-      toolbarHeight: 65,
+      toolbarHeight: widget.toolbarHeight,
       centerTitle: appBarTheme.isCenteredTitle,
       titleTextStyle: TextStyle(
         color: appBarTheme.foregroundColor,
