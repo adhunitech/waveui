@@ -96,7 +96,7 @@ class WaveScaffold extends StatelessWidget {
             extendBody: extendBody,
             extendBodyBehindAppBar: extendBodyBehindAppBar,
             appBar: appBar,
-            body: body == null ? null : SafeArea(child: body!),
+            body: body,
             floatingActionButton: floatingActionButton,
             floatingActionButtonLocation: floatingActionButtonLocation,
             floatingActionButtonAnimator: floatingActionButtonAnimator,
@@ -108,7 +108,10 @@ class WaveScaffold extends StatelessWidget {
             onEndDrawerChanged: onEndDrawerChanged,
             drawerScrimColor: drawerScrimColor ?? colorScheme.barrier,
             backgroundColor: backgroundColor ?? colorScheme.background,
-            bottomNavigationBar: bottomNavigationBar == null ? null : SafeArea(top: false, child: bottomNavigationBar!),
+            bottomNavigationBar:
+                bottomNavigationBar == null
+                    ? null
+                    : SafeArea(top: false, child: bottomNavigationBar!),
             bottomSheet: bottomSheet,
             resizeToAvoidBottomInset: resizeToAvoidBottomInset,
             primary: primary,
@@ -159,19 +162,59 @@ class WaveScaffold extends StatelessWidget {
           floatingActionButtonAnimator,
         ),
       )
-      ..add(DiagnosticsProperty<bool>('extendBodyBehindAppBar', extendBodyBehindAppBar))
+      ..add(
+        DiagnosticsProperty<bool>(
+          'extendBodyBehindAppBar',
+          extendBodyBehindAppBar,
+        ),
+      )
       ..add(DiagnosticsProperty<bool>('extendBody', extendBody))
-      ..add(DiagnosticsProperty<AlignmentDirectional>('persistentFooterAlignment', persistentFooterAlignment))
-      ..add(ObjectFlagProperty<DrawerCallback?>.has('onDrawerChanged', onDrawerChanged))
-      ..add(ObjectFlagProperty<DrawerCallback?>.has('onEndDrawerChanged', onEndDrawerChanged))
+      ..add(
+        DiagnosticsProperty<AlignmentDirectional>(
+          'persistentFooterAlignment',
+          persistentFooterAlignment,
+        ),
+      )
+      ..add(
+        ObjectFlagProperty<DrawerCallback?>.has(
+          'onDrawerChanged',
+          onDrawerChanged,
+        ),
+      )
+      ..add(
+        ObjectFlagProperty<DrawerCallback?>.has(
+          'onEndDrawerChanged',
+          onEndDrawerChanged,
+        ),
+      )
       ..add(ColorProperty('drawerScrimColor', drawerScrimColor))
       ..add(ColorProperty('backgroundColor', backgroundColor))
-      ..add(DiagnosticsProperty<bool?>('resizeToAvoidBottomInset', resizeToAvoidBottomInset))
+      ..add(
+        DiagnosticsProperty<bool?>(
+          'resizeToAvoidBottomInset',
+          resizeToAvoidBottomInset,
+        ),
+      )
       ..add(DiagnosticsProperty<bool>('primary', primary))
-      ..add(EnumProperty<DragStartBehavior>('drawerDragStartBehavior', drawerDragStartBehavior))
+      ..add(
+        EnumProperty<DragStartBehavior>(
+          'drawerDragStartBehavior',
+          drawerDragStartBehavior,
+        ),
+      )
       ..add(DoubleProperty('drawerEdgeDragWidth', drawerEdgeDragWidth))
-      ..add(DiagnosticsProperty<bool>('drawerEnableOpenDragGesture', drawerEnableOpenDragGesture))
-      ..add(DiagnosticsProperty<bool>('endDrawerEnableOpenDragGesture', endDrawerEnableOpenDragGesture))
+      ..add(
+        DiagnosticsProperty<bool>(
+          'drawerEnableOpenDragGesture',
+          drawerEnableOpenDragGesture,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty<bool>(
+          'endDrawerEnableOpenDragGesture',
+          endDrawerEnableOpenDragGesture,
+        ),
+      )
       ..add(StringProperty('restorationId', restorationId))
       ..add(DiagnosticsProperty<bool>('isLoading', isLoading));
   }

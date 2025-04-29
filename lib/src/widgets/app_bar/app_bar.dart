@@ -11,6 +11,8 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.leading,
     this.scrollController,
     this.bottom,
+    this.backgroundColor,
+    this.foregroundColor,
   });
 
   final WaveAppBarTheme? theme;
@@ -19,6 +21,8 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   final List<Widget> actions;
   final ScrollController? scrollController;
   final Widget? bottom;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
   @override
   State<WaveAppBar> createState() => _WaveAppBarState();
@@ -30,7 +34,12 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty<ScrollController?>('scrollController', scrollController))
+      ..add(
+        DiagnosticsProperty<ScrollController?>(
+          'scrollController',
+          scrollController,
+        ),
+      )
       ..add(DiagnosticsProperty<WaveAppBarTheme?>('theme', theme));
   }
 }
@@ -54,7 +63,9 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
 
   @override
   void didChangeMetrics() {
-    WidgetsBinding.instance.addPostFrameCallback((_) => _updateDividerOpacity());
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _updateDividerOpacity(),
+    );
   }
 
   void _onScrollChanged() => _updateDividerOpacity();
@@ -78,13 +89,17 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
     return AppBar(
       key: widget.key,
       leading: _buildLeading(context),
-      backgroundColor: appBarTheme.backgroundColor,
-      foregroundColor: appBarTheme.foregroundColor,
+      backgroundColor: widget.backgroundColor ?? appBarTheme.backgroundColor,
+      foregroundColor: widget.foregroundColor ?? appBarTheme.foregroundColor,
       actions: widget.actions,
       title: widget.title,
       toolbarHeight: 65,
       centerTitle: appBarTheme.isCenteredTitle,
-      titleTextStyle: TextStyle(color: appBarTheme.foregroundColor, fontWeight: FontWeight.w500, fontSize: 18),
+      titleTextStyle: TextStyle(
+        color: appBarTheme.foregroundColor,
+        fontWeight: FontWeight.w500,
+        fontSize: 18,
+      ),
       surfaceTintColor: Colors.transparent,
       bottom:
           widget.scrollController == null
