@@ -13,7 +13,7 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.bottom,
     this.backgroundColor,
     this.foregroundColor,
-    this.toolbarHeight = 65,
+    this.toolbarHeight = 66,
     this.dividerColor,
   });
 
@@ -47,7 +47,8 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
       ..add(DiagnosticsProperty<WaveAppBarTheme?>('theme', theme))
       ..add(ColorProperty('foregroundColor', foregroundColor))
       ..add(ColorProperty('backgroundColor', backgroundColor))
-      ..add(DoubleProperty('toolbarHeight', toolbarHeight));
+      ..add(DoubleProperty('toolbarHeight', toolbarHeight))
+      ..add(ColorProperty('dividerColor', dividerColor));
   }
 }
 

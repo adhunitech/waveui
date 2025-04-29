@@ -5,7 +5,11 @@ import 'package:waveui/waveui.dart';
 class WaveFilePickerItem extends StatefulWidget {
   final File file;
   final Function()? onDelete;
-  const WaveFilePickerItem({required this.file, super.key, required this.onDelete});
+  const WaveFilePickerItem({
+    required this.file,
+    super.key,
+    required this.onDelete,
+  });
 
   @override
   State<WaveFilePickerItem> createState() => _WaveFilePickerItemState();
@@ -24,7 +28,11 @@ class _WaveFilePickerItemState extends State<WaveFilePickerItem> {
     final size = await WaveFileUtils.getFileSize(widget.file);
     final name = WaveFileUtils.getFileName(widget.file);
     final extension = WaveFileUtils.getFileExtension(widget.file);
-    return _FileInfo(name: name, extension: extension, readableSize: WaveFileUtils.formatBytes(size));
+    return _FileInfo(
+      name: name,
+      extension: extension,
+      readableSize: WaveFileUtils.formatBytes(size),
+    );
   }
 
   @override
@@ -43,7 +51,7 @@ class _WaveFilePickerItemState extends State<WaveFilePickerItem> {
 
         return DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
             border: Border.all(color: theme.colorScheme.divider),
           ),
           child: WaveListTile(
@@ -59,7 +67,10 @@ class _WaveFilePickerItemState extends State<WaveFilePickerItem> {
               height: 45,
               width: 45,
               child: DecoratedBox(
-                decoration: BoxDecoration(color: theme.colorScheme.primary, borderRadius: BorderRadius.circular(30)),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(30),
+                ),
                 child: Icon(icon, color: theme.colorScheme.onPrimary),
               ),
             ),
@@ -89,5 +100,9 @@ class _FileInfo {
   final String extension;
   final String readableSize;
 
-  _FileInfo({required this.name, required this.extension, required this.readableSize});
+  _FileInfo({
+    required this.name,
+    required this.extension,
+    required this.readableSize,
+  });
 }

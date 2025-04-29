@@ -19,26 +19,36 @@ class WaveNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = WaveApp.themeOf(context);
-    return SafeArea(
-      child: ColoredBox(
-        color: backgroundColor ?? theme.colorScheme.contentPrimary,
+    return ColoredBox(
+      color: backgroundColor ?? theme.colorScheme.contentPrimary,
+      child: SafeArea(
         child: Stack(
           alignment: Alignment.topRight,
           children: [
+            // Navigation items
+            Column(
+              children: [
+                const WaveDivider(),
+                Row(
+                  children: List.generate(
+                    items.length,
+                    (index) => Expanded(
+                      child: _buildItem(context, items[index], index),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             AnimatedAlign(
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeOut,
-              alignment: Alignment(-1 + (2 / (items.length - 1)) * selectedIndex, 1),
+              alignment: Alignment(
+                -1 + (2 / (items.length - 1)) * selectedIndex,
+                1,
+              ),
               child: FractionallySizedBox(
                 widthFactor: 1 / items.length,
                 child: Container(height: 2, color: theme.colorScheme.primary),
-              ),
-            ),
-            // Navigation items
-            Row(
-              children: List.generate(
-                items.length,
-                (index) => Expanded(child: _buildItem(context, items[index], index)),
               ),
             ),
           ],
@@ -47,7 +57,11 @@ class WaveNavigationBar extends StatelessWidget {
     );
   }
 
-  Widget _buildItem(BuildContext context, WaveNavigationBarItem item, int index) {
+  Widget _buildItem(
+    BuildContext context,
+    WaveNavigationBarItem item,
+    int index,
+  ) {
     final theme = WaveApp.themeOf(context);
     return WaveTappable(
       onTap: () => onSelected(index),
@@ -58,14 +72,20 @@ class WaveNavigationBar extends StatelessWidget {
           children: [
             Icon(
               item.icon,
-              color: selectedIndex == index ? theme.colorScheme.primary : theme.colorScheme.labelSecondary,
+              color:
+                  selectedIndex == index
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.labelSecondary,
             ),
             const SizedBox(height: 2),
             Text(
               item.label,
               maxLines: 1,
               style: theme.textTheme.small.copyWith(
-                color: selectedIndex == index ? theme.colorScheme.primary : theme.colorScheme.labelSecondary,
+                color:
+                    selectedIndex == index
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.labelSecondary,
               ),
             ),
           ],

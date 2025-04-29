@@ -9,9 +9,14 @@ class DateRangeConstraint {
   final DateTime maxDate;
   final DateTime? initialDate;
 
-  const DateRangeConstraint({required this.minDate, required this.maxDate, this.initialDate});
+  const DateRangeConstraint({
+    required this.minDate,
+    required this.maxDate,
+    this.initialDate,
+  });
 
-  bool isWithin(DateTime date) => !date.isBefore(minDate) && !date.isAfter(maxDate);
+  bool isWithin(DateTime date) =>
+      !date.isBefore(minDate) && !date.isAfter(maxDate);
 
   DateTime clamp(DateTime date) {
     if (date.isBefore(minDate)) {
@@ -39,14 +44,20 @@ class CustomWheelDateTimePicker extends StatefulWidget {
   });
 
   @override
-  State<CustomWheelDateTimePicker> createState() => _CustomWheelDateTimePickerState();
+  State<CustomWheelDateTimePicker> createState() =>
+      _CustomWheelDateTimePickerState();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty<DateRangeConstraint>('range', range))
-      ..add(ObjectFlagProperty<void Function(DateTime p1)>.has('onDateTimeSelected', onDateTimeSelected))
+      ..add(
+        ObjectFlagProperty<void Function(DateTime p1)>.has(
+          'onDateTimeSelected',
+          onDateTimeSelected,
+        ),
+      )
       ..add(DiagnosticsProperty<bool>('includeTime', includeTime));
   }
 }
@@ -75,22 +86,45 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     initialDate = widget.range.clamp(DateTime.now());
     selectedDateTime = initialDate;
 
-    yearList = [for (int y = widget.range.minDate.year; y <= widget.range.maxDate.year; y++) y];
+    yearList = [
+      for (
+        int y = widget.range.minDate.year;
+        y <= widget.range.maxDate.year;
+        y++
+      )
+        y,
+    ];
     monthList = _computeValidMonths(selectedDateTime.year);
     dayList = _computeValidDays(selectedDateTime.year, selectedDateTime.month);
     hourList = List.generate(24, (i) => i);
     minuteList = List.generate(60, (i) => i);
 
-    yearCtrl = FixedExtentScrollController(initialItem: yearList.indexOf(selectedDateTime.year));
-    monthCtrl = FixedExtentScrollController(initialItem: monthList.indexOf(selectedDateTime.month));
-    dayCtrl = FixedExtentScrollController(initialItem: dayList.indexOf(selectedDateTime.day));
+    yearCtrl = FixedExtentScrollController(
+      initialItem: yearList.indexOf(selectedDateTime.year),
+    );
+    monthCtrl = FixedExtentScrollController(
+      initialItem: monthList.indexOf(selectedDateTime.month),
+    );
+    dayCtrl = FixedExtentScrollController(
+      initialItem: dayList.indexOf(selectedDateTime.day),
+    );
     hourCtrl = FixedExtentScrollController(initialItem: selectedDateTime.hour);
-    minuteCtrl = FixedExtentScrollController(initialItem: selectedDateTime.minute);
+    minuteCtrl = FixedExtentScrollController(
+      initialItem: selectedDateTime.minute,
+    );
   }
 
   List<int> _computeValidMonths(int year) {
-    if (year == widget.range.minDate.year && year == widget.range.maxDate.year) {
-      return [for (int m = widget.range.minDate.month; m <= widget.range.maxDate.month; m++) m];
+    if (year == widget.range.minDate.year &&
+        year == widget.range.maxDate.year) {
+      return [
+        for (
+          int m = widget.range.minDate.month;
+          m <= widget.range.maxDate.month;
+          m++
+        )
+          m,
+      ];
     } else if (year == widget.range.minDate.year) {
       return [for (int m = widget.range.minDate.month; m <= 12; m++) m];
     } else if (year == widget.range.maxDate.year) {
@@ -104,10 +138,12 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     int minDay = 1;
     int maxDay = DateTime(year, month + 1, 0).day;
 
-    if (year == widget.range.minDate.year && month == widget.range.minDate.month) {
+    if (year == widget.range.minDate.year &&
+        month == widget.range.minDate.month) {
       minDay = widget.range.minDate.day;
     }
-    if (year == widget.range.maxDate.year && month == widget.range.maxDate.month) {
+    if (year == widget.range.maxDate.year &&
+        month == widget.range.maxDate.month) {
       maxDay = widget.range.maxDate.day;
     }
 
@@ -126,7 +162,8 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     final days = _computeValidDays(year, month);
     final day = days[dayCtrl.selectedItem.clamp(0, days.length - 1)];
     final hour = widget.includeTime ? hourCtrl.selectedItem.clamp(0, 23) : 0;
-    final minute = widget.includeTime ? minuteCtrl.selectedItem.clamp(0, 59) : 0;
+    final minute =
+        widget.includeTime ? minuteCtrl.selectedItem.clamp(0, 59) : 0;
 
     final candidate = DateTime(year, month, day, hour, minute);
     final clamped = widget.range.clamp(candidate);
@@ -148,7 +185,11 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     }
   }
 
-  Widget _buildWheel(List<int> values, FixedExtentScrollController controller, String type) {
+  Widget _buildWheel(
+    List<int> values,
+    FixedExtentScrollController controller,
+    String type,
+  ) {
     final theme = WaveApp.themeOf(context);
     return Expanded(
       child: ShaderMask(
@@ -190,8 +231,12 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
                   displayValue,
                   style: theme.textTheme.body.copyWith(
                     fontSize: 18,
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                    color: isSelected ? theme.colorScheme.primary : theme.colorScheme.labelSecondary,
+                    fontWeight:
+                        isSelected ? FontWeight.w600 : FontWeight.normal,
+                    color:
+                        isSelected
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.labelSecondary,
                   ),
                 ),
               );
@@ -209,7 +254,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
       child: Container(
         decoration: BoxDecoration(
           color: WaveApp.themeOf(context).colorScheme.contentPrimary,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
         ),
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -217,7 +262,10 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
           children: [
             Row(
               children: [
-                Text(widget.title ?? 'Select Date', style: WaveApp.themeOf(context).textTheme.h4),
+                Text(
+                  widget.title ?? 'Select Date',
+                  style: WaveApp.themeOf(context).textTheme.h4,
+                ),
                 const Spacer(),
                 IconButton(
                   onPressed: () => Navigator.of(context).pop(),
@@ -232,8 +280,10 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
                   _buildWheel(yearList, yearCtrl, 'year'),
                   _buildWheel(monthList, monthCtrl, 'month'),
                   _buildWheel(dayList, dayCtrl, 'day'),
-                  if (widget.includeTime) _buildWheel(hourList, hourCtrl, 'hour'),
-                  if (widget.includeTime) _buildWheel(minuteList, minuteCtrl, 'minute'),
+                  if (widget.includeTime)
+                    _buildWheel(hourList, hourCtrl, 'hour'),
+                  if (widget.includeTime)
+                    _buildWheel(minuteList, minuteCtrl, 'minute'),
                 ],
               ),
             ),
@@ -272,11 +322,27 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     properties
       ..add(DiagnosticsProperty<DateTime>('selectedDateTime', selectedDateTime))
       ..add(DiagnosticsProperty<DateTime>('initialDate', initialDate))
-      ..add(DiagnosticsProperty<FixedExtentScrollController>('yearCtrl', yearCtrl))
-      ..add(DiagnosticsProperty<FixedExtentScrollController>('monthCtrl', monthCtrl))
-      ..add(DiagnosticsProperty<FixedExtentScrollController>('dayCtrl', dayCtrl))
-      ..add(DiagnosticsProperty<FixedExtentScrollController>('hourCtrl', hourCtrl))
-      ..add(DiagnosticsProperty<FixedExtentScrollController>('minuteCtrl', minuteCtrl))
+      ..add(
+        DiagnosticsProperty<FixedExtentScrollController>('yearCtrl', yearCtrl),
+      )
+      ..add(
+        DiagnosticsProperty<FixedExtentScrollController>(
+          'monthCtrl',
+          monthCtrl,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty<FixedExtentScrollController>('dayCtrl', dayCtrl),
+      )
+      ..add(
+        DiagnosticsProperty<FixedExtentScrollController>('hourCtrl', hourCtrl),
+      )
+      ..add(
+        DiagnosticsProperty<FixedExtentScrollController>(
+          'minuteCtrl',
+          minuteCtrl,
+        ),
+      )
       ..add(IterableProperty<int>('yearList', yearList))
       ..add(IterableProperty<int>('monthList', monthList))
       ..add(IterableProperty<int>('dayList', dayList))
@@ -315,11 +381,12 @@ Future<void> showWaveDateTimePicker({
     context: context,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
-    builder: (_) => CustomWheelDateTimePicker(
-      range: range,
-      onDateTimeSelected: onDateTimeSelected,
-      includeTime: true,
-      title: title ?? 'Select Date and Time',
-    ),
+    builder:
+        (_) => CustomWheelDateTimePicker(
+          range: range,
+          onDateTimeSelected: onDateTimeSelected,
+          includeTime: true,
+          title: title ?? 'Select Date and Time',
+        ),
   );
 }
