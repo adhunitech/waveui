@@ -24,18 +24,25 @@ class WaveBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
-        color: backgroundColor ?? _getBackgroundColor(context),
+        color: _getBackgroundColor(context),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Text(
         text,
-        style: theme.textTheme.body.copyWith(fontSize: 12, color: foregroundColor ?? _getForegroundColor(context)),
+        style: theme.textTheme.body.copyWith(
+          fontSize: 12,
+          color: foregroundColor ?? _getForegroundColor(context),
+        ),
       ),
     );
   }
 
   Color _getBackgroundColor(BuildContext context) {
+    if (backgroundColor != null) {
+      return backgroundColor!;
+    }
     final theme = WaveApp.themeOf(context);
+
     switch (type) {
       case WaveBadgeType.primary:
         return theme.colorScheme.primary;
@@ -49,6 +56,9 @@ class WaveBadge extends StatelessWidget {
   }
 
   Color _getForegroundColor(BuildContext context) {
+    if (foregroundColor != null) {
+      return foregroundColor!;
+    }
     final theme = WaveApp.themeOf(context);
     switch (type) {
       case WaveBadgeType.primary:
