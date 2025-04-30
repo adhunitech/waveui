@@ -1,6 +1,11 @@
 class WaveDateUtils {
   /// Returns formatted date like: 14 April 2005
-  static String formatDate(DateTime dateTime) => "${dateTime.day} ${_monthName(dateTime.month)} ${dateTime.year}";
+  static String formatDate(DateTime dateTime) =>
+      '${dateTime.day} ${_monthName(dateTime.month)} ${dateTime.year}';
+
+  /// Returns formatted time like: 12:00 PM
+  static String formatTime(DateTime dateTime) =>
+      '${dateTime.hour}:${dateTime.minute} ${dateTime.hour < 12 ? 'AM' : 'PM'}';
 
   /// Returns relative time like "10 minutes ago", "1 hour ago", etc.
   /// If more than a year ago, returns full formatted date.

@@ -125,10 +125,7 @@ class WaveScaffold extends StatelessWidget {
           if (isLoading)
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: Container(
-                color: colorScheme.barrier,
-                height: double.infinity,
-                width: double.infinity,
+              child: SizedBox.expand(
                 child: Center(
                   child: Container(
                     padding: const EdgeInsets.all(20),
