@@ -15,7 +15,7 @@ class WaveDropdownFormField<T> extends StatelessWidget {
   final Widget? suffixIcon;
   final AutovalidateMode autovalidateMode;
   final InputDecoration? decoration;
-
+  final Color? backgroundColor;
   const WaveDropdownFormField({
     super.key,
     required this.items,
@@ -30,6 +30,7 @@ class WaveDropdownFormField<T> extends StatelessWidget {
     this.suffixIcon,
     this.autovalidateMode = AutovalidateMode.onUserInteraction,
     this.decoration,
+    this.backgroundColor,
   });
 
   @override
@@ -64,6 +65,8 @@ class WaveDropdownFormField<T> extends StatelessWidget {
             decoration:
                 decoration ??
                 InputDecoration(
+                  fillColor: backgroundColor ?? Colors.transparent,
+                  filled: true,
                   hintText: hintText,
                   suffixIcon: suffixIcon,
                   contentPadding: const EdgeInsets.symmetric(
