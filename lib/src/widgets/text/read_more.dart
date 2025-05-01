@@ -117,7 +117,6 @@ class WaveReadMoreState extends State<WaveReadMore>
 
   final TapGestureRecognizer _recognizer = TapGestureRecognizer();
   late final AnimationController _animationController;
-  late final Animation<double> _fadeAnimation;
 
   ValueNotifier<bool>? _isCollapsed;
   ValueNotifier<bool> get _effectiveIsCollapsed =>
@@ -162,11 +161,6 @@ class WaveReadMoreState extends State<WaveReadMore>
     _animationController = AnimationController(
       vsync: this,
       duration: widget.animationDuration,
-    );
-
-    _fadeAnimation = CurvedAnimation(
-      parent: _animationController,
-      curve: widget.animationCurve,
     );
 
     if (!_effectiveIsCollapsed.value) {

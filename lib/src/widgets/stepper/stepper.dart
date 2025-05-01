@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:waveui/src/widgets/stepper/stepper_item.dart';
 import 'package:waveui/src/widgets/stepper/widgets/horizontal_stepper.dart';
 import 'package:waveui/src/widgets/stepper/widgets/vertical_stepper.dart';
 import 'package:waveui/waveui.dart';
@@ -12,11 +11,11 @@ class WaveStepper extends StatelessWidget {
   /// The package can be used to build horizontal as well
   /// as vertical steppers just by providing [Axis] in the [stepperDirection] parameter.
   const WaveStepper({
-    Key? key,
     required this.stepperList,
+    required this.stepperDirection,
+    super.key,
     this.verticalGap = 40,
     this.activeIndex = 0,
-    required this.stepperDirection,
     this.inverted = false,
     this.activeBarColor,
     this.inActiveBarColor,
@@ -24,8 +23,7 @@ class WaveStepper extends StatelessWidget {
     this.scrollPhysics,
     this.iconHeight = 20,
     this.iconWidth = 20,
-  }) : assert(verticalGap >= 0),
-       super(key: key);
+  }) : assert(verticalGap >= 0);
 
   /// Stepper [List] of type [StepperItem] to render the Stepper on the UI with data
   final List<StepperItem> stepperList;
@@ -73,17 +71,25 @@ class WaveStepper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
-    var crossAxisAlign = stepperDirection == Axis.horizontal ? CrossAxisAlignment.end : CrossAxisAlignment.start;
+    var crossAxisAlign =
+        stepperDirection == Axis.horizontal
+            ? CrossAxisAlignment.end
+            : CrossAxisAlignment.start;
     if (inverted) {
       // invert Alignment in case of [Axis.vertical]
-      crossAxisAlign = crossAxisAlign == CrossAxisAlignment.end ? CrossAxisAlignment.start : CrossAxisAlignment.end;
+      crossAxisAlign =
+          crossAxisAlign == CrossAxisAlignment.end
+              ? CrossAxisAlignment.start
+              : CrossAxisAlignment.end;
     }
     final Iterable<int> iterable = Iterable<int>.generate(stepperList.length);
     return Flex(
       crossAxisAlignment: crossAxisAlign,
       direction: stepperDirection,
-      children: iterable.map((index) => _getPreferredStepper(context, index: index)).toList(),
+      children:
+          iterable
+              .map((index) => _getPreferredStepper(context, index: index))
+              .toList(),
     );
   }
 
