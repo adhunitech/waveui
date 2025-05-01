@@ -357,10 +357,11 @@ Future<void> showWaveDatePicker({
   required void Function(DateTime) onDateSelected,
   String? title,
 }) async {
+  var theme = WaveApp.themeOf(context);
   await showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.transparent,
+    backgroundColor: theme.colorScheme.contentPrimary,
     builder:
         (_) => CustomWheelDateTimePicker(
           range: range,

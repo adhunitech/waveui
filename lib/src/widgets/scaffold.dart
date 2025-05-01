@@ -132,6 +132,10 @@ class WaveScaffold extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: colorScheme.contentPrimary,
                       borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: colorScheme.border.withValues(alpha: 0.3),
+                        width: .5,
+                      ),
                     ),
                     child: const WaveCircularProgressIndicator(),
                   ),
