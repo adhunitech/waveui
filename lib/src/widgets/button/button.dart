@@ -49,7 +49,7 @@ class WaveButton extends StatelessWidget {
                   ? SizedBox(
                     height: 24,
                     width: 24,
-                    child: CircularProgressIndicator(
+                    child: WaveCircularProgressIndicator(
                       strokeWidth: 3,
                       color: _getForegroundColor(context),
                       backgroundColor: _getForegroundColor(
@@ -125,6 +125,7 @@ class WaveButton extends StatelessWidget {
       ..add(StringProperty('text', text))
       ..add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding))
       ..add(DiagnosticsProperty<bool>('isCompact', isCompact))
-      ..add(DiagnosticsProperty<IconData?>('icon', icon));
+      ..add(DiagnosticsProperty<IconData?>('icon', icon))
+      ..add(DiagnosticsProperty<bool>('isLoading', isLoading));
   }
 }
