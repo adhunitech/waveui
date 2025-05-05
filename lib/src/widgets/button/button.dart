@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' show CircularProgressIndicator, Colors;
+import 'package:flutter/material.dart' show Colors;
 import 'package:flutter/widgets.dart';
 import 'package:waveui/waveui.dart';
 
@@ -13,6 +13,8 @@ class WaveButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final bool isCompact;
   final bool isLoading;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   const WaveButton({
     required this.text,
     this.type = WaveButtonType.primary,
@@ -22,6 +24,8 @@ class WaveButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
     this.isCompact = false,
     this.icon,
+    this.backgroundColor,
+    this.foregroundColor,
   });
 
   @override
@@ -36,7 +40,7 @@ class WaveButton extends StatelessWidget {
                 ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4)
                 : padding,
         decoration: BoxDecoration(
-          color: _getBackgroundColor(context),
+          color: backgroundColor ?? _getBackgroundColor(context),
           borderRadius: BorderRadius.circular(12),
           border:
               type == WaveButtonType.outline
@@ -51,10 +55,10 @@ class WaveButton extends StatelessWidget {
                     width: 24,
                     child: WaveCircularProgressIndicator(
                       strokeWidth: 3,
-                      color: _getForegroundColor(context),
-                      backgroundColor: _getForegroundColor(
-                        context,
-                      ).withValues(alpha: 0.3),
+                      color: foregroundColor ?? _getForegroundColor(context),
+                      backgroundColor:
+                          foregroundColor?.withValues(alpha: 0.3) ??
+                          _getForegroundColor(context).withValues(alpha: 0.3),
                     ),
                   )
                   : Row(
