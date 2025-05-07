@@ -109,9 +109,7 @@ class WaveScaffold extends StatelessWidget {
             drawerScrimColor: drawerScrimColor ?? colorScheme.barrier,
             backgroundColor: backgroundColor ?? colorScheme.background,
             bottomNavigationBar:
-                bottomNavigationBar == null
-                    ? null
-                    : SafeArea(top: false, child: bottomNavigationBar!),
+                bottomNavigationBar ,
             bottomSheet: bottomSheet,
             resizeToAvoidBottomInset: resizeToAvoidBottomInset,
             primary: primary,
