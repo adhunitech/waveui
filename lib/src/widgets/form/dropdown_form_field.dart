@@ -49,6 +49,7 @@ class WaveDropdownFormField<T> extends StatelessWidget {
           alignedDropdown: true,
           splashColor: Colors.transparent,
           child: DropdownButtonFormField<T>(
+            isExpanded: true,
             value: value,
             borderRadius: BorderRadius.circular(12),
             dropdownColor: theme.colorScheme.contentPrimary,
