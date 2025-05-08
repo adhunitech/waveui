@@ -26,7 +26,7 @@ class WaveSlider extends StatelessWidget {
         thumbColor: theme.colorScheme.primary,
         overlayColor: theme.colorScheme.primary.withValues(alpha: 0.1),
         valueIndicatorColor: theme.colorScheme.primary,
-        trackHeight: 18,
+        trackHeight: 16,
         valueIndicatorShape: const RectangularSliderValueIndicatorShape(),
         valueIndicatorTextStyle: theme.textTheme.small.copyWith(
           color: theme.colorScheme.onPrimary,
