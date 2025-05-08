@@ -33,6 +33,7 @@ class WaveScaffold extends StatelessWidget {
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
     this.isLoading = false,
+    this.loadingText,
   });
 
   final bool extendBody;
@@ -84,10 +85,12 @@ class WaveScaffold extends StatelessWidget {
   final String? restorationId;
 
   final bool isLoading;
+  final String? loadingText;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = WaveApp.themeOf(context).colorScheme;
+    final textTheme = WaveApp.themeOf(context).textTheme;
     return PopScope(
       canPop: !isLoading,
       child: Stack(
@@ -108,8 +111,7 @@ class WaveScaffold extends StatelessWidget {
             onEndDrawerChanged: onEndDrawerChanged,
             drawerScrimColor: drawerScrimColor ?? colorScheme.barrier,
             backgroundColor: backgroundColor ?? colorScheme.background,
-            bottomNavigationBar:
-                bottomNavigationBar ,
+            bottomNavigationBar: bottomNavigationBar,
             bottomSheet: bottomSheet,
             resizeToAvoidBottomInset: resizeToAvoidBottomInset,
             primary: primary,
@@ -121,21 +123,32 @@ class WaveScaffold extends StatelessWidget {
             restorationId: restorationId,
           ),
           if (isLoading)
-            BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: SizedBox.expand(
-                child: Center(
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: colorScheme.contentPrimary,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: colorScheme.border.withValues(alpha: 0.3),
-                        width: .5,
+            IgnorePointer(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                child: SizedBox.expand(
+                  child: Center(
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: colorScheme.contentPrimary,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: colorScheme.border.withValues(alpha: 0.3),
+                          width: .5,
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const WaveCircularProgressIndicator(),
+                          if (loadingText != null) ...[
+                            const SizedBox(height: 12),
+                            Text(loadingText!, style: textTheme.small),
+                          ],
+                        ],
                       ),
                     ),
-                    child: const WaveCircularProgressIndicator(),
                   ),
                 ),
               ),
@@ -216,5 +229,6 @@ class WaveScaffold extends StatelessWidget {
       )
       ..add(StringProperty('restorationId', restorationId))
       ..add(DiagnosticsProperty<bool>('isLoading', isLoading));
+    properties.add(StringProperty('loadingText', loadingText));
   }
 }
