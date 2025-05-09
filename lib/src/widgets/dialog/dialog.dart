@@ -88,7 +88,9 @@ class WaveDialog extends StatelessWidget {
     assert(debugCheckHasMaterialLocalizations(context));
     final waveTheme = WaveApp.themeOf(context);
     final DialogThemeData dialogTheme = DialogThemeData(
-      titleTextStyle: waveTheme.textTheme.h4.copyWith(fontWeight: FontWeight.w700),
+      titleTextStyle: waveTheme.textTheme.h4.copyWith(
+        fontWeight: FontWeight.w700,
+      ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       surfaceTintColor: Colors.transparent,
       elevation: 0,
@@ -102,10 +104,13 @@ class WaveDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.all(33),
     );
 
-    String? label = semanticLabel ?? MaterialLocalizations.of(context).alertDialogLabel;
+    final String label =
+        semanticLabel ?? MaterialLocalizations.of(context).alertDialogLabel;
 
     const double fontSizeToScale = 14.0;
-    final double effectiveTextScale = MediaQuery.textScalerOf(context).scale(fontSizeToScale) / fontSizeToScale;
+    final double effectiveTextScale =
+        MediaQuery.textScalerOf(context).scale(fontSizeToScale) /
+        fontSizeToScale;
     final double paddingScaleFactor = _scalePadding(effectiveTextScale);
     final TextDirection? textDirection = Directionality.maybeOf(context);
 
@@ -128,7 +133,8 @@ class WaveDialog extends StatelessWidget {
                 ? 0.0
                 : 24.0,
       );
-      final EdgeInsets effectiveIconPadding = iconPadding?.resolve(textDirection) ?? defaultIconPadding;
+      final EdgeInsets effectiveIconPadding =
+          iconPadding?.resolve(textDirection) ?? defaultIconPadding;
       iconWidget = Padding(
         padding: EdgeInsets.only(
           left: effectiveIconPadding.left * paddingScaleFactor,
@@ -136,7 +142,10 @@ class WaveDialog extends StatelessWidget {
           top: effectiveIconPadding.top * paddingScaleFactor,
           bottom: effectiveIconPadding.bottom,
         ),
-        child: IconTheme(data: IconThemeData(color: iconColor ?? dialogTheme.iconColor), child: icon!),
+        child: IconTheme(
+          data: IconThemeData(color: iconColor ?? dialogTheme.iconColor),
+          child: icon!,
+        ),
       );
     }
 
@@ -147,12 +156,16 @@ class WaveDialog extends StatelessWidget {
         right: 24.0,
         bottom: content == null ? 20.0 : 0.0,
       );
-      final EdgeInsets effectiveTitlePadding = titlePadding?.resolve(textDirection) ?? defaultTitlePadding;
+      final EdgeInsets effectiveTitlePadding =
+          titlePadding?.resolve(textDirection) ?? defaultTitlePadding;
       titleWidget = Padding(
         padding: EdgeInsets.only(
           left: effectiveTitlePadding.left * paddingScaleFactor,
           right: effectiveTitlePadding.right * paddingScaleFactor,
-          top: icon == null ? effectiveTitlePadding.top * paddingScaleFactor : effectiveTitlePadding.top,
+          top:
+              icon == null
+                  ? effectiveTitlePadding.top * paddingScaleFactor
+                  : effectiveTitlePadding.top,
           bottom: effectiveTitlePadding.bottom,
         ),
         child: DefaultTextStyle(
@@ -165,7 +178,8 @@ class WaveDialog extends StatelessWidget {
 
     if (content != null) {
       const EdgeInsets defaultContentPadding = EdgeInsets.all(24);
-      final EdgeInsets effectiveContentPadding = contentPadding?.resolve(textDirection) ?? defaultContentPadding;
+      final EdgeInsets effectiveContentPadding =
+          contentPadding?.resolve(textDirection) ?? defaultContentPadding;
       contentWidget = Padding(
         padding: EdgeInsets.only(
           left: effectiveContentPadding.left * paddingScaleFactor,
@@ -178,13 +192,18 @@ class WaveDialog extends StatelessWidget {
         ),
         child: DefaultTextStyle(
           style: contentTextStyle ?? dialogTheme.contentTextStyle!,
-          child: Semantics(container: true, explicitChildNodes: true, child: content),
+          child: Semantics(
+            container: true,
+            explicitChildNodes: true,
+            child: content,
+          ),
         ),
       );
     }
 
     if (actions != null) {
-      final List<Widget> actionWidgets = actions!.map((e) => Expanded(child: e)).toList();
+      final List<Widget> actionWidgets =
+          actions!.map((e) => Expanded(child: e)).toList();
 
       final List<Widget> spacedWidgets = [];
       for (int i = 0; i < actionWidgets.length; i++) {
@@ -255,5 +274,67 @@ class WaveDialog extends StatelessWidget {
       alignment: dialogTheme.alignment,
       child: dialogChild,
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(ColorProperty('iconColor', iconColor))
+      ..add(
+        DiagnosticsProperty<EdgeInsetsGeometry?>('iconPadding', iconPadding),
+      )
+      ..add(
+        DiagnosticsProperty<EdgeInsetsGeometry?>('titlePadding', titlePadding),
+      )
+      ..add(
+        DiagnosticsProperty<EdgeInsetsGeometry?>(
+          'contentPadding',
+          contentPadding,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty<TextStyle?>('contentTextStyle', contentTextStyle),
+      )
+      ..add(
+        DiagnosticsProperty<EdgeInsetsGeometry?>(
+          'actionsPadding',
+          actionsPadding,
+        ),
+      )
+      ..add(
+        EnumProperty<MainAxisAlignment?>('actionsAlignment', actionsAlignment),
+      )
+      ..add(
+        EnumProperty<OverflowBarAlignment?>(
+          'actionsOverflowAlignment',
+          actionsOverflowAlignment,
+        ),
+      )
+      ..add(
+        EnumProperty<VerticalDirection?>(
+          'actionsOverflowDirection',
+          actionsOverflowDirection,
+        ),
+      )
+      ..add(
+        DoubleProperty(
+          'actionsOverflowButtonSpacing',
+          actionsOverflowButtonSpacing,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty<EdgeInsetsGeometry?>(
+          'buttonPadding',
+          buttonPadding,
+        ),
+      )
+      ..add(ColorProperty('shadowColor', shadowColor))
+      ..add(StringProperty('semanticLabel', semanticLabel))
+      ..add(DiagnosticsProperty<EdgeInsets?>('insetPadding', insetPadding))
+      ..add(EnumProperty<Clip?>('clipBehavior', clipBehavior))
+      ..add(DiagnosticsProperty<ShapeBorder?>('shape', shape))
+      ..add(DiagnosticsProperty<AlignmentGeometry?>('alignment', alignment))
+      ..add(DiagnosticsProperty<bool>('scrollable', scrollable));
   }
 }

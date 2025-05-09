@@ -124,29 +124,28 @@ class WaveScaffold extends StatelessWidget {
           ),
           if (isLoading)
             IgnorePointer(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: SizedBox.expand(
-                  child: Center(
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: colorScheme.contentPrimary,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: colorScheme.border.withValues(alpha: 0.3),
-                          width: .5,
+              child: ColoredBox(
+                color: colorScheme.barrier.withValues(alpha: 0.2),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: SizedBox.expand(
+                    child: Center(
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: colorScheme.contentPrimary,
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const WaveCircularProgressIndicator(),
-                          if (loadingText != null) ...[
-                            const SizedBox(height: 12),
-                            Text(loadingText!, style: textTheme.small),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const WaveCircularProgressIndicator(),
+                            if (loadingText != null) ...[
+                              const SizedBox(height: 12),
+                              Text(loadingText!, style: textTheme.small),
+                            ],
                           ],
-                        ],
+                        ),
                       ),
                     ),
                   ),
