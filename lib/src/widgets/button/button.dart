@@ -35,17 +35,11 @@ class WaveButton extends StatelessWidget {
       onTap: isLoading ? null : onTap,
       scale: isCompact ? 0.95 : 0.97,
       child: Container(
-        padding:
-            isCompact
-                ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4)
-                : padding,
+        padding: isCompact ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4) : padding,
         decoration: BoxDecoration(
           color: backgroundColor ?? _getBackgroundColor(context),
           borderRadius: BorderRadius.circular(12),
-          border:
-              type == WaveButtonType.outline
-                  ? Border.all(color: theme.colorScheme.border)
-                  : null,
+          border: type == WaveButtonType.outline ? Border.all(color: theme.colorScheme.border) : null,
         ),
         child: Center(
           child:
@@ -65,19 +59,14 @@ class WaveButton extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (icon != null) ...[
-                        Icon(
-                          icon,
-                          size: isCompact ? 18 : 24,
-                          color: _getForegroundColor(context),
-                        ),
+                        Icon(icon, size: isCompact ? 18 : 24, color: _getForegroundColor(context)),
                         const SizedBox(width: 4),
                       ],
                       Text(
                         text,
                         style: theme.textTheme.button.copyWith(
                           color: _getForegroundColor(context),
-                          fontWeight:
-                              isCompact ? FontWeight.w400 : FontWeight.w500,
+                          fontWeight: isCompact ? FontWeight.w400 : FontWeight.w500,
                           fontSize: isCompact ? 14 : 16,
                         ),
                       ),

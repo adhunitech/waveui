@@ -55,10 +55,7 @@ class WaveDropdownFormField<T> extends StatelessWidget {
             dropdownColor: theme.colorScheme.contentPrimary,
             style: theme.textTheme.body,
             elevation: 2,
-            icon: Icon(
-              WaveIcons.caret_down_12_filled,
-              color: theme.colorScheme.border,
-            ),
+            icon: Icon(WaveIcons.caret_down_12_filled, color: theme.colorScheme.border),
             items: items,
             onChanged: readOnly ? null : onChanged,
             validator: validator,
@@ -70,35 +67,21 @@ class WaveDropdownFormField<T> extends StatelessWidget {
                   filled: true,
                   hintText: hintText,
                   suffixIcon: suffixIcon,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 14,
-                  ),
-                  hintStyle: theme.textTheme.body.copyWith(
-                    color: theme.colorScheme.labelSecondary,
-                  ),
-                  errorStyle: theme.textTheme.small.copyWith(
-                    color: theme.colorScheme.error,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  hintStyle: theme.textTheme.body.copyWith(color: theme.colorScheme.labelSecondary),
+                  errorStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.error),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: theme.colorScheme.border),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: theme.colorScheme.primary,
-                      width: 2,
-                    ),
+                    borderSide: BorderSide(color: theme.colorScheme.primary, width: 2),
                   ),
                   disabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: theme.colorScheme.border.withValues(alpha: .3),
-                    ),
+                    borderSide: BorderSide(color: theme.colorScheme.border.withValues(alpha: .3)),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -106,22 +89,14 @@ class WaveDropdownFormField<T> extends StatelessWidget {
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: theme.colorScheme.error,
-                      width: 2,
-                    ),
+                    borderSide: BorderSide(color: theme.colorScheme.error, width: 2),
                   ),
                 ),
           ),
         ),
         if (subtitle != null) ...[
           const SizedBox(height: 8),
-          Text(
-            subtitle!,
-            style: theme.textTheme.small.copyWith(
-              color: theme.colorScheme.labelTertiary,
-            ),
-          ),
+          Text(subtitle!, style: theme.textTheme.small.copyWith(color: theme.colorScheme.labelTertiary)),
         ],
       ],
     );
@@ -139,15 +114,8 @@ class WaveDropdownFormField<T> extends StatelessWidget {
       ..add(StringProperty('subtitle', subtitle))
       ..add(DiagnosticsProperty<bool>('enabled', enabled))
       ..add(DiagnosticsProperty<bool>('readOnly', readOnly))
-      ..add(
-        ObjectFlagProperty<String? Function(T?)?>.has('validator', validator),
-      )
-      ..add(
-        DiagnosticsProperty<AutovalidateMode>(
-          'autovalidateMode',
-          autovalidateMode,
-        ),
-      )
+      ..add(ObjectFlagProperty<String? Function(T?)?>.has('validator', validator))
+      ..add(DiagnosticsProperty<AutovalidateMode>('autovalidateMode', autovalidateMode))
       ..add(DiagnosticsProperty<InputDecoration?>('decoration', decoration));
   }
 }

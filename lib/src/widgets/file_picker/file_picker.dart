@@ -27,9 +27,7 @@ class WaveFilePicker extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
               color: theme.colorScheme.primary.withValues(alpha: 0.05),
-              border: Border.all(
-                color: theme.colorScheme.primary.withValues(alpha: 0.1),
-              ),
+              border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.1)),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
@@ -42,10 +40,7 @@ class WaveFilePicker extends StatelessWidget {
                       borderRadius: BorderRadius.circular(25),
                       color: theme.colorScheme.primary.withValues(alpha: 0.2),
                     ),
-                    child: Icon(
-                      WaveIcons.cloud_arrow_up_24_filled,
-                      color: theme.colorScheme.primary,
-                    ),
+                    child: Icon(WaveIcons.cloud_arrow_up_24_filled, color: theme.colorScheme.primary),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -58,26 +53,14 @@ class WaveFilePicker extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     "${supportedFileTypes.length > 1 ? '${supportedFileTypes.sublist(0, supportedFileTypes.length - 1).join(', ').toUpperCase()} and ${supportedFileTypes.last.toUpperCase()}' : supportedFileTypes.join().toUpperCase()} (max. $maxFileSize)",
-                    style: theme.textTheme.small.copyWith(
-                      color: theme.colorScheme.labelSecondary,
-                    ),
+                    style: theme.textTheme.small.copyWith(color: theme.colorScheme.labelSecondary),
                   ),
                 ],
               ),
             ),
           ),
         ),
-        Column(
-          children:
-              pickerItems
-                  .map(
-                    (e) => Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: e,
-                    ),
-                  )
-                  .toList(),
-        ),
+        Column(children: pickerItems.map((e) => Padding(padding: const EdgeInsets.only(top: 16), child: e)).toList()),
       ],
     );
   }

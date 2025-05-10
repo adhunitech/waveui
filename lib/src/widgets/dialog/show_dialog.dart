@@ -64,9 +64,14 @@ Future<T?> showWaveDialog<T>({
                   ),
             ),
           ),
-      transitionsBuilder:
-          (context, animation, secondaryAnimation, child) =>
-              FadeTransition(opacity: animation, child: child),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curvedAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOut,
+          reverseCurve: Curves.easeIn,
+        );
+        return FadeTransition(opacity: curvedAnimation, child: child);
+      },
     ),
   );
 }
