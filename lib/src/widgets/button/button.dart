@@ -13,10 +13,12 @@ class WaveButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final bool isCompact;
   final bool isLoading;
+  final bool isSecondary;
   final Color? backgroundColor;
   final Color? foregroundColor;
   const WaveButton({
     required this.text,
+    this.isSecondary = false,
     this.type = WaveButtonType.primary,
     super.key,
     this.onTap,
@@ -35,10 +37,15 @@ class WaveButton extends StatelessWidget {
       onTap: isLoading ? null : onTap,
       scale: isCompact ? 0.95 : 0.97,
       child: Container(
-        padding: isCompact ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4) : padding,
+        padding:
+            isCompact
+                ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4)
+                : isSecondary
+                ? const EdgeInsets.only(left: 16, right: 16, top: 6, bottom: 6)
+                : padding,
         decoration: BoxDecoration(
           color: backgroundColor ?? _getBackgroundColor(context),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(isSecondary ? 24 : 12),
           border: type == WaveButtonType.outline ? Border.all(color: theme.colorScheme.border) : null,
         ),
         child: Center(
@@ -119,6 +126,8 @@ class WaveButton extends StatelessWidget {
       ..add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding))
       ..add(DiagnosticsProperty<bool>('isCompact', isCompact))
       ..add(DiagnosticsProperty<IconData?>('icon', icon))
-      ..add(DiagnosticsProperty<bool>('isLoading', isLoading));
+      ..add(DiagnosticsProperty<bool>('isLoading', isLoading))
+      ..add(ColorProperty('backgroundColor', backgroundColor))
+      ..add(ColorProperty('foregroundColor', foregroundColor));
   }
 }
