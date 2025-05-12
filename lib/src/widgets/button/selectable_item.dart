@@ -31,17 +31,24 @@ class WaveSelectableItem extends StatelessWidget {
 }
 
 class WaveSelectableItemFormField extends FormField<List<String>> {
+  final bool isMultiSelect;
+  final bool canUnselect;
+  final void Function(List<String> value)? onChanged;
+
   WaveSelectableItemFormField(
     BuildContext context, {
     super.key,
     required List<String> options,
     List<String>? initialValue,
+    this.onChanged,
+    this.canUnselect = true,
+    this.isMultiSelect = true,
     super.onSaved,
     super.validator,
-    AutovalidateMode super.autovalidateMode = AutovalidateMode.disabled,
+    AutovalidateMode super.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(
          initialValue: initialValue ?? [],
-         builder: (FormFieldState<List<String>> state) {
+         builder: (state) {
            final theme = WaveApp.themeOf(context);
            return Column(
              crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,9 +63,29 @@ class WaveSelectableItemFormField extends FormField<List<String>> {
                          title: title,
                          isSelected: isSelected,
                          onTap: () {
-                           final updated = List<String>.from(state.value!);
-                           isSelected ? updated.remove(title) : updated.add(title);
+                           List<String> updated = List<String>.from(state.value!);
+
+                           if (isMultiSelect) {
+                             if (isSelected) {
+                               if (canUnselect) {
+                                 updated.remove(title);
+                               } else {
+                                 return;
+                               }
+                             } else {
+                               updated.add(title);
+                             }
+                           } else {
+                             if (isSelected && !canUnselect) {
+                               return;
+                             }
+                             updated = isSelected ? [] : [title];
+                           }
+
                            state.didChange(updated);
+                           if (onChanged != null) {
+                             onChanged(updated);
+                           }
                          },
                        );
                      }).toList(),
