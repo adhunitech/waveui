@@ -24,8 +24,10 @@ class WaveTextFormField extends StatelessWidget {
   final FocusNode? focusNode;
   final Function(String?)? onSaved;
   final Function(String)? onFieldSubmitted;
+  final Iterable<String>? autofillHints;
   const WaveTextFormField({
     super.key,
+    this.autofillHints,
     this.controller,
     this.initialValue,
     this.textInputAction,
@@ -61,6 +63,7 @@ class WaveTextFormField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          autofillHints: autofillHints,
           autofocus: autofocus,
           focusNode: focusNode,
           initialValue: initialValue,
