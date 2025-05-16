@@ -117,7 +117,6 @@ class WaveScaffold extends StatelessWidget {
             primary: primary,
             drawerDragStartBehavior: drawerDragStartBehavior,
             drawerEdgeDragWidth: drawerEdgeDragWidth,
-            key: key,
             drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
             endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
             restorationId: restorationId,

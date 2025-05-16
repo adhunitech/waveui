@@ -4,14 +4,15 @@ import 'package:waveui/waveui.dart';
 class WaveFilePicker extends StatelessWidget {
   final String maxFileSize;
   final List<String> supportedFileTypes;
-  final Function()? onTap;
+  final Function()? onFilePick;
   final List<WaveFilePickerItem> pickerItems;
+
   const WaveFilePicker({
     required this.pickerItems,
     super.key,
     this.maxFileSize = '5MB',
-    this.supportedFileTypes = const ['PDF', 'PNG', 'JPEG'],
-    this.onTap,
+    this.supportedFileTypes = const ['PDF', 'PNG', 'JPEG', 'MP4', 'MP3', 'WAV'],
+    this.onFilePick,
   });
 
   @override
@@ -20,7 +21,7 @@ class WaveFilePicker extends StatelessWidget {
     return Column(
       children: [
         WaveTappable(
-          onTap: onTap,
+          onTap: onFilePick,
           scale: .98,
           child: Container(
             width: double.infinity,
@@ -44,7 +45,7 @@ class WaveFilePicker extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Click here to pick files',
+                    'Click here to upload files',
                     style: theme.textTheme.small.copyWith(
                       color: theme.colorScheme.primary,
                       fontWeight: FontWeight.w500,
@@ -54,6 +55,7 @@ class WaveFilePicker extends StatelessWidget {
                   Text(
                     "${supportedFileTypes.length > 1 ? '${supportedFileTypes.sublist(0, supportedFileTypes.length - 1).join(', ').toUpperCase()} and ${supportedFileTypes.last.toUpperCase()}' : supportedFileTypes.join().toUpperCase()} (max. $maxFileSize)",
                     style: theme.textTheme.small.copyWith(color: theme.colorScheme.labelSecondary),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),

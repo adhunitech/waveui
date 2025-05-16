@@ -71,6 +71,10 @@ class WaveListTile extends StatefulWidget {
 
   final ListTileTitleAlignment? titleAlignment;
 
+  final BorderRadius? borderRadius;
+
+  final Border? border;
+
   final bool internalAddSemanticForOnTap;
   const WaveListTile({
     super.key,
@@ -78,6 +82,8 @@ class WaveListTile extends StatefulWidget {
     this.title,
     this.subtitle,
     this.trailing,
+    this.borderRadius,
+    this.border,
     this.isThreeLine = false,
     this.dense,
     this.visualDensity,
@@ -185,14 +191,20 @@ class _WaveListTileState extends State<WaveListTile> {
       onTapCancel: () => _setTouched(false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        color: _isTouched ? hoverColor : tileColor,
+        decoration: BoxDecoration(
+          color: _isTouched ? hoverColor : tileColor,
+          borderRadius: widget.borderRadius,
+          border: widget.border,
+        ),
         curve: Curves.easeOut,
         child: ListTile(
           key: widget.key,
           leading: widget.leading,
           title: widget.title,
           subtitle:
-              widget.subtitle == null ? null : Padding(padding: const EdgeInsets.only(top: 2), child: widget.subtitle),
+              widget.subtitle == null
+                  ? null
+                  : Padding(padding: EdgeInsets.only(top: widget.title == null ? 0 : 2), child: widget.subtitle),
           trailing: widget.trailing,
           isThreeLine: widget.isThreeLine,
           dense: widget.dense,
