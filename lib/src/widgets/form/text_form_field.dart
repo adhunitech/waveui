@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:waveui/waveui.dart';
 
 class WaveTextFormField extends StatelessWidget {
@@ -25,8 +26,10 @@ class WaveTextFormField extends StatelessWidget {
   final Function(String?)? onSaved;
   final Function(String)? onFieldSubmitted;
   final Iterable<String>? autofillHints;
+  final List<TextInputFormatter>? inputFormatters;
   const WaveTextFormField({
     super.key,
+    this.inputFormatters,
     this.autofillHints,
     this.controller,
     this.initialValue,
@@ -63,6 +66,7 @@ class WaveTextFormField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          inputFormatters: inputFormatters,
           autofillHints: autofillHints,
           autofocus: autofocus,
           focusNode: focusNode,
