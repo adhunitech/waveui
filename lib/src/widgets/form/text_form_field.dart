@@ -18,6 +18,7 @@ class WaveTextFormField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final bool obscureText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final String? initialValue;
   final Function(String)? onChanged;
   final bool autofocus;
@@ -40,6 +41,7 @@ class WaveTextFormField extends StatelessWidget {
     this.hintText,
     this.errorText,
     this.suffixIcon,
+    this.prefixIcon,
     this.maxLines = 1,
     this.title,
     this.keyboardType = TextInputType.text,
@@ -90,6 +92,7 @@ class WaveTextFormField extends StatelessWidget {
               decoration ??
               InputDecoration(
                 suffixIcon: suffixIcon,
+                prefixIcon: prefixIcon,
                 errorText: errorText,
                 errorStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.error),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
