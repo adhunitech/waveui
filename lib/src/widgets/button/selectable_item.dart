@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:waveui/waveui.dart';
 
@@ -5,11 +6,11 @@ class WaveSelectableItem extends StatelessWidget {
   final String title;
   final bool isSelected;
   final VoidCallback? onTap;
-  const WaveSelectableItem({super.key, required this.title, required this.isSelected, this.onTap});
+  const WaveSelectableItem({required this.title, required this.isSelected, super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    var theme = WaveApp.themeOf(context);
+    final theme = WaveApp.themeOf(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
     return WaveTappable(
@@ -28,6 +29,15 @@ class WaveSelectableItem extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(StringProperty('title', title))
+      ..add(DiagnosticsProperty<bool>('isSelected', isSelected))
+      ..add(ObjectFlagProperty<VoidCallback?>.has('onTap', onTap));
+  }
 }
 
 class WaveSelectableItemFormField extends FormField<List<String>> {
@@ -37,8 +47,8 @@ class WaveSelectableItemFormField extends FormField<List<String>> {
 
   WaveSelectableItemFormField(
     BuildContext context, {
-    super.key,
     required List<String> options,
+    super.key,
     List<String>? initialValue,
     this.onChanged,
     this.canUnselect = true,
@@ -99,4 +109,13 @@ class WaveSelectableItemFormField extends FormField<List<String>> {
            );
          },
        );
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty<bool>('isMultiSelect', isMultiSelect))
+      ..add(DiagnosticsProperty<bool>('canUnselect', canUnselect))
+      ..add(ObjectFlagProperty<void Function(List<String> value)?>.has('onChanged', onChanged));
+  }
 }

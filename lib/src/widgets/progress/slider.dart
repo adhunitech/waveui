@@ -4,18 +4,25 @@ import 'package:waveui/waveui.dart';
 
 class WaveSlider extends StatelessWidget {
   final double? value;
+  final RangeValues? rangeValues;
   final ValueChanged<double>? onChanged;
+  final ValueChanged<RangeValues>? onRangeChanged;
   final int? divisions;
   final double? min;
   final double? max;
+  final bool isRange;
   const WaveSlider({
     this.value,
+    this.rangeValues,
     super.key,
     this.onChanged,
+    this.onRangeChanged,
     this.divisions,
     this.min,
     this.max,
-  });
+    this.isRange = false,
+  }) : assert(!isRange || (isRange && rangeValues != null && onRangeChanged != null)),
+       assert(isRange || (!isRange && value != null && onChanged != null));
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +35,31 @@ class WaveSlider extends StatelessWidget {
         valueIndicatorColor: theme.colorScheme.primary,
         trackHeight: 6,
         valueIndicatorShape: const RectangularSliderValueIndicatorShape(),
-        valueIndicatorTextStyle: theme.textTheme.small.copyWith(
-          color: theme.colorScheme.onPrimary,
-        ),
+        valueIndicatorTextStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.onPrimary),
       ),
-      child: Slider(
-        label: value.toString().replaceFirst(RegExp(r'\.?0+$'), ''),
-        value: value ?? min ?? max ?? 0,
-        onChanged: onChanged,
-        padding: EdgeInsets.zero,
-        divisions: divisions,
-        inactiveColor: theme.colorScheme.divider,
-        min: min ?? 0,
-        max: max ?? 1,
-      ),
+      child:
+          isRange
+              ? RangeSlider(
+                values: rangeValues!,
+                onChanged: onRangeChanged,
+                divisions: divisions,
+                min: min ?? 0,
+                max: max ?? 1,
+                labels: RangeLabels(
+                  rangeValues!.start.toString().replaceFirst(RegExp(r'\.?0+$'), ''),
+                  rangeValues!.end.toString().replaceFirst(RegExp(r'\.?0+$'), ''),
+                ),
+              )
+              : Slider(
+                label: value.toString().replaceFirst(RegExp(r'\.?0+$'), ''),
+                value: value ?? min ?? max ?? 0,
+                onChanged: onChanged,
+                padding: EdgeInsets.zero,
+                divisions: divisions,
+                inactiveColor: theme.colorScheme.divider,
+                min: min ?? 0,
+                max: max ?? 1,
+              ),
     );
   }
 
@@ -50,9 +68,12 @@ class WaveSlider extends StatelessWidget {
     super.debugFillProperties(properties);
     properties
       ..add(DoubleProperty('value', value))
-      ..add(
-        ObjectFlagProperty<ValueChanged<double>?>.has('onChanged', onChanged),
-      )
-      ..add(IntProperty('divisions', divisions));
+      ..add(ObjectFlagProperty<ValueChanged<double>?>.has('onChanged', onChanged))
+      ..add(ObjectFlagProperty<ValueChanged<RangeValues>?>.has('onRangeChanged', onRangeChanged))
+      ..add(IntProperty('divisions', divisions))
+      ..add(FlagProperty('isRange', value: isRange, ifTrue: 'range slider'))
+      ..add(DiagnosticsProperty<RangeValues?>('rangeValues', rangeValues))
+      ..add(DoubleProperty('min', min))
+      ..add(DoubleProperty('max', max));
   }
 }
