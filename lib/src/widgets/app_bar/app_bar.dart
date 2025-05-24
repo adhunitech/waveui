@@ -111,6 +111,11 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       bottom:
           widget.scrollController == null
               ? widget.bottom
+              : widget.alwaysShowDivider
+              ? PreferredSize(
+                preferredSize: const Size.fromHeight(1),
+                child: WaveDivider(color: widget.dividerColor ?? waveTheme.colorScheme.divider),
+              )
               : PreferredSize(
                 preferredSize: const Size.fromHeight(1),
                 child: AnimatedOpacity(
