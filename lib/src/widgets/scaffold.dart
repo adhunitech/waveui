@@ -7,9 +7,9 @@ import 'package:waveui/waveui.dart';
 
 class WaveScaffold extends StatelessWidget {
   const WaveScaffold({
-    super.key,
     this.appBar,
     this.body,
+    this.globalKey,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.floatingActionButtonAnimator,
@@ -37,7 +37,7 @@ class WaveScaffold extends StatelessWidget {
   });
 
   final bool extendBody;
-
+  final Key? globalKey;
   final bool extendBodyBehindAppBar;
 
   final PreferredSizeWidget? appBar;
@@ -96,6 +96,7 @@ class WaveScaffold extends StatelessWidget {
       child: Stack(
         children: [
           Scaffold(
+            key: globalKey,
             extendBody: extendBody,
             extendBodyBehindAppBar: extendBodyBehindAppBar,
             appBar: appBar,
@@ -188,5 +189,6 @@ class WaveScaffold extends StatelessWidget {
       ..add(StringProperty('restorationId', restorationId))
       ..add(DiagnosticsProperty<bool>('isLoading', isLoading));
     properties.add(StringProperty('loadingText', loadingText));
+    properties.add(DiagnosticsProperty<Key>('globalKey', globalKey));
   }
 }

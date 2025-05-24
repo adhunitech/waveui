@@ -8,6 +8,7 @@ import 'package:waveui/waveui.dart';
 class WaveTappable extends StatefulWidget {
   const WaveTappable({
     super.key,
+    this.tooltip,
     this.child,
     this.onTap,
     this.duration = const Duration(milliseconds: 150),
@@ -20,6 +21,7 @@ class WaveTappable extends StatefulWidget {
   final Duration duration;
   final double scale;
   final double? opacity;
+  final String? tooltip;
 
   @override
   State<WaveTappable> createState() => _WaveTappableState();
@@ -31,7 +33,8 @@ class WaveTappable extends StatefulWidget {
       ..add(ObjectFlagProperty<VoidCallback?>.has('onTap', onTap))
       ..add(DiagnosticsProperty<Duration>('duration', duration))
       ..add(DoubleProperty('opacity', opacity))
-      ..add(DoubleProperty('scale', scale));
+      ..add(DoubleProperty('scale', scale))
+      ..add(StringProperty('tooltip', tooltip));
   }
 }
 
@@ -66,14 +69,21 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
   double get _scale => widget.onTap == null ? 1 : (_isTouched ? widget.scale : 1.0);
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-    onTapDown: (_) => _handleTapDown(),
-    onTapUp: (_) => _handleTapUp(),
-    onTapCancel: () => _setTouched(false),
-    child: AnimatedOpacity(
-      opacity: _opacity,
-      duration: widget.duration,
-      child: AnimatedScale(scale: _scale, duration: widget.duration, curve: Curves.easeOut, child: widget.child),
-    ),
-  );
+  Widget build(BuildContext context) {
+    final theme = WaveApp.themeOf(context);
+    final _baseWidget = GestureDetector(
+      onTapDown: (_) => _handleTapDown(),
+      onTapUp: (_) => _handleTapUp(),
+      onTapCancel: () => _setTouched(false),
+      child: AnimatedOpacity(
+        opacity: _opacity,
+        duration: widget.duration,
+        child: AnimatedScale(scale: _scale, duration: widget.duration, curve: Curves.easeOut, child: widget.child),
+      ),
+    );
+    if (widget.tooltip != null) {
+      return Tooltip(message: widget.tooltip, child: _baseWidget);
+    }
+    return _baseWidget;
+  }
 }
