@@ -57,8 +57,6 @@ class WaveListTile extends StatefulWidget {
 
   final Color? tileColor;
 
-  final Color? selectedTileColor;
-
   final bool? enableFeedback;
 
   final double? horizontalTitleGap;
@@ -107,7 +105,6 @@ class WaveListTile extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.tileColor,
-    this.selectedTileColor,
     this.enableFeedback,
     this.horizontalTitleGap,
     this.minVerticalPadding,
@@ -147,7 +144,6 @@ class WaveListTile extends StatefulWidget {
       ..add(DiagnosticsProperty<FocusNode?>('focusNode', focusNode))
       ..add(DiagnosticsProperty<bool>('autofocus', autofocus))
       ..add(ColorProperty('tileColor', tileColor))
-      ..add(ColorProperty('selectedTileColor', selectedTileColor))
       ..add(DiagnosticsProperty<bool?>('enableFeedback', enableFeedback))
       ..add(DoubleProperty('horizontalTitleGap', horizontalTitleGap))
       ..add(DoubleProperty('minVerticalPadding', minVerticalPadding))
@@ -181,7 +177,10 @@ class _WaveListTileState extends State<WaveListTile> {
   @override
   Widget build(BuildContext context) {
     final theme = WaveApp.themeOf(context);
-    final tileColor = widget.tileColor ?? theme.colorScheme.contentPrimary;
+    final tileColor =
+        widget.selected
+            ? Color.alphaBlend(Colors.white.withValues(alpha: 0.9), theme.colorScheme.primary)
+            : widget.tileColor ?? theme.colorScheme.contentPrimary;
     //TODO: Fix the hover color. This is just an workaround. It does not work
     // as expected when the tile is dark or other color than white.
     final hoverColor = theme.colorScheme.hover(widget.hoverColor ?? Colors.grey.shade100, tileColor);
@@ -210,7 +209,7 @@ class _WaveListTileState extends State<WaveListTile> {
           dense: widget.dense,
           visualDensity: widget.visualDensity,
           shape: widget.shape,
-          selectedColor: widget.selectedColor,
+          selectedColor: widget.selectedColor ?? theme.colorScheme.primary,
           focusColor: widget.focusColor,
           autofocus: widget.autofocus,
           contentPadding: widget.contentPadding,
@@ -236,7 +235,6 @@ class _WaveListTileState extends State<WaveListTile> {
           titleAlignment: widget.titleAlignment,
           internalAddSemanticForOnTap: widget.internalAddSemanticForOnTap,
           focusNode: widget.focusNode,
-          selectedTileColor: widget.selectedTileColor,
         ),
       ),
     );
