@@ -16,6 +16,8 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.foregroundColor,
     this.toolbarHeight = 66,
     this.dividerColor,
+    this.automaticBackButton = true,
+    this.alwaysShowDivider = false,
   });
 
   final WaveAppBarTheme? theme;
@@ -29,6 +31,8 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   final double toolbarHeight;
   final Color? dividerColor;
   final bool? centeredTitle;
+  final bool automaticBackButton;
+  final bool alwaysShowDivider;
 
   @override
   State<WaveAppBar> createState() => _WaveAppBarState();
@@ -45,7 +49,10 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
       ..add(ColorProperty('foregroundColor', foregroundColor))
       ..add(ColorProperty('backgroundColor', backgroundColor))
       ..add(DoubleProperty('toolbarHeight', toolbarHeight))
-      ..add(ColorProperty('dividerColor', dividerColor));
+      ..add(ColorProperty('dividerColor', dividerColor))
+      ..add(DiagnosticsProperty<bool?>('automaticBackButton', automaticBackButton))
+      ..add(DiagnosticsProperty<bool?>('centeredTitle', centeredTitle))
+      ..add(DiagnosticsProperty<bool>('alwaysShowDivider', alwaysShowDivider));
   }
 }
 
@@ -95,6 +102,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       backgroundColor: widget.backgroundColor ?? appBarTheme.backgroundColor,
       foregroundColor: widget.foregroundColor ?? appBarTheme.foregroundColor,
       actions: widget.actions,
+      automaticallyImplyLeading: widget.automaticBackButton,
       title: widget.title,
       toolbarHeight: widget.toolbarHeight,
       centerTitle: widget.centeredTitle ?? appBarTheme.isCenteredTitle,
@@ -117,6 +125,9 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
   Widget? _buildLeading(BuildContext context) {
     if (widget.leading != null) {
       return widget.leading;
+    }
+    if (!widget.automaticBackButton) {
+      return null;
     }
 
     if (Navigator.canPop(context)) {
