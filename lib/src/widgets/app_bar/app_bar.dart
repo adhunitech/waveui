@@ -10,6 +10,7 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.title,
     this.leading,
     this.scrollController,
+    this.centeredTitle,
     this.bottom,
     this.backgroundColor,
     this.foregroundColor,
@@ -27,6 +28,7 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color? foregroundColor;
   final double toolbarHeight;
   final Color? dividerColor;
+  final bool? centeredTitle;
 
   @override
   State<WaveAppBar> createState() => _WaveAppBarState();
@@ -38,12 +40,7 @@ class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-        DiagnosticsProperty<ScrollController?>(
-          'scrollController',
-          scrollController,
-        ),
-      )
+      ..add(DiagnosticsProperty<ScrollController?>('scrollController', scrollController))
       ..add(DiagnosticsProperty<WaveAppBarTheme?>('theme', theme))
       ..add(ColorProperty('foregroundColor', foregroundColor))
       ..add(ColorProperty('backgroundColor', backgroundColor))
@@ -71,9 +68,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
 
   @override
   void didChangeMetrics() {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => _updateDividerOpacity(),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) => _updateDividerOpacity());
   }
 
   void _onScrollChanged() => _updateDividerOpacity();
@@ -102,12 +97,8 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       actions: widget.actions,
       title: widget.title,
       toolbarHeight: widget.toolbarHeight,
-      centerTitle: appBarTheme.isCenteredTitle,
-      titleTextStyle: TextStyle(
-        color: appBarTheme.foregroundColor,
-        fontWeight: FontWeight.w500,
-        fontSize: 18,
-      ),
+      centerTitle: widget.centeredTitle ?? appBarTheme.isCenteredTitle,
+      titleTextStyle: TextStyle(color: appBarTheme.foregroundColor, fontWeight: FontWeight.w500, fontSize: 18),
       surfaceTintColor: Colors.transparent,
       bottom:
           widget.scrollController == null
@@ -117,9 +108,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
                 child: AnimatedOpacity(
                   opacity: _dividerOpacity,
                   duration: const Duration(milliseconds: 200),
-                  child: WaveDivider(
-                    color: widget.dividerColor ?? waveTheme.colorScheme.divider,
-                  ),
+                  child: WaveDivider(color: widget.dividerColor ?? waveTheme.colorScheme.divider),
                 ),
               ),
     );
