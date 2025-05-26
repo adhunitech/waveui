@@ -35,7 +35,7 @@ class WaveDropdownFormField<T> extends StatefulWidget {
   });
 
   @override
-  _WaveDropdownFormFieldState<T> createState() => _WaveDropdownFormFieldState<T>();
+  WaveDropdownFormFieldState<T> createState() => WaveDropdownFormFieldState<T>();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -55,16 +55,25 @@ class WaveDropdownFormField<T> extends StatefulWidget {
   }
 }
 
-class _WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
+class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   late TextEditingController _searchController;
-  late List<DropdownMenuItem<T>> _filteredItems;
+  late List<DropdownMenuItem<T>> filteredItems;
   late WaveTheme theme;
 
   @override
   void initState() {
     super.initState();
     _searchController = TextEditingController();
-    _filteredItems = widget.items;
+    filteredItems = widget.items;
+    _searchController.addListener(() {
+      _filterItems(_searchController.text);
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -73,13 +82,21 @@ class _WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
     theme = WaveApp.themeOf(context);
   }
 
+  @override
+  void didUpdateWidget(covariant WaveDropdownFormField<T> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.items != widget.items) {
+      filteredItems = widget.items;
+    }
+  }
+
   void _filterItems(String query) {
+    final lowerQuery = query.toLowerCase();
     setState(() {
-      _filteredItems =
+      filteredItems =
           widget.items.where((item) {
-            final String title = item.value.toString().toLowerCase();
-            final String searchQuery = query.toLowerCase();
-            return title.contains(searchQuery);
+            final label = (item.child as Text?)?.data?.toLowerCase() ?? item.value.toString().toLowerCase();
+            return label.contains(lowerQuery);
           }).toList();
     });
   }
@@ -87,71 +104,119 @@ class _WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   void _showModal(BuildContext context) {
     showWaveModalBottomSheet(
       context: context,
-      isScrollControlled: false,
-      builder:
-          (context) => GestureDetector(
-            onTap: () => FocusScope.of(context).unfocus(),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Search TextField
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: WaveTextFormField(
-                    controller: _searchController,
-                    hintText: 'Search...',
-                    onChanged: _filterItems,
-                    textInputAction: TextInputAction.search,
-                  ),
+      builder: (context) {
+        final bottomInset = MediaQuery.of(context).viewInsets.bottom;
+        List<DropdownMenuItem<T>> localFilteredItems = widget.items;
+
+        return StatefulBuilder(
+          builder: (context, modalSetState) {
+            _searchController.addListener(() {
+              final query = _searchController.text.toLowerCase();
+              modalSetState(() {
+                localFilteredItems =
+                    widget.items.where((item) {
+                      final label = (item.child as Text?)?.data?.toLowerCase() ?? item.value.toString().toLowerCase();
+                      return label.contains(query);
+                    }).toList();
+              });
+            });
+
+            return Padding(
+              padding: EdgeInsets.only(bottom: bottomInset),
+              child: FractionallySizedBox(
+                heightFactor: 0.6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: WaveTextFormField(
+                        controller: _searchController,
+                        hintText: 'Search...',
+                        textInputAction: TextInputAction.search,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: localFilteredItems.length,
+                        itemBuilder: (context, index) {
+                          final item = localFilteredItems[index];
+                          return WaveListTile(
+                            title: Text(item.value.toString()),
+                            onTap: () {
+                              widget.onChanged?.call(item.value);
+                              Navigator.of(context).pop();
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 8),
-                // List of items
-                Expanded(
-                  child: ListView(
-                    children:
-                        _filteredItems
-                            .map(
-                              (item) => WaveListTile(
-                                title: Text(item.value.toString()),
-                                onTap: () {
-                                  if (widget.onChanged != null) {
-                                    widget.onChanged!(item.value);
-                                  }
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            )
-                            .toList(),
-                  ),
-                ),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      if (widget.title != null) ...[Text(widget.title!, style: theme.textTheme.h4), const SizedBox(height: 8)],
-      GestureDetector(
-        onTap: widget.enabled && !widget.readOnly ? () => _showModal(context) : null,
-        child: AbsorbPointer(
-          child: WaveTextFormField(
-            controller: TextEditingController(text: widget.value?.toString()),
-            hintText: widget.hintText,
-            suffixIcon: widget.suffixIcon,
-            autovalidateMode: widget.autovalidateMode,
-            readOnly: true,
-            validator: widget.validator,
+  Widget build(BuildContext context) {
+    final theme = WaveApp.themeOf(context);
+    return FormField<T>(
+      initialValue: widget.value,
+      validator: (val) => widget.validator?.call(val?.toString()),
+      autovalidateMode: widget.autovalidateMode,
+      builder:
+          (formFieldState) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (widget.title != null) ...[
+                Text(widget.title!, style: theme.textTheme.h4.copyWith(fontSize: 16)),
+                const SizedBox(height: 8),
+              ],
+              GestureDetector(
+                onTap: widget.enabled && !widget.readOnly ? () => _showModal(context) : null,
+                child: InputDecorator(
+                  decoration:
+                      widget.decoration ??
+                      InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(color: theme.colorScheme.border),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        errorText: formFieldState.errorText,
+                        suffixIcon:
+                            widget.suffixIcon ?? Icon(WaveIcons.caret_down_12_filled, color: theme.colorScheme.border),
+                        enabled: widget.enabled,
+                        filled: widget.backgroundColor != null,
+                        fillColor: widget.backgroundColor,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(color: theme.colorScheme.border),
+                        ),
+                      ),
+                  isEmpty: widget.value == null,
+                  child: Text(
+                    widget.value?.toString() ?? widget.hintText ?? '',
+                    style:
+                        widget.value != null
+                            ? theme.textTheme.small
+                            : theme.textTheme.small.copyWith(color: theme.colorScheme.border),
+                  ),
+                ),
+              ),
+              if (widget.subtitle != null) ...[
+                const SizedBox(height: 8),
+                Text(widget.subtitle!, style: theme.textTheme.small),
+              ],
+            ],
           ),
-        ),
-      ),
-      if (widget.subtitle != null) ...[const SizedBox(height: 8), Text(widget.subtitle!, style: theme.textTheme.small)],
-    ],
-  );
+    );
+  }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
