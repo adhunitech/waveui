@@ -1,6 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter/material.dart';
 import 'package:waveui/waveui.dart';
 
@@ -70,8 +68,7 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
-    final _baseWidget = GestureDetector(
+    final baseWidget = GestureDetector(
       onTapDown: (_) => _handleTapDown(),
       onTapUp: (_) => _handleTapUp(),
       onTapCancel: () => _setTouched(false),
@@ -82,8 +79,8 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
       ),
     );
     if (widget.tooltip != null) {
-      return Tooltip(message: widget.tooltip, child: _baseWidget);
+      return Tooltip(message: widget.tooltip, child: baseWidget);
     }
-    return _baseWidget;
+    return baseWidget;
   }
 }

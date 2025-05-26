@@ -21,8 +21,7 @@ class WaveSlider extends StatelessWidget {
     this.min,
     this.max,
     this.isRange = false,
-  }) : assert(!isRange || (isRange && rangeValues != null && onRangeChanged != null)),
-       assert(isRange || (!isRange && value != null && onChanged != null));
+  });
 
   @override
   Widget build(BuildContext context) {

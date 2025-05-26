@@ -831,7 +831,7 @@ Future<T?> showWaveModalBottomSheet<T>({
   Clip? clipBehavior,
   BoxConstraints? constraints,
   Color? barrierColor,
-  bool isScrollControlled = false,
+  bool isScrollControlled = true,
   double scrollControlDisabledMaxHeightRatio = _defaultScrollControlDisabledMaxHeightRatio,
   bool useRootNavigator = false,
   bool isDismissible = true,
