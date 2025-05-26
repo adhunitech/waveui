@@ -178,7 +178,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
                 const SizedBox(height: 8),
               ],
               GestureDetector(
-                onTap: widget.enabled && !widget.readOnly ? () => _showModal(context) : null,
+                onTap: widget.enabled ? () => _showModal(context) : null,
                 child: InputDecorator(
                   decoration:
                       widget.decoration ??
