@@ -18,8 +18,8 @@ class WaveDropdownFormField<T> extends StatefulWidget {
   final Color? backgroundColor;
 
   const WaveDropdownFormField({
-    required this.items,
     super.key,
+    required this.items,
     this.value,
     this.onChanged,
     this.hintText,
@@ -57,17 +57,12 @@ class WaveDropdownFormField<T> extends StatefulWidget {
 
 class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   late TextEditingController _searchController;
-  late List<DropdownMenuItem<T>> filteredItems;
   late WaveTheme theme;
 
   @override
   void initState() {
     super.initState();
     _searchController = TextEditingController();
-    filteredItems = widget.items;
-    _searchController.addListener(() {
-      _filterItems(_searchController.text);
-    });
   }
 
   @override
@@ -82,26 +77,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
     theme = WaveApp.themeOf(context);
   }
 
-  @override
-  void didUpdateWidget(covariant WaveDropdownFormField<T> oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.items != widget.items) {
-      filteredItems = widget.items;
-    }
-  }
-
-  void _filterItems(String query) {
-    final lowerQuery = query.toLowerCase();
-    setState(() {
-      filteredItems =
-          widget.items.where((item) {
-            final label = (item.child as Text?)?.data?.toLowerCase() ?? item.value.toString().toLowerCase();
-            return label.contains(lowerQuery);
-          }).toList();
-    });
-  }
-
-  void _showModal(BuildContext context) {
+  void _showModal(BuildContext context, FormFieldState<T> formFieldState) {
     showWaveModalBottomSheet(
       context: context,
       builder: (context) {
@@ -143,8 +119,9 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
                         itemBuilder: (context, index) {
                           final item = localFilteredItems[index];
                           return WaveListTile(
-                            title: Text(item.value.toString()),
+                            title: item.child,
                             onTap: () {
+                              formFieldState.didChange(item.value); // ✅ Notify form of change
                               widget.onChanged?.call(item.value);
                               Navigator.of(context).pop();
                             },
@@ -163,60 +140,64 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
-    return FormField<T>(
-      initialValue: widget.value,
-      validator: (val) => widget.validator?.call(val?.toString()),
-      autovalidateMode: widget.autovalidateMode,
-      builder:
-          (formFieldState) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (widget.title != null) ...[
-                Text(widget.title!, style: theme.textTheme.h4.copyWith(fontSize: 16)),
-                const SizedBox(height: 8),
-              ],
-              GestureDetector(
-                onTap: widget.enabled ? () => _showModal(context) : null,
-                child: InputDecorator(
-                  decoration:
-                      widget.decoration ??
-                      InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: theme.colorScheme.border),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                        errorText: formFieldState.errorText,
-                        suffixIcon:
-                            widget.suffixIcon ?? Icon(WaveIcons.caret_down_12_filled, color: theme.colorScheme.border),
-                        enabled: widget.enabled,
-                        filled: widget.backgroundColor != null,
-                        fillColor: widget.backgroundColor,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: theme.colorScheme.border),
-                        ),
-                      ),
-                  isEmpty: widget.value == null,
-                  child: Text(
-                    widget.value?.toString() ?? widget.hintText ?? '',
-                    style:
-                        widget.value != null
-                            ? theme.textTheme.small
-                            : theme.textTheme.small.copyWith(color: theme.colorScheme.border),
-                  ),
-                ),
-              ),
-              if (widget.subtitle != null) ...[
-                const SizedBox(height: 8),
-                Text(widget.subtitle!, style: theme.textTheme.small),
-              ],
+  Widget build(BuildContext context) => FormField<T>(
+    initialValue: widget.value,
+    validator: (val) => widget.validator?.call(val?.toString()),
+    autovalidateMode: widget.autovalidateMode,
+    builder:
+        (formFieldState) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (widget.title != null) ...[
+              Text(widget.title!, style: theme.textTheme.h4.copyWith(fontSize: 16)),
+              const SizedBox(height: 8),
             ],
-          ),
-    );
-  }
+            GestureDetector(
+              onTap: widget.enabled ? () => _showModal(context, formFieldState) : null,
+              child: InputDecorator(
+                decoration:
+                    widget.decoration ??
+                    InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: theme.colorScheme.border),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      errorText: formFieldState.errorText,
+                      suffixIcon:
+                          widget.suffixIcon ?? Icon(WaveIcons.caret_down_12_filled, color: theme.colorScheme.border),
+                      enabled: widget.enabled,
+                      filled: widget.backgroundColor != null,
+                      fillColor: widget.backgroundColor,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: theme.colorScheme.border),
+                      ),
+                    ),
+                isEmpty: widget.value == null,
+                child:
+                    widget.items
+                        .firstWhere(
+                          (item) => item.value == widget.value,
+                          orElse:
+                              () => DropdownMenuItem<T>(
+                                value: null,
+                                child: Text(
+                                  widget.hintText ?? '',
+                                  style: theme.textTheme.small.copyWith(color: theme.colorScheme.border),
+                                ),
+                              ),
+                        )
+                        .child,
+              ),
+            ),
+            if (widget.subtitle != null) ...[
+              const SizedBox(height: 8),
+              Text(widget.subtitle!, style: theme.textTheme.small),
+            ],
+          ],
+        ),
+  );
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
