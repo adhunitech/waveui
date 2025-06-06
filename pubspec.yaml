@@ -1,34 +1,54 @@
 name: waveui
-description: "An enterprise-class package of Flutter components for mobile applications."
-
-version: 0.2.1
-
-homepage: https://github.com/adhunitech/waveui
-repository: https://github.com/adhunitech/waveui
-issue_tracker: https://github.com/adhunitech/waveui/issues
+description: "Beautifully designed components from Shadcn/UI is now available for Flutter"
+version: 0.0.37
+homepage: "https://github.com/adhunitech/waveui"
+documentation: "https://adhunitech.github.io/waveui/"
+repository: "https://github.com/adhunitech/waveui"
+issue_tracker: "https://github.com/adhunitech/waveui/issues"
 
 environment:
-  sdk: ^3.7.2
-  flutter: ">=1.17.0"
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: ">=3.32.0"
 
 dependencies:
-  collection: ^1.19.1
-  fluentui_system_icons: ^1.1.273
+  email_validator: ^3.0.0
   flutter:
     sdk: flutter
-  freezed_annotation: ^3.0.0
-  intl: ^0.20.2
-  path: ^1.9.1
+  skeletonizer: ^2.0.0-pre
+  syntax_highlight: ^0.4.0
+  country_flags: ^3.0.0
+  phonecodes: ^0.0.3
+  cross_file: ^0.3.4+2
+  image: ^4.2.0
+  web: ^1.0.0
+  data_widget: ^0.0.2
+  gap: ^3.0.1
+  expressions: ^0.2.5+2
 
 dev_dependencies:
-  better_lints: ^2.0.2
-  build_runner: ^2.4.15
-  freezed: ^3.0.6
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  icon_font_generator: ^4.0.0
+  archive: any
 
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
 flutter:
-
+  uses-material-design: true
   fonts:
-    
+    - family: RadixIcons
+      fonts:
+      - asset: "lib/icons/RadixIcons.otf"
+    - family: BootstrapIcons
+      fonts:
+      - asset: "lib/icons/BootstrapIcons.otf"
+    - family: LucideIcons
+      fonts:
+      - asset: "lib/icons/LucideIcons.ttf"
+
     # Fonts used under OFL license
     # Inter font © Rasmus Andersson (https://rsms.me/inter/)
     # Licensed under SIL Open Font License 1.1 — https://openfontlicense.org/
@@ -80,3 +100,11 @@ flutter:
         - asset: packages/waveui/src/assets/fonts/Inter_BlackItalic.ttf
           weight: 900
           style: italic
+
+
+topics:
+- widgets
+- user-interface
+- design
+- components
+- shadcn-ui
