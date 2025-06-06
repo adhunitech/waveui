@@ -15,6 +15,7 @@ class WaveTextFormField extends StatelessWidget {
   final String? subtitle;
   final String? Function(String?)? validator;
   final int maxLines;
+  final int? maxLength;
   final TextInputAction? textInputAction;
   final bool obscureText;
   final Widget? suffixIcon;
@@ -22,6 +23,7 @@ class WaveTextFormField extends StatelessWidget {
   final String? initialValue;
   final Function(String)? onChanged;
   final bool autofocus;
+  final String? suffixText;
   final String? errorText;
   final FocusNode? focusNode;
   final Function(String?)? onSaved;
@@ -39,7 +41,9 @@ class WaveTextFormField extends StatelessWidget {
     this.decoration,
     this.obscureText = false,
     this.hintText,
+    this.suffixText,
     this.errorText,
+    this.maxLength,
     this.suffixIcon,
     this.prefixIcon,
     this.maxLines = 1,
@@ -76,6 +80,7 @@ class WaveTextFormField extends StatelessWidget {
           obscureText: obscureText,
           onChanged: onChanged,
           maxLines: maxLines,
+          maxLength: maxLength,
           onSaved: onSaved,
           style: theme.textTheme.body,
           key: key,
@@ -94,6 +99,7 @@ class WaveTextFormField extends StatelessWidget {
                 suffixIcon: suffixIcon,
                 prefixIcon: prefixIcon,
                 errorText: errorText,
+                suffixText: suffixText,
                 errorStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.error),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 hintText: hintText,

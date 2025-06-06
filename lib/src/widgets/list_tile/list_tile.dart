@@ -204,7 +204,8 @@ class _WaveListTileState extends State<WaveListTile> {
               widget.subtitle == null
                   ? null
                   : Padding(padding: EdgeInsets.only(top: widget.title == null ? 0 : 2), child: widget.subtitle),
-          trailing: widget.trailing,
+          trailing:
+              widget.trailing == null ? null : DefaultTextStyle(style: theme.textTheme.small, child: widget.trailing!),
           isThreeLine: widget.isThreeLine,
           dense: widget.dense,
           visualDensity: widget.visualDensity,
