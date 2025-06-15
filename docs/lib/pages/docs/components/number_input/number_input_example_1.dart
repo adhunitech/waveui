@@ -1,4 +1,3 @@
-import 'package:flutter/services.dart';
 import 'package:waveui/waveui.dart';
 
 class NumberInputExample1 extends StatefulWidget {
@@ -23,12 +22,8 @@ class _NumberInputExample1State extends State<NumberInputExample1> {
                 this.value = double.tryParse(value) ?? 0;
               });
             },
-            features: const [
-              InputFeature.spinner(),
-            ],
-            submitFormatters: [
-              TextInputFormatters.mathExpression(),
-            ],
+            features: const [InputFeature.spinner()],
+            submitFormatters: [TextInputFormatters.mathExpression()],
           ),
         ),
         gap(8),

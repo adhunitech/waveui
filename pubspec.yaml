@@ -1,110 +1,12 @@
-name: waveui
-description: "Beautifully designed components from Shadcn/UI is now available for Flutter"
-version: 0.0.37
-homepage: "https://github.com/adhunitech/waveui"
-documentation: "https://adhunitech.github.io/waveui/"
-repository: "https://github.com/adhunitech/waveui"
-issue_tracker: "https://github.com/adhunitech/waveui/issues"
+name: _
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
-  flutter: ">=3.32.0"
+  sdk: ^3.8.1
+  flutter: ">=1.17.0"
 
-dependencies:
-  email_validator: ^3.0.0
-  flutter:
-    sdk: flutter
-  skeletonizer: ^2.0.0-pre
-  syntax_highlight: ^0.4.0
-  country_flags: ^3.0.0
-  phonecodes: ^0.0.3
-  cross_file: ^0.3.4+2
-  image: ^4.2.0
-  web: ^1.0.0
-  data_widget: ^0.0.2
-  gap: ^3.0.1
-  expressions: ^0.2.5+2
+workspace:
+  - waveui
+  - docs
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^4.0.0
-  icon_font_generator: ^4.0.0
-  archive: any
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
-flutter:
-  uses-material-design: true
-  fonts:
-    - family: RadixIcons
-      fonts:
-      - asset: "lib/icons/RadixIcons.otf"
-    - family: BootstrapIcons
-      fonts:
-      - asset: "lib/icons/BootstrapIcons.otf"
-    - family: LucideIcons
-      fonts:
-      - asset: "lib/icons/LucideIcons.ttf"
-
-    # Fonts used under OFL license
-    # Inter font © Rasmus Andersson (https://rsms.me/inter/)
-    # Licensed under SIL Open Font License 1.1 — https://openfontlicense.org/
-    # License file: OFL.txt (included in the root of this package)
-    - family: Inter
-      fonts:
-        - asset: packages/waveui/src/assets/fonts/Inter_Thin.ttf
-          weight: 100
-        - asset: packages/waveui/src/assets/fonts/Inter_ThinItalic.ttf
-          weight: 100
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraLight.ttf
-          weight: 200
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraLightItalic.ttf
-          weight: 200
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Light.ttf
-          weight: 300
-        - asset: packages/waveui/src/assets/fonts/Inter_LightItalic.ttf
-          weight: 300
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Regular.ttf
-          weight: 400
-        - asset: packages/waveui/src/assets/fonts/Inter_Italic.ttf
-          weight: 400
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Medium.ttf
-          weight: 500
-        - asset: packages/waveui/src/assets/fonts/Inter_MediumItalic.ttf
-          weight: 500
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_SemiBold.ttf
-          weight: 600
-        - asset: packages/waveui/src/assets/fonts/Inter_SemiBoldItalic.ttf
-          weight: 600
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Bold.ttf
-          weight: 700
-        - asset: packages/waveui/src/assets/fonts/Inter_BoldItalic.ttf
-          weight: 700
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraBold.ttf
-          weight: 800
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraBoldItalic.ttf
-          weight: 800
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Black.ttf
-          weight: 900
-        - asset: packages/waveui/src/assets/fonts/Inter_BlackItalic.ttf
-          weight: 900
-          style: italic
-
-
-topics:
-- widgets
-- user-interface
-- design
-- components
-- shadcn-ui
+  better_lints: ^2.0.2

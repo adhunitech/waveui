@@ -1,4 +1,3 @@
-import 'package:flutter/services.dart';
 import 'package:waveui/waveui.dart';
 
 class AutoCompleteExample1 extends StatefulWidget {
@@ -38,24 +37,23 @@ class _AutoCompleteExample1State extends State<AutoCompleteExample1> {
       return;
     }
     setState(() {
-      _currentSuggestions =
-          suggestions.where((element) => element.toLowerCase().contains(currentWord.toLowerCase())).toList();
+      _currentSuggestions = suggestions
+          .where((element) => element.toLowerCase().contains(currentWord.toLowerCase()))
+          .toList();
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return AutoComplete(
-      suggestions: _currentSuggestions,
-      child: TextField(
-        controller: _controller,
-        onChanged: _updateSuggestions,
-        trailing: const IconButton.text(
-          density: ButtonDensity.compact,
-          icon: Icon(Icons.clear),
-          onPressed: clearActiveTextInput,
-        ),
+  Widget build(BuildContext context) => AutoComplete(
+    suggestions: _currentSuggestions,
+    child: TextField(
+      controller: _controller,
+      onChanged: _updateSuggestions,
+      trailing: const IconButton.text(
+        density: ButtonDensity.compact,
+        icon: Icon(Icons.clear),
+        onPressed: clearActiveTextInput,
       ),
-    );
-  }
+    ),
+  );
 }
