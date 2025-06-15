@@ -17,8 +17,8 @@ import 'package:docs/pages/docs/components/timeline/timeline_example_1.dart';
 import 'package:docs/pages/docs/components/toggle/toggle_example_2.dart';
 import 'package:docs/pages/docs/components/tree/tree_example_1.dart';
 import 'package:docs/pages/docs_page.dart';
-import 'package:docs/widget_capture_wrapper.dart';
-import 'package:flutter/foundation.dart';
+// import 'package:docs/widget_capture_wrapper.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -1481,9 +1481,9 @@ class _ComponentCardState extends State<ComponentCard> {
       ),
     );
 
-    if (kDebugMode) {
-      return WidgetCaptureWrapper(child: baseWidget);
-    }
+    // if (kDebugMode) {
+    //   return WidgetCaptureWrapper(child: baseWidget);
+    // }
 
     return baseWidget;
   }
