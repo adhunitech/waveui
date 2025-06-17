@@ -26,16 +26,11 @@ class WaveNavigationBar extends StatelessWidget {
           alignment: Alignment.topRight,
           children: [
             // Navigation items
-            Column(
-              children: [
-                const WaveDivider(),
-                Row(
-                  children: List.generate(
-                    items.length,
-                    (index) => Expanded(child: _buildItem(context, items[index], index)),
-                  ),
-                ),
-              ],
+            Row(
+              children: List.generate(
+                items.length,
+                (index) => Expanded(child: _buildItem(context, items[index], index)),
+              ),
             ),
           ],
         ),
