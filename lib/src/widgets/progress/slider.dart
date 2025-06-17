@@ -28,11 +28,11 @@ class WaveSlider extends StatelessWidget {
     final theme = WaveApp.themeOf(context);
     return SliderTheme(
       data: SliderThemeData(
-        activeTrackColor: theme.colorScheme.primary.withValues(alpha: 0.3),
-        thumbColor: theme.colorScheme.primary,
-        overlayColor: theme.colorScheme.primary.withValues(alpha: 0.1),
+        activeTrackColor: theme.colorScheme.primary,
+        thumbColor: theme.colorScheme.onPrimary,
         valueIndicatorColor: theme.colorScheme.primary,
-        trackHeight: 6,
+        trackHeight: 10,
+        thumbShape: const RoundSliderThumbShape(elevation: 0, enabledThumbRadius: 4),
         valueIndicatorShape: const RectangularSliderValueIndicatorShape(),
         valueIndicatorTextStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.onPrimary),
       ),

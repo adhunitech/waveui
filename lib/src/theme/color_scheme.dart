@@ -58,7 +58,7 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
     barrier: Color(0x2B000000),
     background: Color(0xFFF5F5F5),
     primary: Color(0xFF0065FF),
-    onPrimary: Color(0xDDFFFFFF),
+    onPrimary: Color(0xFFFFFFFF),
     secondary: Color(0xFFF4F4F5),
     onSecondary: Color(0xFF17171B),
     labelPrimary: Color(0xDD000000),
