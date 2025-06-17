@@ -44,23 +44,19 @@ abstract class WaveColorScheme with Diagnosticable, _$WaveColorScheme {
   /// Returns a hovered color for the [foreground] on the [background].
   ///
   /// [WaveColorScheme.background] is used if [background] is not given.
-  Color hover(Color foreground, [Color? background]) => Color.alphaBlend(
-    foreground.withValues(alpha: hoveredOpacity),
-    background ?? this.background,
-  );
+  Color hover(Color foreground, [Color? background]) =>
+      Color.alphaBlend(foreground.withValues(alpha: hoveredOpacity), background ?? this.background);
 
   /// Returns a disabled color for the [foreground] on the [background].
   ///
   /// [WaveColorScheme.background] is used if [background] is not given.
-  Color disable(Color foreground, [Color? background]) => Color.alphaBlend(
-    foreground.withValues(alpha: disabledOpacity),
-    background ?? this.background,
-  );
+  Color disable(Color foreground, [Color? background]) =>
+      Color.alphaBlend(foreground.withValues(alpha: disabledOpacity), background ?? this.background);
 
   factory WaveColorScheme.light() => const WaveColorScheme(
     brightness: Brightness.light,
     barrier: Color(0x2B000000),
-    background: Color(0xFFF1F3F5),
+    background: Color(0xFFF5F5F5),
     primary: Color(0xFF0065FF),
     onPrimary: Color(0xDDFFFFFF),
     secondary: Color(0xFFF4F4F5),

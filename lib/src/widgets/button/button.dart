@@ -71,7 +71,7 @@ class WaveButton extends StatelessWidget {
                       ],
                       Text(
                         text,
-                        style: theme.textTheme.button.copyWith(
+                        style: theme.textTheme.h5.copyWith(
                           color: _getForegroundColor(context),
                           fontWeight: isCompact ? FontWeight.w400 : FontWeight.w500,
                           fontSize: isCompact ? 14 : 16,

@@ -1,4 +1,4 @@
-/// An enterprise-class package of Flutter components for mobile applications.
+/// 🌊 A production grade flutter components library built for scale, speed, and cross platform precision.
 library waveui;
 
 export 'assets.dart';
