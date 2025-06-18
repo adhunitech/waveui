@@ -72,7 +72,7 @@ class WaveListTile extends StatefulWidget {
   final BorderRadius? borderRadius;
 
   final Border? border;
-
+  final EdgeInsetsGeometry? margin;
   final bool internalAddSemanticForOnTap;
   const WaveListTile({
     super.key,
@@ -82,6 +82,7 @@ class WaveListTile extends StatefulWidget {
     this.trailing,
     this.borderRadius,
     this.border,
+    this.margin,
     this.isThreeLine = false,
     this.dense,
     this.visualDensity,
@@ -179,7 +180,7 @@ class _WaveListTileState extends State<WaveListTile> {
     final theme = WaveApp.themeOf(context);
     final tileColor =
         widget.selected
-            ? Color.alphaBlend(Colors.white.withValues(alpha: 0.9), theme.colorScheme.primary)
+            ? Color.alphaBlend(Colors.white.withValues(alpha: 0.9), widget.selectedColor ?? theme.colorScheme.primary)
             : widget.tileColor ?? theme.colorScheme.contentPrimary;
     //TODO: Fix the hover color. This is just an workaround. It does not work
     // as expected when the tile is dark or other color than white.
@@ -189,6 +190,7 @@ class _WaveListTileState extends State<WaveListTile> {
       onTapUp: (_) => _handleTapUp(),
       onTapCancel: () => _setTouched(false),
       child: AnimatedContainer(
+        margin: widget.margin,
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           color: _isTouched ? hoverColor : tileColor,
