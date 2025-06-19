@@ -601,7 +601,7 @@ class _ModalBottomSheetState<T> extends State<_ModalBottomSheet<T>> {
         shape:
             widget.shape ??
             const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
             ),
         clipBehavior: widget.clipBehavior,
         constraints: widget.constraints,
