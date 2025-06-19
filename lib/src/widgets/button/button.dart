@@ -39,7 +39,7 @@ class WaveButton extends StatelessWidget {
       child: Container(
         padding:
             isCompact
-                ? const EdgeInsets.only(left: 12, right: 12, top: 1, bottom: 4)
+                ? const EdgeInsets.only(left: 12, right: 12, top: 3, bottom: 4)
                 : isSecondary
                 ? const EdgeInsets.only(left: 16, right: 16, top: 6, bottom: 6)
                 : padding,
