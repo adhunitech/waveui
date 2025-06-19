@@ -209,7 +209,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
       child: Container(
         decoration: BoxDecoration(
           color: WaveApp.themeOf(context).colorScheme.contentPrimary,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
         ),
         padding: const EdgeInsets.all(16),
         child: Column(

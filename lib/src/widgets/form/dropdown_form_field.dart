@@ -159,7 +159,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
                     widget.decoration ??
                     InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(16),
                         borderSide: BorderSide(color: theme.colorScheme.border),
                       ),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -170,7 +170,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
                       filled: widget.backgroundColor != null,
                       fillColor: widget.backgroundColor,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(16),
                         borderSide: BorderSide(color: theme.colorScheme.border),
                       ),
                     ),

@@ -29,7 +29,7 @@ class WaveFilePicker extends StatelessWidget {
             decoration: BoxDecoration(
               color: theme.colorScheme.primary.withValues(alpha: 0.05),
               border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.1)),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Center(
               child: Column(

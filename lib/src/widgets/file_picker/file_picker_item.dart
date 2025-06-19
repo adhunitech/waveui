@@ -94,7 +94,7 @@ class _WaveFilePickerItemState extends State<WaveFilePickerItem> {
         if (snapshot.hasError || !snapshot.hasData) {
           return DecoratedBox(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(color: theme.colorScheme.error),
             ),
             child: WaveListTile(
@@ -126,7 +126,7 @@ class _WaveFilePickerItemState extends State<WaveFilePickerItem> {
 
         return WaveListTile(
           onTap: widget.onTap,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           border: Border.all(color: theme.colorScheme.divider),
           title: Text(fileInfo.name),
           subtitle: Text(widget.isUrl ? 'URL Resource' : fileInfo.readableSize),

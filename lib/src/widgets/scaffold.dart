@@ -134,7 +134,7 @@ class WaveScaffold extends StatelessWidget {
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
                           color: colorScheme.contentPrimary,
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(16),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,

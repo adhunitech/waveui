@@ -23,7 +23,7 @@ class WaveBadge extends StatelessWidget {
     final theme = WaveApp.themeOf(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: _getBackgroundColor(context), borderRadius: BorderRadius.circular(12)),
+      decoration: BoxDecoration(color: _getBackgroundColor(context), borderRadius: BorderRadius.circular(16)),
       child: Text(
         text,
         style: theme.textTheme.body.copyWith(fontSize: 12, color: foregroundColor ?? _getForegroundColor(context)),
