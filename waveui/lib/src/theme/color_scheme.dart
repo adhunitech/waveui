@@ -4,7 +4,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'color_scheme.freezed.dart';
 
-enum UIState { hovered, pressed, focused, disabled, selected }
+/// Represents the various interactive states a UI element can be in.
+enum UIState {
+  /// The element is being hovered over by a pointer.
+  hovered,
+
+  /// The element is currently being pressed or tapped.
+  pressed,
+
+  /// The element is focused, typically via keyboard navigation.
+  focused,
+
+  /// The element is disabled and cannot be interacted with.
+  disabled,
+
+  /// The element is selected.
+  selected,
+}
 
 /// A color scheme defines the colors that represent the application's brand in styles.
 /// It defines the colors that use in a proper and semantic way.
@@ -62,6 +78,7 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     return Color.alphaBlend(base.withValues(alpha: opacity), background ?? canvas);
   }
 
+  /// Returns a [ColorScheme] for light mode.
   factory ColorScheme.light() => const ColorScheme(
     brightness: Brightness.light,
     scrim: Color(0x2B000000),
