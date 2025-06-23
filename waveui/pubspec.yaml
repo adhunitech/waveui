@@ -1,0 +1,83 @@
+name: waveui
+description: "An enterprise-class package of Flutter components for mobile applications."
+
+version: 1.0.0-alpha.1
+
+homepage: https://github.com/adhunitech/waveui
+repository: https://github.com/adhunitech/waveui
+issue_tracker: https://github.com/adhunitech/waveui/issues
+
+
+environment:
+  sdk: ^3.7.2
+  flutter: ">=1.17.0"
+  
+resolution: workspace
+
+dependencies:
+  collection: ^1.19.1
+  fluentui_system_icons: ^1.1.273
+  flutter:
+    sdk: flutter
+  freezed_annotation: ^3.0.0
+  intl: ^0.20.2
+  path: ^1.9.1
+
+dev_dependencies:
+  build_runner: ^2.4.15
+  freezed: ^3.0.6
+
+flutter:
+
+  fonts:
+    # Fonts used under OFL license
+    # Inter font © Rasmus Andersson (https://rsms.me/inter/)
+    # Licensed under SIL Open Font License 1.1 — https://openfontlicense.org/
+    # License file: OFL.txt (included in the root of this package)
+    - family: Inter
+      fonts:
+        - asset: packages/waveui/src/assets/fonts/Inter_Thin.ttf
+          weight: 100
+        - asset: packages/waveui/src/assets/fonts/Inter_ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_ExtraLight.ttf
+          weight: 200
+        - asset: packages/waveui/src/assets/fonts/Inter_ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_Light.ttf
+          weight: 300
+        - asset: packages/waveui/src/assets/fonts/Inter_LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_Regular.ttf
+          weight: 400
+        - asset: packages/waveui/src/assets/fonts/Inter_Italic.ttf
+          weight: 400
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_Medium.ttf
+          weight: 500
+        - asset: packages/waveui/src/assets/fonts/Inter_MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_SemiBold.ttf
+          weight: 600
+        - asset: packages/waveui/src/assets/fonts/Inter_SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_Bold.ttf
+          weight: 700
+        - asset: packages/waveui/src/assets/fonts/Inter_BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_ExtraBold.ttf
+          weight: 800
+        - asset: packages/waveui/src/assets/fonts/Inter_ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: packages/waveui/src/assets/fonts/Inter_Black.ttf
+          weight: 900
+        - asset: packages/waveui/src/assets/fonts/Inter_BlackItalic.ttf
+          weight: 900
+          style: italic

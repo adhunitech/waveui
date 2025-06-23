@@ -1,0 +1,11 @@
+name: _
+
+environment:
+  sdk: ^3.7.2
+  flutter: ">=1.17.0"
+
+workspace:
+  - waveui
+
+dev_dependencies:
+  better_lints: ^5.0.0
