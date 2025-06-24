@@ -27,12 +27,18 @@ abstract class Theme with Diagnosticable, _$Theme {
     required WaveAppBarTheme appBarTheme,
     required TextTheme textTheme,
     required ColorScheme colorScheme,
+    required ButtonTheme buttonTheme,
   }) = _WaveTheme;
 
   /// Creates a [Theme].
   ///
   /// If any parameter is omitted, a default value is used.
-  factory Theme({WaveAppBarTheme? appBarTheme, ColorScheme? colorScheme, TextTheme? textTheme}) {
+  factory Theme({
+    WaveAppBarTheme? appBarTheme,
+    ColorScheme? colorScheme,
+    TextTheme? textTheme,
+    ButtonTheme? buttonTheme,
+  }) {
     colorScheme ??= ColorScheme.light();
     textTheme ??= TextTheme().apply(color: colorScheme.textPrimary);
     appBarTheme ??= WaveAppBarTheme(
@@ -41,7 +47,26 @@ abstract class Theme with Diagnosticable, _$Theme {
       titleStyle: textTheme.h6,
     );
 
-    return Theme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
+    buttonTheme ??= ButtonTheme(
+      primaryButton: ButtonTypeTheme(
+        labelStyle: TextStyle(color: colorScheme.textPrimary, fontSize: 16, fontWeight: FontWeight.w500),
+        backgroundColor: colorScheme.brandPrimary,
+        foregroundColor: colorScheme.onBrandPrimary,
+        borderColor: const Color(0xFF1F55CB),
+      ),
+      destructiveButton: ButtonTypeTheme(),
+      ghostButton: ButtonTypeTheme(),
+      linkButton: ButtonTypeTheme(),
+      outlineButton: ButtonTypeTheme(),
+      secondaryButton: ButtonTypeTheme(),
+      tertiaryButton: ButtonTypeTheme(),
+    );
+    return Theme._internal(
+      appBarTheme: appBarTheme,
+      colorScheme: colorScheme,
+      textTheme: textTheme,
+      buttonTheme: buttonTheme,
+    );
   }
 
   /// Retrieves the [Theme] from the nearest [WaveApp] ancestor.

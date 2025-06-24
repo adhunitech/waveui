@@ -42,17 +42,17 @@ MaterialApp(
 | ✅      | ColorScheme      | Modular scheme used throughout the ui                 |
 | ✅      | TextTheme        | Includes Inter font, multiple text styles                    |
 | ✅      | WaveApp          | Entry point for providing theme context                      |
-| ⏳      | AppBar           | Customizable top app bar (title, actions, elevation, etc.)   |
-| ⏳      | TextField        | Filled, outlined, underlined with validator and hint support |
-| ⏳      | Button           | Filled, Outlined, Ghost; themable via `ButtonTheme`          |
-| ⏳      | Badge            | Count badge, status dot; supports size and color variants    |
-| ⏳      | Card             | Elevation-based cards with layout utilities                  |
-| ⏳      | ListTile         | Icon + title + subtitle support, customizable density        |
-| ⏳      | Dialog           | Alert, Confirm, Custom – modal styling and blur              |
-| ⏳      | BottomSheet      | Modal / persistent, with blur and drag support               |
-| ⏳      | Toast            | Overlay-based status toast (info, success, error)            |
-| ⏳      | Snackbar         | Actionable message component with duration handling          |
-| ⏳      | Avatar           | Supports initials, icons, or image profile display           |
+| ⏳      | Button           | Filled, Outlined, Ghost, Link, Destructive, Secondary, Tertiary; themable via `ButtonTheme`          |
+| 📃      | AppBar           | Customizable top app bar (title, actions, elevation, etc.)   |
+| 📃      | TextField        | Filled, outlined, underlined with validator and hint support |
+| 📃      | Badge            | Count badge, status dot; supports size and color variants    |
+| 📃      | Card             | Elevation-based cards with layout utilities                  |
+| 📃      | ListTile         | Icon + title + subtitle support, customizable density        |
+| 📃      | Dialog           | Alert, Confirm, Custom – modal styling and blur              |
+| 📃      | BottomSheet      | Modal / persistent, with blur and drag support               |
+| 📃      | Toast            | Overlay-based status toast (info, success, error)            |
+| 📃      | Snackbar         | Actionable message component with duration handling          |
+| 📃      | Avatar           | Supports initials, icons, or image profile display           |
 
 ## License
 

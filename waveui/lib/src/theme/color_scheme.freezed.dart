@@ -103,7 +103,7 @@ as double,
 
 
 class _ColorScheme extends ColorScheme {
-  const _ColorScheme({required this.brightness, required this.scrim, required this.canvas, required this.brandPrimary, required this.onBrandPrimary, required this.brandSecondary, required this.onBrandSecondary, required this.brandTertiary, required this.onBrandTertiary, required this.textPrimary, required this.textSecondary, required this.textTertiary, required this.statusSuccess, required this.statusError, required this.statusWarning, required this.statusInfo, required this.surfacePrimary, required this.surfaceSecondary, required this.surfaceTertiary, required this.outlineStandard, required this.outlineDivider, this.stateHoverOpacity = 0.08, this.statePressedOpacity = 0.12, this.stateFocusOpacity = 0.24, this.stateDisabledOpacity = 0.38}): super._();
+  const _ColorScheme({required this.brightness, required this.scrim, required this.canvas, required this.brandPrimary, required this.onBrandPrimary, required this.brandSecondary, required this.onBrandSecondary, required this.brandTertiary, required this.onBrandTertiary, required this.textPrimary, required this.textSecondary, required this.textTertiary, required this.statusSuccess, required this.statusError, required this.statusWarning, required this.statusInfo, required this.surfacePrimary, required this.surfaceSecondary, required this.surfaceTertiary, required this.outlineStandard, required this.outlineDivider, this.stateHoverOpacity = 0.8, this.statePressedOpacity = 0.6, this.stateFocusOpacity = 0.9, this.stateDisabledOpacity = 0.3}): super._();
   
 
 @override final  Brightness brightness;

@@ -59,10 +59,10 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     required Color outlineStandard,
     required Color outlineDivider,
     // State opacity
-    @Default(0.08) double stateHoverOpacity,
-    @Default(0.12) double statePressedOpacity,
-    @Default(0.24) double stateFocusOpacity,
-    @Default(0.38) double stateDisabledOpacity,
+    @Default(0.8) double stateHoverOpacity,
+    @Default(0.6) double statePressedOpacity,
+    @Default(0.9) double stateFocusOpacity,
+    @Default(0.3) double stateDisabledOpacity,
   }) = _ColorScheme;
 
   /// Returns the state overlay color for the [base] on the [background].
@@ -84,7 +84,7 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     brightness: Brightness.light,
     scrim: Color(0x2B000000),
     canvas: Color(0xFFF5F5F5),
-    brandPrimary: Color(0xFF0065FF),
+    brandPrimary: Color(0xFF2463EB),
     onBrandPrimary: Color(0xFFFFFFFF),
     brandSecondary: Color(0xFFF4F4F5),
     onBrandSecondary: Color(0xFF17171B),
@@ -96,7 +96,7 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     statusSuccess: Color(0xFF00BD13),
     statusError: Color(0xFFDB372C),
     statusWarning: Color(0xFFFFB200),
-    statusInfo: Color(0xFF0065FF),
+    statusInfo: Color(0xFF2463EB),
     surfacePrimary: Color(0xFFFFFFFF),
     surfaceSecondary: Color(0xFFF5F5F5),
     surfaceTertiary: Color(0xFFFFFFFF),
