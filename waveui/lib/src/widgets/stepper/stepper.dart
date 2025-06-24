@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/src/widgets/stepper/widgets/horizontal_stepper.dart';
 import 'package:waveui/src/widgets/stepper/widgets/vertical_stepper.dart';
 import 'package:waveui/waveui.dart';
@@ -85,7 +85,7 @@ class WaveStepper extends StatelessWidget {
   }
 
   Widget _getPreferredStepper(BuildContext context, {required int index}) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     if (stepperDirection == Axis.horizontal) {
       return HorizontalStepperItem(
         index: index,

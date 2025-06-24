@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveDotIndicator extends StatelessWidget {
@@ -22,7 +22,7 @@ class WaveDotIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return CustomPaint(
       size: Size((dotSize + spacing) * count, dotSize),
       painter: _DotPainter(

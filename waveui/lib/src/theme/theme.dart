@@ -17,19 +17,19 @@ part 'theme.freezed.dart';
 /// );
 /// ```
 ///
-/// This class is immutable. To modify a [WaveTheme] instance, use
-/// [WaveTheme.copyWith].
+/// This class is immutable. To modify a [Theme] instance, use
+/// [Theme.copyWith].
 @freezed
-abstract class WaveTheme with Diagnosticable, _$WaveTheme {
-  const WaveTheme._();
+abstract class Theme with Diagnosticable, _$Theme {
+  const Theme._();
 
-  const factory WaveTheme._internal({
+  const factory Theme._internal({
     required WaveAppBarTheme appBarTheme,
     required WaveTextTheme textTheme,
     required ColorScheme colorScheme,
   }) = _WaveTheme;
 
-  factory WaveTheme({WaveAppBarTheme? appBarTheme, ColorScheme? colorScheme, WaveTextTheme? textTheme}) {
+  factory Theme({WaveAppBarTheme? appBarTheme, ColorScheme? colorScheme, WaveTextTheme? textTheme}) {
     colorScheme ??= ColorScheme.light();
     textTheme ??= WaveTextTheme().apply(color: colorScheme.textPrimary);
     appBarTheme ??= WaveAppBarTheme(
@@ -38,10 +38,10 @@ abstract class WaveTheme with Diagnosticable, _$WaveTheme {
       titleStyle: textTheme.h6,
     );
 
-    return WaveTheme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
+    return Theme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
   }
 
-  /// Retrieves the [WaveTheme] from the nearest [WaveApp] ancestor.
+  /// Retrieves the [Theme] from the nearest [WaveApp] ancestor.
   ///
   /// This function is used to access the theme data from any widget within the
   /// widget tree. It ensures that the theme is properly inherited and available
@@ -52,7 +52,7 @@ abstract class WaveTheme with Diagnosticable, _$WaveTheme {
   /// final theme = Theme.of(context);
   /// ```
   ///
-  static WaveTheme of(BuildContext context) {
+  static Theme of(BuildContext context) {
     final WaveApp? app = context.dependOnInheritedWidgetOfExactType<WaveApp>();
     assert(app != null, 'No WaveApp found in context');
     return app!.theme;

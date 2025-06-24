@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 Future<T?> showWaveDialog<T>({
@@ -16,7 +16,7 @@ Future<T?> showWaveDialog<T>({
     from: context,
     to: Navigator.of(context, rootNavigator: useRootNavigator).context,
   );
-  final theme = WaveTheme.of(context);
+  final theme = Theme.of(context);
 
   return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(
     PageRouteBuilder<T>(
@@ -74,13 +74,11 @@ Future<void> showWaveDialogSheet({
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(title, style: WaveTheme.of(context).textTheme.h4),
+                Text(title, style: Theme.of(context).textTheme.h4),
                 const SizedBox(height: 12),
                 Text(
                   message,
-                  style: WaveTheme.of(
-                    context,
-                  ).textTheme.body.copyWith(color: WaveTheme.of(context).colorScheme.textSecondary),
+                  style: Theme.of(context).textTheme.body.copyWith(color: Theme.of(context).colorScheme.textSecondary),
                 ),
                 const SizedBox(height: 16),
                 Row(spacing: 12, children: actions.map((e) => Expanded(child: e)).toList()),

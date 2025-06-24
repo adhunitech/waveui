@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/src/widgets/stepper/widgets/common/dot_provider.dart';
 import 'package:waveui/waveui.dart';
 
@@ -57,7 +57,7 @@ class VerticalStepperItem extends StatelessWidget {
   Widget build(BuildContext context) => Row(children: isInverted ? getInvertedChildren(context) : getChildren(context));
 
   List<Widget> getChildren(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return [
       Column(
         children: [

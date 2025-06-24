@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveSelectableItem extends StatelessWidget {
@@ -10,7 +10,7 @@ class WaveSelectableItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
     return WaveTappable(
@@ -59,7 +59,7 @@ class WaveSelectableItemFormField extends FormField<List<String>> {
   }) : super(
          initialValue: initialValue ?? [],
          builder: (state) {
-           final theme = WaveTheme.of(context);
+           final theme = Theme.of(context);
            return Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              children: [

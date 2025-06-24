@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveScaffold extends StatelessWidget {
@@ -89,8 +89,8 @@ class WaveScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = WaveTheme.of(context).colorScheme;
-    final textTheme = WaveTheme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     return PopScope(
       canPop: !isLoading,
       child: Stack(

@@ -5,7 +5,7 @@ import 'package:waveui/src/theme/theme.dart';
 /// Root widget for setting global configuration and styles.
 class WaveApp extends InheritedWidget {
   /// The theme data for components, provided to all descendants.
-  final WaveTheme theme;
+  final Theme theme;
 
   /// Creates a new [WaveApp].
   WaveApp({required this.theme, required Widget child, super.key}) : super(child: _GlobalThemeWrapper(child: child));
@@ -16,7 +16,7 @@ class WaveApp extends InheritedWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<WaveTheme>('theme', theme));
+    properties.add(DiagnosticsProperty<Theme>('theme', theme));
   }
 }
 
@@ -28,7 +28,7 @@ class _GlobalThemeWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return DefaultSelectionStyle(
       cursorColor: theme.colorScheme.brandPrimary,
       selectionColor: theme.colorScheme.brandPrimary.withValues(alpha: 0.3),

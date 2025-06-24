@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 double _scalePadding(double textScaleFactor) {
@@ -85,7 +85,7 @@ class WaveDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
-    final waveTheme = WaveTheme.of(context);
+    final waveTheme = Theme.of(context);
     final DialogThemeData dialogTheme = DialogThemeData(
       titleTextStyle: waveTheme.textTheme.h4.copyWith(fontWeight: FontWeight.w700),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

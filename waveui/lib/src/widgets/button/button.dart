@@ -32,7 +32,7 @@ class WaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return WaveTappable(
       onTap: isLoading ? null : onTap,
       scale: isCompact ? 0.95 : 0.97,
@@ -85,7 +85,7 @@ class WaveButton extends StatelessWidget {
   }
 
   Color _getBackgroundColor(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     switch (type) {
       case WaveButtonType.primary:
         return theme.colorScheme.brandPrimary;
@@ -101,7 +101,7 @@ class WaveButton extends StatelessWidget {
   }
 
   Color _getForegroundColor(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     switch (type) {
       case WaveButtonType.primary:
         return theme.colorScheme.textPrimary;

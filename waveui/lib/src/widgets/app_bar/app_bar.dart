@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBar, Colors, IconButton;
+import 'package:flutter/widgets.dart';
 import 'package:waveui/waveui.dart';
 
 class WaveAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -93,7 +94,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    final waveTheme = WaveTheme.of(context);
+    final waveTheme = Theme.of(context);
     final appBarTheme = widget.theme ?? waveTheme.appBarTheme;
 
     return AppBar(

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveLinearProgressIndicator extends StatefulWidget {
@@ -47,7 +47,7 @@ class _WaveLinearProgressIndicatorState extends State<WaveLinearProgressIndicato
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     final bgColor = widget.backgroundColor ?? theme.colorScheme.brandPrimary.withValues(alpha: 0.1);
     final progressColor = widget.color ?? theme.colorScheme.brandPrimary;
 

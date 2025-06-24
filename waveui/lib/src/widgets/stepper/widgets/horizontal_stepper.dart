@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/src/widgets/stepper/widgets/common/dot_provider.dart';
 import 'package:waveui/waveui.dart';
 
@@ -58,7 +58,7 @@ class HorizontalStepperItem extends StatelessWidget {
   );
 
   List<Widget> getChildren(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return [
       if (item.title != null) ...[
         DefaultTextStyle(style: theme.textTheme.body, child: item.title!),

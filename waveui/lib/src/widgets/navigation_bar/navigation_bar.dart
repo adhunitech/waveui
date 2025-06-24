@@ -18,7 +18,7 @@ class WaveNavigationBar extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return ColoredBox(
       color: backgroundColor ?? theme.colorScheme.surfacePrimary,
       child: SafeArea(
@@ -39,7 +39,7 @@ class WaveNavigationBar extends StatelessWidget {
   }
 
   Widget _buildItem(BuildContext context, WaveNavigationBarItem item, int index) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return WaveTappable(
       onTap: () => onSelected(index),
       child: Container(

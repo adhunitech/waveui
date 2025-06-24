@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 enum WaveSelectableType { radio, checkbox }
@@ -36,7 +36,7 @@ class _AnimatedSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     final Color targetColor = isSelected ? theme.colorScheme.brandPrimary : theme.colorScheme.outlineStandard;
     final double targetWidth = isSelected ? 4.5 : 2;
 

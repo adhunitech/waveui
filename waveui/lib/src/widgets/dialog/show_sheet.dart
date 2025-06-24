@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:flutter/rendering.dart';
 import 'package:waveui/waveui.dart';
 
@@ -189,18 +189,15 @@ class _WaveBottomSheetState extends State<WaveBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final BottomSheetThemeData bottomSheetTheme = Theme.of(context).bottomSheetTheme;
-    final bool useMaterial3 = Theme.of(context).useMaterial3;
-    final BottomSheetThemeData defaults = useMaterial3 ? _BottomSheetDefaultsM3(context) : const BottomSheetThemeData();
-    final BoxConstraints? constraints = widget.constraints ?? bottomSheetTheme.constraints ?? defaults.constraints;
-    final Color? color = widget.backgroundColor ?? bottomSheetTheme.backgroundColor ?? defaults.backgroundColor;
-    final Color? surfaceTintColor = bottomSheetTheme.surfaceTintColor ?? defaults.surfaceTintColor;
-    final Color? shadowColor = widget.shadowColor ?? bottomSheetTheme.shadowColor ?? defaults.shadowColor;
-    final double elevation = widget.elevation ?? bottomSheetTheme.elevation ?? defaults.elevation ?? 0;
-    final ShapeBorder? shape = widget.shape ?? bottomSheetTheme.shape ?? defaults.shape;
-    final Clip clipBehavior = widget.clipBehavior ?? bottomSheetTheme.clipBehavior ?? Clip.none;
-    final bool showDragHandle =
-        widget.showDragHandle ?? (widget.enableDrag && (bottomSheetTheme.showDragHandle ?? false));
+    final BottomSheetThemeData defaults = _BottomSheetDefaultsM3(context);
+    final BoxConstraints? constraints = widget.constraints ?? defaults.constraints;
+    final Color? color = widget.backgroundColor ?? defaults.backgroundColor;
+    final Color? surfaceTintColor = defaults.surfaceTintColor;
+    final Color? shadowColor = widget.shadowColor ?? defaults.shadowColor;
+    final double elevation = widget.elevation ?? defaults.elevation ?? 0;
+    final ShapeBorder? shape = widget.shape ?? defaults.shape;
+    final Clip clipBehavior = widget.clipBehavior ?? Clip.none;
+    final bool showDragHandle = widget.showDragHandle ?? (widget.enableDrag && (defaults.showDragHandle ?? false));
 
     Widget? dragHandle;
     if (showDragHandle) {
@@ -290,9 +287,8 @@ class _DragHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BottomSheetThemeData bottomSheetTheme = Theme.of(context).bottomSheetTheme;
-    final BottomSheetThemeData m3Defaults = _BottomSheetDefaultsM3(context);
-    final Size handleSize = dragHandleSize ?? bottomSheetTheme.dragHandleSize ?? m3Defaults.dragHandleSize!;
+    final BottomSheetThemeData defaults = _BottomSheetDefaultsM3(context);
+    final Size handleSize = dragHandleSize ?? defaults.dragHandleSize!;
 
     return MouseRegion(
       onEnter: (event) => handleHover(true),
@@ -312,8 +308,8 @@ class _DragHandle extends StatelessWidget {
                 borderRadius: BorderRadius.circular(handleSize.height / 2),
                 color:
                     WidgetStateProperty.resolveAs<Color?>(dragHandleColor, states) ??
-                    WidgetStateProperty.resolveAs<Color?>(bottomSheetTheme.dragHandleColor, states) ??
-                    m3Defaults.dragHandleColor,
+                    WidgetStateProperty.resolveAs<Color?>(defaults.dragHandleColor, states) ??
+                    defaults.dragHandleColor,
               ),
             ),
           ),
@@ -557,16 +553,7 @@ class _ModalBottomSheetState<T> extends State<_ModalBottomSheet<T>> {
   ParametricCurve<double> animationCurve = _modalBottomSheetCurve;
 
   String _getRouteLabel(MaterialLocalizations localizations) {
-    switch (Theme.of(context).platform) {
-      case TargetPlatform.iOS:
-      case TargetPlatform.macOS:
-        return '';
-      case TargetPlatform.android:
-      case TargetPlatform.fuchsia:
-      case TargetPlatform.linux:
-      case TargetPlatform.windows:
-        return localizations.dialogLabel;
-    }
+    return localizations.dialogLabel;
   }
 
   EdgeInsets _getNewClipDetails(Size topLayerSize) => EdgeInsets.fromLTRB(0, 0, 0, topLayerSize.height);
@@ -760,17 +747,11 @@ class ModalBottomSheetRoute<T> extends PopupRoute<T> {
       anchorPoint: anchorPoint,
       child: Builder(
         builder: (context) {
-          final BottomSheetThemeData sheetTheme = Theme.of(context).bottomSheetTheme;
-          final BottomSheetThemeData defaults =
-              Theme.of(context).useMaterial3 ? _BottomSheetDefaultsM3(context) : const BottomSheetThemeData();
+          final BottomSheetThemeData defaults = _BottomSheetDefaultsM3(context);
           return _ModalBottomSheet<T>(
             route: this,
-            backgroundColor:
-                backgroundColor ??
-                sheetTheme.modalBackgroundColor ??
-                sheetTheme.backgroundColor ??
-                defaults.backgroundColor,
-            elevation: elevation ?? sheetTheme.modalElevation ?? sheetTheme.elevation ?? defaults.modalElevation,
+            backgroundColor: backgroundColor ?? defaults.backgroundColor,
+            elevation: elevation ?? defaults.modalElevation,
             shape: shape,
             clipBehavior: clipBehavior,
             constraints: constraints,
@@ -862,7 +843,7 @@ Future<T?> showWaveModalBottomSheet<T>({
       clipBehavior: clipBehavior,
       constraints: constraints,
       isDismissible: isDismissible,
-      modalBarrierColor: barrierColor ?? Theme.of(context).bottomSheetTheme.modalBarrierColor,
+      modalBarrierColor: barrierColor,
       enableDrag: enableDrag,
       showDragHandle: showDragHandle,
       settings: routeSettings,
@@ -954,7 +935,7 @@ class _BottomSheetDefaultsM3 extends BottomSheetThemeData {
       );
 
   final BuildContext context;
-  late final _colors = WaveTheme.of(context).colorScheme;
+  late final _colors = Theme.of(context).colorScheme;
 
   @override
   Color? get backgroundColor => _colors.surfacePrimary;

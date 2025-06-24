@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveDropdownFormField<T> extends StatefulWidget {
@@ -57,7 +57,7 @@ class WaveDropdownFormField<T> extends StatefulWidget {
 
 class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   late TextEditingController _searchController;
-  late WaveTheme theme;
+  late Theme theme;
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    theme = WaveTheme.of(context);
+    theme = Theme.of(context);
   }
 
   void _showModal(BuildContext context, FormFieldState<T> formFieldState) {
@@ -203,6 +203,6 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<WaveTheme>('theme', theme));
+    properties.add(DiagnosticsProperty<Theme>('theme', theme));
   }
 }

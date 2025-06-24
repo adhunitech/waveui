@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveSlider extends StatelessWidget {
@@ -25,7 +25,7 @@ class WaveSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return SliderTheme(
       data: SliderThemeData(
         activeTrackColor: theme.colorScheme.brandPrimary,

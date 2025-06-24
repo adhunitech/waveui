@@ -21,7 +21,7 @@ class WaveDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     final dividerColor = color ?? theme.colorScheme.outlineDivider;
 
     if (type == WaveDividerType.dotted) {

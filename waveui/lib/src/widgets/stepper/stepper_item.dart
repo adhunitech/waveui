@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 
 class StepperItem {
   /// title for the stepper

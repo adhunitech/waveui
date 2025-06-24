@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
+import 'package:waveui/waveui.dart';
 
 enum WaveTrimMode { Length, Line }
 
@@ -199,7 +200,7 @@ class WaveReadMoreState extends State<WaveReadMore> with SingleTickerProviderSta
     final overflow = defaultTextStyle.overflow;
     final locale = widget.locale ?? Localizations.maybeLocaleOf(context);
 
-    final colorClickableText = widget.colorClickableText ?? Theme.of(context).colorScheme.secondary;
+    final colorClickableText = widget.colorClickableText ?? Theme.of(context).colorScheme.brandPrimary;
     final defaultLessStyle = widget.lessStyle ?? effectiveTextStyle.copyWith(color: colorClickableText);
     final defaultMoreStyle = widget.moreStyle ?? effectiveTextStyle.copyWith(color: colorClickableText);
     final defaultDelimiterStyle = widget.delimiterStyle ?? effectiveTextStyle;

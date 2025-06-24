@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveAvatar extends StatelessWidget {
@@ -11,7 +11,7 @@ class WaveAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final providedInitials = initials ?? 'Adhunitech';
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return SizedBox(
       height: size.toDouble(),
       width: size.toDouble(),

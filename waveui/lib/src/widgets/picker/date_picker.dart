@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:intl/intl.dart';
 import 'package:waveui/waveui.dart';
 
@@ -149,7 +149,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
   }
 
   Widget _buildWheel(List<int> values, FixedExtentScrollController controller, String type) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return Expanded(
       child: ShaderMask(
         shaderCallback:
@@ -208,7 +208,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          color: WaveTheme.of(context).colorScheme.surfacePrimary,
+          color: Theme.of(context).colorScheme.surfacePrimary,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
         ),
         padding: const EdgeInsets.all(16),
@@ -217,7 +217,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
           children: [
             Row(
               children: [
-                Text(widget.title ?? 'Select Date', style: WaveTheme.of(context).textTheme.h4),
+                Text(widget.title ?? 'Select Date', style: Theme.of(context).textTheme.h4),
                 const Spacer(),
                 IconButton(
                   onPressed: () => Navigator.of(context).pop(),
@@ -291,7 +291,7 @@ Future<void> showWaveDatePicker({
   required void Function(DateTime) onDateSelected,
   String? title,
 }) async {
-  var theme = WaveTheme.of(context);
+  var theme = Theme.of(context);
   await showModalBottomSheet(
     context: context,
     isScrollControlled: true,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/src/widgets/stepper/stepper_item.dart';
 import 'package:waveui/src/widgets/stepper/widgets/common/stepper_dot_widget.dart';
 

@@ -20,7 +20,7 @@ class WaveBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(color: _getBackgroundColor(context), borderRadius: BorderRadius.circular(16)),
@@ -35,7 +35,7 @@ class WaveBadge extends StatelessWidget {
     if (backgroundColor != null) {
       return backgroundColor!;
     }
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
 
     switch (type) {
       case WaveBadgeType.primary:
@@ -53,7 +53,7 @@ class WaveBadge extends StatelessWidget {
     if (foregroundColor != null) {
       return foregroundColor!;
     }
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     switch (type) {
       case WaveBadgeType.primary:
         return theme.colorScheme.onBrandPrimary;

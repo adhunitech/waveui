@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 /// A widget that provides tap feedback with scale and opacity animations.
@@ -57,7 +57,7 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
   }
 
   double get _opacity {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     if (_isTouched) {
       return widget.opacity ?? theme.colorScheme.stateHoverOpacity;
     }

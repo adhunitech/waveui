@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveListTile extends StatefulWidget {
@@ -177,7 +177,7 @@ class _WaveListTileState extends State<WaveListTile> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveTheme.of(context);
+    final theme = Theme.of(context);
     final tileColor =
         widget.selected
             ? Color.alphaBlend(
