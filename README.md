@@ -40,9 +40,9 @@ MaterialApp(
 | ------ | ---------------- | ------------------------------------------------------------ |
 | ✅      | Theme            | App wide theme logic |
 | ✅      | ColorScheme      | Modular scheme used throughout the ui                 |
-| ✅      | TextTheme        | Includes Inter font, multiple text styles                    |
+| ✅      | TextTheme        | Includes Geist font, multiple text styles                    |
 | ✅      | WaveApp          | Entry point for providing theme context                      |
-| ⏳      | Button           | Filled, Outlined, Ghost, Link, Destructive, Secondary, Tertiary; themable via `ButtonTheme`          |
+| ⏳      | Button           | Primary, Secondary, Tertiary, Outline, Ghost, Link, Destructive; themable via `ButtonTheme`          |
 | 📃      | AppBar           | Customizable top app bar (title, actions, elevation, etc.)   |
 | 📃      | TextField        | Filled, outlined, underlined with validator and hint support |
 | 📃      | Badge            | Count badge, status dot; supports size and color variants    |
@@ -58,5 +58,5 @@ MaterialApp(
 
 Waveui is released under the [MIT License](https://opensource.org/license/mit/).
 
-This package includes the **Inter** typeface by **Rasmus Andersson**, which is distributed under the [SIL Open Font License 1.1](https://openfontlicense.org/).  
+This package includes the **Geist** typeface by **Vercel Inc.**, which is distributed under the [SIL Open Font License 1.1](https://openfontlicense.org/).
 The font is embedded in the package and governed by its corresponding terms included in `OFL.txt`.

@@ -60,7 +60,7 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     required Color outlineDivider,
     // State opacity
     @Default(0.8) double stateHoverOpacity,
-    @Default(0.6) double statePressedOpacity,
+    @Default(0.7) double statePressedOpacity,
     @Default(0.9) double stateFocusOpacity,
     @Default(0.3) double stateDisabledOpacity,
   }) = _ColorScheme;
@@ -86,11 +86,11 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     canvas: Color(0xFFF5F5F5),
     brandPrimary: Color(0xFF2463EB),
     onBrandPrimary: Color(0xFFFFFFFF),
-    brandSecondary: Color(0xFFF4F4F5),
+    brandSecondary: Color(0xFFF5F5F5),
     onBrandSecondary: Color(0xFF17171B),
     brandTertiary: Color(0xFF17171B),
     onBrandTertiary: Color(0xFFFFFFFF),
-    textPrimary: Color(0xDD000000),
+    textPrimary: Color(0xFF17171B),
     textSecondary: Color(0xDD6B6B6B),
     textTertiary: Color(0x9F6B6B6B),
     statusSuccess: Color(0xFF00BD13),

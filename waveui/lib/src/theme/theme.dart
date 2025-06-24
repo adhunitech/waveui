@@ -49,16 +49,20 @@ abstract class Theme with Diagnosticable, _$Theme {
 
     buttonTheme ??= ButtonTheme(
       primaryButton: ButtonTypeTheme(
-        labelStyle: TextStyle(color: colorScheme.textPrimary, fontSize: 16, fontWeight: FontWeight.w500),
+        labelStyle: textTheme.h6,
         backgroundColor: colorScheme.brandPrimary,
         foregroundColor: colorScheme.onBrandPrimary,
-        borderColor: const Color(0xFF1F55CB),
+        borderColor: colorScheme.brandPrimary.darkerShade(),
       ),
-      destructiveButton: ButtonTypeTheme(),
+      secondaryButton: ButtonTypeTheme(
+        labelStyle: textTheme.h6,
+        backgroundColor: colorScheme.brandSecondary,
+        foregroundColor: colorScheme.onBrandSecondary,
+      ),
       ghostButton: ButtonTypeTheme(),
       linkButton: ButtonTypeTheme(),
       outlineButton: ButtonTypeTheme(),
-      secondaryButton: ButtonTypeTheme(),
+      destructiveButton: ButtonTypeTheme(),
       tertiaryButton: ButtonTypeTheme(),
     );
     return Theme._internal(

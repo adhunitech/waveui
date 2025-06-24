@@ -13,8 +13,8 @@ abstract class ButtonTheme with Diagnosticable, _$ButtonTheme {
     required ButtonTypeTheme primaryButton,
     required ButtonTypeTheme secondaryButton,
     required ButtonTypeTheme tertiaryButton,
-    required ButtonTypeTheme outlineButton,
     required ButtonTypeTheme destructiveButton,
+    required ButtonTypeTheme outlineButton,
     required ButtonTypeTheme ghostButton,
     required ButtonTypeTheme linkButton,
   }) = _ButtonTheme;

@@ -30,54 +30,27 @@ dev_dependencies:
 flutter:
 
   fonts:
-    # Fonts used under OFL license
-    # Inter font © Rasmus Andersson (https://rsms.me/inter/)
+    # Fonts used under SIL OFL license
+    # Geist font © Vercel Inc. (https://vercel.com/font)
     # Licensed under SIL Open Font License 1.1 — https://openfontlicense.org/
     # License file: OFL.txt (included in the root of this package)
-    - family: Inter
+    - family: Geist
       fonts:
-        - asset: packages/waveui/src/assets/fonts/Inter_Thin.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_Thin.ttf
           weight: 100
-        - asset: packages/waveui/src/assets/fonts/Inter_ThinItalic.ttf
-          weight: 100
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraLight.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_ExtraLight.ttf
           weight: 200
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraLightItalic.ttf
-          weight: 200
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Light.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_Light.ttf
           weight: 300
-        - asset: packages/waveui/src/assets/fonts/Inter_LightItalic.ttf
-          weight: 300
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Regular.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_Regular.ttf
           weight: 400
-        - asset: packages/waveui/src/assets/fonts/Inter_Italic.ttf
-          weight: 400
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Medium.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_Medium.ttf
           weight: 500
-        - asset: packages/waveui/src/assets/fonts/Inter_MediumItalic.ttf
-          weight: 500
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_SemiBold.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_SemiBold.ttf
           weight: 600
-        - asset: packages/waveui/src/assets/fonts/Inter_SemiBoldItalic.ttf
-          weight: 600
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Bold.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_Bold.ttf
           weight: 700
-        - asset: packages/waveui/src/assets/fonts/Inter_BoldItalic.ttf
-          weight: 700
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraBold.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_ExtraBold.ttf
           weight: 800
-        - asset: packages/waveui/src/assets/fonts/Inter_ExtraBoldItalic.ttf
-          weight: 800
-          style: italic
-        - asset: packages/waveui/src/assets/fonts/Inter_Black.ttf
+        - asset: packages/waveui/src/assets/fonts/Geist_Black.ttf
           weight: 900
-        - asset: packages/waveui/src/assets/fonts/Inter_BlackItalic.ttf
-          weight: 900
-          style: italic
