@@ -25,13 +25,16 @@ abstract class Theme with Diagnosticable, _$Theme {
 
   const factory Theme._internal({
     required WaveAppBarTheme appBarTheme,
-    required WaveTextTheme textTheme,
+    required TextTheme textTheme,
     required ColorScheme colorScheme,
   }) = _WaveTheme;
 
-  factory Theme({WaveAppBarTheme? appBarTheme, ColorScheme? colorScheme, WaveTextTheme? textTheme}) {
+  /// Creates a [Theme].
+  ///
+  /// If any parameter is omitted, a default value is used.
+  factory Theme({WaveAppBarTheme? appBarTheme, ColorScheme? colorScheme, TextTheme? textTheme}) {
     colorScheme ??= ColorScheme.light();
-    textTheme ??= WaveTextTheme().apply(color: colorScheme.textPrimary);
+    textTheme ??= TextTheme().apply(color: colorScheme.textPrimary);
     appBarTheme ??= WaveAppBarTheme(
       backgroundColor: colorScheme.surfacePrimary,
       foregroundColor: colorScheme.textPrimary,

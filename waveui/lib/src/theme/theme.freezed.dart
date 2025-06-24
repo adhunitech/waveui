@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Theme {
 
- WaveAppBarTheme get appBarTheme; WaveTextTheme get textTheme; ColorScheme get colorScheme;
+ WaveAppBarTheme get appBarTheme; TextTheme get textTheme; ColorScheme get colorScheme;
 /// Create a copy of Theme
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -42,11 +42,11 @@ abstract mixin class $ThemeCopyWith<$Res>  {
   factory $ThemeCopyWith(Theme value, $Res Function(Theme) _then) = _$ThemeCopyWithImpl;
 @useResult
 $Res call({
- WaveAppBarTheme appBarTheme, WaveTextTheme textTheme, ColorScheme colorScheme
+ WaveAppBarTheme appBarTheme, TextTheme textTheme, ColorScheme colorScheme
 });
 
 
-$WaveAppBarThemeCopyWith<$Res> get appBarTheme;$WaveTextThemeCopyWith<$Res> get textTheme;$ColorSchemeCopyWith<$Res> get colorScheme;
+$WaveAppBarThemeCopyWith<$Res> get appBarTheme;$TextThemeCopyWith<$Res> get textTheme;$ColorSchemeCopyWith<$Res> get colorScheme;
 
 }
 /// @nodoc
@@ -63,7 +63,7 @@ class _$ThemeCopyWithImpl<$Res>
   return _then(_self.copyWith(
 appBarTheme: null == appBarTheme ? _self.appBarTheme : appBarTheme // ignore: cast_nullable_to_non_nullable
 as WaveAppBarTheme,textTheme: null == textTheme ? _self.textTheme : textTheme // ignore: cast_nullable_to_non_nullable
-as WaveTextTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
+as TextTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
 as ColorScheme,
   ));
 }
@@ -80,9 +80,9 @@ $WaveAppBarThemeCopyWith<$Res> get appBarTheme {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$WaveTextThemeCopyWith<$Res> get textTheme {
+$TextThemeCopyWith<$Res> get textTheme {
   
-  return $WaveTextThemeCopyWith<$Res>(_self.textTheme, (value) {
+  return $TextThemeCopyWith<$Res>(_self.textTheme, (value) {
     return _then(_self.copyWith(textTheme: value));
   });
 }/// Create a copy of Theme
@@ -106,7 +106,7 @@ class _WaveTheme extends Theme {
   
 
 @override final  WaveAppBarTheme appBarTheme;
-@override final  WaveTextTheme textTheme;
+@override final  TextTheme textTheme;
 @override final  ColorScheme colorScheme;
 
 /// Create a copy of Theme
@@ -135,11 +135,11 @@ abstract mixin class _$WaveThemeCopyWith<$Res> implements $ThemeCopyWith<$Res> {
   factory _$WaveThemeCopyWith(_WaveTheme value, $Res Function(_WaveTheme) _then) = __$WaveThemeCopyWithImpl;
 @override @useResult
 $Res call({
- WaveAppBarTheme appBarTheme, WaveTextTheme textTheme, ColorScheme colorScheme
+ WaveAppBarTheme appBarTheme, TextTheme textTheme, ColorScheme colorScheme
 });
 
 
-@override $WaveAppBarThemeCopyWith<$Res> get appBarTheme;@override $WaveTextThemeCopyWith<$Res> get textTheme;@override $ColorSchemeCopyWith<$Res> get colorScheme;
+@override $WaveAppBarThemeCopyWith<$Res> get appBarTheme;@override $TextThemeCopyWith<$Res> get textTheme;@override $ColorSchemeCopyWith<$Res> get colorScheme;
 
 }
 /// @nodoc
@@ -156,7 +156,7 @@ class __$WaveThemeCopyWithImpl<$Res>
   return _then(_WaveTheme(
 appBarTheme: null == appBarTheme ? _self.appBarTheme : appBarTheme // ignore: cast_nullable_to_non_nullable
 as WaveAppBarTheme,textTheme: null == textTheme ? _self.textTheme : textTheme // ignore: cast_nullable_to_non_nullable
-as WaveTextTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
+as TextTheme,colorScheme: null == colorScheme ? _self.colorScheme : colorScheme // ignore: cast_nullable_to_non_nullable
 as ColorScheme,
   ));
 }
@@ -174,9 +174,9 @@ $WaveAppBarThemeCopyWith<$Res> get appBarTheme {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$WaveTextThemeCopyWith<$Res> get textTheme {
+$TextThemeCopyWith<$Res> get textTheme {
   
-  return $WaveTextThemeCopyWith<$Res>(_self.textTheme, (value) {
+  return $TextThemeCopyWith<$Res>(_self.textTheme, (value) {
     return _then(_self.copyWith(textTheme: value));
   });
 }/// Create a copy of Theme

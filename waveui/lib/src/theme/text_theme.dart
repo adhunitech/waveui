@@ -5,11 +5,11 @@ part 'text_theme.freezed.dart';
 
 @freezed
 /// Defines the text styles used throughout the application.
-abstract class WaveTextTheme with Diagnosticable, _$WaveTextTheme {
-  const WaveTextTheme._();
+abstract class TextTheme with Diagnosticable, _$TextTheme {
+  const TextTheme._();
 
-  /// Creates a [WaveTextTheme].
-  factory WaveTextTheme({
+  /// Creates a [TextTheme].
+  factory TextTheme({
     @Default(TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 36, height: 1.2, fontWeight: FontWeight.w700))
     TextStyle h1,
     @Default(TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 30, height: 1.2, fontWeight: FontWeight.w600))
@@ -28,10 +28,10 @@ abstract class WaveTextTheme with Diagnosticable, _$WaveTextTheme {
     TextStyle body,
     @Default(TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 14, height: 1.4, fontWeight: FontWeight.w400))
     TextStyle small,
-  }) = _WaveTextTheme;
+  }) = _TextTheme;
 
-  /// Returns a copy of this [WaveTextTheme] with the given [color] applied to all text styles.
-  WaveTextTheme apply({Color? color}) => copyWith(
+  /// Returns a copy of this [TextTheme] with the given [color] applied to all text styles.
+  TextTheme apply({Color? color}) => copyWith(
     h1: h1.copyWith(color: color),
     h2: h2.copyWith(color: color),
     h3: h3.copyWith(color: color),

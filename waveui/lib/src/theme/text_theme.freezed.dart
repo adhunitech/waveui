@@ -13,20 +13,20 @@ part of 'text_theme.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$WaveTextTheme {
+mixin _$TextTheme {
 
  TextStyle get h1; TextStyle get h2; TextStyle get h3; TextStyle get h4; TextStyle get h5; TextStyle get h6; TextStyle get large; TextStyle get body; TextStyle get small;
-/// Create a copy of WaveTextTheme
+/// Create a copy of TextTheme
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$WaveTextThemeCopyWith<WaveTextTheme> get copyWith => _$WaveTextThemeCopyWithImpl<WaveTextTheme>(this as WaveTextTheme, _$identity);
+$TextThemeCopyWith<TextTheme> get copyWith => _$TextThemeCopyWithImpl<TextTheme>(this as TextTheme, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WaveTextTheme&&(identical(other.h1, h1) || other.h1 == h1)&&(identical(other.h2, h2) || other.h2 == h2)&&(identical(other.h3, h3) || other.h3 == h3)&&(identical(other.h4, h4) || other.h4 == h4)&&(identical(other.h5, h5) || other.h5 == h5)&&(identical(other.h6, h6) || other.h6 == h6)&&(identical(other.large, large) || other.large == large)&&(identical(other.body, body) || other.body == body)&&(identical(other.small, small) || other.small == small));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TextTheme&&(identical(other.h1, h1) || other.h1 == h1)&&(identical(other.h2, h2) || other.h2 == h2)&&(identical(other.h3, h3) || other.h3 == h3)&&(identical(other.h4, h4) || other.h4 == h4)&&(identical(other.h5, h5) || other.h5 == h5)&&(identical(other.h6, h6) || other.h6 == h6)&&(identical(other.large, large) || other.large == large)&&(identical(other.body, body) || other.body == body)&&(identical(other.small, small) || other.small == small));
 }
 
 
@@ -38,8 +38,8 @@ int get hashCode => Object.hash(runtimeType,h1,h2,h3,h4,h5,h6,large,body,small);
 }
 
 /// @nodoc
-abstract mixin class $WaveTextThemeCopyWith<$Res>  {
-  factory $WaveTextThemeCopyWith(WaveTextTheme value, $Res Function(WaveTextTheme) _then) = _$WaveTextThemeCopyWithImpl;
+abstract mixin class $TextThemeCopyWith<$Res>  {
+  factory $TextThemeCopyWith(TextTheme value, $Res Function(TextTheme) _then) = _$TextThemeCopyWithImpl;
 @useResult
 $Res call({
  TextStyle h1, TextStyle h2, TextStyle h3, TextStyle h4, TextStyle h5, TextStyle h6, TextStyle large, TextStyle body, TextStyle small
@@ -50,14 +50,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$WaveTextThemeCopyWithImpl<$Res>
-    implements $WaveTextThemeCopyWith<$Res> {
-  _$WaveTextThemeCopyWithImpl(this._self, this._then);
+class _$TextThemeCopyWithImpl<$Res>
+    implements $TextThemeCopyWith<$Res> {
+  _$TextThemeCopyWithImpl(this._self, this._then);
 
-  final WaveTextTheme _self;
-  final $Res Function(WaveTextTheme) _then;
+  final TextTheme _self;
+  final $Res Function(TextTheme) _then;
 
-/// Create a copy of WaveTextTheme
+/// Create a copy of TextTheme
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? h1 = null,Object? h2 = null,Object? h3 = null,Object? h4 = null,Object? h5 = null,Object? h6 = null,Object? large = null,Object? body = null,Object? small = null,}) {
   return _then(_self.copyWith(
@@ -80,8 +80,8 @@ as TextStyle,
 /// @nodoc
 
 
-class _WaveTextTheme extends WaveTextTheme {
-   _WaveTextTheme({this.h1 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 36, height: 1.2, fontWeight: FontWeight.w700), this.h2 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 30, height: 1.2, fontWeight: FontWeight.w600), this.h3 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 24, height: 1.3, fontWeight: FontWeight.w600), this.h4 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 18, height: 1.4, fontWeight: FontWeight.w500), this.h5 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 16, height: 1.4, fontWeight: FontWeight.w500), this.h6 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 14, height: 1.4, fontWeight: FontWeight.w500), this.large = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 18, height: 1.4, fontWeight: FontWeight.w400), this.body = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 16, height: 1.5, fontWeight: FontWeight.w400), this.small = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 14, height: 1.4, fontWeight: FontWeight.w400)}): super._();
+class _TextTheme extends TextTheme {
+   _TextTheme({this.h1 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 36, height: 1.2, fontWeight: FontWeight.w700), this.h2 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 30, height: 1.2, fontWeight: FontWeight.w600), this.h3 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 24, height: 1.3, fontWeight: FontWeight.w600), this.h4 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 18, height: 1.4, fontWeight: FontWeight.w500), this.h5 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 16, height: 1.4, fontWeight: FontWeight.w500), this.h6 = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 14, height: 1.4, fontWeight: FontWeight.w500), this.large = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 18, height: 1.4, fontWeight: FontWeight.w400), this.body = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 16, height: 1.5, fontWeight: FontWeight.w400), this.small = const TextStyle(fontFamily: 'Inter', package: 'waveui', fontSize: 14, height: 1.4, fontWeight: FontWeight.w400)}): super._();
   
 
 @override@JsonKey() final  TextStyle h1;
@@ -94,17 +94,17 @@ class _WaveTextTheme extends WaveTextTheme {
 @override@JsonKey() final  TextStyle body;
 @override@JsonKey() final  TextStyle small;
 
-/// Create a copy of WaveTextTheme
+/// Create a copy of TextTheme
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$WaveTextThemeCopyWith<_WaveTextTheme> get copyWith => __$WaveTextThemeCopyWithImpl<_WaveTextTheme>(this, _$identity);
+_$TextThemeCopyWith<_TextTheme> get copyWith => __$TextThemeCopyWithImpl<_TextTheme>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WaveTextTheme&&(identical(other.h1, h1) || other.h1 == h1)&&(identical(other.h2, h2) || other.h2 == h2)&&(identical(other.h3, h3) || other.h3 == h3)&&(identical(other.h4, h4) || other.h4 == h4)&&(identical(other.h5, h5) || other.h5 == h5)&&(identical(other.h6, h6) || other.h6 == h6)&&(identical(other.large, large) || other.large == large)&&(identical(other.body, body) || other.body == body)&&(identical(other.small, small) || other.small == small));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TextTheme&&(identical(other.h1, h1) || other.h1 == h1)&&(identical(other.h2, h2) || other.h2 == h2)&&(identical(other.h3, h3) || other.h3 == h3)&&(identical(other.h4, h4) || other.h4 == h4)&&(identical(other.h5, h5) || other.h5 == h5)&&(identical(other.h6, h6) || other.h6 == h6)&&(identical(other.large, large) || other.large == large)&&(identical(other.body, body) || other.body == body)&&(identical(other.small, small) || other.small == small));
 }
 
 
@@ -116,8 +116,8 @@ int get hashCode => Object.hash(runtimeType,h1,h2,h3,h4,h5,h6,large,body,small);
 }
 
 /// @nodoc
-abstract mixin class _$WaveTextThemeCopyWith<$Res> implements $WaveTextThemeCopyWith<$Res> {
-  factory _$WaveTextThemeCopyWith(_WaveTextTheme value, $Res Function(_WaveTextTheme) _then) = __$WaveTextThemeCopyWithImpl;
+abstract mixin class _$TextThemeCopyWith<$Res> implements $TextThemeCopyWith<$Res> {
+  factory _$TextThemeCopyWith(_TextTheme value, $Res Function(_TextTheme) _then) = __$TextThemeCopyWithImpl;
 @override @useResult
 $Res call({
  TextStyle h1, TextStyle h2, TextStyle h3, TextStyle h4, TextStyle h5, TextStyle h6, TextStyle large, TextStyle body, TextStyle small
@@ -128,17 +128,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$WaveTextThemeCopyWithImpl<$Res>
-    implements _$WaveTextThemeCopyWith<$Res> {
-  __$WaveTextThemeCopyWithImpl(this._self, this._then);
+class __$TextThemeCopyWithImpl<$Res>
+    implements _$TextThemeCopyWith<$Res> {
+  __$TextThemeCopyWithImpl(this._self, this._then);
 
-  final _WaveTextTheme _self;
-  final $Res Function(_WaveTextTheme) _then;
+  final _TextTheme _self;
+  final $Res Function(_TextTheme) _then;
 
-/// Create a copy of WaveTextTheme
+/// Create a copy of TextTheme
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? h1 = null,Object? h2 = null,Object? h3 = null,Object? h4 = null,Object? h5 = null,Object? h6 = null,Object? large = null,Object? body = null,Object? small = null,}) {
-  return _then(_WaveTextTheme(
+  return _then(_TextTheme(
 h1: null == h1 ? _self.h1 : h1 // ignore: cast_nullable_to_non_nullable
 as TextStyle,h2: null == h2 ? _self.h2 : h2 // ignore: cast_nullable_to_non_nullable
 as TextStyle,h3: null == h3 ? _self.h3 : h3 // ignore: cast_nullable_to_non_nullable
