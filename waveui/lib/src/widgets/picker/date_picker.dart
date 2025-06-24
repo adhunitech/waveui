@@ -149,7 +149,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
   }
 
   Widget _buildWheel(List<int> values, FixedExtentScrollController controller, String type) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     return Expanded(
       child: ShaderMask(
         shaderCallback:
@@ -208,7 +208,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          color: WaveApp.themeOf(context).colorScheme.surfacePrimary,
+          color: WaveTheme.of(context).colorScheme.surfacePrimary,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
         ),
         padding: const EdgeInsets.all(16),
@@ -217,7 +217,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
           children: [
             Row(
               children: [
-                Text(widget.title ?? 'Select Date', style: WaveApp.themeOf(context).textTheme.h4),
+                Text(widget.title ?? 'Select Date', style: WaveTheme.of(context).textTheme.h4),
                 const Spacer(),
                 IconButton(
                   onPressed: () => Navigator.of(context).pop(),
@@ -291,7 +291,7 @@ Future<void> showWaveDatePicker({
   required void Function(DateTime) onDateSelected,
   String? title,
 }) async {
-  var theme = WaveApp.themeOf(context);
+  var theme = WaveTheme.of(context);
   await showModalBottomSheet(
     context: context,
     isScrollControlled: true,

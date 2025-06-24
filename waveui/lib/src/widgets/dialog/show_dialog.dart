@@ -16,7 +16,7 @@ Future<T?> showWaveDialog<T>({
     from: context,
     to: Navigator.of(context, rootNavigator: useRootNavigator).context,
   );
-  final theme = WaveApp.themeOf(context);
+  final theme = WaveTheme.of(context);
 
   return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(
     PageRouteBuilder<T>(
@@ -74,13 +74,13 @@ Future<void> showWaveDialogSheet({
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(title, style: WaveApp.themeOf(context).textTheme.h4),
+                Text(title, style: WaveTheme.of(context).textTheme.h4),
                 const SizedBox(height: 12),
                 Text(
                   message,
-                  style: WaveApp.themeOf(
+                  style: WaveTheme.of(
                     context,
-                  ).textTheme.body.copyWith(color: WaveApp.themeOf(context).colorScheme.textSecondary),
+                  ).textTheme.body.copyWith(color: WaveTheme.of(context).colorScheme.textSecondary),
                 ),
                 const SizedBox(height: 16),
                 Row(spacing: 12, children: actions.map((e) => Expanded(child: e)).toList()),

@@ -89,8 +89,8 @@ class WaveScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = WaveApp.themeOf(context).colorScheme;
-    final textTheme = WaveApp.themeOf(context).textTheme;
+    final colorScheme = WaveTheme.of(context).colorScheme;
+    final textTheme = WaveTheme.of(context).textTheme;
     return PopScope(
       canPop: !isLoading,
       child: Stack(

@@ -177,7 +177,7 @@ class _WaveListTileState extends State<WaveListTile> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     final tileColor =
         widget.selected
             ? Color.alphaBlend(

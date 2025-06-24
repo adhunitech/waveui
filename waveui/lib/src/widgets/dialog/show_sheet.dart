@@ -954,7 +954,7 @@ class _BottomSheetDefaultsM3 extends BottomSheetThemeData {
       );
 
   final BuildContext context;
-  late final _colors = WaveApp.themeOf(context).colorScheme;
+  late final _colors = WaveTheme.of(context).colorScheme;
 
   @override
   Color? get backgroundColor => _colors.surfacePrimary;

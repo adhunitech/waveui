@@ -57,7 +57,7 @@ class _WaveTappableState extends State<WaveTappable> with SingleTickerProviderSt
   }
 
   double get _opacity {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     if (_isTouched) {
       return widget.opacity ?? theme.colorScheme.stateHoverOpacity;
     }

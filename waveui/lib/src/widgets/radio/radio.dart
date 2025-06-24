@@ -36,7 +36,7 @@ class _AnimatedSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     final Color targetColor = isSelected ? theme.colorScheme.brandPrimary : theme.colorScheme.outlineStandard;
     final double targetWidth = isSelected ? 4.5 : 2;
 

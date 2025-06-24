@@ -25,7 +25,7 @@ class WaveSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     return SliderTheme(
       data: SliderThemeData(
         activeTrackColor: theme.colorScheme.brandPrimary,

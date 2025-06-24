@@ -93,7 +93,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    final waveTheme = WaveApp.themeOf(context);
+    final waveTheme = WaveTheme.of(context);
     final appBarTheme = widget.theme ?? waveTheme.appBarTheme;
 
     return AppBar(

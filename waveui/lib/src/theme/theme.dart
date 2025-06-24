@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:waveui/waveui.dart';
 
@@ -32,14 +31,30 @@ abstract class WaveTheme with Diagnosticable, _$WaveTheme {
 
   factory WaveTheme({WaveAppBarTheme? appBarTheme, ColorScheme? colorScheme, WaveTextTheme? textTheme}) {
     colorScheme ??= ColorScheme.light();
+    textTheme ??= WaveTextTheme().apply(color: colorScheme.textPrimary);
     appBarTheme ??= WaveAppBarTheme(
       backgroundColor: colorScheme.surfacePrimary,
       foregroundColor: colorScheme.textPrimary,
-      titleStyle: TextStyle(),
+      titleStyle: textTheme.h6,
     );
 
-    textTheme ??= WaveTextTheme().withColor(colorScheme.textPrimary);
-
     return WaveTheme._internal(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme);
+  }
+
+  /// Retrieves the [WaveTheme] from the nearest [WaveApp] ancestor.
+  ///
+  /// This function is used to access the theme data from any widget within the
+  /// widget tree. It ensures that the theme is properly inherited and available
+  /// to all components that need it.
+  ///
+  /// Example:
+  /// ```dart
+  /// final theme = Theme.of(context);
+  /// ```
+  ///
+  static WaveTheme of(BuildContext context) {
+    final WaveApp? app = context.dependOnInheritedWidgetOfExactType<WaveApp>();
+    assert(app != null, 'No WaveApp found in context');
+    return app!.theme;
   }
 }

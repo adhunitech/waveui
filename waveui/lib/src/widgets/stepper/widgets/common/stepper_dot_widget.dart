@@ -18,7 +18,7 @@ class StepperDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     final color = (index <= activeIndex) ? theme.colorScheme.brandPrimary : theme.colorScheme.outlineStandard;
     return Container(
       height: 18,

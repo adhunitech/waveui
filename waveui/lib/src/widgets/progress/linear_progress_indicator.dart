@@ -47,7 +47,7 @@ class _WaveLinearProgressIndicatorState extends State<WaveLinearProgressIndicato
 
   @override
   Widget build(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     final bgColor = widget.backgroundColor ?? theme.colorScheme.brandPrimary.withValues(alpha: 0.1);
     final progressColor = widget.color ?? theme.colorScheme.brandPrimary;
 

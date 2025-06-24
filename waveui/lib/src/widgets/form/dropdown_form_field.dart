@@ -74,7 +74,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    theme = WaveApp.themeOf(context);
+    theme = WaveTheme.of(context);
   }
 
   void _showModal(BuildContext context, FormFieldState<T> formFieldState) {

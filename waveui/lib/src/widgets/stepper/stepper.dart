@@ -85,7 +85,7 @@ class WaveStepper extends StatelessWidget {
   }
 
   Widget _getPreferredStepper(BuildContext context, {required int index}) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     if (stepperDirection == Axis.horizontal) {
       return HorizontalStepperItem(
         index: index,

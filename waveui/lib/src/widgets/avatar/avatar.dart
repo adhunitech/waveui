@@ -11,7 +11,7 @@ class WaveAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final providedInitials = initials ?? 'Adhunitech';
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     return SizedBox(
       height: size.toDouble(),
       width: size.toDouble(),

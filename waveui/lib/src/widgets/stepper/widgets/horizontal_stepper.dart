@@ -58,7 +58,7 @@ class HorizontalStepperItem extends StatelessWidget {
   );
 
   List<Widget> getChildren(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     return [
       if (item.title != null) ...[
         DefaultTextStyle(style: theme.textTheme.body, child: item.title!),

@@ -57,7 +57,7 @@ class VerticalStepperItem extends StatelessWidget {
   Widget build(BuildContext context) => Row(children: isInverted ? getInvertedChildren(context) : getChildren(context));
 
   List<Widget> getChildren(BuildContext context) {
-    final theme = WaveApp.themeOf(context);
+    final theme = WaveTheme.of(context);
     return [
       Column(
         children: [
