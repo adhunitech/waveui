@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:waveui/widgets/app.dart';
 
 part 'color_scheme.freezed.dart';
 
@@ -102,4 +103,21 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     outlineStandard: Color(0x839E9E9E),
     outlineDivider: Color(0xFFEEEEEE),
   );
+
+  /// Retrieves the [ColorScheme] from the nearest [WaveApp] ancestor.
+  ///
+  /// This function is used to access the theme data from any widget within the
+  /// widget tree. It ensures that the theme is properly inherited and available
+  /// to all components that need it.
+  ///
+  /// Example:
+  /// ```dart
+  /// final colorScheme = ColorScheme.of(context);
+  /// ```
+  ///
+  static ColorScheme of(BuildContext context) {
+    final WaveApp? app = context.dependOnInheritedWidgetOfExactType<WaveApp>();
+    assert(app != null, 'No WaveApp found in context');
+    return app!.theme.colorScheme;
+  }
 }

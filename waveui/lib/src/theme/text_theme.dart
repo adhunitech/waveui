@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:waveui/widgets/app.dart';
 part 'text_theme.freezed.dart';
 
 @freezed
@@ -42,4 +43,21 @@ abstract class TextTheme with Diagnosticable, _$TextTheme {
     body: body.copyWith(color: color),
     small: small.copyWith(color: color),
   );
+
+  /// Retrieves the [TextTheme] from the nearest [WaveApp] ancestor.
+  ///
+  /// This function is used to access the theme data from any widget within the
+  /// widget tree. It ensures that the theme is properly inherited and available
+  /// to all components that need it.
+  ///
+  /// Example:
+  /// ```dart
+  /// final textTheme = TextTheme.of(context);
+  /// ```
+  ///
+  static TextTheme of(BuildContext context) {
+    final WaveApp? app = context.dependOnInheritedWidgetOfExactType<WaveApp>();
+    assert(app != null, 'No WaveApp found in context');
+    return app!.theme.textTheme;
+  }
 }
