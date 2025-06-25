@@ -11,12 +11,11 @@ abstract class ButtonTypeTheme with Diagnosticable, _$ButtonTypeTheme {
 
   /// Creates a [ButtonTypeTheme].
   const factory ButtonTypeTheme({
-    @Default(EdgeInsets.symmetric(horizontal: 24, vertical: 10)) EdgeInsetsGeometry padding,
-    @Default(12) double borderRadius,
-    @Default(16) double iconSize,
+    @Default(EdgeInsets.symmetric(horizontal: 12, vertical: 10)) EdgeInsetsGeometry padding,
+    @Default(BorderRadius.all(Radius.circular(12))) BorderRadiusGeometry borderRadius,
     Color? backgroundColor,
-    Color? foregroundColor,
     Color? borderColor,
     TextStyle? labelStyle,
+    IconThemeData? iconTheme,
   }) = _ButtonTypeTheme;
 }

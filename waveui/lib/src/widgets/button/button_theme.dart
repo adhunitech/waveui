@@ -16,7 +16,6 @@ abstract class ButtonTheme with Diagnosticable, _$ButtonTheme {
     required ButtonTypeTheme destructiveButton,
     required ButtonTypeTheme outlineButton,
     required ButtonTypeTheme ghostButton,
-    required ButtonTypeTheme linkButton,
   }) = _ButtonTheme;
 
   /// Retrieves the [ButtonTheme] from the nearest [WaveApp] ancestor.

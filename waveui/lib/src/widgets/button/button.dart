@@ -4,21 +4,25 @@ import 'package:flutter/widgets.dart';
 import 'package:waveui/waveui.dart';
 
 /// Available button types for styling and behavior.
-enum ButtonType { primary, secondary, tertiary, outline, destructive, ghost, link }
+enum ButtonType { primary, secondary, tertiary, outline, destructive, ghost }
 
 class Button extends StatefulWidget {
   final ButtonTypeTheme? theme;
   final ButtonType type;
-  final Widget label;
+  final Widget? label;
+  final Widget? icon;
   final bool elevated;
+  final bool isLoading;
   final VoidCallback? onTap;
   const Button({
-    required this.label,
+    this.label,
     this.elevated = true,
+    this.isLoading = false,
     super.key,
     this.theme,
     this.onTap,
     this.type = ButtonType.primary,
+    this.icon,
   });
 
   @override
@@ -106,20 +110,23 @@ class _ButtonState extends State<Button> {
           theme = ButtonTheme.of(context).destructiveButton;
         case ButtonType.ghost:
           theme = ButtonTheme.of(context).ghostButton;
-        case ButtonType.link:
-          theme = ButtonTheme.of(context).linkButton;
       }
     }
-    final opacity = _pressing ? colorScheme.statePressedOpacity : 1.0;
+    final opacity =
+        widget.onTap == null || widget.isLoading
+            ? colorScheme.stateDisabledOpacity
+            : _pressing
+            ? colorScheme.statePressedOpacity
+            : 1.0;
     return MouseRegion(
-      cursor: widget.onTap == null ? SystemMouseCursors.forbidden : SystemMouseCursors.click,
-      onEnter: _handleMouseEnter,
-      onExit: _handleMouseExit,
+      cursor: widget.onTap == null || widget.isLoading ? SystemMouseCursors.forbidden : SystemMouseCursors.click,
+      onEnter: widget.onTap == null || widget.isLoading ? null : _handleMouseEnter,
+      onExit: widget.onTap == null || widget.isLoading ? null : _handleMouseExit,
       child: GestureDetector(
-        onTap: widget.onTap,
-        onTapDown: _handleTapDown,
-        onTapUp: _handleTapUp,
-        onTapCancel: _handleTapCancel,
+        onTap: widget.isLoading ? null : widget.onTap,
+        onTapDown: widget.onTap == null || widget.isLoading ? null : _handleTapDown,
+        onTapUp: widget.onTap == null || widget.isLoading ? null : _handleTapUp,
+        onTapCancel: widget.onTap == null || widget.isLoading ? null : _handleTapCancel,
         child: AnimatedOpacity(
           duration: const Duration(milliseconds: 120),
           curve: Curves.easeOut,
@@ -131,15 +138,30 @@ class _ButtonState extends State<Button> {
             decoration: BoxDecoration(
               color: _getBackgroundColor(context, theme),
               boxShadow:
-                  !widget.elevated || _pressing
+                  !widget.elevated || _pressing || widget.onTap == null || widget.isLoading
                       ? null
                       : [const BoxShadow(color: Color.fromARGB(39, 0, 0, 0), blurRadius: 0.5, offset: Offset(0, 2))],
-              borderRadius: BorderRadius.circular(theme.borderRadius),
+              borderRadius: theme.borderRadius,
               border: theme.borderColor == null ? null : Border.all(color: _getBorderColor(context, theme)),
             ),
-            child: DefaultTextStyle(
-              style: theme.labelStyle!.copyWith(color: theme.foregroundColor),
-              child: widget.label,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 8,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (widget.isLoading)
+                  WaveCircularProgressIndicator(
+                    size: 18,
+                    strokeWidth: 3,
+                    color: theme.iconTheme?.color ?? theme.labelStyle?.color,
+                  ),
+                if (widget.icon != null) IconTheme(data: theme.iconTheme!, child: widget.icon!),
+                if (widget.label != null)
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: !widget.isLoading && widget.icon == null ? 4 : 0),
+                    child: DefaultTextStyle(style: theme.labelStyle!, child: widget.label!),
+                  ),
+              ],
             ),
           ),
         ),

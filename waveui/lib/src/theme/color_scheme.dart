@@ -35,6 +35,7 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     required Brightness brightness,
     required Color scrim,
     required Color canvas,
+    required Color shadow,
     // Brand color
     required Color brandPrimary,
     required Color onBrandPrimary,
@@ -62,13 +63,19 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     @Default(0.8) double stateHoverOpacity,
     @Default(0.7) double statePressedOpacity,
     @Default(0.9) double stateFocusOpacity,
-    @Default(0.3) double stateDisabledOpacity,
+    @Default(0.5) double stateDisabledOpacity,
   }) = _ColorScheme;
 
   /// Returns the state overlay color for the [base] on the [background].
   ///
   /// [ColorScheme.canvas] is used if [background] is not given.
   Color getStateOverlay(Color base, UIState state, [Color? background]) {
+    final isTransparentOrWhite = base.a == 0 || base.toARGB32() == 0xFFFFFFFF;
+
+    if (isTransparentOrWhite) {
+      return const Color(0xFFF7F7F7);
+    }
+
     final opacity = switch (state) {
       UIState.hovered => stateHoverOpacity,
       UIState.pressed => statePressedOpacity,
@@ -76,19 +83,21 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
       UIState.disabled => stateDisabledOpacity,
       UIState.selected => statePressedOpacity,
     };
+
     return Color.alphaBlend(base.withValues(alpha: opacity), background ?? canvas);
   }
 
   /// Returns a [ColorScheme] for light mode.
   factory ColorScheme.light() => const ColorScheme(
     brightness: Brightness.light,
+    shadow: Color(0x1F000000),
     scrim: Color(0x2B000000),
     canvas: Color(0xFFF5F5F5),
     brandPrimary: Color(0xFF2463EB),
     onBrandPrimary: Color(0xFFFFFFFF),
     brandSecondary: Color(0xFFF5F5F5),
     onBrandSecondary: Color(0xFF17171B),
-    brandTertiary: Color(0xFF17171B),
+    brandTertiary: Color(0xFFFF00DD),
     onBrandTertiary: Color(0xFFFFFFFF),
     textPrimary: Color(0xFF17171B),
     textSecondary: Color(0xDD6B6B6B),
@@ -100,7 +109,7 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     surfacePrimary: Color(0xFFFFFFFF),
     surfaceSecondary: Color(0xFFF5F5F5),
     surfaceTertiary: Color(0xFFFFFFFF),
-    outlineStandard: Color(0x839E9E9E),
+    outlineStandard: Color(0xFFE5E5E5),
     outlineDivider: Color(0xFFEEEEEE),
   );
 

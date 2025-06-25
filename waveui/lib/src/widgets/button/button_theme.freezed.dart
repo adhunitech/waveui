@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ButtonTheme {
 
- ButtonTypeTheme get primaryButton; ButtonTypeTheme get secondaryButton; ButtonTypeTheme get tertiaryButton; ButtonTypeTheme get destructiveButton; ButtonTypeTheme get outlineButton; ButtonTypeTheme get ghostButton; ButtonTypeTheme get linkButton;
+ ButtonTypeTheme get primaryButton; ButtonTypeTheme get secondaryButton; ButtonTypeTheme get tertiaryButton; ButtonTypeTheme get destructiveButton; ButtonTypeTheme get outlineButton; ButtonTypeTheme get ghostButton;
 /// Create a copy of ButtonTheme
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,12 +26,12 @@ $ButtonThemeCopyWith<ButtonTheme> get copyWith => _$ButtonThemeCopyWithImpl<Butt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ButtonTheme&&(identical(other.primaryButton, primaryButton) || other.primaryButton == primaryButton)&&(identical(other.secondaryButton, secondaryButton) || other.secondaryButton == secondaryButton)&&(identical(other.tertiaryButton, tertiaryButton) || other.tertiaryButton == tertiaryButton)&&(identical(other.destructiveButton, destructiveButton) || other.destructiveButton == destructiveButton)&&(identical(other.outlineButton, outlineButton) || other.outlineButton == outlineButton)&&(identical(other.ghostButton, ghostButton) || other.ghostButton == ghostButton)&&(identical(other.linkButton, linkButton) || other.linkButton == linkButton));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ButtonTheme&&(identical(other.primaryButton, primaryButton) || other.primaryButton == primaryButton)&&(identical(other.secondaryButton, secondaryButton) || other.secondaryButton == secondaryButton)&&(identical(other.tertiaryButton, tertiaryButton) || other.tertiaryButton == tertiaryButton)&&(identical(other.destructiveButton, destructiveButton) || other.destructiveButton == destructiveButton)&&(identical(other.outlineButton, outlineButton) || other.outlineButton == outlineButton)&&(identical(other.ghostButton, ghostButton) || other.ghostButton == ghostButton));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,primaryButton,secondaryButton,tertiaryButton,destructiveButton,outlineButton,ghostButton,linkButton);
+int get hashCode => Object.hash(runtimeType,primaryButton,secondaryButton,tertiaryButton,destructiveButton,outlineButton,ghostButton);
 
 
 
@@ -42,11 +42,11 @@ abstract mixin class $ButtonThemeCopyWith<$Res>  {
   factory $ButtonThemeCopyWith(ButtonTheme value, $Res Function(ButtonTheme) _then) = _$ButtonThemeCopyWithImpl;
 @useResult
 $Res call({
- ButtonTypeTheme primaryButton, ButtonTypeTheme secondaryButton, ButtonTypeTheme tertiaryButton, ButtonTypeTheme destructiveButton, ButtonTypeTheme outlineButton, ButtonTypeTheme ghostButton, ButtonTypeTheme linkButton
+ ButtonTypeTheme primaryButton, ButtonTypeTheme secondaryButton, ButtonTypeTheme tertiaryButton, ButtonTypeTheme destructiveButton, ButtonTypeTheme outlineButton, ButtonTypeTheme ghostButton
 });
 
 
-$ButtonTypeThemeCopyWith<$Res> get primaryButton;$ButtonTypeThemeCopyWith<$Res> get secondaryButton;$ButtonTypeThemeCopyWith<$Res> get tertiaryButton;$ButtonTypeThemeCopyWith<$Res> get destructiveButton;$ButtonTypeThemeCopyWith<$Res> get outlineButton;$ButtonTypeThemeCopyWith<$Res> get ghostButton;$ButtonTypeThemeCopyWith<$Res> get linkButton;
+$ButtonTypeThemeCopyWith<$Res> get primaryButton;$ButtonTypeThemeCopyWith<$Res> get secondaryButton;$ButtonTypeThemeCopyWith<$Res> get tertiaryButton;$ButtonTypeThemeCopyWith<$Res> get destructiveButton;$ButtonTypeThemeCopyWith<$Res> get outlineButton;$ButtonTypeThemeCopyWith<$Res> get ghostButton;
 
 }
 /// @nodoc
@@ -59,7 +59,7 @@ class _$ButtonThemeCopyWithImpl<$Res>
 
 /// Create a copy of ButtonTheme
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? primaryButton = null,Object? secondaryButton = null,Object? tertiaryButton = null,Object? destructiveButton = null,Object? outlineButton = null,Object? ghostButton = null,Object? linkButton = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? primaryButton = null,Object? secondaryButton = null,Object? tertiaryButton = null,Object? destructiveButton = null,Object? outlineButton = null,Object? ghostButton = null,}) {
   return _then(_self.copyWith(
 primaryButton: null == primaryButton ? _self.primaryButton : primaryButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,secondaryButton: null == secondaryButton ? _self.secondaryButton : secondaryButton // ignore: cast_nullable_to_non_nullable
@@ -67,7 +67,6 @@ as ButtonTypeTheme,tertiaryButton: null == tertiaryButton ? _self.tertiaryButton
 as ButtonTypeTheme,destructiveButton: null == destructiveButton ? _self.destructiveButton : destructiveButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,outlineButton: null == outlineButton ? _self.outlineButton : outlineButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,ghostButton: null == ghostButton ? _self.ghostButton : ghostButton // ignore: cast_nullable_to_non_nullable
-as ButtonTypeTheme,linkButton: null == linkButton ? _self.linkButton : linkButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,
   ));
 }
@@ -125,15 +124,6 @@ $ButtonTypeThemeCopyWith<$Res> get ghostButton {
   return $ButtonTypeThemeCopyWith<$Res>(_self.ghostButton, (value) {
     return _then(_self.copyWith(ghostButton: value));
   });
-}/// Create a copy of ButtonTheme
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ButtonTypeThemeCopyWith<$Res> get linkButton {
-  
-  return $ButtonTypeThemeCopyWith<$Res>(_self.linkButton, (value) {
-    return _then(_self.copyWith(linkButton: value));
-  });
 }
 }
 
@@ -142,7 +132,7 @@ $ButtonTypeThemeCopyWith<$Res> get linkButton {
 
 
 class _ButtonTheme extends ButtonTheme {
-  const _ButtonTheme({required this.primaryButton, required this.secondaryButton, required this.tertiaryButton, required this.destructiveButton, required this.outlineButton, required this.ghostButton, required this.linkButton}): super._();
+  const _ButtonTheme({required this.primaryButton, required this.secondaryButton, required this.tertiaryButton, required this.destructiveButton, required this.outlineButton, required this.ghostButton}): super._();
   
 
 @override final  ButtonTypeTheme primaryButton;
@@ -151,7 +141,6 @@ class _ButtonTheme extends ButtonTheme {
 @override final  ButtonTypeTheme destructiveButton;
 @override final  ButtonTypeTheme outlineButton;
 @override final  ButtonTypeTheme ghostButton;
-@override final  ButtonTypeTheme linkButton;
 
 /// Create a copy of ButtonTheme
 /// with the given fields replaced by the non-null parameter values.
@@ -163,12 +152,12 @@ _$ButtonThemeCopyWith<_ButtonTheme> get copyWith => __$ButtonThemeCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ButtonTheme&&(identical(other.primaryButton, primaryButton) || other.primaryButton == primaryButton)&&(identical(other.secondaryButton, secondaryButton) || other.secondaryButton == secondaryButton)&&(identical(other.tertiaryButton, tertiaryButton) || other.tertiaryButton == tertiaryButton)&&(identical(other.destructiveButton, destructiveButton) || other.destructiveButton == destructiveButton)&&(identical(other.outlineButton, outlineButton) || other.outlineButton == outlineButton)&&(identical(other.ghostButton, ghostButton) || other.ghostButton == ghostButton)&&(identical(other.linkButton, linkButton) || other.linkButton == linkButton));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ButtonTheme&&(identical(other.primaryButton, primaryButton) || other.primaryButton == primaryButton)&&(identical(other.secondaryButton, secondaryButton) || other.secondaryButton == secondaryButton)&&(identical(other.tertiaryButton, tertiaryButton) || other.tertiaryButton == tertiaryButton)&&(identical(other.destructiveButton, destructiveButton) || other.destructiveButton == destructiveButton)&&(identical(other.outlineButton, outlineButton) || other.outlineButton == outlineButton)&&(identical(other.ghostButton, ghostButton) || other.ghostButton == ghostButton));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,primaryButton,secondaryButton,tertiaryButton,destructiveButton,outlineButton,ghostButton,linkButton);
+int get hashCode => Object.hash(runtimeType,primaryButton,secondaryButton,tertiaryButton,destructiveButton,outlineButton,ghostButton);
 
 
 
@@ -179,11 +168,11 @@ abstract mixin class _$ButtonThemeCopyWith<$Res> implements $ButtonThemeCopyWith
   factory _$ButtonThemeCopyWith(_ButtonTheme value, $Res Function(_ButtonTheme) _then) = __$ButtonThemeCopyWithImpl;
 @override @useResult
 $Res call({
- ButtonTypeTheme primaryButton, ButtonTypeTheme secondaryButton, ButtonTypeTheme tertiaryButton, ButtonTypeTheme destructiveButton, ButtonTypeTheme outlineButton, ButtonTypeTheme ghostButton, ButtonTypeTheme linkButton
+ ButtonTypeTheme primaryButton, ButtonTypeTheme secondaryButton, ButtonTypeTheme tertiaryButton, ButtonTypeTheme destructiveButton, ButtonTypeTheme outlineButton, ButtonTypeTheme ghostButton
 });
 
 
-@override $ButtonTypeThemeCopyWith<$Res> get primaryButton;@override $ButtonTypeThemeCopyWith<$Res> get secondaryButton;@override $ButtonTypeThemeCopyWith<$Res> get tertiaryButton;@override $ButtonTypeThemeCopyWith<$Res> get destructiveButton;@override $ButtonTypeThemeCopyWith<$Res> get outlineButton;@override $ButtonTypeThemeCopyWith<$Res> get ghostButton;@override $ButtonTypeThemeCopyWith<$Res> get linkButton;
+@override $ButtonTypeThemeCopyWith<$Res> get primaryButton;@override $ButtonTypeThemeCopyWith<$Res> get secondaryButton;@override $ButtonTypeThemeCopyWith<$Res> get tertiaryButton;@override $ButtonTypeThemeCopyWith<$Res> get destructiveButton;@override $ButtonTypeThemeCopyWith<$Res> get outlineButton;@override $ButtonTypeThemeCopyWith<$Res> get ghostButton;
 
 }
 /// @nodoc
@@ -196,7 +185,7 @@ class __$ButtonThemeCopyWithImpl<$Res>
 
 /// Create a copy of ButtonTheme
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? primaryButton = null,Object? secondaryButton = null,Object? tertiaryButton = null,Object? destructiveButton = null,Object? outlineButton = null,Object? ghostButton = null,Object? linkButton = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? primaryButton = null,Object? secondaryButton = null,Object? tertiaryButton = null,Object? destructiveButton = null,Object? outlineButton = null,Object? ghostButton = null,}) {
   return _then(_ButtonTheme(
 primaryButton: null == primaryButton ? _self.primaryButton : primaryButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,secondaryButton: null == secondaryButton ? _self.secondaryButton : secondaryButton // ignore: cast_nullable_to_non_nullable
@@ -204,7 +193,6 @@ as ButtonTypeTheme,tertiaryButton: null == tertiaryButton ? _self.tertiaryButton
 as ButtonTypeTheme,destructiveButton: null == destructiveButton ? _self.destructiveButton : destructiveButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,outlineButton: null == outlineButton ? _self.outlineButton : outlineButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,ghostButton: null == ghostButton ? _self.ghostButton : ghostButton // ignore: cast_nullable_to_non_nullable
-as ButtonTypeTheme,linkButton: null == linkButton ? _self.linkButton : linkButton // ignore: cast_nullable_to_non_nullable
 as ButtonTypeTheme,
   ));
 }
@@ -262,15 +250,6 @@ $ButtonTypeThemeCopyWith<$Res> get ghostButton {
   
   return $ButtonTypeThemeCopyWith<$Res>(_self.ghostButton, (value) {
     return _then(_self.copyWith(ghostButton: value));
-  });
-}/// Create a copy of ButtonTheme
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ButtonTypeThemeCopyWith<$Res> get linkButton {
-  
-  return $ButtonTypeThemeCopyWith<$Res>(_self.linkButton, (value) {
-    return _then(_self.copyWith(linkButton: value));
   });
 }
 }

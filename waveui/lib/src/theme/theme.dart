@@ -49,21 +49,39 @@ abstract class Theme with Diagnosticable, _$Theme {
 
     buttonTheme ??= ButtonTheme(
       primaryButton: ButtonTypeTheme(
-        labelStyle: textTheme.h6,
+        labelStyle: textTheme.h6.copyWith(color: colorScheme.onBrandPrimary),
+        iconTheme: IconThemeData(size: 20, color: colorScheme.onBrandPrimary),
         backgroundColor: colorScheme.brandPrimary,
-        foregroundColor: colorScheme.onBrandPrimary,
-        borderColor: colorScheme.brandPrimary.darkerShade(),
+        borderColor: colorScheme.brandPrimary.darkerShade(0.05),
       ),
       secondaryButton: ButtonTypeTheme(
-        labelStyle: textTheme.h6,
+        labelStyle: textTheme.h6.copyWith(color: colorScheme.onBrandSecondary),
+        iconTheme: IconThemeData(size: 20, color: colorScheme.onBrandSecondary),
         backgroundColor: colorScheme.brandSecondary,
-        foregroundColor: colorScheme.onBrandSecondary,
       ),
-      ghostButton: ButtonTypeTheme(),
-      linkButton: ButtonTypeTheme(),
-      outlineButton: ButtonTypeTheme(),
-      destructiveButton: ButtonTypeTheme(),
-      tertiaryButton: ButtonTypeTheme(),
+      ghostButton: ButtonTypeTheme(
+        labelStyle: textTheme.h6.copyWith(color: colorScheme.textPrimary),
+        iconTheme: IconThemeData(size: 20, color: colorScheme.textPrimary),
+        backgroundColor: colorScheme.surfacePrimary,
+      ),
+      outlineButton: ButtonTypeTheme(
+        labelStyle: textTheme.h6.copyWith(color: colorScheme.textPrimary),
+        iconTheme: IconThemeData(size: 20, color: colorScheme.textPrimary),
+        backgroundColor: colorScheme.surfacePrimary,
+        borderColor: colorScheme.outlineStandard,
+      ),
+      destructiveButton: ButtonTypeTheme(
+        labelStyle: textTheme.h6.copyWith(color: colorScheme.onBrandPrimary),
+        iconTheme: IconThemeData(size: 20, color: colorScheme.onBrandPrimary),
+        backgroundColor: colorScheme.statusError,
+        borderColor: colorScheme.statusError.darkerShade(0.05),
+      ),
+      tertiaryButton: ButtonTypeTheme(
+        labelStyle: textTheme.h6.copyWith(color: colorScheme.onBrandTertiary),
+        iconTheme: IconThemeData(size: 20, color: colorScheme.onBrandTertiary),
+        backgroundColor: colorScheme.brandTertiary,
+        borderColor: colorScheme.brandTertiary.darkerShade(0.05),
+      ),
     );
     return Theme._internal(
       appBarTheme: appBarTheme,
