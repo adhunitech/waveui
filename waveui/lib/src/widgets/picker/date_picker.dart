@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Theme;
+import 'package:flutter/material.dart' hide Icons, Theme;
 import 'package:intl/intl.dart';
 import 'package:waveui/waveui.dart';
 
@@ -219,10 +219,7 @@ class _CustomWheelDateTimePickerState extends State<CustomWheelDateTimePicker> {
               children: [
                 Text(widget.title ?? 'Select Date', style: Theme.of(context).textTheme.h4),
                 const Spacer(),
-                IconButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  icon: const Icon(WaveIcons.dismiss_24_regular),
-                ),
+                IconButton(onPressed: () => Navigator.of(context).pop(), icon: const Icon(Icons.dismiss_24_regular)),
               ],
             ),
             SizedBox(

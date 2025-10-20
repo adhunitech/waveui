@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Theme;
+import 'package:flutter/material.dart' hide Icons, Theme;
 import 'package:waveui/waveui.dart';
 
 enum WaveSelectableType { radio, checkbox }
@@ -63,7 +63,7 @@ class _AnimatedSelection extends StatelessWidget {
                         color: isSelected ? (color ?? targetColor) : Colors.transparent,
                       ),
                     ),
-                    if (isSelected) const Icon(WaveIcons.checkmark_12_filled, size: 20, color: Colors.white),
+                    if (isSelected) const Icon(Icons.checkmark_12_filled, size: 20, color: Colors.white),
                   ],
                 );
               }

@@ -139,7 +139,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
     if (Navigator.canPop(context)) {
       return IconButton(
         tooltip: 'Back',
-        icon: const Icon(WaveIcons.arrow_left_24_regular),
+        icon: const Icon(Icons.arrow_left_24_regular),
         onPressed: () => Navigator.of(context).pop(),
       );
     }

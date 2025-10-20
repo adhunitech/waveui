@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' hide Theme;
+import 'package:flutter/material.dart' hide Icons, Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveSnackbar {
@@ -68,7 +68,7 @@ class WaveSnackbar {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(WaveIcons.info_24_regular, color: Colors.white),
+                        const Icon(Icons.info_24_regular, color: Colors.white),
                         const SizedBox(width: 12),
                         Expanded(child: Text(message, style: const TextStyle(color: Colors.white, fontSize: 15))),
                         if (action != null)

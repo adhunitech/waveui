@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Theme;
+import 'package:flutter/material.dart' hide Icons, Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveDropdownFormField<T> extends StatefulWidget {
@@ -18,8 +18,8 @@ class WaveDropdownFormField<T> extends StatefulWidget {
   final Color? backgroundColor;
 
   const WaveDropdownFormField({
-    super.key,
     required this.items,
+    super.key,
     this.value,
     this.onChanged,
     this.hintText,
@@ -166,7 +166,7 @@ class WaveDropdownFormFieldState<T> extends State<WaveDropdownFormField<T>> {
                       errorText: formFieldState.errorText,
                       suffixIcon:
                           widget.suffixIcon ??
-                          Icon(WaveIcons.caret_down_12_filled, color: theme.colorScheme.outlineStandard),
+                          Icon(Icons.caret_down_12_filled, color: theme.colorScheme.outlineStandard),
                       enabled: widget.enabled,
                       filled: widget.backgroundColor != null,
                       fillColor: widget.backgroundColor,
