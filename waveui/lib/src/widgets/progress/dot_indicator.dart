@@ -1,15 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveDotIndicator extends StatelessWidget {
-  final int count;
-  final double currentIndex;
-  final double dotSize;
-  final double spacing;
-  final Color? activeColor;
-  final Color? inactiveColor;
-
   const WaveDotIndicator({
     required this.count,
     required this.currentIndex,
@@ -19,6 +11,12 @@ class WaveDotIndicator extends StatelessWidget {
     this.activeColor,
     this.inactiveColor,
   });
+  final int count;
+  final double currentIndex;
+  final double dotSize;
+  final double spacing;
+  final Color? activeColor;
+  final Color? inactiveColor;
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +48,6 @@ class WaveDotIndicator extends StatelessWidget {
 }
 
 class _DotPainter extends CustomPainter {
-  final int count;
-  final double currentIndex;
-  final double dotSize;
-  final double spacing;
-  final Color activeColor;
-  final Color inactiveColor;
-
   _DotPainter({
     required this.count,
     required this.currentIndex,
@@ -65,18 +56,24 @@ class _DotPainter extends CustomPainter {
     required this.activeColor,
     required this.inactiveColor,
   });
+  final int count;
+  final double currentIndex;
+  final double dotSize;
+  final double spacing;
+  final Color activeColor;
+  final Color inactiveColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint();
-    final double radius = dotSize / 2;
+    final paint = Paint();
+    final radius = dotSize / 2;
 
-    for (int i = 0; i < count; i++) {
+    for (var i = 0; i < count; i++) {
       final dx = i * (dotSize + spacing) + radius;
       final dy = size.height / 2;
 
       // Interpolate color between active and inactive
-      final double t = 1.0 - (currentIndex - i).abs().clamp(0.0, 1.0);
+      final t = 1.0 - (currentIndex - i).abs().clamp(0.0, 1.0);
       paint.color = Color.lerp(inactiveColor, activeColor, t)!;
 
       canvas.drawCircle(Offset(dx, dy), radius, paint);
@@ -84,5 +81,6 @@ class _DotPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _DotPainter oldDelegate) => oldDelegate.currentIndex != currentIndex;
+  bool shouldRepaint(covariant _DotPainter oldDelegate) =>
+      oldDelegate.currentIndex != currentIndex;
 }

@@ -32,9 +32,14 @@ class WaveSlider extends StatelessWidget {
         thumbColor: theme.colorScheme.onBrandPrimary,
         valueIndicatorColor: theme.colorScheme.brandPrimary,
         trackHeight: 10,
-        thumbShape: const RoundSliderThumbShape(elevation: 0, enabledThumbRadius: 4),
+        thumbShape: const RoundSliderThumbShape(
+          elevation: 0,
+          enabledThumbRadius: 4,
+        ),
         valueIndicatorShape: const RectangularSliderValueIndicatorShape(),
-        valueIndicatorTextStyle: theme.textTheme.small.copyWith(color: theme.colorScheme.onBrandPrimary),
+        valueIndicatorTextStyle: theme.textTheme.small.copyWith(
+          color: theme.colorScheme.onBrandPrimary,
+        ),
       ),
       child:
           isRange
@@ -45,8 +50,14 @@ class WaveSlider extends StatelessWidget {
                 min: min ?? 0,
                 max: max ?? 1,
                 labels: RangeLabels(
-                  rangeValues!.start.toString().replaceFirst(RegExp(r'\.?0+$'), ''),
-                  rangeValues!.end.toString().replaceFirst(RegExp(r'\.?0+$'), ''),
+                  rangeValues!.start.toString().replaceFirst(
+                    RegExp(r'\.?0+$'),
+                    '',
+                  ),
+                  rangeValues!.end.toString().replaceFirst(
+                    RegExp(r'\.?0+$'),
+                    '',
+                  ),
                 ),
               )
               : Slider(
@@ -67,8 +78,15 @@ class WaveSlider extends StatelessWidget {
     super.debugFillProperties(properties);
     properties
       ..add(DoubleProperty('value', value))
-      ..add(ObjectFlagProperty<ValueChanged<double>?>.has('onChanged', onChanged))
-      ..add(ObjectFlagProperty<ValueChanged<RangeValues>?>.has('onRangeChanged', onRangeChanged))
+      ..add(
+        ObjectFlagProperty<ValueChanged<double>?>.has('onChanged', onChanged),
+      )
+      ..add(
+        ObjectFlagProperty<ValueChanged<RangeValues>?>.has(
+          'onRangeChanged',
+          onRangeChanged,
+        ),
+      )
       ..add(IntProperty('divisions', divisions))
       ..add(FlagProperty('isRange', value: isRange, ifTrue: 'range slider'))
       ..add(DiagnosticsProperty<RangeValues?>('rangeValues', rangeValues))

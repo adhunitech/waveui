@@ -1,9 +1,14 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Theme;
 import 'package:waveui/waveui.dart';
 
 class WaveLinearProgressIndicator extends StatefulWidget {
-  const WaveLinearProgressIndicator({super.key, this.backgroundColor, this.value, this.color, this.height = 5.0});
+  const WaveLinearProgressIndicator({
+    super.key,
+    this.backgroundColor,
+    this.value,
+    this.color,
+    this.height = 5.0,
+  });
 
   final Color? backgroundColor;
   final Color? color;
@@ -11,7 +16,8 @@ class WaveLinearProgressIndicator extends StatefulWidget {
   final double height;
 
   @override
-  State<WaveLinearProgressIndicator> createState() => _WaveLinearProgressIndicatorState();
+  State<WaveLinearProgressIndicator> createState() =>
+      _WaveLinearProgressIndicatorState();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -24,19 +30,29 @@ class WaveLinearProgressIndicator extends StatefulWidget {
   }
 }
 
-class _WaveLinearProgressIndicatorState extends State<WaveLinearProgressIndicator> with SingleTickerProviderStateMixin {
+class _WaveLinearProgressIndicatorState
+    extends State<WaveLinearProgressIndicator>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 500))..repeat();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    )..repeat();
 
     _animation = Tween<double>(
       begin: 0,
       end: 1,
-    ).animate(CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.8, curve: Curves.easeInOut)));
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.0, 0.8, curve: Curves.easeInOut),
+      ),
+    );
   }
 
   @override
@@ -48,7 +64,9 @@ class _WaveLinearProgressIndicatorState extends State<WaveLinearProgressIndicato
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final bgColor = widget.backgroundColor ?? theme.colorScheme.brandPrimary.withValues(alpha: 0.1);
+    final bgColor =
+        widget.backgroundColor ??
+        theme.colorScheme.brandPrimary.withValues(alpha: 0.1);
     final progressColor = widget.color ?? theme.colorScheme.brandPrimary;
 
     return AnimatedBuilder(
@@ -92,14 +110,21 @@ class _LinearProgressPainter extends CustomPainter {
     if (value != null) {
       final progressPaint = Paint()..color = progressColor;
       final progressWidth = size.width * value!;
-      canvas.drawRect(Offset.zero & Size(progressWidth, size.height), progressPaint);
+      canvas.drawRect(
+        Offset.zero & Size(progressWidth, size.height),
+        progressPaint,
+      );
     } else if (animationValue != null) {
       final progressPaint = Paint()..color = progressColor;
       final barWidth = size.width * 0.3; // Fixed width for the moving bar
       final startX = size.width * animationValue! - barWidth;
 
       // Draw the main bar
-      canvas.drawRect(Offset(startX.clamp(0, size.width - barWidth), 0) & Size(barWidth, size.height), progressPaint);
+      canvas.drawRect(
+        Offset(startX.clamp(0, size.width - barWidth), 0) &
+            Size(barWidth, size.height),
+        progressPaint,
+      );
 
       // Draw the trailing fade effect
       if (startX < 0) {

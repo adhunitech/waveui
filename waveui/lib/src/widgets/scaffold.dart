@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart' hide Theme;
+import 'package:flutter/material.dart' hide Theme, CircularProgressIndicator;
 import 'package:waveui/waveui.dart';
 
 class WaveScaffold extends StatelessWidget {
@@ -139,7 +139,7 @@ class WaveScaffold extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const WaveCircularProgressIndicator(),
+                            const CircularProgressIndicator(),
                             if (loadingText != null) ...[
                               const SizedBox(height: 12),
                               Text(loadingText!, style: textTheme.small),

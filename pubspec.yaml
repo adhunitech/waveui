@@ -8,4 +8,4 @@ workspace:
   - waveui
 
 dev_dependencies:
-  better_lints: ^5.0.0
+  # better_lints: ^5.0.0

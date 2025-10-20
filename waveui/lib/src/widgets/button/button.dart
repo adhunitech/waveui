@@ -148,7 +148,7 @@ class _ButtonState extends State<Button> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (widget.isLoading)
-                  WaveCircularProgressIndicator(
+                  CircularProgressIndicator(
                     size: 18,
                     strokeWidth: 3,
                     color: theme.iconTheme?.color ?? theme.labelStyle?.color,

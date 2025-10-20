@@ -54,7 +54,7 @@ class WaveButton extends StatelessWidget {
                   ? SizedBox(
                     height: 24,
                     width: 24,
-                    child: WaveCircularProgressIndicator(
+                    child: CircularProgressIndicator(
                       strokeWidth: 3,
                       color: foregroundColor ?? _getForegroundColor(context),
                       backgroundColor:
