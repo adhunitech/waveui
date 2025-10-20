@@ -41,8 +41,6 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     required Color onBrandPrimary,
     required Color brandSecondary,
     required Color onBrandSecondary,
-    required Color brandTertiary,
-    required Color onBrandTertiary,
     // text color
     required Color textPrimary,
     required Color textSecondary,
@@ -55,7 +53,6 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     // Container fill color
     required Color surfacePrimary,
     required Color surfaceSecondary,
-    required Color surfaceTertiary,
     // Separator color
     required Color outlineStandard,
     required Color outlineDivider,
@@ -97,8 +94,6 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     onBrandPrimary: Color(0xFFFFFFFF),
     brandSecondary: Color(0xFFF5F5F5),
     onBrandSecondary: Color(0xFF17171B),
-    brandTertiary: Color(0xFFFF00DD),
-    onBrandTertiary: Color(0xFFFFFFFF),
     textPrimary: Color(0xFF17171B),
     textSecondary: Color(0xDD6B6B6B),
     textTertiary: Color(0x9F6B6B6B),
@@ -108,7 +103,6 @@ abstract class ColorScheme with Diagnosticable, _$ColorScheme {
     statusInfo: Color(0xFF2463EB),
     surfacePrimary: Color(0xFFFFFFFF),
     surfaceSecondary: Color(0xFFF5F5F5),
-    surfaceTertiary: Color(0xFFFFFFFF),
     outlineStandard: Color(0xFFE5E5E5),
     outlineDivider: Color(0xFFEEEEEE),
   );

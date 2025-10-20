@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -76,6 +75,136 @@ as TextStyle,
 
 }
 
+
+/// Adds pattern-matching-related methods to [TextTheme].
+extension TextThemePatterns on TextTheme {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _TextTheme value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _TextTheme() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _TextTheme value)  $default,){
+final _that = this;
+switch (_that) {
+case _TextTheme():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _TextTheme value)?  $default,){
+final _that = this;
+switch (_that) {
+case _TextTheme() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( TextStyle h1,  TextStyle h2,  TextStyle h3,  TextStyle h4,  TextStyle h5,  TextStyle h6,  TextStyle large,  TextStyle body,  TextStyle small)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _TextTheme() when $default != null:
+return $default(_that.h1,_that.h2,_that.h3,_that.h4,_that.h5,_that.h6,_that.large,_that.body,_that.small);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( TextStyle h1,  TextStyle h2,  TextStyle h3,  TextStyle h4,  TextStyle h5,  TextStyle h6,  TextStyle large,  TextStyle body,  TextStyle small)  $default,) {final _that = this;
+switch (_that) {
+case _TextTheme():
+return $default(_that.h1,_that.h2,_that.h3,_that.h4,_that.h5,_that.h6,_that.large,_that.body,_that.small);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( TextStyle h1,  TextStyle h2,  TextStyle h3,  TextStyle h4,  TextStyle h5,  TextStyle h6,  TextStyle large,  TextStyle body,  TextStyle small)?  $default,) {final _that = this;
+switch (_that) {
+case _TextTheme() when $default != null:
+return $default(_that.h1,_that.h2,_that.h3,_that.h4,_that.h5,_that.h6,_that.large,_that.body,_that.small);case _:
+  return null;
+
+}
+}
+
+}
 
 /// @nodoc
 

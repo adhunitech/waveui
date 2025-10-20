@@ -12,7 +12,6 @@ abstract class ButtonTheme with Diagnosticable, _$ButtonTheme {
   const factory ButtonTheme({
     required ButtonTypeTheme primaryButton,
     required ButtonTypeTheme secondaryButton,
-    required ButtonTypeTheme tertiaryButton,
     required ButtonTypeTheme destructiveButton,
     required ButtonTypeTheme outlineButton,
     required ButtonTypeTheme ghostButton,

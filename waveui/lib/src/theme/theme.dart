@@ -12,7 +12,7 @@ part 'theme.freezed.dart';
 ///
 /// Example:
 /// ```dart
-/// final theme = WaveTheme(
+/// final theme = Theme(
 ///   colorScheme: ColorScheme(...),
 /// );
 /// ```
@@ -20,20 +20,20 @@ part 'theme.freezed.dart';
 /// This class is immutable. To modify a [Theme] instance, use
 /// [Theme.copyWith].
 @freezed
-abstract class Theme with Diagnosticable, _$Theme {
+abstract class Theme with DiagnosticableTreeMixin, _$Theme {
   const Theme._();
 
-  const factory Theme._internal({
+  const factory Theme({
     required WaveAppBarTheme appBarTheme,
     required TextTheme textTheme,
     required ColorScheme colorScheme,
     required ButtonTheme buttonTheme,
-  }) = _WaveTheme;
+  }) = _Theme;
 
   /// Creates a [Theme].
   ///
   /// If any parameter is omitted, a default value is used.
-  factory Theme({
+  factory Theme.light({
     WaveAppBarTheme? appBarTheme,
     ColorScheme? colorScheme,
     TextTheme? textTheme,
@@ -44,7 +44,7 @@ abstract class Theme with Diagnosticable, _$Theme {
     appBarTheme ??= WaveAppBarTheme(
       backgroundColor: colorScheme.surfacePrimary,
       foregroundColor: colorScheme.textPrimary,
-      titleStyle: textTheme.h6,
+      titleStyle: textTheme.h4,
     );
 
     buttonTheme ??= ButtonTheme(
@@ -76,19 +76,9 @@ abstract class Theme with Diagnosticable, _$Theme {
         backgroundColor: colorScheme.statusError,
         borderColor: colorScheme.statusError.darkerShade(0.05),
       ),
-      tertiaryButton: ButtonTypeTheme(
-        labelStyle: textTheme.h6.copyWith(color: colorScheme.onBrandTertiary),
-        iconTheme: IconThemeData(size: 20, color: colorScheme.onBrandTertiary),
-        backgroundColor: colorScheme.brandTertiary,
-        borderColor: colorScheme.brandTertiary.darkerShade(0.05),
-      ),
     );
-    return Theme._internal(
-      appBarTheme: appBarTheme,
-      colorScheme: colorScheme,
-      textTheme: textTheme,
-      buttonTheme: buttonTheme,
-    );
+
+    return Theme(appBarTheme: appBarTheme, colorScheme: colorScheme, textTheme: textTheme, buttonTheme: buttonTheme);
   }
 
   /// Retrieves the [Theme] from the nearest [WaveApp] ancestor.
@@ -101,7 +91,6 @@ abstract class Theme with Diagnosticable, _$Theme {
   /// ```dart
   /// final theme = Theme.of(context);
   /// ```
-  ///
   static Theme of(BuildContext context) {
     final WaveApp? app = context.dependOnInheritedWidgetOfExactType<WaveApp>();
     assert(app != null, 'No WaveApp found in context');

@@ -104,7 +104,7 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       foregroundColor: widget.foregroundColor ?? appBarTheme.foregroundColor,
       actions: widget.actions,
       automaticallyImplyLeading: widget.automaticBackButton,
-      title: widget.title,
+      title: _buildTitle(),
       toolbarHeight: widget.toolbarHeight,
       centerTitle: widget.centeredTitle ?? appBarTheme.isCenteredTitle,
       titleTextStyle: TextStyle(color: appBarTheme.foregroundColor, fontWeight: FontWeight.w500, fontSize: 18),
@@ -144,6 +144,15 @@ class _WaveAppBarState extends State<WaveAppBar> with WidgetsBindingObserver {
       );
     }
 
+    return null;
+  }
+
+  Widget? _buildTitle() {
+    final theme = Theme.of(context);
+    final appBarTheme = widget.theme ?? theme.appBarTheme;
+    if (widget.title != null) {
+      return DefaultTextStyle(style: appBarTheme.titleStyle, child: widget.title!);
+    }
     return null;
   }
 }

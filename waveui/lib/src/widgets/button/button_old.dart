@@ -110,7 +110,7 @@ class WaveButton extends StatelessWidget {
       case WaveButtonType.ghost:
         return theme.colorScheme.textPrimary;
       case WaveButtonType.destructive:
-        return theme.colorScheme.textPrimary;
+        return theme.colorScheme.onBrandPrimary;
       case WaveButtonType.outline:
         return theme.colorScheme.textPrimary;
     }

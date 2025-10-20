@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:waveui/waveui.dart';
 
 /// Available button types for styling and behavior.
-enum ButtonType { primary, secondary, tertiary, outline, destructive, ghost }
+enum ButtonType { primary, secondary, outline, destructive, ghost }
 
 class Button extends StatefulWidget {
   final ButtonTypeTheme? theme;
@@ -102,8 +102,6 @@ class _ButtonState extends State<Button> {
           theme = ButtonTheme.of(context).primaryButton;
         case ButtonType.secondary:
           theme = ButtonTheme.of(context).secondaryButton;
-        case ButtonType.tertiary:
-          theme = ButtonTheme.of(context).tertiaryButton;
         case ButtonType.outline:
           theme = ButtonTheme.of(context).outlineButton;
         case ButtonType.destructive:
