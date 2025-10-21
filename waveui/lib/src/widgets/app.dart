@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:waveui/src/theme/theme.dart';
 
 /// Root widget for setting global configuration and styles.
@@ -8,7 +8,8 @@ class WaveApp extends InheritedWidget {
   final Theme theme;
 
   /// Creates a new [WaveApp].
-  WaveApp({required this.theme, required Widget child, super.key}) : super(child: _GlobalThemeWrapper(child: child));
+  WaveApp({required this.theme, required Widget child, super.key})
+    : super(child: _GlobalThemeWrapper(child: child));
 
   @override
   bool updateShouldNotify(WaveApp oldWidget) => theme != oldWidget.theme;
