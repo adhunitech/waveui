@@ -1,11 +1,54 @@
-name: _
+name: waveui
+description: "An enterprise-class package of Flutter components for mobile applications."
+
+version: 1.0.0-alpha.1
+
+homepage: https://github.com/adhunitech/waveui
+repository: https://github.com/adhunitech/waveui
+issue_tracker: https://github.com/adhunitech/waveui/issues
+
 
 environment:
   sdk: ^3.7.2
   flutter: ">=1.17.0"
-
-workspace:
-  - waveui
+  
+dependencies:
+  collection: ^1.19.1
+  fluentui_system_icons: ^1.1.273
+  flutter:
+    sdk: flutter
+  freezed_annotation: ^3.0.0
+  intl: ^0.20.2
+  path: ^1.9.1
 
 dev_dependencies:
-  # better_lints: ^5.0.0
+  build_runner: ^2.4.15
+  freezed: ^3.0.6
+
+flutter:
+
+  fonts:
+    # Fonts used under SIL OFL license
+    # Geist font © Vercel Inc. (https://vercel.com/font)
+    # Licensed under SIL Open Font License 1.1 — https://openfontlicense.org/
+    # License file: OFL.txt (included in the root of this package)
+    - family: Geist
+      fonts:
+        - asset: packages/waveui/src/assets/fonts/Geist-Thin.ttf
+          weight: 100
+        - asset: packages/waveui/src/assets/fonts/Geist-ExtraLight.ttf
+          weight: 200
+        - asset: packages/waveui/src/assets/fonts/Geist-Light.ttf
+          weight: 300
+        - asset: packages/waveui/src/assets/fonts/Geist-Regular.ttf
+          weight: 400
+        - asset: packages/waveui/src/assets/fonts/Geist-Medium.ttf
+          weight: 500
+        - asset: packages/waveui/src/assets/fonts/Geist-SemiBold.ttf
+          weight: 600
+        - asset: packages/waveui/src/assets/fonts/Geist-Bold.ttf
+          weight: 700
+        - asset: packages/waveui/src/assets/fonts/Geist-ExtraBold.ttf
+          weight: 800
+        - asset: packages/waveui/src/assets/fonts/Geist-Black.ttf
+          weight: 900
